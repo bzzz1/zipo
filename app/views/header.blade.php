@@ -2,11 +2,13 @@
 	<div class="container">
 		<header>
 			<hr class="header_top_hr">
-			<p class="header_phone">8 (812) 982 33 54</p>
-			<p class="header_phone">8 (812) 982 33 54</p>
+			<div class="heder_contacts">
+				<p class="header_phone">8 (812) 982 33 54</p><br>
+				<p class="header_phone">8 (812) 982 33 54</p>
+			</div>	
 			<img src="" alt="" class="logo_header">
 			<div class="header_description">
-				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1>
+				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>
 				<p class="header_description_text">Lorem ipsum dolor sit amet,<br>
 				consectetur adipisicing elit. Obcaecati, saepe.</p>
 			</div>	
@@ -14,26 +16,19 @@
 			  <button type="button" class="btn btn-default">Войти</button>
 			  <button type="button" class="btn btn-default">Регистрация</button>
 			</div>
-			<p class="navbar-text header_login">Вы вошли как(some data)</p>
-			<!-- <form class="form-inline header_search" role="search">
-		         <div class="input-group">
-      				
-      				<input type="text" class="form-control" id="search" placeholder="Поиск по каталогу">
-      			</div>	
-		    </form> -->
+			<p class="navbar-text header_login">Вы вошли как(user_mail)</p>
 		    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'form-inline header_search')) }}
-		    	<i class="fa fa-search"></i>
 				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control', 'id' =>'search']) }} 
 			{{ Form::close() }}
 		    <nav class="navbar navbar-inverse">
 			    <div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Каталог</a></li>
-						<li><a href="#">Прайс-лист</a></li>
-						<li><a href="#">Доставка</a></li>
-						<li><a href="#">Специальные предложения</a></li>
-						<li><a href="#">О нас</a></li>
-						<li><a href="#">Контакты</a></li>
+						<li class="active"><a href="#" class="@if ($env == '/') selected @endif">Каталог</a></li>
+						<li><a href="#" class="@if ($env == '/price') selected @endif">Прайс-лист</a></li>
+						<li><a href="#" class="@if ($env == '/delivery') selected @endif">Доставка</a></li>
+						<li><a href="#" class="@if ($env == '/specials') selected @endif">Специальные предложения</a></li>
+						<li><a href="#" class="@if ($env == '/about') selected @endif">О нас</a></li>
+						<li><a href="#" class="@if ($env == '/contacts') selected @endif">Контакты</a></li>
 					</ul>
 			    </div><!-- /.navbar-collapse -->
 			</nav>

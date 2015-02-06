@@ -6,8 +6,11 @@ p,h1,h2,h3,h4,h5,a {
 .register {
 	float: right;
 }
-.header_phone {
-	/*display: block;*/
+.heder_contacts {
+	display: block;
+}
+.header_description {
+	display: inline-block;
 }
 .header_login {
 	float: right;
@@ -16,5 +19,9 @@ p,h1,h2,h3,h4,h5,a {
 	padding-left: 22%;
 }
 .header_search {
-	/*float: right;*/
+	display: inline-block;
+	float: right;
+}
+.header_login {
+	display: none;
 }
