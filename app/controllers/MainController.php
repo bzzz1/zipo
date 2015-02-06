@@ -1,6 +1,6 @@
 <?php
 class MainController extends BaseController {
-
+	
 	public function index() {
 		return View::make('index')->with([
 			// 'brands' 		=> Item::readBrands($type),
@@ -8,6 +8,7 @@ class MainController extends BaseController {
 			'env' 			=> 'catalog'
 		]);
 	}
+
 	public function about() {
 		
 	}
