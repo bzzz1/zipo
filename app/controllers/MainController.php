@@ -8,7 +8,6 @@ class MainController extends BaseController {
 			'env' 			=> 'catalog'
 		]);
 	}
-
 	public function about() {
 		
 	}
