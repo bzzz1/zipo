@@ -5,7 +5,7 @@ class MainController extends BaseController {
 		return View::make('index')->with([
 			// 'brands' 		=> Item::readBrands($type),
 			// 'subcategories' => Item::readSubcategories($type),
-			// 'env' 			=> $env
+			'env' 			=> 'catalog'
 		]);
 	}
 

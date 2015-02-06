@@ -23,7 +23,7 @@ Route::get('/logout', 'MainController@logout');
 
 
 Route::get('/admin', 'AdminController@admin');
-Route::post('/login', 'AdminController@login');
+Route::post('/admin_login', 'AdminController@admin_login');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::get('/catalog', 'AdminController@catalog');
 	Route::get('/news', 'AdminController@news');
