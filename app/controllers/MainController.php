@@ -2,8 +2,11 @@
 class MainController extends BaseController {
 
 	public function index() {
-		echo 'Hello zipo';
-		echo Hash::make('admin_zipo');
+		return View::make('index')->with([
+			// 'brands' 		=> Item::readBrands($type),
+			// 'subcategories' => Item::readSubcategories($type),
+			// 'env' 			=> $env
+		]);
 	}
 
 	public function about() {
@@ -252,7 +255,7 @@ class MainController extends BaseController {
 // 			'brands' 		=> Item::readBrands($type),
 // 			'subcategories' => Item::readSubcategories($type),
 // 			'env' 			=> $env
-// 		]);	
+// 		]);
 // 	}
 
 // 	public function catalogSubcategory($env, $category, $subcategory) {
