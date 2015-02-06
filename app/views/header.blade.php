@@ -1,39 +1,42 @@
-@section('header')
-	<div class="width_960">
+@section('header') 
+	<div class="container">
 		<header>
-			<h1 class="web_name">Vertex.ltd</h1>
-			<a href="{{ URL::to('/') }}" class="h1_name">
-				{{ HTML::image('icons/logo.png', 'Vertex - Комплексное оснащение баров, ресторанов, кафе, пищевых производств и магазинов') }} 
-			</a>
-			<div class="header_contscts_div">
-				<p class="header_callback"> пн-пт с 9:00 до 18:00</p>
-				<p class="header_callback_2nd"> Oбратный звонок</p>
-				<p class="header_contacts">(812) 982 33 54</p>
-				<p class="header_contacts_2nd">8 (905) 222 335 47</p>
+			<hr class="header_top_hr">
+			<p class="header_phone">8 (812) 982 33 54</p>
+			<p class="header_phone">8 (812) 982 33 54</p>
+			<img src="" alt="" class="logo_header">
+			<div class="header_description">
+				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1>
+				<p class="header_description_text">Lorem ipsum dolor sit amet,<br>
+				consectetur adipisicing elit. Obcaecati, saepe.</p>
+			</div>	
+			<div class="btn-group register" role="group" aria-label="...">
+			  <button type="button" class="btn btn-default">Войти</button>
+			  <button type="button" class="btn btn-default">Регистрация</button>
 			</div>
-			<h1 class="header_discription"> 
-				Комплексное оснащение <br />
-				баров, ресторанов, <br />
-				кафе, пищевых <br />
-				производств и магазинов.
-			</h1>
-		</header>
-		<div class="main_nav">
-			<nav>
-				<div class="mask_nav_item">
-					<a href="/items" class="nav_item @if ($env == 'items') selected @endif">Техника</a>
-				</div>
-				<div class="mask_nav_item">
-					<a href="/spares" class="nav_item @if ($env == 'spares') selected @endif">Запчасти</a>
-				</div>
-				<div class="mask_nav_item">
-					<a href="/info" class="nav_item @if ($env == 'info') selected @endif">Информация</a>
-				</div>
-			</nav>
-			{{ Form::open(array('route' => "itemSearch", 'method' => 'GET', 'class'=>'header_search')) }}
-				{{ Form::text('param', null, ['placeholder'=>"     Поиск товаров", 'class'=>'search_field']) }} 
+			<p class="navbar-text header_login">Вы вошли как(some data)</p>
+			<!-- <form class="form-inline header_search" role="search">
+		         <div class="input-group">
+      				
+      				<input type="text" class="form-control" id="search" placeholder="Поиск по каталогу">
+      			</div>	
+		    </form> -->
+		    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'form-inline header_search')) }}
+		    	<i class="fa fa-search"></i>
+				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control', 'id' =>'search']) }} 
 			{{ Form::close() }}
-		</div><!-- main_nav -->
-	</div><!-- width_960 -->
-	<hr class="navigation_hr" />
+		    <nav class="navbar navbar-inverse">
+			    <div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Каталог</a></li>
+						<li><a href="#">Прайс-лист</a></li>
+						<li><a href="#">Доставка</a></li>
+						<li><a href="#">Специальные предложения</a></li>
+						<li><a href="#">О нас</a></li>
+						<li><a href="#">Контакты</a></li>
+					</ul>
+			    </div><!-- /.navbar-collapse -->
+			</nav>
+		</header>
+	</div>	
 @stop
