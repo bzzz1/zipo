@@ -14,7 +14,7 @@ Route::get('/news/{new_title}', 'MainController@new');
 Route::get('/producers/{producer_title}', 'MainController@byproducer');
 Route::post('/user_login', 'MainController@user_login');
 Route::get('/registration', 'MainController@registration_page');
-Route::post('/registration', 'MainController@registration') 
+Route::post('/registration', 'MainController@registration');
 Route::post('/feedback', 'MainController@feedback');
 Route::get('/order/{item_title}/{item_code}', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
