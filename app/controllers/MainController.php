@@ -6,9 +6,9 @@ class MainController extends BaseController {
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
-			// 'brands' 		=> Item::readBrands($type),
-			// 'subcategories' => Item::readSubcategories($type),
-			'env' 			=> 'catalog'
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'catalog'
 		]);
 	}
 

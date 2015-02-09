@@ -16,9 +16,9 @@ private function overall() {
 // 		'category4' => []
 // 	]
 // ]
+// ->$articles = [n*Article]
 // ->$recents = [4*Recent]
 // ->$user = User
-// ->$articles = [n*Article]
 // ->$message = 'error'
 }
 
@@ -26,7 +26,6 @@ Route::get('/', 'MainController@index');
 // view(index)
 // ->$producers = [n*Producer]
 // ->$env = 'catalog'
-// ->$current breadcrumbs
 // overall()
 
 Route::get('/about', 'MainController@about');
