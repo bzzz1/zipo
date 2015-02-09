@@ -3,7 +3,7 @@
 @extends('footer')
 @extends('left_sidebar')
 @extends('right_sidebar')
-
+ 
 @section('body')
 	<div class="main_content">
 		<div class="headings">
@@ -32,12 +32,9 @@
 				<div class="subcategory_block first_line" data-category='Механическое'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Механическое'] as $subcategory)
+							@foreach ($subcats['foreign']['Механическое'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Механическое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -46,12 +43,9 @@
 				<div class="subcategory_block first_line" data-category='Тепловое'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Тепловое'] as $subcategory)
+							@foreach ($subcats['foreign']['Тепловое'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Тепловое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -60,12 +54,9 @@
 				<div class="subcategory_block second_line" data-category='Холодильное'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Холодильное'] as $subcategory)
+							@foreach ($subcats['foreign']['Холодильное'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Холодильное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -74,12 +65,9 @@
 				<div class="subcategory_block second_line" data-category='Посудомоечное'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Посудомоечное'] as $subcategory)
+							@foreach ($subcats['foreign']['Посудомоечное'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Посудомоечное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -106,12 +94,9 @@
 				<div class="subcategory_block first_line" data-category='Механическое'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Механическое'] as $subcategory)
+							@foreach ($subcats['domestic']['Механическое'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Механическое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -120,12 +105,9 @@
 				<div class="subcategory_block first_line" data-category='Тепловое'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Тепловое'] as $subcategory)
+							@foreach ($subcats['domestic']['Тепловое'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Тепловое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -134,12 +116,9 @@
 				<div class="subcategory_block second_line" data-category='Холодильное'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Холодильное'] as $subcategory)
+							@foreach ($subcats['domestic']['Холодильное'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Холодильное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -148,12 +127,9 @@
 				<div class="subcategory_block second_line" data-category='Посудомоечное'>
 					<div class="subcategory_column">
 						<ul>
-							<li>
-								{{ HTML::link("$env/Барное/Всё", 'Показать всё') }}
-							</li>
-							@foreach ($subcategories['Посудомоечное'] as $subcategory)
+							@foreach ($subcats['domestic']['Посудомоечное'] as $subcat)
 								<li>
-									{{ HTML::link("$env/Барное/$subcategory", $subcategory) }}
+									{{ HTML::link("/Посудомоечное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
 								</li>
 							@endforeach
 						</ul>
@@ -177,7 +153,7 @@
 							<![endif]-->
 							@foreach ($producers as $producer)
 								<li>
-									{{ HTML::link("$env/$producer", $producer) }}
+									{{ HTML::link("/producers/$producer->title?producer_id=$producer->producer_id", $producer->title) }}
 								</li>
 							@endforeach
 						</ul>
