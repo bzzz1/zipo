@@ -5,7 +5,7 @@ class MainController extends BaseController {
 		return View::make('index')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : []
+			'user'		=> Auth::attempt() ? Auth::user() : [],
 			// 'brands' 		=> Item::readBrands($type),
 			// 'subcategories' => Item::readSubcategories($type),
 			'env' 			=> 'catalog'
