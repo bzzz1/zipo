@@ -3,6 +3,9 @@ class MainController extends BaseController {
 
 	public function index() {
 		return View::make('index')->with([
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : []
 			// 'brands' 		=> Item::readBrands($type),
 			// 'subcategories' => Item::readSubcategories($type),
 			'env' 			=> 'catalog'
@@ -10,11 +13,11 @@ class MainController extends BaseController {
 	}
 
 	public function about() {
-		
+		echo 'about';
 	}
 
 	public function price() {
-		
+		echo 'price';
 	}
 
 	public function delivery() {
@@ -38,11 +41,20 @@ class MainController extends BaseController {
 	}
 
 	public function item() {
-		
+		static::storeRecents();
 	}
 
-	public function news() {
-		
+	public function articles() {
+		echo 'articles';
+	}
+
+	public function article() {
+		return View::make('article')->with([
+			'article'	=> Article::readArticleById(),
+			// 'brands' 		=> Item::readBrands($type),
+			// 'subcategories' => Item::readSubcategories($type),
+			'env' 			=> 'catalog'
+		]);
 	}
 
 	public function byproducer() {

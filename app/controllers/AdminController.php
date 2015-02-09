@@ -55,8 +55,8 @@ class MainController extends BaseController {
 		
 	}
 
-	public function new() {
-		
+	public function article() {
+
 	}
 
 	public function change_item() {
