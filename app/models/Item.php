@@ -3,6 +3,14 @@
 class Item extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
+
+	public function producer() {
+		return $this->hasOne('Producer', 'producer_id', 'producer_id');
+	}
+	public function subcat() {
+		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
+	}
+
 /*------------------------------------------------
 | READ
 ------------------------------------------------*/

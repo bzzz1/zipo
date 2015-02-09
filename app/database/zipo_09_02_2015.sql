@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 09 2015 г., 14:53
+-- Время создания: Фев 09 2015 г., 18:05
 -- Версия сервера: 5.6.15-log
 -- Версия PHP: 5.5.8
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `photo` varchar(64) NOT NULL,
   `hit` tinyint(1) NOT NULL,
   `special` tinyint(1) NOT NULL,
-  `subcategory_id` int(11) NOT NULL,
+  `subcat_id` int(11) NOT NULL,
   `producer_id` int(11) NOT NULL,
   `procurement` tinyint(1) NOT NULL,
   PRIMARY KEY (`item_id`)
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `items` (
 -- Дамп данных таблицы `items`
 --
 
-INSERT INTO `items` (`item_id`, `code`, `title`, `description`, `price`, `currency`, `photo`, `hit`, `special`, `subcategory_id`, `producer_id`, `procurement`) VALUES
+INSERT INTO `items` (`item_id`, `code`, `title`, `description`, `price`, `currency`, `photo`, `hit`, `special`, `subcat_id`, `producer_id`, `procurement`) VALUES
 (1, '000.689', 'Конфорка КЭТ-006/2,5(3) Aбат \r\n', 'Редкая 3-х тэновая конфорка, до 2005 года использовалась в мармитах первых блюд ОАО «Чувашторгтехника» (Абат), а также плитах ЭПК-27Ш, ЭПК-47, ЭПК-47ЖШ. Заменена производителем на круглую чугунную конфорку диаметром 220см. На данный момент в серийном производстве не используется. Коммутируется 7-позиционным переключателем Gottak 7LA 870618 или ЕGO  43.27232.000\r\n', '3726.00', 'РУБ', 'photo_000.689\r\n', 1, 0, 1, 1, 1),
 (2, '000.300', 'Конфорка КЭТ-0,09/2,5(2) Абат \r\n', 'Новая 2-х тэновая конфорка, используется ОАО «Чувашторгтехника» (Абат) с 2009 года, как более дешевая замена 3-х тэновой конфорки, в основном в тендерных плитах 700 серии. Тэны не взаимозаменяемы с 3-х тэновой конфоркой. Коммутируется 4-позиционным переключателем ТПКП-25 или Gottak 7LA 840502 или его аналогом 7LA 840511K.\r\n', '3623.00', 'РУБ', 'photo_000.300\r\n', 0, 1, 1, 2, 1),
 (3, '000.333', 'Конфорка КЭТ-0,09/2,8(3) Абат\r\n', 'Классическая 3-х тэновая конфорка, используется ОАО «Чувашторгтехника» (Абат) с 2001 года в плитах 700 серии ЭП-2-ЖШ, ЭПК-48. Тэны не взаимозаменяемы с 2-х тэновой конфоркой. Коммутируется 7-позиционным переключателем Gottak 7LA 870618 или ЕGO  43.27232.000\r\n', '3880.00', 'РУБ', 'photo_000.333\r\n', 0, 1, 1, 2, 1),
@@ -159,17 +159,17 @@ INSERT INTO `recents` (`recent_id`, `time`, `user_id`, `first`, `second`, `third
 --
 
 CREATE TABLE IF NOT EXISTS `subcats` (
-  `subcategory_id` int(11) NOT NULL AUTO_INCREMENT,
+  `subcat_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(64) NOT NULL,
   `category` varchar(32) NOT NULL,
-  PRIMARY KEY (`subcategory_id`)
+  PRIMARY KEY (`subcat_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Дамп данных таблицы `subcats`
 --
 
-INSERT INTO `subcats` (`subcategory_id`, `title`, `category`) VALUES
+INSERT INTO `subcats` (`subcat_id`, `title`, `category`) VALUES
 (1, 'Плиты', 'Механическое'),
 (2, 'Плиты', 'Тепловое'),
 (3, 'Батареи', 'Холодильное'),
