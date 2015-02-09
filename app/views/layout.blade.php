@@ -18,6 +18,8 @@
 </head>
 <body>
 	@yield('header')
+	@yield('left_sidebar')
+	@yield('right_sidebar')
 	@yield('body')
 
 	<div class="footer_absolute">
