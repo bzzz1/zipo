@@ -8,7 +8,7 @@
 	<title>Vertex - Комплексное оснащение баров, ресторанов, кафе, пищевых производств и магазинов</title>
 	<link rel="shortcut icon" href="{{ asset('icons/favicon.ico') }}">
 	{{ HTML::style('css/bootstrap.min.css') }}
-	{{ HTML::style('css/fontawesome.min.css') }}
+	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::script('js/angular.min.js') }}
 	@yield('css')
@@ -29,6 +29,6 @@
 	{{ HTML::script('js/betterContactForm.js') }}
 	{{ HTML::script('js/script.js') }}
 	@yield('js')
-	<a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger">Contact Form</a>
+	<!-- <a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger">Contact Form</a> -->
 </body>
 </html>
