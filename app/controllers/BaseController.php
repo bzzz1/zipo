@@ -15,4 +15,17 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function storeRecents() {
+		session_start(); 
+
+		if (!$_SESSION['user_id']) {
+			$user_id = rand(1, 1000000); 
+			$_SESSION['user_id'] = $user_id; 
+			Recent::writeUserToRecents($user_id); 
+		} else {
+			$user_id = $_SESSION['user_id'];
+		}
+
+		Recent::writeRecentsByUser($user_id);
+	}
 }

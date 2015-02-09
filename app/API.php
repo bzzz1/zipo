@@ -1,7 +1,7 @@
 <?php 
 
 private function overall() {
-// <-$user_id from cookie
+// <-$user_id from session
 // ->$subcats = [
 // 	'foreign'  => [
 // 		'category1' => [],
@@ -18,7 +18,7 @@ private function overall() {
 // ]
 // ->$recents = [4*Recent]
 // ->$user = User
-// ->$news = [n*New]
+// ->$articles = [n*Article]
 // ->$message = 'error'
 }
 
@@ -72,27 +72,26 @@ Route::get('/{category}/{subcat}', 'MainController@items');
 // ->$items = [n*Item] sort by hit and Input::get('sort');  Input::get('order'); paginate by Input::get('by');
 // overall()
 
-Route::get('/{category}/{subcat}/{item_title}?item_code={code}', 'MainController@item');
+Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 // view(item)
 // <-$category
 // <-$subcat
-// <-$item_title
-// <-$item_code = Input::get('code'); // second arg is default
-// add item_code to recent table by user_id
+// <-$item_code from get params Input::get('code'); // second arg is default
+// store item_code to recent table by user_id
 // ->$env = 'catalog'
 // ->$current breadcrumbs
 // ->$item = Item by item_code
 // ->$same = [4*Item] from same subcategory
 // overall()
 
-Route::get('/news', 'MainController@news');
-// view(news)
-// overall() with all news
+Route::get('/articles', 'MainController@articles');
+// view(articles)
+// overall() with all articles
 
-Route::get('/news/{new_title}', 'MainController@new');
-// view(new)
-// <-$new_title
-// ->$new by new_title
+Route::get('/articles/article_title', 'MainController@article');
+// view(article)
+// <-$article_id from get params
+// ->$article by article_id
 // overall()
 
 Route::get('/producers/{producer_title}', 'MainController@byproducer');

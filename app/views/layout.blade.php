@@ -29,6 +29,5 @@
 	{{ HTML::script('js/betterContactForm.js') }}
 	{{ HTML::script('js/script.js') }}
 	@yield('js')
-	<!-- <a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger">Contact Form</a> -->
 </body>
 </html>

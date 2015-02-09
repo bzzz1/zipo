@@ -31,7 +31,7 @@ App::after(function($request, $response) {
 |
 */
 Route::filter('auth2', function() {
-     if (Auth::guest()) return Redirect::guest('admin');
+     if (Auth::guest()) return Redirect::guest('/admin');
 });
 
 Route::filter('auth', function() {
