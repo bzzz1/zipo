@@ -138,27 +138,22 @@
 			</div><!--catalog_russian-->	
 		</div>
 		<div class="catalog_producers">
-			<p class="catalog_subheading">По виду продукции</p>
+			<p class="catalog_subheading">По производителю</p>
 			<hr>
 			<div class = "groups">
-				<div class="brands">
-					<div class="mask_title_sort">
-						<p class="brands_sort title_sort">По производитею</p>
-					</div>
-					<div class="brands_column">
-						<ul>
-							<!--[if lt IE 10]>
-								<script src="{{ asset('js/modernizr_columns.js') }}"></script>
-							<![endif]-->
-							@foreach ($producers as $producer)
-								<li>
-									{{ HTML::link("/producers/$producer->producer?producer_id=$producer->producer_id", $producer->producer) }}
-								</li>
-							@endforeach
-						</ul>
-					</div><!-- brands_column -->
-				</div><!-- brands -->
-			</div> <!-- groups  -->
-		</div>		
-	</div>
+				<div class="brands_column">
+					<ul>
+						<!--[if lt IE 10]>
+							<script src="{{ asset('js/modernizr_columns.js') }}"></script>
+						<![endif]-->
+						@foreach ($producers as $producer)
+							<li>
+								{{ HTML::link("/producers/$producer->producer?producer_id=$producer->producer_id", $producer->producer) }}
+							</li>
+						@endforeach
+					</ul>
+				</div><!-- brands_column -->
+			</div><!-- brands -->
+		</div> <!-- groups  -->
+	</div>		
 @stop
