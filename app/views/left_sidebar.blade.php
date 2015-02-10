@@ -14,7 +14,7 @@
 							<ul>
 								@foreach ($subcats['foreign']['Механическое'] as $subcat)
 									<li>
-										{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->title) }}
+										{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
