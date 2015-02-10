@@ -7,126 +7,21 @@
 			<div class="left_sidebar_catalog">
 				<h3 class="left_sidebar_catalog">Каталог</h3>
 				<h4 class="left_sidebar_heading">Импортное</h4>
-					<div class="left_sidebar_catalog_categories">
-						<button class="category">Механическое оборудование</button>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Механическое'>
-								<ul>
-									@foreach ($subcats['foreign']['Механическое'] as $subcat)
-										<li>
-											{{ HTML::link("/Механическое/$subcat?subcat_id=$subcat->subcat_id", $subcat->title) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Тепловое оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Тепловое'>
-								<ul>
-									@foreach ($subcats['foreign']['Тепловое'] as $ft)
-										<li>
-											{{ HTML::link("/Тепловое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Холодильное оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Холодильное'>
-								<ul>
-									@foreach ($subcats['foreign']['Холодильное'] as $subcat)
-										<li>
-											{{ HTML::link("/Холодильное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Посудомоечное оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Посудомоечное'>
-								<ul>
-									@foreach ($subcats['foreign']['Посудомоечное'] as $subcat)
-										<li>
-											{{ HTML::link("/Посудомоечное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-				<h4 class="left_sidebar_heading">Российское</h4>
 				<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Механическое оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Механическое'>
-								<ul>
-									@foreach ($subcats['domestic']['Механическое'] as $subcat)
-										<li>
-											{{ HTML::link("/Механическое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
+					<button class="category">Механическое оборудование</button>
+					<div class="left_sidebar_catalog_subcategories">
+						<div class="subcategory_block first_line" data-category='Механическое'>
+							<ul>
+								@foreach ($subcats['foreign']['Механическое'] as $subcat)
+									<li>
+										{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->title) }}
+									</li>
+								@endforeach
+							</ul>
+						</div><!-- subcategory block -->
 					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Тепловое оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Тепловое'>
-								<ul>
-									@foreach ($subcats['domestic']['Тепловое'] as $subcat)
-										<li>
-											{{ HTML::link("/Тепловое/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Холодильное оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Холодильное'>
-								<ul>
-									@foreach ($subcats['domestic']['Холодильное'] as $subcat)
-										<li>
-											{{ HTML::link("/Холодильное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-					<div class="left_sidebar_catalog_categories">
-						<a href="#" class="category">Посудомоечное оборудование</a>
-						<div class="left_sidebar_catalog_subcategories">
-							<div class="subcategory_block first_line" data-category='Посудомоечное'>
-								<ul>
-									@foreach ($subcats['domestic']['Посудомоечное'] as $subcat)
-										<li>
-											{{ HTML::link("/Посудомоечное/$subcat?subcat_id=$subcat->subcat_id", $subcat) }}
-										</li>
-									@endforeach
-								</ul>
-							</div><!-- subcategory block -->
-						</div>
-					</div>
-			</div>	
-			<div class="left_sidebar_recent">
-				<h3 class="recent_heading">Недавно просмотренные</h3>
-				@foreach ($recents as $recent)
-					<a href="/$recent->category/$recent->subcat/$recent->title?item_code=$recent->code" class="recent_link"><img src="$recent->photo" alt="$recent->title" class="recent"></a>
-				@endforeach	
+				</div>
 			</div>
-		</div>
-	</div>
+		</div>	
+	</div>	
 @stop	
