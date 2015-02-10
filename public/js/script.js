@@ -1,3 +1,30 @@
+(function(){
+	if (localStorage['sort'] != 'undefined') {
+		var sort = localStorage['sort'];
+		var $options = $('#items_sort option');
+		$options.each(function(index) {
+			if ($(this).val() == sort) {
+				$(this).attr("selected", "selected");
+			} 
+		});
+
+	} else {
+		var $option = $('#items_sort').find('option:selected');
+		var sort = $option.val();
+		localStorage['sort'] = sort;
+	}
+
+	$('#items_sort').on('change', function() {
+		var $option = $(this).find('option:selected');
+		var sort = $option.val();				
+		localStorage['sort'] = sort;
+		var link = $option.data('link');
+		window.location = link;
+	});
+})();
+
+
+
 // (function ($) {
 // 	function run_subcategories() {
 // 		$subcategories = $('.subcategory_block');

@@ -157,22 +157,13 @@
 		</div> <!-- groups  -->
 	</div>
 	
-		<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
-		<select name="items_sort" id="items_sort" style="width:10px">
-			<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
-				по имени(а-я)
-			</option>
-			<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
-				по имени(z-a)
-			</option>
-		</select>
-		<script>
-			$('#items_sort').on('change', function() {
-				var $option = $(this).find('option:selected');
-				var link = $option.data('link');
-				// console.log(link);
-
-				window.location = link;
-			});
-		</script>
+	<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
+	<select name="items_sort" id="items_sort">
+		<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
+			по имени(а-я)
+		</option>
+		<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
+			по имени(z-a)
+		</option>
+	</select>
 @stop
