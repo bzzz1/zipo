@@ -11,36 +11,45 @@ class Subcat extends Eloquent {
 | READ
 ------------------------------------------------*/
 	public static function readAllSubcats() {
-		$subcats = new Subcat;
-		$subcats = $subcats->all();
-		$categories = [
-			'Механическое',
-			'Тепловое',
-			'Холодильное',
-			'Посудомоечное'
-		];
+		// $categories = [
+		// 	'Механическое',
+		// 	'Тепловое',
+		// 	'Холодильное',
+		// 	'Посудомоечное'
+		// ];
 
-		foreach ($categories as $category) {
-			foreach ($subcats as $subcat) {
-				$subcat_producer = $subcat->item->producer;
-				if ($subcat_producer->import == 1) {
-					if ($subcat->category == $category) {
-						$foreign[$category] = $subcat;
-					}
-				} else {
-					if ($subcat->category == $category) {
-						$domestic[$category] = $subcat;
-					}
-				}
-			}
-		}
+		$subcats = new Subcat;
+
+		$foreign['Механическое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 1)->where('category', 'Механическое')->groupBy('subcat')->get(['subcat']);
+		$foreign['Тепловое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 1)->where('category', 'Тепловое')->groupBy('subcat')->get(['subcat']);
+		$foreign['Холодильное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 1)->where('category', 'Холодильное')->groupBy('subcat')->get(['subcat']);
+		$foreign['Посудомоечное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 1)->where('category', 'Посудомоечное')->groupBy('subcat')->get(['subcat']);
+		$domestic['Механическое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 0)->where('category', 'Механическое')->groupBy('subcat')->get(['subcat']);
+		$domestic['Тепловое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 0)->where('category', 'Тепловое')->groupBy('subcat')->get(['subcat']);
+		$domestic['Холодильное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 0)->where('category', 'Холодильное')->groupBy('subcat')->get(['subcat']);
+		$domestic['Посудомоечное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
+							->where('import', 0)->where('category', 'Посудомоечное')->groupBy('subcat')->get(['subcat']);
 
 		$subcats = [
 			'foreign'  => $foreign,
 			'domestic' => $domestic
 		];
 
-		// dd($subcats);
 		return $subcats;
 	}
 }

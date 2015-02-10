@@ -12,7 +12,7 @@ class Producer extends Eloquent {
 ------------------------------------------------*/
 	public static function readAllProducers() {
 		$producers = new Producer;
-		$producers = $producers->orderBy('title', 'ASC');
+		$producers = $producers->orderBy('producer', 'ASC');
 		$producers = $producers->get();
 		return $producers;
 	}
