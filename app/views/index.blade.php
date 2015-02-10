@@ -20,9 +20,10 @@
 				<div class="subcategory_block first_line" data-category='Механическое'>
 					<div class="subcategory_column">
 						<ul>
+						<span style='color:red'>HERE</span>
 							@foreach ($subcats['foreign']['Механическое'] as $subcat)
 								<li>
-									{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+									{{ HTML::link(App::make("HelperController")->url_slug("/Механическое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
 							@endforeach
 						</ul>
