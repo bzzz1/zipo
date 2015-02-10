@@ -36,7 +36,14 @@ class MainController extends BaseController {
 	}
 
 	public function items() {
-		
+		Route::get('/{category}/{subcat}', 'MainController@items');
+// view(items)
+// <-$category
+// <-$subcat
+// ->$env = 'catalog'
+// ->$current breadcrumbs
+// ->$items = [n*Item] sort by hit and Input::get('sort');  Input::get('order'); paginate by Input::get('by');
+// overall()
 	}
 
 	public function item() {
