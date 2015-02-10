@@ -16,7 +16,7 @@
 			  <button type="button" class="btn btn-default">Войти</button>
 			  <button type="button" class="btn btn-default">Регистрация</button>
 			</div>
-			<p class="navbar-text header_login">Вы вошли как {{$user->name}}</p>
+			<p class="navbar-text header_login">Вы вошли как {{--$user->name--}}</p>
 		    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'form-inline header_search')) }}
 				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control', 'id' =>'search']) }} 
 			{{ Form::close() }}
