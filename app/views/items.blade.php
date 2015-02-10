@@ -6,17 +6,27 @@
 	<div class="main_content">
 		<ol class="breadcrumb">
 		  <li><a href="/">Каталог</a></li>
-		  <li><a href="/$subcat->category">{{$subcats->category}}</a></li>
-		  <li class="active">{{$subcats->subcat}}</li>
+		  <li><a href="/{{isset($items[0]) ? $items[0]->category : ''}}">{{isset($items[0]) ? $items[0]->category : ''}}</a></li>
+		  <li class="active">{{isset($items[0]) ? $items[0]->subcat : ''}}</li>
 		</ol>
 		<h3 class="items_main_header">{{$subcats->category}}</h3>
 		<p class="items_subheading">{{$subcats->subcat}}</p>
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>
+		<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
 		<select name="items_sort" id="items_sort">
-			<option value="by_name">по имени</option>
-			<option value="by_producer">по производителю</option>
-			<option value="by_hit">по хитам продаж</option>
+			<option>
+				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'по имени(а-я)', ['class'=>"icon_tr_dw"]) }}
+			</option>
+			<option>
+				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'по имени(я-а)', ['class'=>"icon_tr_up"]) }}
+			</option>
+			<option>
+				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'по цене(вверх)', ['class'=>"icon_tr_up"]) }}
+			</option>
+			<option>
+				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'по цене(вниз)', ['class'=>"icon_tr_dw"]) }}
+			</option>
 		</select>
 		@foreach ($items as $item)
 			<div class="items_item_one">

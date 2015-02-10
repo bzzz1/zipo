@@ -106,6 +106,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="left_sidebar_recent">
+				<h3 class="recent_heading">Недавно просмотренные</h3>
+				@foreach ($recents as $recent)
+					<a href="/$recent->category/$recent->subcat/$recent->title?item_code=$recent->code" class="recent_link"><img src="$recent->photo" alt="$recent->title" class="recent"></a>
+				@endforeach
+			</div>
 		</div>	
 	</div>	
 @stop	

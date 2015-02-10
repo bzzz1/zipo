@@ -11,6 +11,7 @@
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::script('js/angular.min.js') }}
+	{{ HTML::script('js/jquery.min.js') }}
 	@yield('css')
 	<!--[if lt IE 10]>
 		<!!!!!!!!!!!!!!!script src="{{ asset('js/modernizr_columns.js') }}"></script>
