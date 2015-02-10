@@ -3,6 +3,18 @@
 @extends('footer')
 
 @section('body')
-	<p class='article'>{{ $article->title }}</p>
-	<p class='article'>{{ $article->body }}</p>
+	<div class="main_content">
+		<ol class="breadcrumb">
+		  <li><a href="/">Главная</a></li>
+		  <li><a href="/articles">Новости</a></li>
+		  <li class="active">{{ $article->title }}</li>
+		</ol>
+		<h3 class="article_main_header">Новости</h3>
+		<p class="article_heading">{{ $article->title }}</p>
+		<p class="article_date">{{ $article->time }}</p>
+		<img src="{{ $article->photo }}" alt="{{ $article->title }}" class="article_minimg">
+		<hr class="main_hr">
+		<p class="article_text">{{ $article->body }}</p>
+		<a href="/articles" class="all_news"></a>
+	</div>	
 @stop

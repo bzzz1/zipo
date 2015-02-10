@@ -11,6 +11,7 @@
 		  <li class="active">О нас</li>
 		</ol>
 		<h2 class="about_heading">О нас</h2>
+		<hr class="main_hr">
 		<div class="about_text_block">
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
