@@ -11,7 +11,7 @@
 		  <li class="active">Прайс-лист</li>
 		</ol>
 		@foreach($prices as $price)
-			<i class="fa fa-table fa-3x"></i> <a href="" class="prices_price_name">{{$price => excel_file_name}}</a>
+			<i class="fa fa-table fa-3x"></i> <a href="" class="prices_price_name">{{$price->excel_file_name}}</a>
 		@endforeach	
 	</div>	
 @stop

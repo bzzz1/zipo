@@ -23,12 +23,12 @@
 		    <nav class="navbar navbar-inverse">
 			    <div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/" class="@if ($env == '/') selected @endif">Каталог</a></li>
-						<li><a href="/price" class="@if ($env == '/price') selected @endif">Прайс-лист</a></li>
-						<li><a href="/delivery" class="@if ($env == '/delivery') selected @endif">Доставка</a></li>
-						<li><a href="/specials" class="@if ($env == '/specials') selected @endif">Специальные предложения</a></li>
-						<li><a href="/about" class="@if ($env == '/about') selected @endif">О нас</a></li>
-						<li><a href="/contacts" class="@if ($env == '/contacts') selected @endif">Контакты</a></li>
+						<li class="active"><a href="/" class="@if ($env == 'catalog') selected @endif">Каталог</a></li>
+						<li><a href="/price" class="@if ($env == 'price') selected @endif">Прайс-лист</a></li>
+						<li><a href="/delivery" class="@if ($env == 'delivery') selected @endif">Доставка</a></li>
+						<li><a href="/specials" class="@if ($env == 'specials') selected @endif">Специальные предложения</a></li>
+						<li><a href="/about" class="@if ($env == 'about') selected @endif">О нас</a></li>
+						<li><a href="/contacts" class="@if ($env == 'contacts') selected @endif">Контакты</a></li>
 					</ul>
 			    </div><!-- /.navbar-collapse -->
 			</nav>
