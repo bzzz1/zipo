@@ -72,7 +72,13 @@ class MainController extends BaseController {
 	}
 
 	public function registration_page() {
-		
+		return View::make('registration')->with([
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats()
+		]);
 	}
 
 	public function registration() {
