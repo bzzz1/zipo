@@ -110,7 +110,7 @@ class HelperController extends BaseController {
 	}
 
 	public static function getNormal($str) {
-		$end = strlen($caption)-3;
+		$end = strlen($str)-3;
 		$normal = substr($str, 0, $end);
 		return $normal;
 	}
