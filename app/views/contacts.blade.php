@@ -26,7 +26,7 @@
 	</div>
 	<p class="conacts_subheading">Если у вас остались вопросы - напишите нам.</p>
 	<div class="contacts_contact_form">
-		{{ Form::model($article, ['url'=>['admin/info/updateArticle', $article->id], 'files'=>true, 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
+		{{ Form::open(['url'=>'admin/info/updateArticle', 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
 				<table>
 					<tr>
 						<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
