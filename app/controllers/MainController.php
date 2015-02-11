@@ -87,8 +87,8 @@ class MainController extends BaseController {
 	}
 
 	public function specials() {
-		return View::make('specials')->with([
-			'specials'  => [],
+		return View::make('items')->with([
+			'items'  => [],
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
