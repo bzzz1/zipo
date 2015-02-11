@@ -20,7 +20,7 @@
 				<div class="subcategory_block first_line" data-category='Механическое'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['foreign']['Механическое'] as $subcat)
+							@foreach ($subcats['Механическое_en'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Механическое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -35,7 +35,7 @@
 				<div class="subcategory_block first_line" data-category='Тепловое'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['foreign']['Тепловое'] as $subcat)
+							@foreach ($subcats['Тепловое_en'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Тепловое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -50,7 +50,7 @@
 				<div class="subcategory_block second_line" data-category='Холодильное'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['foreign']['Холодильное'] as $subcat)
+							@foreach ($subcats['Холодильное_en'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Холодильное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -65,7 +65,7 @@
 				<div class="subcategory_block second_line" data-category='Посудомоечное'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['foreign']['Посудомоечное'] as $subcat)
+							@foreach ($subcats['Посудомоечное_en'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Посудомоечное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -82,7 +82,7 @@
 				<div class="subcategory_block first_line" data-category-ru='Механическое'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['domestic']['Механическое'] as $subcat)
+							@foreach ($subcats['Механическое_ru'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Механическое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -97,7 +97,7 @@
 				<div class="subcategory_block first_line" data-category-ru='Тепловое'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['domestic']['Тепловое'] as $subcat)
+							@foreach ($subcats['Тепловое_ru'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Тепловое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -112,7 +112,7 @@
 				<div class="subcategory_block second_line" data-category-ru='Холодильное'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['domestic']['Холодильное'] as $subcat)
+							@foreach ($subcats['Холодильное_ru'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Холодильное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
@@ -127,7 +127,7 @@
 				<div class="subcategory_block second_line" data-category-ru='Посудомоечное'>
 					<div class="subcategory_column">
 						<ul>
-							@foreach ($subcats['domestic']['Посудомоечное'] as $subcat)
+							@foreach ($subcats['Посудомоечное_ru'] as $subcat)
 								<li>
 									{{ HTML::link(App::make("HelperController")->url_slug("/Посудомоечное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 								</li>
