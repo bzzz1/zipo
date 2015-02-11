@@ -17,10 +17,10 @@
 					<p class="article_one_date">{{ $article->time }}</p>
 					<h2 class="article_preview_header">{{ $article->title }}</h2>
 					<div class="article_photo_preview_div">
-						{{ HTML::image("img/photos/$article->photo", "$article->title, ['class'=>'article_minimg']) }}
+						{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'article_minimg']) }}
 					</div>
-					<p class="article_preview_text">{{ $article->body }}</p>
-					<a href="/articles//articles/$article->title?article_id=$article->article_id" class="articles_all_link"></a>
+					<p class="article_text">{{ $article->body }}</p>
+					<a href='/{{App::make("HelperController")->url_slug("$article->title")}}?article_id={{$article->article_id}}' class="articles_all_link"></a>
 				</div>
 			</div>
 		@endforeach
