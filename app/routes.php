@@ -9,6 +9,7 @@ Route::get('/specials', 'MainController@specials');
 Route::get('/contacts', 'MainController@contacts');
 Route::get('/articles', 'MainController@articles');
 Route::get('/articles/{article_title}', 'MainController@article');
+Route::get('/category/{category}', 'MainController@category');
 Route::get('/{category}/{subcat}', 'MainController@items');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 Route::get('/producers/{producer_title}', 'MainController@byproducer');
@@ -24,7 +25,6 @@ Route::get('/logout', 'MainController@logout');
 
 Route::get('/admin', 'AdminController@admin');
 Route::post('/admin_login', 'AdminController@admin_login');
-Route::get('/{category}', 'MainController@category');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::get('/catalog', 'AdminController@catalog');
 	Route::get('/articles', 'AdminController@articles');
