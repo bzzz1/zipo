@@ -74,7 +74,7 @@ Route::get('/{category}/{subcat}', 'MainController@items');
 // ->$env = 'catalog'
 // ->$current breadcrumbs
 // ->$items = [n*Item] sort by hit and Input::get('sort');  Input::get('order'); paginate by Input::get('by');
-// -> $current_subcat;
+// -> $cur_subcat;
 // overall()
 
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');

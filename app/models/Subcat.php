@@ -52,4 +52,13 @@ class Subcat extends Eloquent {
 
 		return $subcats;
 	}
+
+	public static function getCurrentSubcat() {
+		$subcat_id = Input::get('subcat_id');
+		
+		$cur_subcat = new Subcat;
+		$cur_subcat = $cur_subcat->where('subcat_id', $subcat_id);
+		$cur_subcat = $cur_subcat->first();
+		return $cur_subcat;
+	}
 }
