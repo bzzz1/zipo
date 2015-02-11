@@ -25,37 +25,10 @@ class Subcat extends Eloquent {
 		$subcats = new Subcat;
 
 		foreach ($categories as $category) {
-			$subcats[$category] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')->get();
-	
-								// ->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-								// ->where('import', 1)
-								// ->where('category', $category)->get();
-								// ->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Тепловое_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 1)->where('category', 'Тепловое_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Холодильное_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 1)->where('category', 'Холодильное_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Посудомоечное_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 1)->where('category', 'Посудомоечное_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Механическое_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 0)->where('category', 'Механическое_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Тепловое_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 0)->where('category', 'Тепловое_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Холодильное_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 0)->where('category', 'Холодильное_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-			// $subcats['Посудомоечное_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
-			// 					->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-			// 					->where('import', 0)->where('category', 'Посудомоечное_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+			$subcats[$category] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+								->where('category', $category)->groupBy('subcat')->get(['category', 'subcat', 'subcats.subcat_id']);
 		}
 
-		print_r($subcats);
-		die();
 		return $subcats;
 	}
 

@@ -109,6 +109,12 @@ class HelperController extends BaseController {
 		return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
 	}
 
+	public static function getNormal($str) {
+		$end = strlen($caption)-3;
+		$normal = substr($str, 0, $end);
+		return $normal;
+	}
+
 	// /*------------------------------------------------
 	// | URL SLUG USAGE
 	// ------------------------------------------------*/
