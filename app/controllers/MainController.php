@@ -129,7 +129,7 @@ class MainController extends BaseController {
 	}
 
 	public function articles() {
-		return View::make('index')->with([
+		return View::make('articles')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -140,7 +140,7 @@ class MainController extends BaseController {
 	}
 
 	public function article() {
-		return View::make('index')->with([
+		return View::make('article')->with([
 			'article'	=> Article::readArticleById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
