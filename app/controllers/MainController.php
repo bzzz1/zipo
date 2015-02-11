@@ -18,7 +18,8 @@ class MainController extends BaseController {
 					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
 					} 
 				else { 
-					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251'); 
+					// $result[] = App::make('HelperController')->url_slug($value);
+					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
 				} 
 			} 
 		} 
@@ -128,15 +129,25 @@ class MainController extends BaseController {
 	}
 
 	public function articles() {
-		echo 'articles';
+		return View::make('index')->with([
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> ''
+		]);
 	}
 
 	public function article() {
-		return View::make('article')->with([
+		return View::make('index')->with([
 			'article'	=> Article::readArticleById(),
-			// 'brands' 		=> Item::readBrands($type),
-			// 'subcategories' => Item::readSubcategories($type),
-			'env' 			=> 'catalog'
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> ''
 		]);
 	}
 
