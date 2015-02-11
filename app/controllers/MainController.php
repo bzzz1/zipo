@@ -115,7 +115,7 @@ class MainController extends BaseController {
 
 	public function items() {
 		return View::make('items')->with([
-			'items'     => [],
+			'items'     => Item::getItemsForCatalog(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
