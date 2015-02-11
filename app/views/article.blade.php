@@ -12,7 +12,7 @@
 		<h3 class="article_main_header">Новости</h3>
 		<p class="article_heading">{{ $article->title }}</p>
 		<p class="article_date">{{ $article->time }}</p>
-		<img src="{{ $article->photo }}" alt="{{ $article->title }}" class="article_minimg">
+		{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'article_minimg']) }}
 		<hr class="main_hr">
 		<p class="article_text">{{ $article->body }}</p>
 		<a href="/articles" class="all_news"></a>

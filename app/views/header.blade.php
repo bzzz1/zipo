@@ -20,6 +20,9 @@
 					<a href="/registration"><button type="button" class="btn btn-default">Регистрация</button></a>
 				</div>
 				<div class="header_login">
+					@if (isset($error))
+						<p class="error">Error</p>
+					@endif	
 					{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form']) }}
 						{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail"]) }}
 						{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль"]) }}
