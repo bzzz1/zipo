@@ -8,16 +8,12 @@
 	<div class="main_content">
 		<ol class="breadcrumb">
 		  <li><a href="/">Каталог</a></li>
-		  <li class="active">Спецпредложения</li>
+		  <li>{{HTML::link(App::make("HelperController")->url_slug("/$item->category")."?subcat_id=$item->subcat_id", $item->category) }}</li>
+		  <li>{{HTML::link(App::make("HelperController")->url_slug("/$item->category/$item->subcat")."?subcat_id=$item->subcat_id", $item->subcat) }}</li>
+		  <li class="active">{{$item->title}}</li>
 		</ol>
-		<h3 class="items_main_header">Спецпредложения</h3>
+		<h3 class="items_main_header">{{$item->title}}</h3>
 		<hr class="main_hr">
-		<p class="items sort_by">Сортировать по: </p>
-		<select name="items_sort" id="items_sort">
-			<option value="by_name">по имени</option>
-			<option value="by_producer">по производителю</option>
-			<option value="by_hit">по хитам продаж</option>
-		</select>
 			<div class="item_page">
 				<div class="item_page_heading">
 					<p class="item_page_name">{{$item->title}}</p>

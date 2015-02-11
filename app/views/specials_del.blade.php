@@ -4,11 +4,7 @@
 
 @section('body')
 	<div class="main_content">
-		<ol class="breadcrumb">
-		  <li><a href="/">Каталог</a></li>
-		  <li class="active">Спецпредложения</li>
-		</ol>
-		<h3 class="items_main_header">Спецпредложения</h3>
+		
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>
 		<select name="items_sort" id="items_sort">
@@ -16,7 +12,7 @@
 			<option value="by_producer">по производителю</option>
 			<option value="by_hit">по хитам продаж</option>
 		</select>
-		@foreach ($specials as $item)
+		@foreach ($items as $item)
 			<div class="items_item_one">
 				<div class="items_item_heading">
 					<p class="items_item_name">{{$item->title}}</p>

@@ -143,9 +143,6 @@
 			<div class = "groups">
 				<div class="brands_column">
 					<ul>
-						<!--[if lt IE 10]>
-							<script src="{{ asset('js/modernizr_columns.js') }}"></script>
-						<![endif]-->
 						@foreach ($producers as $producer)
 							<li>
 							{{ HTML::link(App::make("HelperController")->url_slug("/producers/$producer->producer")."?producer_id=$producer->producer_id", $producer->producer) }}

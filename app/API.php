@@ -63,6 +63,7 @@ Route::get('/contacts', 'MainController@contacts');
 Route::get('/{category}', 'MainController@category');
 // view(one_category)
 // <-$category
+// <-$category_id from get
 // ->$env = 'catalog'
 // ->$current breadcrumbs
 // overall()
