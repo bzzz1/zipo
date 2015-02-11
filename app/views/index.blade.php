@@ -17,6 +17,8 @@
 					<img src="" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Механическое оборудование</p>
 				</div>
+				<?php print_r($subcats); ?>
+
 				<div class="subcategory_block first_line" data-category='Механическое'>
 					<div class="subcategory_column">
 						<ul>
