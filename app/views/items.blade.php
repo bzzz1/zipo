@@ -15,7 +15,7 @@
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
-			  <li>{{HTML::link(App::make("HelperController")->url_slug("category/$cur_subcat->category")."?subcat_id=$cur_subcat->subcat_id", $cur_subcat->category) }}</li>
+			  <li>{{HTML::link(App::make("HelperController")->url_slug("category/$cur_subcat->category")."?subcat_id=$cur_subcat->subcat_id", App::make("HelperController")->getNormal($cur_subcat->category)) }}</li>
 			  <li class="active">{{$cur_subcat->subcat}}</li>
 			</ol>
 			<h3 class="items_main_header">{{$cur_subcat->category}}</h3>
