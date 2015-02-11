@@ -60,12 +60,12 @@ Route::get('/contacts', 'MainController@contacts');
 // ->$env = 'contacts'
 // overall() fill form with User creds
 
-Route::get('/{category}', 'MainController@category');
+Route::get('category/{category}', 'MainController@category');
 // view(one_category)
 // <-$category
-// <-$category_id from get
+// <-$sub_cat_id from get
 // ->$env = 'catalog'
-// ->$current breadcrumbs
+// ->$subcats by category
 // overall()
 
 Route::get('/{category}/{subcat}', 'MainController@items');

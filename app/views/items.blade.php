@@ -15,11 +15,11 @@
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
-			  <li><a href="/{{isset($items[0]) ? $items[0]->category : ''}}">{{isset($items[0]) ? $items[0]->category : ''}}</a></li>
-			  <li class="active">{{isset($items[0]) ? $items[0]->subcat : ''}}</li>
+			  <li>{{HTML::link(App::make("HelperController")->url_slug("category/$cur_subcat->category")."?subcat_id=$cur_subcat->subcat_id", $cur_subcat->category) }}</li>
+			  <li class="active">{{$cur_subcat->subcat}}</li>
 			</ol>
-			<h3 class="items_main_header">{{$subcats->category}}</h3>
-			<p class="items_subheading">{{$subcats->subcat}}</p>
+			<h3 class="items_main_header">{{$cur_subcat->category}}</h3>
+			<p class="items_subheading">{{$cur_subcat->subcat}}</p>
 		@endif	
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>
@@ -47,7 +47,7 @@
 					<p class="items_item_currency">{{$item->currency}}</p>
 				</div>
 				<div class="items_item_descript">
-					<img src="{{$item->photo}}" alt="{{$item->title}}" class="items_item_img">
+					{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
 					<table class="items_item_text">
 						<tr>
 							<td colspan='2'>Характеристики</td>
@@ -62,11 +62,15 @@
 						</tr>
 						<tr>
 							<td>Тип:&nbsp</td>
-							<td>{{$item->subact_id}}</td>
+							<td>{{$item->subcat}}</td>
 						</tr>
 						<tr>
 							<td>Наличие:&nbsp</td>
-							<td>{{$item->procurement}}</td>
+							@if ($item->procurement)
+								<td>В наличии</td>
+							@else	
+								<td>Под заказ</td>
+							@endif	
 						</tr>
 					</table>
 				</div>
@@ -74,9 +78,9 @@
 				<a href="/order" class="items_order">Заказать</a>
 			</div>
 		@endforeach
-		{{--<div class="catalog_bottom_pages">
+		<div class="catalog_bottom_pages">
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
-		</div>--}}
+		</div>
 		<p class="items sort_by">Показать по: </p>
 		<select name="pages_by" id="pages_by">
 			<option>
