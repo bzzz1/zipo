@@ -1,5 +1,27 @@
 <?php
 class MainController extends BaseController {
+	public static function getPricesFromDir($dir) { 
+		$result = array(); 
+
+		if (!file_exists($dir)) {
+			echo "<span style='color: red'>ERROR: no \"$dir\" directory found!</span></br>";
+			return;
+		}
+
+		$cdir = scandir($dir); 
+		foreach ($cdir as $key => $value) { 
+			if (!in_array($value, array(".",".."))) { 
+				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
+					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
+					} 
+				else { 
+					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251'); 
+				} 
+			} 
+		} 
+		return $result; 
+	}
+
 	public function index() {
 		return View::make('index')->with([
 			'articles'	=> Article::readAllArticles(),
@@ -23,7 +45,11 @@ class MainController extends BaseController {
 	}
 
 	public function price() {
+		$dir = __DIR__.DIRECTORY_SEPARATOR.'prices';
+		dd($dir);
+
 		return View::make('price')->with([
+			'prices'	=> static::getPricesFromDir($dir),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
