@@ -77,7 +77,8 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats()
+			'subcats'   => Subcat::readAllSubcats(),
+			'env'		=> ''
 		]);
 	}
 
