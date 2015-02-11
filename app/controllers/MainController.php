@@ -1,6 +1,9 @@
 <?php
 class MainController extends BaseController {
-	public static function getPricesFromDir($dir) { 
+	// USE of class vars
+	// private static $prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
+
+	private static function getPricesFromDir($dir) { 
 		$result = array(); 
 
 		if (!file_exists($dir)) {
@@ -45,11 +48,10 @@ class MainController extends BaseController {
 	}
 
 	public function price() {
-		$dir = __DIR__.DIRECTORY_SEPARATOR.'prices';
-		dd($dir);
+		$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
 
 		return View::make('price')->with([
-			'prices'	=> static::getPricesFromDir($dir),
+			'prices'	=> static::getPricesFromDir($prices_dir),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -57,6 +59,19 @@ class MainController extends BaseController {
 			'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'price'
 		]);
+	}
+
+	public function get_price() {
+		$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
+		$prices = static::getPricesFromDir($prices_dir);
+		$price_id = Input::get('price_id');
+
+		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header("Content-disposition: attachment; filename=$prices[$price_id]");
+		/*------------------------------------------------
+		| LARAVEL SELF LOAD
+		------------------------------------------------*/
+		// readfile($prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
 	}
 
 	public function delivery() {

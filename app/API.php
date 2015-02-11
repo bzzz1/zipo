@@ -39,6 +39,11 @@ Route::get('/price', 'MainController@price');
 // ->$env = 'price'
 // overall()
 
+Route::get('/det_price?price_id', 'MainController@get_price');
+// <-$price_id from get params
+// ->download price
+// redirect - ???
+
 Route::get('/delivery', 'MainController@delivery');
 // view(delivery)
 // ->$env = 'delivery'

@@ -10,8 +10,9 @@
 		  <li><a href="/">Главная</a></li>
 		  <li class="active">Прайс-лист</li>
 		</ol>
-		@foreach($prices as $price)
-			<i class="fa fa-table fa-3x"></i> <a href="" class="prices_price_name">{{$price->excel_file_name}}</a>
+		@foreach($prices as $key => $price)
+			<i class="fa fa-table fa-3x"></i>
+			<a href="/get_price?price_id={{$key}}" class="prices_price_name">{{ $price }}</a>
 		@endforeach	
 	</div>	
 @stop
