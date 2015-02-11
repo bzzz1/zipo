@@ -110,7 +110,16 @@ class MainController extends BaseController {
 	}
 
 	public function category() {
-		
+		return View::make('one_category')->with([
+			'items'     => Item::getItemsForCatalog(),
+			'cur_subcat'=> Subcat::getCurrentSubcat(),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'catalog'
+		]);
 	}
 
 	public function items() {

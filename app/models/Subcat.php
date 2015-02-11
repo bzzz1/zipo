@@ -20,36 +20,30 @@ class Subcat extends Eloquent {
 
 		$subcats = new Subcat;
 
-		$foreign['Механическое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+		$subcats['Механическое_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 1)->where('category', 'Механическое')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$foreign['Тепловое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 1)->where('category', 'Механическое_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Тепловое_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 1)->where('category', 'Тепловое')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$foreign['Холодильное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 1)->where('category', 'Тепловое_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Холодильное_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 1)->where('category', 'Холодильное')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$foreign['Посудомоечное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 1)->where('category', 'Холодильное_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Посудомоечное_en'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 1)->where('category', 'Посудомоечное')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$domestic['Механическое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 1)->where('category', 'Посудомоечное_en')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Механическое_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 0)->where('category', 'Механическое')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$domestic['Тепловое'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 0)->where('category', 'Механическое_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Тепловое_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 0)->where('category', 'Тепловое')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$domestic['Холодильное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 0)->where('category', 'Тепловое_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Холодильное_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 0)->where('category', 'Холодильное')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-		$domestic['Посудомоечное'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
+							->where('import', 0)->where('category', 'Холодильное_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
+		$subcats['Посудомоечное_ru'] = $subcats->join('items', 'items.subcat_id', '=', 'subcats.subcat_id')
 							->join('producers', 'items.producer_id', '=', 'producers.producer_id')
-							->where('import', 0)->where('category', 'Посудомоечное')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
-
-		$subcats = [
-			'foreign'  => $foreign,
-			'domestic' => $domestic
-		];
-
+							->where('import', 0)->where('category', 'Посудомоечное_ru')->groupBy('subcat')->get(['subcat', 'subcats.subcat_id']);
 		return $subcats;
 	}
 
