@@ -14,7 +14,7 @@
 							<ul>
 								@foreach ($subcats['foreign']['Механическое'] as $subcat)
 									<li>
-										{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Механическое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -26,7 +26,7 @@
 							<ul>
 								@foreach ($subcats['foreign']['Тепловое'] as $subcat)
 									<li>
-										{{ HTML::link("/Тепловое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Тепловое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -38,7 +38,7 @@
 							<ul>
 								@foreach ($subcats['foreign']['Холодильное'] as $subcat)
 									<li>
-										{{ HTML::link("/Холодильное/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Холодильное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -50,7 +50,7 @@
 							<ul>
 								@foreach ($subcats['foreign']['Механическое'] as $subcat)
 									<li>
-										{{ HTML::link("/Посудомоечное/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Посудомоечное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -62,7 +62,7 @@
 							<ul>
 								@foreach ($subcats['domestic']['Механическое'] as $subcat)
 									<li>
-										{{ HTML::link("/Механическое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Механическое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -74,7 +74,7 @@
 							<ul>
 								@foreach ($subcats['domestic']['Тепловое'] as $subcat)
 									<li>
-										{{ HTML::link("/Тепловое/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Тепловое/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -86,7 +86,7 @@
 							<ul>
 								@foreach ($subcats['domestic']['Холодильное'] as $subcat)
 									<li>
-										{{ HTML::link("/Холодильное/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Холодильное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -98,7 +98,7 @@
 							<ul>
 								@foreach ($subcats['domestic']['Посудомоечное'] as $subcat)
 									<li>
-										{{ HTML::link("/Посудомоечное/$subcat->subcat?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										{{ HTML::link(App::make("HelperController")->url_slug("/Посудомоечное/$subcat->subcat")."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 									</li>
 								@endforeach
 							</ul>
@@ -108,9 +108,9 @@
 			</div>
 			<div class="left_sidebar_recent">
 				<h3 class="recent_heading">Недавно просмотренные</h3>
-				@foreach ($recents as $recent)
-					<a href="/$recent->category/$recent->subcat/$recent->title?item_code=$recent->code" class="recent_link"><img src="$recent->photo" alt="$recent->title" class="recent"></a>
-				@endforeach
+				{{--@foreach ($recents as $recent)
+					<a href="/{{$recent->category}}/{{$recent->subcat}}/{{$recent->title}}?item_code={{$recent->code}}" class="recent_link"><img src="/img/photos/{{$recent->photo}}" alt="{{$recent->title}}" class="recent"></a>
+				@endforeach--}}
 			</div>
 		</div>	
 	</div>	

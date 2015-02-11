@@ -16,7 +16,7 @@
 			<option value="by_producer">по производителю</option>
 			<option value="by_hit">по хитам продаж</option>
 		</select>
-		@foreach ($spec_items as $item)
+		@foreach ($specials as $item)
 			<div class="items_item_one">
 				<div class="items_item_heading">
 					<p class="items_item_name">{{$item->title}}</p>

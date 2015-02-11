@@ -46,7 +46,7 @@ Route::get('/delivery', 'MainController@delivery');
 
 Route::get('/specials', 'MainController@specials');
 // view(specials)
-// ->$spec_items = [n*Item]
+// ->$specials = [n*Item]
 // ->$env = 'specials'
 // overall()
 
