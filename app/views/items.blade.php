@@ -12,7 +12,7 @@
 			  <li class="active">Спецпредложения</li>
 			</ol>
 			<h3 class="items_main_header">Спецпредложения</h3>
-		@else	
+		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
 			  <li><a href="/{{isset($items[0]) ? $items[0]->category : ''}}">{{isset($items[0]) ? $items[0]->category : ''}}</a></li>
@@ -74,19 +74,19 @@
 				<a href="/order" class="items_order">Заказать</a>
 			</div>
 		@endforeach
-		<div class="catalog_bottom_pages">
+		{{--<div class="catalog_bottom_pages">
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
-		</div>
+		</div>--}}
 		<p class="items sort_by">Показать по: </p>
 		<select name="pages_by" id="pages_by">
 			<option>
 				{{ HTML::link(URL::current().'?'.$q.'&pages_by=10', '10', ['class'=>"icon_tr_dw"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=50, '50', ['class'=>"icon_tr_up"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&pages_by=50', '50', ['class'=>"icon_tr_up"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=100, '100', ['class'=>"icon_tr_up"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&pages_by=100', '100', ['class'=>"icon_tr_up"]) }}
 			</option>
 			<option>
 				{{ HTML::link(URL::current().'?'.$q.'&pages_by=all', 'все', ['class'=>"icon_tr_dw"]) }}
