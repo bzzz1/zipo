@@ -6,9 +6,9 @@
 
 @section('body')
 	<div class="main_content">
-		<h2 class="one_category_heading">{{$subcat->category}}</h2>
+		<h2 class="one_category_heading">{{$cur_subcat->category}}</h2>
 		<hr class="main_hr">
-		@foreach ($subcats as $subcat)
+		@foreach ($subcats["$cur_subcat->category"] as $subcat)
 			<ul class="subcats">
 				<li class="subcat">{{$subcat->subcat}}</li>
 			</ul>
