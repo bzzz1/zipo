@@ -1,6 +1,8 @@
 @extends('layout')
 @extends('header')
 @extends('footer')
+@extends('left_sidebar')
+@extends('right_sidebar')
 
 @section('body')
 	<div class="main_content">
