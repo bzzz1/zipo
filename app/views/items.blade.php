@@ -89,7 +89,7 @@
 				{{ HTML::link(URL::current().'?'.$q.'&pages_by=100', '100', ['class'=>"icon_tr_up"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=all', 'все', ['class'=>"icon_tr_dw"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&pages_by=999999', 'все', ['class'=>"icon_tr_dw"]) }}
 			</option>
 		</select>
 	</div>	
