@@ -88,7 +88,7 @@ class MainController extends BaseController {
 
 	public function specials() {
 		return View::make('items')->with([
-			'items'  => [],
+			'items'     => [],
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -114,14 +114,15 @@ class MainController extends BaseController {
 	}
 
 	public function items() {
-		Route::get('/{category}/{subcat}', 'MainController@items');
-// view(items)
-// <-$category
-// <-$subcat
-// ->$env = 'catalog'
-// ->$current breadcrumbs
-// ->$items = [n*Item] sort by hit and Input::get('sort');  Input::get('order'); paginate by Input::get('by');
-// overall()
+		return View::make('items')->with([
+			'items'     => [],
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'catalog'
+		]);
 	}
 
 	public function item() {
