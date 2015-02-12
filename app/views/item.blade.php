@@ -82,7 +82,8 @@
 								</tr>
 							</table>
 						</div>
-						<a href="/{{$item->title}}" class="items_more">Подробнее</a>
+						<a href="/{{$item->title}}" class="items_more"></a>
+
 						<a href="/order" class="items_order">Заказать</a>
 					</div>
 				@endforeach
