@@ -11,7 +11,7 @@
 		@foreach ($subcats["$cur_subcat->category"] as $subcat)
 			<ul class="subcats">
 				<li class="subcat">
-					{{ HTML::link(App::make("HelperController")->url_slug("/$cur_subcat->category/$subcat->subcat")."?subcat_id=$cur_subcat->subcat_id", $cur_subcat->subcat) }}
+					{{ HTML::link($HELP::url_slug("/$cur_subcat->category/$subcat->subcat")."?subcat_id=$cur_subcat->subcat_id", $cur_subcat->subcat) }}
 				</li>
 			</ul>
 		@endforeach

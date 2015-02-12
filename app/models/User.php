@@ -10,4 +10,3 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $guarded = [];
 	public $timestamps = false;
 }
-

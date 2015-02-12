@@ -11,7 +11,6 @@ class MyReadFilter implements PHPExcel_Reader_IReadFilter {
 }
 
 class ExcelController extends BaseController {
-
 	public function excelImport() {
 
 			function timer_start() { // add error timing

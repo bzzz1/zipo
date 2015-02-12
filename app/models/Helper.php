@@ -1,10 +1,80 @@
 <?php
-class HelperController extends BaseController {
 
-/*------------------------------------------------
-| URL SLUG https://gist.github.com/sgmurphy/3098978
-------------------------------------------------*/
+class Helper {
+	// USE of class vars
+	// make $HELP global for all views
+
+	// private static $prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
+	// private static $discount = Cred::getCred()['discount'];
+
+	// public static $val;
+	// public function __construct() {
+	// 	$val = null;
+	// }
+
+	private static function tofloat($num) {
+		$dotPos = strrpos($num, '.');
+		$commaPos = strrpos($num, ',');
+		$sep = (($dotPos > $commaPos) && $dotPos) ? $dotPos : 
+			((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
+
+		if (!$sep) {
+			return floatval(preg_replace("/[^0-9]/", "", $num));
+		} 
+
+		return floatval(
+			preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
+			preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
+		);
+	}
+
+	// public static function discount_price($price) {
+	// 	$discount = static::$discount;
+	// 	$price = static::tofloat($price);
+	// 	$discount = static::tofloat($discount);
+	// 	$discount_price = ceil($price - $price*$discount/100);
+	// 	return $discount_price;
+	// }
+
+	public static function storeRecents() {
+		session_start(); 
+
+		if (! isset($_SESSION['user_id'])) {
+			$user_id = rand(1, 1000000); 
+			$_SESSION['user_id'] = $user_id; 
+			Recent::writeUserToRecents($user_id); 
+		} else {
+			$user_id = $_SESSION['user_id'];
+		}
+
+		Recent::writeRecentsByUser($user_id);
+	}
+
+	public static function getPricesFromDir($dir) { 
+		$result = array(); 
+
+		if (!file_exists($dir)) {
+			echo "<span style='color: red'>ERROR: no \"$dir\" directory found!</span></br>";
+			return;
+		}
+
+		$cdir = scandir($dir); 
+		foreach ($cdir as $key => $value) { 
+			if (!in_array($value, array(".",".."))) { 
+				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
+					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
+					} 
+				else { 
+					// $result[] = App::make('HelperController')->url_slug($value);
+					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
+				} 
+			} 
+		} 
+		return $result; 
+	}
+
 	public static function url_slug($str, $options = array()) {
+		// URL SLUG https://gist.github.com/sgmurphy/3098978
 		// Make sure string is in UTF-8 and strip invalid UTF-8 characters
 		$str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());
 		
@@ -114,61 +184,4 @@ class HelperController extends BaseController {
 		$normal = substr($str, 0, $end);
 		return $normal;
 	}
-
-	// /*------------------------------------------------
-	// | URL SLUG USAGE
-	// ------------------------------------------------*/
-	// 	include('url_slug.php');
-	// 	header('Content-type: text/plain; charset=utf-8');
-
-	// 	// Basic usage
-	// 	echo "This is an example string. Nothing fancy." . "\n";
-	// 	echo url_slug("This is an example string. Nothing fancy.") . "\n\n";
-
-	// 	// Example using French with unwanted characters ('?)
-	// 	echo "Qu'en est-il français? Ça marche alors?" . "\n";
-	// 	echo url_slug("Qu'en est-il français? Ça marche alors?") . "\n\n";
-
-	// 	// Example using transliteration
-	// 	echo "Что делать, если я не хочу, UTF-8?" . "\n";
-	// 	echo url_slug("Что делать, если я не хочу, UTF-8?", array('transliterate' => true)) . "\n\n";
-
-	// 	// Example using transliteration on an unsupported language
-	// 	echo "מה אם אני לא רוצה UTF-8 תווים?" . "\n";
-	// 	echo url_slug("מה אם אני לא רוצה UTF-8 תווים?", array('transliterate' => true)) . "\n\n";
-
-	// 	// Some other options
-	// 	echo "This is an Example String. What's Going to Happen to Me?" . "\n";
-	// 	echo url_slug(
-	// 		"This is an Example String. What's Going to Happen to Me?", 
-	// 		array(
-	// 			'delimiter' => '_',
-	// 			'limit' => 40,
-	// 			'lowercase' => false,
-	// 			'replacements' => array(
-	// 				'/\b(an)\b/i' => 'a',
-	// 				'/\b(example)\b/i' => 'Test'
-	// 			)
-	// 		)
-	// 	);
-
-	// 	/*
-	// 	Output:
-
-	// 	This is an example string. Nothing fancy.
-	// 	this-is-an-example-string-nothing-fancy
-
-	// 	Qu'en est-il français? Ça marche alors?
-	// 	qu-en-est-il-français-ça-marche-alors
-
-	// 	Что делать, если я не хочу, UTF-8?
-	// 	chto-delat-esli-ya-ne-hochu-utf-8
-
-	// 	מה אם אני לא רוצה UTF-8 תווים?
-	// 	מה-אם-אני-לא-רוצה-utf-8-תווים
-
-	// 	This is an Example String. What's Going to Happen to Me?
-	// 	This_is_a_Test_String_What_s_Going_to_Ha
-	// 	*/
-	// /*----------------------------------------------*/
 }

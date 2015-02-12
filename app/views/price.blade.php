@@ -12,7 +12,7 @@
 		</ol>
 		@foreach($prices as $key => $price)
 			<i class="fa fa-table fa-3x"></i>
-			<a href="/get_price?price_id={{$key}}" class="prices_price_name">{{ App::make("HelperController")->url_slug($price) }}</a>
+			<a href="/get_price?price_id={{$key}}" class="prices_price_name">{{ $HELP::url_slug($price) }}</a>
 		@endforeach	
 	</div>	
 @stop

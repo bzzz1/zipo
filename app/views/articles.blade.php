@@ -20,7 +20,7 @@
 						{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'article_minimg']) }}
 					</div>
 					<p class="article_text">{{ $article->body }}</p>
-					<a href='/{{App::make("HelperController")->url_slug("$article->title")}}?article_id={{$article->article_id}}' class="articles_all_link"></a>
+					<a href='/{{$HELP::url_slug("$article->title")}}?article_id={{$article->article_id}}' class="articles_all_link"></a>
 				</div>
 			</div>
 		@endforeach
