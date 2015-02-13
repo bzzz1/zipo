@@ -65,7 +65,6 @@ class Helper {
 					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
 					} 
 				else { 
-					// $result[] = App::make('HelperController')->url_slug($value);
 					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
 				} 
 			} 
