@@ -8,7 +8,7 @@ class MainController extends BaseController {
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog',
-			// 'HELP'		=> new Helper
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -19,7 +19,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'about'
+			'env' 		=> 'about',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -58,7 +59,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'delivery'
+			'env' 		=> 'delivery',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -70,7 +72,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'specials'
+			'env' 		=> 'specials',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -81,7 +84,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'contacts'
+			'env' 		=> 'contacts',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -94,7 +98,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'catalog'
+			'env' 		=> 'catalog',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -107,7 +112,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'catalog'
+			'env' 		=> 'catalog',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -122,7 +128,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> ''
+			'env' 		=> '',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -134,7 +141,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> ''
+			'env' 		=> '',
+			'HELP'		=> new Helper
 		]);
 	}
 
@@ -153,7 +161,8 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env'		=> ''
+			'env'		=> '',
+			'HELP'		=> new Helper
 		]);
 	}
 
