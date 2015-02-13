@@ -3,7 +3,10 @@
 @extends('footer')
 @extends('left_sidebar')
 @extends('right_sidebar')
-
+{{-- 
+	Helper::url_slug(['Механическое/???~`!@#$%^&*()_-+=/*\\|}{[];,.:\'"<>', '/', 'Плиты', '/', 'Товар 1 ? .. ывоывраоыв///вовр ов = -Ёё~`!@#$%^&**()_-+=/*\\|][{}\'":;.,<>']); 
+	output:: 'mehanicheskoe/plity/tovar_1_yvoyvraoyv_vovr_ov_yoyo'
+--}}
 @section('body')
 	<div class="main_content">
 
