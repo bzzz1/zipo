@@ -1,19 +1,21 @@
 @section('header') 
-	<div class="container">
+	<div class="container_zipo">
 		<header>
 			<hr class="header_top_hr">
-			<div class="heder_contacts">
-				<p class="header_phone">8 (812) 982 33 54</p><br>
-				<p class="header_phone">8 (812) 982 33 54</p>
+			<div class="header_right">	
+				<div class="header_contacts">
+					<p class="header_phone">тел. 8 (812) 982 33 54</p><br>
+					<p class="header_phone">тел. 8 (812) 982 33 54</p>
+				</div>	
+				{{ HTML::image("img/markup/logo.png", "logo", ['class'=>'logo_header']) }}
 			</div>	
-			<img src="" alt="" class="logo_header">
 			<div class="header_description">
 				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>
 				<p class="header_description_text">Lorem ipsum dolor sit amet,<br>
 				consectetur adipisicing elit. Obcaecati, saepe.</p>
 			</div>	
 			@if (Auth::check())
-				<p class="navbar-text header_login">Вы вошли как {{--$user->email--}}</p>
+				<p class="header_login">Вы вошли как {{--$user->email--}}</p>
 			@else 
 				<div class="btn-group register" role="group" aria-label="...">
 					<button type="button" class="btn btn-default">Войти</button>
@@ -34,16 +36,14 @@
 				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control', 'id' =>'search']) }} 
 			{{ Form::close() }}
 		    <nav class="navbar navbar-inverse">
-			    <div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="@if ($env == 'catalog') active @endif"><a href="/">Каталог</a></li>
-						<li class="@if ($env == 'price') active @endif"><a href="/price">Прайс-лист</a></li>
-						<li class="@if ($env == 'delivery') active @endif"><a href="/delivery">Доставка</a></li>
-						<li class="@if ($env == 'specials') active @endif"><a href="/specials">Специальные предложения</a></li>
-						<li class="@if ($env == 'about') active @endif"><a href="/about">О нас</a></li>
-						<li class="@if ($env == 'contacts') active @endif"><a href="/contacts">Контакты</a></li>
-					</ul>
-			    </div><!-- /.navbar-collapse -->
+				<ul class="nav navbar-nav">
+					<li class="@if ($env == 'catalog') active @endif"><a href="/">Каталог</a></li>
+					<li class="@if ($env == 'price') active @endif"><a href="/price">Прайс-лист</a></li>
+					<li class="@if ($env == 'delivery') active @endif"><a href="/delivery">Доставка</a></li>
+					<li class="@if ($env == 'specials') active @endif"><a href="/specials">Специальные предложения</a></li>
+					<li class="@if ($env == 'about') active @endif"><a href="/about">О нас</a></li>
+					<li class="@if ($env == 'contacts') active @endif"><a href="/contacts">Контакты</a></li>
+				</ul>
 			</nav>
 		</header>
 	</div>	
