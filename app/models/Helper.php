@@ -192,7 +192,6 @@ class Helper {
 			}
 		}
 		
-		dd($url);
 		return $url;
 	}
 
