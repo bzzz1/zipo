@@ -11,6 +11,9 @@ class Item extends Eloquent {
 		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
 	}
 
+// /*------------------------------------------------
+// | READ
+// ------------------------------------------------*/
 	public static function getItemsForCatalog() {
 		$subcat_id = Input::get('subcat_id');
 		$sort = Input::get('sort', 'title');
@@ -26,10 +29,23 @@ class Item extends Eloquent {
 
 		return $items;
 	}
+
+	public static function getItemsByProducer() {
+		$producer_id = Input::get('producer_id');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+		$pages_by = Input::get('order', '10');
+
+		$items = new Item;
+		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
+						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		$items = $items->where('items.producer_id', $producer_id);
+		$items = $items->orderBy($sort, $order);
+		$items = $items->paginate($pages_by);
+
+		return $items;
+	}
 }
-// /*------------------------------------------------
-// | READ
-// ------------------------------------------------*/
 // 	public static function readItemsByBrands($type, $brand) {
 // 		$sort = Input::get('sort', 'item');
 // 		$order = Input::get('order', 'ASC');

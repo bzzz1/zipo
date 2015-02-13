@@ -37,7 +37,7 @@
 			{{ Form::close() }}
 		    <nav class="navbar navbar-inverse">
 				<ul class="nav navbar-nav">
-					<li class="@if ($env == 'catalog') active @endif"><a href="/">Каталог</a></li>
+					<li class="@if ($env == 'catalog' || $env == 'byproducer' || $env == 'search') active @endif"><a href="/">Каталог</a></li>
 					<li class="@if ($env == 'price') active @endif"><a href="/price">Прайс-лист</a></li>
 					<li class="@if ($env == 'delivery') active @endif"><a href="/delivery">Доставка</a></li>
 					<li class="@if ($env == 'specials') active @endif"><a href="/specials">Специальные предложения</a></li>

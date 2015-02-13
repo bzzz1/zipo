@@ -6,6 +6,7 @@
 
 @section('body')
 	<div class="main_content">
+
 		@if ($env=='specials')
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
@@ -15,12 +16,15 @@
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
-			  <li>{{HTML::link($HELP::url_slug("category/$cur_subcat->category")."?subcat_id=$cur_subcat->subcat_id", $cur_subcat->category) }}</li>
-			  <li class="active">{{$cur_subcat->subcat}}</li>
+			  <li>{{HTML::link($HELP::url_slug("category/$current->category")."?subcat_id=$current->subcat_id", $current->category) }}</li>
+			  <li class="active">{{$current->subcat}}</li>
 			</ol>
-			<h3 class="items_main_header">{{$cur_subcat->category}}</h3>
-			<p class="items_subheading">{{$cur_subcat->subcat}}</p>
+			<h3 class="items_main_header">{{$current->category}}</h3>
+			<p class="items_subheading">{{$current->subcat}}</p>
+		@elseif ($env=='byproducer')
+
 		@endif	
+
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>
 		<?php $q = http_build_query(Input::except(['item', 'order'])); ?>

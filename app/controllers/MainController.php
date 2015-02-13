@@ -92,7 +92,7 @@ class MainController extends BaseController {
 	public function category() {
 		return View::make('one_category')->with([
 			'items'     => Item::getItemsForCatalog(),
-			'cur_subcat'=> Subcat::getCurrentSubcat(),
+			'current'	=> Subcat::getCurrentSubcat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -106,7 +106,7 @@ class MainController extends BaseController {
 	public function items() {
 		return View::make('items')->with([
 			'items'     => Item::getItemsForCatalog(),
-			'cur_subcat'=> Subcat::getCurrentSubcat(),
+			'current'	=> Subcat::getCurrentSubcat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -147,7 +147,17 @@ class MainController extends BaseController {
 	}
 
 	public function byproducer() {
-		
+		return View::make('items')->with([
+			'items'     => Item::getItemsByProducer(),
+			'current'	=> Subcat::getCurrentSubcat(),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'byproducer',
+			'HELP'		=> new Helper
+		]);
 	}
 
 	public function user_login() {
