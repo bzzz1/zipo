@@ -16,7 +16,7 @@
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
-			  <li>{{HTML::link($HELP::url_slug("category/$current->category")."?subcat_id=$current->subcat_id", $current->category) }}</li>
+			  <li>{{HTML::link($HELP::url_slug(["category", "/", "$current->category"])."?subcat_id=$current->subcat_id", $current->category) }}</li>
 			  <li class="active">{{$current->subcat}}</li>
 			</ol>
 			<h3 class="items_main_header">{{$current->category}}</h3>
@@ -78,7 +78,7 @@
 						</tr>
 					</table>
 				</div>
-		 		{{HTML::link($HELP::url_slug("/$item->category/$item->subcat/$item->title")."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
+		 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
 				<a href="/order" class="items_order">Заказать</a>
 			</div>
 		@endforeach
