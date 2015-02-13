@@ -99,6 +99,7 @@ p,h1,h2,h3,h4,h5,a {
   animation-direction: alternate;
    -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  background: rgba(0,0,0,0);
 }
 .navbar ul li:hover:before, .navbar ul li:focus:before, .navbar ul li:active:before {
   opacity: .4;
