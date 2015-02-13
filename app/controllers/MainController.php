@@ -8,7 +8,7 @@ class MainController extends BaseController {
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog',
-			// 'HELP'		=> new Helper
+			'HELP'		=> new Helper
 		]);
 	}
 
