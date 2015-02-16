@@ -11,6 +11,13 @@ class Item extends Eloquent {
 		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
 	}
 
+	private static function __items() {
+		$items = new Item;
+		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
+						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		return $items;
+	}
+
 // /*------------------------------------------------
 // | READ
 // ------------------------------------------------*/
@@ -20,9 +27,7 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = new Item;
-		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
-						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		$items = self::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
@@ -36,12 +41,32 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = new Item;
-		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
-						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		$items = self::__items();
 		$items = $items->where('items.producer_id', $producer_id);
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
+
+		return $items;
+	}
+
+	public static function getItemById() {
+		$item_id = Input::get('item_id');
+		
+		$item = self::__items();
+		$item = $item->where('item_id', $item_id);
+		$item = $item->first();
+
+		return $item;
+	}
+
+	public static function getSameItems() {
+		$subcat_id = Input::get('subcat_id');
+		$item_id = Input::get('item_id');
+
+		$items = self::__items();
+		$items = $items->where('items.subcat_id', $subcat_id);
+		$items = $items->whereNotIn('items.item_id', [$item_id]);
+		$items = $items->get();
 
 		return $items;
 	}

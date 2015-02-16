@@ -37,11 +37,15 @@
 					</tr>
 					<tr>
 						<td>Тип:&nbsp</td>
-						<td>{{$item->subact_id}}</td>
+						<td>{{$item->subcat}}</td>
 					</tr>
 					<tr>
 						<td>Наличие:&nbsp</td>
-						<td>{{$item->procurement}}</td>
+						@if ($item->procurement)
+							<td>В наличии</td>
+						@else	
+							<td>Под заказ</td>
+						@endif
 					</tr>
 				</table>
 			</div>
@@ -74,7 +78,7 @@
 								</tr>
 								<tr>
 									<td>Тип:&nbsp</td>
-									<td>{{$item->subact_id}}</td>
+									<td>{{$item->subcat}}</td>
 								</tr>
 								<tr>
 									<td>Наличие:&nbsp</td>

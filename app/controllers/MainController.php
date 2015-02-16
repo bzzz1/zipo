@@ -108,6 +108,17 @@ class MainController extends BaseController {
 
 	public function item() {
 		// Helper::storeRecents();
+		return View::make('item')->with([
+			'same'		=> Item::getSameItems(),
+			'item'      => Item::getItemById(),
+			'current'	=> Subcat::getCurrentSubcat(),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'catalog'
+		]);
 	}
 
 	public function articles() {
