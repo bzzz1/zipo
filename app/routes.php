@@ -17,11 +17,10 @@ Route::post('/user_login', 'MainController@user_login');
 Route::get('/registration', 'MainController@registration_page');
 Route::post('/registration', 'MainController@registration');
 Route::post('/feedback', 'MainController@feedback');
-Route::get('/order/{item_title}/{item_code}', 'MainController@order_page');
+Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
 Route::get('/search/{query?}', 'MainController@search');
 Route::get('/logout', 'MainController@logout');
-
 
 Route::get('/admin', 'AdminController@admin');
 Route::post('/admin_login', 'AdminController@admin_login');

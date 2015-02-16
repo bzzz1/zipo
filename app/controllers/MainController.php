@@ -181,10 +181,20 @@ class MainController extends BaseController {
 	}
 
 	public function order_page() {
-		
+		return View::make('order')->with([
+			'item'		=> Item::getItemById(),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env'		=> ''
+		]);
 	}
 
 	public function order() {
+		$fields = Input::all();
+
 		
 	}
 

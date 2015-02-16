@@ -7,10 +7,27 @@ class Recent extends Eloquent {
 // | READ
 // ------------------------------------------------*/
 	public static function readAllRecents() {
+		$current_user = '454hyjk566ghjg536';
+
 		$recents = new Recent;
 		$recents = $recents->orderBy('time', 'DESC');
-		$recents = $recents->get();
-		return $recents;
+		$recents = $recents->where('user_id', $current_user);
+		$recents = $recents->first();
+
+		$recents_ids = [
+			$recents['first'],
+			$recents['second'],
+			$recents['third'],
+			$recents['fourth'],
+		];
+
+		$items = new Item;
+		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
+						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		$items = $items->whereIn('item_id', $recents_ids);
+		$items = $items->get();
+
+		return $items;
 	}
 //*------------------------------------------------
 // | CREATE UPDATE
