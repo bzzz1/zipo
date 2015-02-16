@@ -7,8 +7,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'catalog',
-			'HELP'		=> new Helper
+			'env' 		=> 'catalog'
 		]);
 	}
 
@@ -19,29 +18,24 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'about',
-			'HELP'		=> new Helper
+			'env' 		=> 'about'
 		]);
 	}
 
 	public function price() {
-		$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-
 		return View::make('price')->with([
-			'prices'	=> Helper::getPricesFromDir($prices_dir),
+			'prices'	=> Helper::getPricesFromDir(Helper::$prices_dir),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'price',
-			'HELP'		=> new Helper
+			'env' 		=> 'price'
 		]);
 	}
 
 	public function get_price() {
-		$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-		$prices = Helper::getPricesFromDir($prices_dir);
+		$prices = Helper::getPricesFromDir(Helper::$prices_dir);
 		$price_id = Input::get('price_id');
 
 		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -49,7 +43,7 @@ class MainController extends BaseController {
 		/*------------------------------------------------
 		| LARAVEL SELF LOAD
 		------------------------------------------------*/
-		// readfile($prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
+		// readfile($Helper::prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
 	}
 
 	public function delivery() {
@@ -59,8 +53,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'delivery',
-			'HELP'		=> new Helper
+			'env' 		=> 'delivery'
 		]);
 	}
 
@@ -72,8 +65,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'specials',
-			'HELP'		=> new Helper
+			'env' 		=> 'specials'
 		]);
 	}
 
@@ -84,8 +76,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'contacts',
-			'HELP'		=> new Helper
+			'env' 		=> 'contacts'
 		]);
 	}
 
@@ -98,8 +89,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'catalog',
-			'HELP'		=> new Helper
+			'env' 		=> 'catalog'
 		]);
 	}
 
@@ -112,8 +102,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'catalog',
-			'HELP'		=> new Helper
+			'env' 		=> 'catalog'
 		]);
 	}
 
@@ -128,8 +117,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> '',
-			'HELP'		=> new Helper
+			'env' 		=> ''
 		]);
 	}
 
@@ -141,8 +129,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> '',
-			'HELP'		=> new Helper
+			'env' 		=> ''
 		]);
 	}
 
@@ -155,8 +142,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> 'byproducer',
-			'HELP'		=> new Helper
+			'env' 		=> 'byproducer'
 		]);
 	}
 
@@ -171,8 +157,7 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env'		=> '',
-			'HELP'		=> new Helper
+			'env'		=> ''
 		]);
 	}
 

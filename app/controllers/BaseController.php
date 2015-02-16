@@ -1,6 +1,10 @@
 <?php
 class BaseController extends Controller {
 
+	public function __construct() {
+		View::share('HELP', new Helper);
+	}
+
 	/**
 	 * Setup the layout used by the controller.
 	 *

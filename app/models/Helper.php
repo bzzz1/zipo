@@ -1,16 +1,15 @@
 <?php
 
 class Helper {
-	// USE of class vars
-	// make $HELP global for all views
 
-	// private static $prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-	// private static $discount = Cred::getCred()['discount'];
+	// can't use function calls here!!!
+	public static $prices_dir; 
+	public static $discount;
 
-	// public static $val;
-	// public function __construct() {
-	// 	$val = null;
-	// }
+	public function __construct() {
+		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
+		static::$discount = Cred::getCred()['discount'];
+	}
 
 	private static function tofloat($num) {
 		$dotPos = strrpos($num, '.');
@@ -28,13 +27,13 @@ class Helper {
 		);
 	}
 
-	// public static function discount_price($price) {
-	// 	$discount = static::$discount;
-	// 	$price = static::tofloat($price);
-	// 	$discount = static::tofloat($discount);
-	// 	$discount_price = ceil($price - $price*$discount/100);
-	// 	return $discount_price;
-	// }
+	public static function discount_price($price) {
+		$discount = static::$discount;
+		$price = static::tofloat($price);
+		$discount = static::tofloat($discount);
+		$discount_price = ceil($price - $price*$discount/100);
+		return $discount_price;
+	}
 
 	public static function storeRecents() {
 		session_start(); 
