@@ -51,6 +51,7 @@ class Recent extends Eloquent {
 		$recent = $recent->first();
  		$item_code = Input::get('item_code');
 
+ 		// if fisrt, second ... == $item code, return false or continue 
 		$fields = [
 			'first'  => $item_code,
 			'second' => $recent->first,

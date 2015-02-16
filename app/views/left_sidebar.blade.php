@@ -25,9 +25,11 @@
 			</div>
 			<div class="left_sidebar_recent">
 				<h3 class="recent_heading">Недавно просмотренные</h3>
-				{{--@foreach ($recents as $recent)
-					<a href="/{{$recent->category}}/{{$recent->subcat}}/{{$recent->title}}?item_code={{$recent->code}}" class="recent_link"><img src="/img/photos/{{$recent->photo}}" alt="{{$recent->title}}" class="recent"></a>
-				@endforeach--}}
+				@foreach ($recents as $recent)
+					<a href='{{ URL::to($HELP::url_slug(["/", "$recent->category", "/", "$recent->subcat", "/", "$recent->title"])."?subcat_id=$recent->subcat_id&item_id=$recent->item_id") }}' class="recent_link">
+						<img src="/img/photos/{{$recent->photo}}" alt="{{$recent->title}}" class="recent">
+					</a>
+				@endforeach
 			</div>
 		</div>	
 	</div>	
