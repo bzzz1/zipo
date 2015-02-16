@@ -10,6 +10,9 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
+	{{ HTML::style('css/left_sidebar.css') }}
+	{{ HTML::style('css/right_sidebar.css') }}
+	{{ HTML::style('css/footer.css') }}
 	{{ HTML::script('js/angular.min.js') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	@yield('css')
