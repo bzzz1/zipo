@@ -49,6 +49,5 @@
 				</ul>
 			</nav>
 		</header>
-		hgdhagshdgasgjdahsgdgasgasgdgdgghjhjghjg
 	</div>	
 @stop
