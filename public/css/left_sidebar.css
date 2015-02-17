@@ -26,14 +26,14 @@
 	font-weight: bold;
 }
 .left_sidebar_catalog_main_heading {
-	margin-top: 20px;
+	margin-top: 25px;
 	margin-bottom: 5px;
 	text-transform: uppercase;
 }
 .left_sidebar_heading {
 	text-decoration: underline;
-	margin-top: 10px;
-	margin-bottom: 0px;
+	margin-top: 25px;
+	margin-bottom: 10px;
 }
 .left_sidebar_categories {
 	padding-left: 15px;
@@ -46,11 +46,14 @@
 .left_sidebar_categories li a {
 	color: #292929;
 }
+.left_sidebar_recent {
+	margin-top: 25px;
+}
 .recent_link {
 	margin-top: 10px;
 }
-.recent_link:nth-child(2n+1) {
-	margin-right: 10px;
+.recent_link:nth-child(2n) {
+	margin-right: 6px;
 }
 .recent {
 	width: 110px;
