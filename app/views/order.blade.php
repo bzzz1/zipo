@@ -6,7 +6,7 @@
 
 @section('body')
 	<div class="main_content">
-		<h2 class="order_heading">Форма заказа</h2>
+		<h2 class="order_heading universal_heading">Форма заказа</h2>
 		<hr class="main_hr">
 		{{ Form::model($item, ['url'=>['/order'], 'method'=>'POST', 'class'=>'item_form']) }}
 			<table>

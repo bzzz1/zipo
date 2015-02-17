@@ -11,7 +11,7 @@
 
 	<div class="main_content">
 		<div class="headings">
-			<p class="catalog_heding">Каталог продукции</p>
+			<p class="catalog_heding universal_heading">Каталог продукции</p>
 			<p class="catalog_subheading">По виду продукции</p>
 			<hr>
 		</div>

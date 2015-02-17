@@ -6,7 +6,7 @@
 
 @section('body')
 	<div class="main_content">
-		<h2 class="registration_heading">Регистрация</h2>
+		<h2 class="registration_heading universal_heading">Регистрация</h2>
 		<hr class="main_hr">
 		@if (isset($error))
 			<p class="error">Error</p>

@@ -1,5 +1,4 @@
 .right_sidebar {
-<<<<<<< HEAD
 	width: 260px;
 	height: 780px;
 	margin-top: 30px;
@@ -9,15 +8,4 @@
 	padding: 15px;
 	float: right;
 	display: inline-block;
-=======
-width: 260px;
-height: 780px;
-margin-top: 30px;
-margin-left: 20px;
-box-shadow: 2px 3px 7px #757171;
-border-radius: 5px;
-padding: 15px;
-float: right;
-display: inline-block;
->>>>>>> f6f0d51d75b6c62e468ae45b498b3aacd48af01d
 }
