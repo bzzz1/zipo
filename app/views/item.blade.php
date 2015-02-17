@@ -8,7 +8,7 @@
 	<div class="main_content">
 		<ol class="breadcrumb">
 		  <li><a href="/">Каталог</a></li>
-		  <li>{{HTML::link($HELP::url_slug(["/", "$item->category"])."?subcat_id=$item->subcat_id", $item->category) }}</li>
+		  <li>{{HTML::link($HELP::url_slug(["/", "category", "/", "$item->category"]), $item->category) }}</li>
 		  <li>{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat"])."?subcat_id=$item->subcat_id", $item->subcat) }}</li>
 		  <li class="active">{{$item->title}}</li>
 		</ol>
