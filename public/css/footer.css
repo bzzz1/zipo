@@ -2,7 +2,6 @@
 	margin-top: 15px;
 	margin-bottom: 50px;
 	height: 100px;
-	width: 1150px; 
 	padding-top: 17px;
 	background-color: #702329;
 }
@@ -15,7 +14,8 @@
 	float: left;
 	height: 77px;
 	padding-top: 20px;
-	margin-right: 35px;
+	margin-left: 35px;
+	margin-right: 80px;
 	background-color: #702329;
 }
 .nav_footer ul li {
