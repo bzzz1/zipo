@@ -9,7 +9,9 @@
 				<h4 class="left_sidebar_heading">Импортное</h4>
 				<div class="left_sidebar_catalog_categories">
 					<ul class="left_sidebar_categories">
-						<li><a href="#" class="category">Механическое оборудование</a></li>
+						<li>
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое_en']), "Механическое оборудование") }}
+						</li>
 						<li><a href="#" class="category">Тепловое оборудование</a></li>
 						<li><a href="#" class="category">Холодильное оборудование</a></li>
 						<li><a href="#" class="category">Посудомоечное оборудование</a></li>
