@@ -4,6 +4,14 @@
 @extends('left_sidebar')
 @extends('right_sidebar')
 
+{{--
+@section('meta')
+	<meta name='keywords' content="{{$item->title}}">
+	<meta name='description' content="{{$item->description}}">
+@stop 
+--}}
+
+
 @section('body')
 	<div class="main_content">
 		<ol class="breadcrumb">
