@@ -11,13 +11,13 @@ class Helper {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
 		static::$discount = Cred::getCred()['discount'];
 		static::$translit = [
-			'mehanicheskoe_en' => 'Механическое_en',
-			'teplovoe_en' => 'Тепловое_en',
-			'holodilnoe_en' => 'Холодильное_en',
+			'mehanicheskoe_en' 	=> 'Механическое_en',
+			'teplovoe_en' 		=> 'Тепловое_en',
+			'holodilnoe_en' 	=> 'Холодильное_en',
 			'posudomoechnoe_en' => 'Посудомоечное_en',
-			'mehanicheskoe_ru' => 'Механическое_ru',
-			'teplovoe_ru' => 'Тепловое_ru',
-			'holodilnoe_ru' => 'Холодильное_ru',
+			'mehanicheskoe_ru' 	=> 'Механическое_ru',
+			'teplovoe_ru' 		=> 'Тепловое_ru',
+			'holodilnoe_ru' 	=> 'Холодильное_ru',
 			'posudomoechnoe_ru' => 'Посудомоечное_ru'
 		];
 	}
