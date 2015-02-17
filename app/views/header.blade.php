@@ -38,7 +38,7 @@
 					{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
 				{{ Form::close() }}
 			</div>	
-		    <nav class="navbar navbar-inverse">
+		    <nav class="navbar navbar-inverse nav_header">
 				<ul class="nav navbar-nav">
 					<li class="@if ($env == 'catalog' || $env == 'byproducer' || $env == 'search') active @endif"><a href="/">Каталог</a></li>
 					<li class="@if ($env == 'price') active @endif"><a href="/price">Прайс-лист</a></li>

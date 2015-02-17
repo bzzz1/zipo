@@ -42,11 +42,11 @@ p,h1,h2,h3,h4,h5,a {
 .header_description_text {
 	font-size: 17px;
 }
-.navbar {
+.nav_header {
 	background-color: #6b1d23;
 	padding-left: 15%;
 }
-.navbar ul li {
+.nav_header ul li {
 	text-decoration: none;
 	list-style: none;
 	display: inline-block;
@@ -54,7 +54,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-weight: bold;
 	/*border-left: 2px solid #68373a;*/
 }
-.navbar ul li {
+.nav_header ul li {
   display: inline-block;
   position: relative;
   -webkit-transition-duration: 0.3s;
@@ -65,7 +65,7 @@ p,h1,h2,h3,h4,h5,a {
   transform: translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
-.navbar ul li:before {
+.nav_header ul li:before {
   pointer-events: none;
   position: absolute;
   z-index: -1;
@@ -82,7 +82,7 @@ p,h1,h2,h3,h4,h5,a {
   -webkit-transition-property: transform, opacity;
   transition-property: transform, opacity;
 }
-.navbar ul li:hover, .navbar ul li:focus, .navbar ul li.active {
+.nav_header ul li:hover, .nav_header ul li:focus, .nav_header ul li.active {
   -webkit-transform: translateY(-6px);
   transform: translateY(-6px);
   -webkit-animation-name: hover;
@@ -100,7 +100,7 @@ p,h1,h2,h3,h4,h5,a {
    -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-.navbar ul li:hover:before, .navbar ul li:focus:before, .navbar ul li.active:before {
+.nav_header ul li:hover:before, .nav_header ul li:focus:before, .nav_header ul li.active:before {
   opacity: .4;
   -webkit-transform: translateY(6px);
   transform: translateY(6px);
