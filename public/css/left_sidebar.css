@@ -28,6 +28,7 @@
 .left_sidebar_catalog_main_heading {
 	margin-top: 20px;
 	margin-bottom: 5px;
+	text-transform: uppercase;
 }
 .left_sidebar_heading {
 	text-decoration: underline;
@@ -38,9 +39,20 @@
 	padding-left: 15px;
 }
 .left_sidebar_categories li {
-	list-style: disk outside;
+	list-style: disk inside;
 	font-size: 14px;
+	font-weight: bold;
 }
 .left_sidebar_categories li a {
 	color: #292929;
+}
+.recent_link {
+	margin-top: 10px;
+}
+.recent_link:nth-child(2n+1) {
+	margin-right: 10px;
+}
+.recent {
+	width: 110px;
+	height: 110px;
 }
