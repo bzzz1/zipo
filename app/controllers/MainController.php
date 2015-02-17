@@ -194,8 +194,14 @@ class MainController extends BaseController {
 
 	public function order() {
 		$fields = Input::all();
+		$email = Input::get('email');
 
+		// send to admin
 		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email');
+
+		// send to user
+		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email_user', $email);
+
 		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}
 
