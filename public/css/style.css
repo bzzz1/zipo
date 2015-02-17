@@ -42,9 +42,15 @@ p,h1,h2,h3,h4,h5,a {
 .header_description_text {
 	font-size: 17px;
 }
+.navbar_wraper {
+	background-color: #6b1d23;
+}
 .nav_header {
 	background-color: #6b1d23;
-	padding-left: 15%;
+	/*padding-left: 15%;*/
+	display: table;
+	margin: auto;
+	border: 1px solid #6b1d23;
 }
 .nav_header ul li {
 	text-decoration: none;
@@ -52,7 +58,6 @@ p,h1,h2,h3,h4,h5,a {
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
-	/*border-left: 2px solid #68373a;*/
 }
 .nav_header ul li {
   display: inline-block;
