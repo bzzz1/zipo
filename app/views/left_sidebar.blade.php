@@ -2,10 +2,10 @@
 	<div class="left_sidebar">
 		<div class="container_sidebar">
 			{{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'form-inline left_sidebar_search')) }}
-				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control left_sidebar_search', 'id' =>'search']) }} 
+				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control left_sidebar_input', 'id' =>'search']) }} 
 			{{ Form::close() }}
 			<div class="left_sidebar_catalog">
-				<h3 class="left_sidebar_catalog">Каталог</h3>
+				<h3 class="left_sidebar_catalog_main_heading">Каталог</h3><br>
 				<h4 class="left_sidebar_heading">Импортное</h4>
 				<div class="left_sidebar_catalog_categories">
 					<ul class="left_sidebar_categories">
