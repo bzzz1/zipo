@@ -17,7 +17,6 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'about'
 		]);
 	}
@@ -92,9 +91,17 @@ class MainController extends BaseController {
 	}
 
 	public function items() {
+		$current = Subcat::getCurrentSubcat();
+		$current->category = Helper::getNormal($current->category);
+
+		$items = Item::getItemsForCatalog();
+		foreach ($items as $item) {
+			$item->category = Helper::getNormal($item->category);
+		}
+
 		return View::make('items')->with([
-			'items'     => Item::getItemsForCatalog(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'items'     => $items,
+			'current'	=> $current,
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -106,9 +113,13 @@ class MainController extends BaseController {
 
 	public function item() {
 		// Helper::storeRecents();
+
+		$item = Item::getItemById();
+		$item->category = Helper::getNormal($item->category);
+
 		return View::make('item')->with([
 			'same'		=> Item::getSameItems(),
-			'item'      => Item::getItemById(),
+			'item'      => $item,
 			'current'	=> Subcat::getCurrentSubcat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),

@@ -5,6 +5,12 @@ body {
 p,h1,h2,h3,h4,h5,a {
 	display: inline-block;
 }
+<<<<<<< HEAD
+.breadcrumb li a {
+	color: #6f2429;
+	
+}
+=======
 .prices_heading {
 font-size: 18px;
 font-weight: bold;
@@ -35,6 +41,7 @@ color: #6f2429;
 }
 
 
+>>>>>>> f6f0d51d75b6c62e468ae45b498b3aacd48af01d
 /*CONTAINERS*/
 .container_zipo {
 	width: 1150px;
@@ -42,6 +49,16 @@ color: #6f2429;
 	background: url(../img/markup/header_background.png);
 	background-repeat: no-repeat;
 	background-position: 342px 0px;
+}
+.main_content {
+	width: 600px;
+	display: inline-block;
+	height: 780px;
+	margin-top: 30px;
+	margin-left: 20px;
+	box-shadow: 2px 3px 7px #757171;
+	border-radius: 5px;
+	padding: 15px;
 }
 /*HEADER*/
 .header_top_hr {
@@ -92,7 +109,9 @@ color: #6f2429;
 	font-size: 18px;
 	font-weight: bold;
 }
+
 /*animation_nav*/
+
 .nav_header ul li {
   display: inline-block;
   position: relative;
@@ -166,7 +185,9 @@ color: #6f2429;
 .navbar ul li.active {
 	text-decoration: underline;
 }
+
 /*animation_nav_end*/
+
 .header_login {
 	display: none;
 }
@@ -232,6 +253,7 @@ form {
 	border-color: #cecece;
 	outline-color: #cecece;
 }
+/*PRICE*/
 
 /*CATALOG*/
 /*CATALOG_BRANDS*/
