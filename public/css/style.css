@@ -5,6 +5,36 @@ body {
 p,h1,h2,h3,h4,h5,a {
 	display: inline-block;
 }
+.prices_heading {
+font-size: 18px;
+font-weight: bold;
+color: #6b1d23;
+text-transform: uppercase;
+text-align: center;
+}
+.container_main {
+width: 1150px;
+margin: auto;
+}
+.main_content {
+width: 566px;
+display: inline-block;
+height: 780px;
+margin-top: 30px;
+box-shadow: 2px 3px 7px #757171;
+border-radius: 5px;
+padding: 10px;
+float: right;
+}
+.breadcrumb {
+background-color: rgba(255, 255, 255, 0);
+margin-bottom: 5px;
+}
+.breadcrumb li a {
+color: #6f2429;
+}
+
+
 /*CONTAINERS*/
 .container_zipo {
 	width: 1150px;
