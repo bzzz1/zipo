@@ -3,6 +3,8 @@
 	height: 100px;
 	padding-top: 17px;
 	background-color: #702329;
+	display: table;
+	width: 100%;
 }
 .logo_footer {
 	float: left;

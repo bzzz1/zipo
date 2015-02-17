@@ -9,3 +9,7 @@
 	float: right;
 	display: inline-block;
 }
+.article_minimage {
+	height: 110px;
+	width: 110px;
+}

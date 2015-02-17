@@ -24,7 +24,7 @@
 					</ul>	
 					<h4 class="left_sidebar_heading">Отечественное</h4>
 					<ul class="left_sidebar_categories">
-											<li>
+						<li>
 							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое_ru']), "Механическое оборудование") }}
 						</li>
 						<li>

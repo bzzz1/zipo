@@ -30,7 +30,7 @@
 				<p class="item_page_currency">{{$item->currency}}</p>
 			</div>
 			<div class="item_page_descript">
-				<img src="/img/photos/{{$item->photo}}" alt="{{$item->title}}" class="items_item_img">
+				{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
 				<table class="item_page_text">
 					<tr>
 						<td colspan='2'>Характеристики</td>
@@ -61,7 +61,7 @@
 				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
 			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
-			<a href="/feedback" class="item_more">Задать вопрос</a>
+			<a href="/contacts#contact_sorm_ancher" class="item_more">Задать вопрос</a>
 			<a href="/delivery" class="item_more">Условия доставки</a>
 
 
@@ -77,7 +77,7 @@
 							<p class="items_item_currency">{{$item->currency}}</p>
 						</div>
 						<div class="items_item_descript">
-							<img src="{{$item->photo}}" alt="{{$item->title}}" class="items_item_img">
+							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
 							<table class="items_item_text">
 								<tr>
 									<td colspan='2'>Характеристики</td>
@@ -95,6 +95,7 @@
 									<td>{{$item->subcat}}</td>
 								</tr>
 								<tr>
+									<td>Наличие:&nbsp</td>
 									@if ($item->procurement)
 										<td>В наличии</td>
 									@else	
@@ -103,7 +104,7 @@
 								</tr>
 							</table>
 						</div>
-						<a href="/{{$item->title}}" class="items_more"></a>
+		 				{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
 						<a href="/order?item_id={{ $item->item_id }}" class="items_order">Заказать</a>
 					</div>
 				@endforeach

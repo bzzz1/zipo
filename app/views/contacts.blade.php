@@ -10,7 +10,8 @@
 		  <li><a href="/">Главная</a></li>
 		  <li class="active">Контакты</li>
 		</ol>
-		<h2 class="about_heading">О Контакты</h2>
+		<h2 class="about_heading universal_heading">О Контакты</h2>
+		<hr class="main_hr">
 		<div class="about_text_block">
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
@@ -23,14 +24,13 @@
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, recusandae.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, unde!</p>
 		</div>
-	</div>
 	<p class="conacts_subheading">Если у вас остались вопросы - напишите нам.</p>
-	<div class="contacts_contact_form">
+	<div class="contacts_contact_form" id="contact_sorm_ancher">
 		{{ Form::open(['url'=>'/feedback', 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
 			<table>
 				<tr>
 					<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('name', null, ['class'=>'change_input']) }}</td>
+					<td>{{ Form::text('name', null, ['class'=>'change_input', 'required']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
@@ -42,7 +42,7 @@
 				</tr>
 				<tr>
 					<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('email', null, ['class'=>'change_input']) }}</td>
+					<td>{{ Form::text('email', null, ['class'=>'change_input', 'required']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
@@ -50,11 +50,12 @@
 				</tr>
 				<tr>
 					<td>{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('body', null, ['class'=>'change_input long_textarea']) }}</td>
+					<td>{{ Form::text('body', null, ['class'=>'change_input long_textarea', 'required']) }}</td>
 				</tr>
 			</table>
 			{{ Form::submit('Отправить', ['class'=>'submit_field save_button']) }} 
 		{{ Form::close() }}
+	</div>
 	</div>
 	<div id="map-container"></div>
 	<script>    
