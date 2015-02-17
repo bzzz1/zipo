@@ -6,7 +6,6 @@
 
 @section('body')
 	<div class="main_content">
-		
 		@if ($env=='specials')
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
@@ -16,12 +15,17 @@
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
-			  <li>{{HTML::link($HELP::url_slug(["category", "/", "$current->category"])."?subcat_id=$current->subcat_id", $current->category) }}</li>
+			  <li>
+			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"])."?subcat_id=$current->subcat_id")}}'> {{$HELP::getNormal($current->category)}}</a></li>
 			  <li class="active">{{$current->subcat}}</li>
 			</ol>
 			<h3 class="items_main_header">{{$current->category}}</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
 		@elseif ($env=='byproducer')
+			<ol class="breadcrumb">
+			  <li><a href="/">Каталог</a></li>
+			  <li class="active">{{$current->producer}}</li>
+			</ol>
 			<h3 class="items_main_header">{{$current->producer}}</h3>
 		@elseif ($env=='search')
 			<h3 class="items_main_header">Резуьтаты поиска: {{$current}}</h3>
@@ -45,12 +49,12 @@
 			</option>
 		</select>
 		@foreach ($items as $item)
-			<div class="items_item_one">
+			<div class="@if ($item->hit) item_hit @endif items_item_one">
 				<div class="items_item_heading">
 					<p class="items_item_name">{{$item->title}}</p>
 					<p class="items_item_code">{{$item->code}}</p>
 					@if (Auth::check())
-						<p class="items_item_price">{{($item->price)*0.7}}</p>
+						<p class="items_item_price">{{$HELP::discount_price($item->price)}}</p>
 					@else 
 						<p class="items_item_price">{{$item->price}}</p>
 					@endif
