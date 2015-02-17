@@ -13,7 +13,7 @@
 			</div>	
 			<div class="header_description">
 				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>
-				<p class="header_description_text">Оборудованиеб запчасти<br>
+				<p class="header_description_text">Оборудование и запчасти<br>
 				и комплектующие<br>для предприятий общественного <br> питания и торговли</p>
 			</div>	
 			<div class="header_reg_adn_log">

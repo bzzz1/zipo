@@ -57,6 +57,7 @@
 			{{ Form::close() }}
 		</div>
 		<div id="map-container"></div>
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script>    
           function init_map() {
             var var_location = new google.maps.LatLng(60.002168, 30.353743);
