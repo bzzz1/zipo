@@ -22,7 +22,7 @@
 				<p class="item_page_currency">{{$item->currency}}</p>
 			</div>
 			<div class="item_page_descript">
-				<img src="{{$item->photo}}" alt="{{$item->title}}" class="items_item_img">
+				<img src="/img/photos/{{$item->photo}}" alt="{{$item->title}}" class="items_item_img">
 				<table class="item_page_text">
 					<tr>
 						<td colspan='2'>Характеристики</td>
