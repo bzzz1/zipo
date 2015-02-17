@@ -6,7 +6,7 @@
 
 @section('body')
 	<div class="main_content">
-
+		
 		@if ($env=='specials')
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
@@ -49,7 +49,11 @@
 				<div class="items_item_heading">
 					<p class="items_item_name">{{$item->title}}</p>
 					<p class="items_item_code">{{$item->code}}</p>
-					<p class="items_item_price">{{$item->price}}</p>
+					@if (Auth::check())
+						<p class="items_item_price">{{($item->price)*0.7}}</p>
+					@else 
+						<p class="items_item_price">{{$item->price}}</p>
+					@endif
 					<p class="items_item_currency">{{$item->currency}}</p>
 				</div>
 				<div class="items_item_descript">
