@@ -147,7 +147,7 @@ class MainController extends BaseController {
 	public function byproducer() {
 		return View::make('items')->with([
 			'items'     => Item::getItemsByProducer(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'current'	=> Producer::getProducerById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -199,7 +199,16 @@ class MainController extends BaseController {
 	}
 
 	public function search() {
-		
+		return View::make('items')->with([
+			'items'     => Item::getItemsByQuery(),
+			'current'	=> Input::get('query'),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'search'
+		]);
 	}
 
 	public function logout() {

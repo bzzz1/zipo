@@ -22,8 +22,10 @@
 			<h3 class="items_main_header">{{$current->category}}</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
 		@elseif ($env=='byproducer')
-
-		@endif	
+			<h3 class="items_main_header">{{$current->producer}}</h3>
+		@elseif ($env=='search')
+			<h3 class="items_main_header">Резуьтаты поиска: {{$current}}</h3>
+		@endif
 
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>

@@ -16,4 +16,13 @@ class Producer extends Eloquent {
 		$producers = $producers->get();
 		return $producers;
 	}
+
+	public static function getProducerById() {
+		$producer_id = Input::get('producer_id');
+
+		$producer = new Producer;
+		$producer = $producer->where('producer_id', $producer_id);
+		$producer = $producer->first();
+		return $producer;
+	}
 }

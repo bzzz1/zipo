@@ -70,6 +70,22 @@ class Item extends Eloquent {
 
 		return $items;
 	}
+
+	public static function getItemsByQuery() {
+		$query = Input::get('query');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+		$pages_by = Input::get('order', '10');
+
+		$items = self::__items();
+		$items = $items->where('title', 'like', '%'.$query.'%');
+		$items = $items->orWhere('code', 'like', '%'.$query.'%');
+		$items = $items->orWhere('description', 'like', '%'.$query.'%');
+		$items = $items->orderBy($sort, $order);
+		$items = $items->paginate($pages_by);
+
+		return $items;
+	}
 }
 // 	public static function readItemsByBrands($type, $brand) {
 // 		$sort = Input::get('sort', 'item');

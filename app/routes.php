@@ -10,8 +10,6 @@ Route::get('/contacts', 'MainController@contacts');
 Route::get('/articles', 'MainController@articles');
 Route::get('/articles/{article_title}', 'MainController@article');
 Route::get('/category/{category}', 'MainController@category');
-Route::get('/{category}/{subcat}', 'MainController@items');
-Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 Route::get('/producers/{producer_title}', 'MainController@byproducer');
 Route::post('/user_login', 'MainController@user_login');
 Route::get('/registration', 'MainController@registration_page');
@@ -21,6 +19,8 @@ Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
 Route::get('/search/{query?}', 'MainController@search');
 Route::get('/logout', 'MainController@logout');
+Route::get('/{category}/{subcat}', 'MainController@items');
+Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 Route::get('/admin', 'AdminController@admin');
 Route::post('/admin_login', 'AdminController@admin_login');

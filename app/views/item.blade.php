@@ -50,7 +50,7 @@
 				</table>
 			</div>
 			<div class="item_page_descr">
-				<p class="item_page_descr_p">{{$item->descrtiption}}</p>
+				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
 			<div class="recommended">
 				<h4 class="item_page_recommended_heading">Рекоммендуемые товары</h4>
