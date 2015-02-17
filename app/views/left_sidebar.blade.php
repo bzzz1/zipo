@@ -46,9 +46,6 @@
 						<img src="/img/photos/{{$recent->photo}}" alt="{{$recent->title}}" class="recent">
 					</a>
 				@endforeach
-				<a href='#' class="recent_link">
-					<img src="/img/photos/no_photo.png" alt="{{$recent->title}}" class="recent">
-				</a>
 			</div>
 		</div>	
 	</div>	
