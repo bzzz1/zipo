@@ -40,9 +40,7 @@ class MainController extends BaseController {
 
 		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header("Content-disposition: attachment; filename=$prices[$price_id]");
-		/*------------------------------------------------
-		| LARAVEL SELF LOAD
-		------------------------------------------------*/
+		// LARAVEL SELF LOAD
 		// readfile($Helper::prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
 	}
 
@@ -59,7 +57,7 @@ class MainController extends BaseController {
 
 	public function specials() {
 		return View::make('items')->with([
-			'items'     => [],
+			'items'     => Item::getSpecialItems(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -159,6 +157,14 @@ class MainController extends BaseController {
 		
 	}
 
+	public function logout() {
+		
+	}
+
+	public function registration() {
+		
+	}
+
 	public function registration_page() {
 		return View::make('registration')->with([
 			'articles'	=> Article::readAllArticles(),
@@ -167,10 +173,6 @@ class MainController extends BaseController {
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
 		]);
-	}
-
-	public function registration() {
-		
 	}
 
 	public function feedback() {
@@ -198,7 +200,6 @@ class MainController extends BaseController {
 
 		// send to admin
 		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email');
-
 		// send to user
 		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email_user', $email);
 
@@ -217,11 +218,6 @@ class MainController extends BaseController {
 			'env' 		=> 'search'
 		]);
 	}
-
-	public function logout() {
-		
-	}
-	
 
 
 
