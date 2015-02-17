@@ -7,7 +7,9 @@
 					<p class="header_phone">тел. 8 (812) 982 33 54</p><br>
 					<p class="header_phone">тел. 8 (812) 982 33 54</p>
 				</div>	
-				{{ HTML::image("img/markup/logo.png", "logo", ['class'=>'logo_header']) }}
+				<a href="/" class="logo_header">
+					{{ HTML::image("img/markup/logo.png", "logo", ['class'=>'logo_header']) }}
+				</a>	
 			</div>	
 			<div class="header_description">
 				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>

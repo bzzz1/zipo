@@ -5,10 +5,17 @@ class Helper {
 	// can't use function calls here!!!
 	public static $prices_dir; 
 	public static $discount;
+	public static $categories;	
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
 		static::$discount = Cred::getCred()['discount'];
+		static::$categories = [
+			'mehanicheskoe' => 'Механическое',
+			'teplovoe' => 'Тепловое',
+			'holodilnoe' => 'Холодильное',
+			'posudomoechnoe' => 'Посудомоечное',
+		];
 	}
 
 	private static function tofloat($num) {

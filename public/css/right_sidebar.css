@@ -1,0 +1,11 @@
+.right_sidebar {
+	width: 260px;
+	height: 780px;
+	margin-top: 30px;
+	margin-left: 20px;
+	box-shadow: 2px 3px 7px #757171;
+	border-radius: 5px;
+	padding: 15px;
+	float: right;
+	display: inline-block;
+}
