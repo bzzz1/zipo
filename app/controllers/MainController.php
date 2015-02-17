@@ -17,7 +17,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'about'
 		]);
 	}
@@ -29,7 +29,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'price'
 		]);
 	}
@@ -50,7 +50,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'delivery'
 		]);
 	}
@@ -62,7 +62,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'specials'
 		]);
 	}
@@ -73,20 +73,19 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'contacts'
 		]);
 	}
 
-	public function category() {
+	public function category($category) {
 		return View::make('one_category')->with([
-			'items'     => Item::getItemsForCatalog(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'subcats'	=> Subcat::getSubcatsByCategory($category),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog'
 		]);
 	}
@@ -99,7 +98,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog'
 		]);
 	}
@@ -114,7 +113,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog'
 		]);
 	}
@@ -125,7 +124,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 		]);
 	}
 
@@ -136,7 +135,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 		]);
 	}
 
@@ -148,7 +147,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'byproducer'
 		]);
 	}
@@ -171,7 +170,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 		]);
 	}
 
@@ -190,7 +189,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 		]);
 	}
 
@@ -214,7 +213,7 @@ class MainController extends BaseController {
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
-			'subcats'   => Subcat::readAllSubcats(),
+			// 'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'search'
 		]);
 	}
