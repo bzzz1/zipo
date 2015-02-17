@@ -15,6 +15,7 @@ p,h1,h2,h3,h4,h5,a {
 	color: #6b1d23;
 	border: 6px solid #6b1d23;
 	margin-bottom: 10px;
+	margin-top: 10px;
 }
 .header_right {
 	display: inline-block;
@@ -48,7 +49,6 @@ p,h1,h2,h3,h4,h5,a {
 }
 .nav_header {
 	background-color: #6b1d23;
-	/*padding-left: 15%;*/
 	display: table;
 	margin: auto;
 	border: 1px solid #6b1d23;
@@ -60,6 +60,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-size: 18px;
 	font-weight: bold;
 }
+/*animation_nav*/
 .nav_header ul li {
   display: inline-block;
   position: relative;
@@ -131,20 +132,23 @@ p,h1,h2,h3,h4,h5,a {
 	color: #cecece;
 }
 .navbar ul li.active {
-	text-decoration: underline;`
+	text-decoration: underline;
 }
+/*animation_nav_end*/
 .header_login {
-	display: none;
+	/*display: none;*/
 }
 .login_form_input {
 	border-radius: 4px;
 	outline-color: #cecece;
+	margin-top: 10px;
 }
 .submit_field {
 	color: #333;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	margin-left: 13px;
 }
 .submit_field:hover,
 .submit_field:focus,
@@ -167,11 +171,6 @@ form {
 }
 .reg_button {
 	padding: 0;
-}
-.register_a, .register_a:hover  {
-	/*padding: 6px 13px;*/
-	text-decoration: none;
-	color: inherit;
 }
 .header_reg_adn_log {
 	float: right;

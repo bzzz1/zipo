@@ -158,14 +158,4 @@
 			</div><!-- brands -->
 		</div> <!-- groups  -->
 	</div>
-	
-	<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
-	<select name="items_sort" id="items_sort">
-		<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
-			по имени(а-я)
-		</option>
-		<option data-link="{{URL::current().'?'.$q.'&sort=item&order=desc'}}">
-			по имени(z-a)
-		</option>
-	</select>
 @stop
