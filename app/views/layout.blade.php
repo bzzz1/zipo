@@ -29,9 +29,7 @@
 		@yield('body')
 	</div>	
 
-	<div class="footer_absolute">
-		@yield('footer')
-	</div>
+	@yield('footer')
 
 	{{ HTML::script('js/jquery.columnizer.js') }}
 	{{ HTML::script('js/script.js') }}
