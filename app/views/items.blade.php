@@ -22,8 +22,10 @@
 			<h3 class="items_main_header">{{$current->category}}</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
 		@elseif ($env=='byproducer')
-
-		@endif	
+			<h3 class="items_main_header">{{$current->producer}}</h3>
+		@elseif ($env=='search')
+			<h3 class="items_main_header">Резуьтаты поиска: {{$current}}</h3>
+		@endif
 
 		<hr class="main_hr">
 		<p class="items sort_by">Сортировать по: </p>
@@ -79,7 +81,7 @@
 					</table>
 				</div>
 		 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
-				<a href="/order" class="items_order">Заказать</a>
+				<a href="/order?item_id={{ $item->item_id }}" class="items_order">Заказать</a>
 			</div>
 		@endforeach
 		<div class="catalog_bottom_pages">

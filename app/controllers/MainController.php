@@ -128,7 +128,6 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> ''
 		]);
 	}
 
@@ -140,14 +139,13 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env' 		=> ''
 		]);
 	}
 
 	public function byproducer() {
 		return View::make('items')->with([
 			'items'     => Item::getItemsByProducer(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'current'	=> Producer::getProducerById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'user'		=> Auth::attempt() ? Auth::user() : [],
@@ -168,7 +166,6 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env'		=> ''
 		]);
 	}
 
@@ -177,7 +174,11 @@ class MainController extends BaseController {
 	}
 
 	public function feedback() {
-		
+		$fields = Input::all();
+		$subject = Input::get('theme');
+
+		Helper::sendMail($fields, $subject, 'emails.feedback_email');
+		return Redirect::to('/')->with('message', 'Ваш письмо отправлено!');
 	}
 
 	public function order_page() {
@@ -188,18 +189,27 @@ class MainController extends BaseController {
 			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
-			'env'		=> ''
 		]);
 	}
 
 	public function order() {
 		$fields = Input::all();
 
-		
+		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email');
+		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}
 
 	public function search() {
-		
+		return View::make('items')->with([
+			'items'     => Item::getItemsByQuery(),
+			'current'	=> Input::get('query'),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'user'		=> Auth::attempt() ? Auth::user() : [],
+			'producers' => Producer::readAllProducers(),
+			'subcats'   => Subcat::readAllSubcats(),
+			'env' 		=> 'search'
+		]);
 	}
 
 	public function logout() {

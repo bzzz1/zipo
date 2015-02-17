@@ -50,10 +50,16 @@
 				</table>
 			</div>
 			<div class="item_page_descr">
-				<p class="item_page_descr_p">{{$item->descrtiption}}</p>
+				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
+			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
+			<a href="/feedback" class="item_more">Задать вопрос о товаре</a>
+			<a href="/delivery" class="item_more">Условия доставки</a>
+
+
+
 			<div class="recommended">
-				<h4 class="item_page_recommended_heading">Рекоммендуемые товары</h4>
+				<h4 class="item_page_recommended_heading">Похожие товары</h4>
 				@foreach ($same as $item)
 					<div class="items_item_one">
 						<div class="items_item_heading">
@@ -87,14 +93,10 @@
 							</table>
 						</div>
 						<a href="/{{$item->title}}" class="items_more"></a>
-
-						<a href="/order" class="items_order">Заказать</a>
+						<a href="/order?item_id={{ $item->item_id }}" class="items_order">Заказать</a>
 					</div>
 				@endforeach
 			</div>	
 		</div>
-		<a href="/feedback" class="item_more">Задать вопрос о товаре</a>
-		<a href="/delivery" class="item_more">Условия доставки</a>
-		<a href="/order" class="item_order">Заказать</a>
 	</div>	
 @stop
