@@ -10,31 +10,31 @@
 				<div class="left_sidebar_catalog_categories">
 					<ul class="left_sidebar_categories">
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое_en']), "Механическое оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое']), "Механическое оборудование") }}
 						</li>
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Тепловое_en']), "Тепловое оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Тепловое']), "Тепловое оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное_en']), "Холодильное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное']), "Холодильное оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное_en']), "Посудомоечное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное']), "Посудомоечное оборудование") }}
 						</li>	
 					</ul>	
 					<h4 class="left_sidebar_heading">Отечественное</h4>
 					<ul class="left_sidebar_categories">
 											<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое_ru']), "Механическое оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое']), "Механическое оборудование") }}
 						</li>
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Тепловое_ru']), "Тепловое оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Тепловое']), "Тепловое оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное_ru']), "Холодильное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное']), "Холодильное оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное_ru']), "Посудомоечное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное']), "Посудомоечное оборудование") }}
 						</li>
 					</ul>	
 				</div>
@@ -46,9 +46,6 @@
 						<img src="/img/photos/{{$recent->photo}}" alt="{{$recent->title}}" class="recent">
 					</a>
 				@endforeach
-				<a href='#' class="recent_link">
-					<img src="/img/photos/no_photo.png" alt="{{$recent->title}}" class="recent">
-				</a>
 			</div>
 		</div>	
 	</div>	

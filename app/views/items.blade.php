@@ -16,7 +16,7 @@
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
 			  <li>
-			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"])."?subcat_id=$current->subcat_id")}}'> {{$HELP::getNormal($current->category)}}</a></li>
+			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"])."?subcat_id=$current->subcat_id")}}'> {{$current->category}}</a></li>
 			  <li class="active">{{$current->subcat}}</li>
 			</ol>
 			<h3 class="items_main_header">{{$current->category}}</h3>

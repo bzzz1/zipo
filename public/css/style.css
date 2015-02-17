@@ -5,6 +5,27 @@ body {
 p,h1,h2,h3,h4,h5,a {
 	display: inline-block;
 }
+.prices_heading {
+font-size: 18px;
+font-weight: bold;
+color: #6b1d23;
+text-transform: uppercase;
+text-align: center;
+}
+.container_main {
+width: 1150px;
+margin: auto;
+}
+.main_content {
+width: 566px;
+display: inline-block;
+height: 780px;
+margin-top: 30px;
+box-shadow: 2px 3px 7px #757171;
+border-radius: 5px;
+padding: 10px;
+float: right;
+}
 .breadcrumb {
 	background-color: rgba(255, 255, 255, 0);
 	margin-bottom: 5px;
@@ -36,6 +57,15 @@ p,h1,h2,h3,h4,h5,a {
 .container_main {
 	width: 1150px;
 	margin: auto;
+.main_content {
+	width: 600px;
+	display: inline-block;
+	height: 780px;
+	margin-top: 30px;
+	margin-left: 20px;
+	box-shadow: 2px 3px 7px #757171;
+	border-radius: 5px;
+	padding: 15px;
 }
 /*HEADER*/
 .header_top_hr {
@@ -86,7 +116,9 @@ p,h1,h2,h3,h4,h5,a {
 	font-size: 18px;
 	font-weight: bold;
 }
+
 /*animation_nav*/
+
 .nav_header ul li {
   display: inline-block;
   position: relative;
@@ -160,7 +192,9 @@ p,h1,h2,h3,h4,h5,a {
 .navbar ul li.active {
 	text-decoration: underline;
 }
+
 /*animation_nav_end*/
+
 .header_login {
 	display: none;
 }
@@ -262,6 +296,9 @@ form {
 .price_load a:hover {
 	text-decoration: none;
 }
+=======
+/*PRICE*/
+
 /*CATALOG*/
 /*CATALOG_BRANDS*/
 /**************
