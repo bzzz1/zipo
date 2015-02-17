@@ -23,9 +23,11 @@
 </head>
 <body>
 	@yield('header')
-	@yield('left_sidebar')
-	@yield('right_sidebar')
-	@yield('body')
+	<div class="container_main">
+		@yield('left_sidebar')
+		@yield('right_sidebar')
+		@yield('body')
+	</div>	
 
 	<div class="footer_absolute">
 		@yield('footer')
