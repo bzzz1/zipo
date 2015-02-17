@@ -44,6 +44,7 @@ p,h1,h2,h3,h4,h5,a {
 }
 .navbar_wraper {
 	background-color: #6b1d23;
+	margin-top: 20px;
 }
 .nav_header {
 	background-color: #6b1d23;
