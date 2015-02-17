@@ -1,4 +1,6 @@
 .left_sidebar {
+	position: fixed;
+	top: 300px;
 	width: 260px;
 	height: 780px;
 	margin-top: 30px;
