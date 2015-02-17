@@ -40,4 +40,14 @@ class Subcat extends Eloquent {
 		$cur_subcat = $cur_subcat->first();
 		return $cur_subcat;
 	}
+
+	public static function getSubcatsByCategory($category) {
+		$category_fixed = Helper::$translit[$category];
+
+		$subcats = new Subcat;
+		$subcats = $subcats->where('category', $category_fixed);
+		$subcats = $subcats->get();
+		
+		return $subcats;
+	}
 }
