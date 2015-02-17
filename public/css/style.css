@@ -9,6 +9,9 @@ p,h1,h2,h3,h4,h5,a {
 .container_zipo {
 	width: 1150px;
 	margin: auto;
+	background: url(../img/markup/header_background.png);
+	background-repeat: no-repeat;
+	background-position: 342px 0px;
 }
 /*HEADER*/
 .header_top_hr {
@@ -45,7 +48,6 @@ p,h1,h2,h3,h4,h5,a {
 }
 .navbar_wraper {
 	background-color: #6b1d23;
-	margin-top: 20px;
 }
 .nav_header {
 	background-color: #6b1d23;
@@ -136,19 +138,24 @@ p,h1,h2,h3,h4,h5,a {
 }
 /*animation_nav_end*/
 .header_login {
-	/*display: none;*/
+	display: none;
 }
 .login_form_input {
 	border-radius: 4px;
 	outline-color: #cecece;
 	margin-top: 10px;
+	margin-right: 10px;
 }
+.login_form {
+	margin-right: 10px;
+}
+
 .submit_field {
 	color: #333;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	margin-left: 13px;
+	/*margin-left: 13px;*/
 }
 .submit_field:hover,
 .submit_field:focus,
@@ -175,20 +182,25 @@ form {
 .header_reg_adn_log {
 	float: right;
 	display: inline-block;
-	width: 234px;
 	margin-top: 10px;
 }
 .header_search {
-	margin-top: 50px;
+	position: absolute;
+	top: 145px;
+	right: 155px;
 	width: 225px;
+}
+.header_search:focus {
+	outline-color: #cecece;
+	border-color: #cecece;
 }
 .input_search {
 	width: 225px;
 	height: 45px;
-	outline-color: #cecece;
 }
-.input_search:active {
+.input_search:focus {
 	border-color: #cecece;
+	outline-color: #cecece;
 }
 
 /*CATALOG*/
