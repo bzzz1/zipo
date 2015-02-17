@@ -1,7 +1,7 @@
 @section('footer')
 	<div class="full_screen">	
 		<div class="container_zipo">
-		{{ HTML::image("img/markup/footer_logo.png", "logo", ['class'=>'logo_footer']) }}
+		{{ HTML::image("img/markup/logo_footer.jpg", "logo", ['class'=>'logo_footer']) }}
 			<nav class="nav_footer">
 				<ul class=" nav_footer_ul">
 					<li class="@if ($env == 'catalog' || $env == 'byproducer' || $env == 'search') active @endif"><a href="/">Каталог</a></li>

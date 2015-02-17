@@ -53,7 +53,7 @@
 				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
 			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
-			<a href="/feedback" class="item_more">Задать вопрос о товаре</a>
+			<a href="/feedback" class="item_more">Задать вопрос</a>
 			<a href="/delivery" class="item_more">Условия доставки</a>
 
 
