@@ -3,6 +3,7 @@ class BaseController extends Controller {
 
 	public function __construct() {
 		View::share('HELP', new Helper);
+		View::share('env', '');
 	}
 
 	/**

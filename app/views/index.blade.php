@@ -5,6 +5,10 @@
 @extends('right_sidebar')
  
 @section('body')
+	@if (Session::get('message'))
+		<p style='color: rgb(0,255,0)'>{{ Session::get('message') }}</p>
+	@endif
+
 	<div class="main_content">
 		<div class="headings">
 			<p class="catalog_heding">Каталог продукции</p>

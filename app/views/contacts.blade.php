@@ -26,40 +26,35 @@
 	</div>
 	<p class="conacts_subheading">Если у вас остались вопросы - напишите нам.</p>
 	<div class="contacts_contact_form">
-		{{ Form::open(['url'=>'admin/info/updateArticle', 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
-				<table>
-					<tr>
-						<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('name', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('surname', 'Фамилия: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::textarea('name', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('company', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('phone', 'Контактный телефон: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('phone', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('email', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('theme', null, ['class'=>'change_input']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('body', null, ['class'=>'change_input long_textarea']) }}</td>
-					</tr>
-				</table>
-				{{ Form::submit('Отправить', ['class'=>'submit_field save_button']) }} 
-			{{ Form::close() }}
-		</div>
+		{{ Form::open(['url'=>'/feedback', 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
+			<table>
+				<tr>
+					<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('name', null, ['class'=>'change_input']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('company', null, ['class'=>'change_input']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('phone', 'Контактный телефон: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('phone', null, ['class'=>'change_input']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('email', null, ['class'=>'change_input']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('theme', null, ['class'=>'change_input']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('body', null, ['class'=>'change_input long_textarea']) }}</td>
+				</tr>
+			</table>
+			{{ Form::submit('Отправить', ['class'=>'submit_field save_button']) }} 
+		{{ Form::close() }}
 	</div>
 	<div id="map-container"></div>
 	<script>    

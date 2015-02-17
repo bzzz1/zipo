@@ -59,7 +59,7 @@
 
 
 			<div class="recommended">
-				<h4 class="item_page_recommended_heading">Рекоммендуемые товары</h4>
+				<h4 class="item_page_recommended_heading">Похожие товары</h4>
 				@foreach ($same as $item)
 					<div class="items_item_one">
 						<div class="items_item_heading">
