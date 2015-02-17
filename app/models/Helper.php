@@ -200,7 +200,7 @@ class Helper {
 		return $normal;
 	}
 
-	public static function sendMail($data, $subject, $view) {
+	public static function sendMail($data, $subject, $view, $email='beststrelok@gmail.com') {
 		$mail = new PHPMailer;
 		$mail->CharSet = "UTF-8";
 
@@ -215,7 +215,7 @@ class Helper {
 		// $mail->From = 'sportsecretshop@gmail.com';
 		$mail->From = 'ZIPO';
 		$mail->FromName = 'Zipo';
-		$mail->addAddress('beststrelok@gmail.com'); // Add a recipient
+		$mail->addAddress($email); // Add a recipient
 		// $mail->addAddress('ellen@example.com'); // Name is optional
 		// $mail->addReplyTo('info@example.com', 'Information');
 		// $mail->addCC('cc@example.com');
