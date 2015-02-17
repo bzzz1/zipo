@@ -17,10 +17,11 @@
 			<div class="header_reg_adn_log">
 				@if (Auth::check())
 					<p class="header_login">Вы вошли как {{--$user->email--}}</p>
+					<a href="/" class="header_exit_button"></a>
 				@else 
 					<div class="btn-group btn-group-lg register" role="group" aria-label="reg">
 						<button type="button" class="btn btn-default">Войти</button>
-						<button type="button" class="btn btn-default reg_button"><a href="/registration" class="register_a">Регистрация</a></button>
+						<a href="/registration" class="btn btn-default reg_button">Регистрация</a>
 					</div>
 					<div class="header_login">
 						@if (isset($error))
