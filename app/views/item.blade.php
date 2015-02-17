@@ -95,8 +95,11 @@
 									<td>{{$item->subcat}}</td>
 								</tr>
 								<tr>
-									<td>Наличие:&nbsp</td>
-									<td>{{$item->procurement}}</td>
+									@if ($item->procurement)
+										<td>В наличии</td>
+									@else	
+										<td>Под заказ</td>
+									@endif
 								</tr>
 							</table>
 						</div>

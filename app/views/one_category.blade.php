@@ -6,7 +6,7 @@
 
 @section('body')
 	<div class="main_content">
-		<h2 class="one_category_heading">{{ $HELP::getNormal($HELP::$translit[Request::segment(2)]) }} оборудование</h2>
+		<h2 class="one_category_heading universal_heading">{{ $HELP::getNormal($HELP::$translit[Request::segment(2)]) }} оборудование</h2>
 		<hr class="main_hr">
 		@foreach ($subcats as $subcat)
 			<ul class="subcats">
