@@ -11,7 +11,7 @@
 		  <li><a href="/articles">Новости</a></li>
 		  <li class="active">{{ $article->title }}</li>
 		</ol>
-		<h3 class="article_main_header">Новости</h3>
+		<h3 class="article_main_header universal_heading">Новости</h3>
 		<p class="article_heading">{{ $article->title }}</p>
 		<p class="article_date">{{ $article->time }}</p>
 		{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'article_minimg']) }}

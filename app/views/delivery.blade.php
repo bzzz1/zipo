@@ -10,7 +10,8 @@
 		  <li><a href="/">Главная</a></li>
 		  <li class="active">Доставка</li>
 		</ol>
-		<h2 class="about_heading">Доставка</h2>
+		<h2 class="about_heading universal_heading">Доставка</h2>
+		<hr class="main_hr">
 		<div class="about_text_block">
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>

@@ -11,7 +11,7 @@
 			  <li><a href="/">Каталог</a></li>
 			  <li class="active">Спецпредложения</li>
 			</ol>
-			<h3 class="items_main_header">Спецпредложения</h3>
+			<h3 class="items_main_header universal_heading">Спецпредложения</h3>
 		@elseif ($env=='catalog')	
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
