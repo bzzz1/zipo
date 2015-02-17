@@ -81,7 +81,7 @@
 					</table>
 				</div>
 		 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
-				<a href="/order" class="items_order">Заказать</a>
+				<a href="/order?item_id={{ $item->item_id }}" class="items_order">Заказать</a>
 			</div>
 		@endforeach
 		<div class="catalog_bottom_pages">

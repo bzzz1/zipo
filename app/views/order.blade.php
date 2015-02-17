@@ -6,7 +6,7 @@
 
 @section('body')
 	<div class="main_content">
-		<h2 class="order_heading">Заказать</h2>
+		<h2 class="order_heading">Форма заказа</h2>
 		<hr class="main_hr">
 		{{ Form::model($item, ['url'=>['/order'], 'method'=>'POST', 'class'=>'item_form']) }}
 			<table>
@@ -19,8 +19,8 @@
 					<td>{{ Form::textarea('surname', null, ['class'=>'change_input', 'ng-model'=>'element.surname', 'required']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('item_title', 'Наименование: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('item_title', null, ['class'=>'change_input change_input_short', 'ng-model'=>'element.item_title', 'required']) }}</td>
+					<td>{{ Form::label('title', 'Наименование: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('title', null, ['class'=>'change_input change_input_short', 'ng-model'=>'element.item_title', 'required']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('code', 'Код: ', ['class'=>'main_label']) }}</td>
