@@ -297,10 +297,7 @@ form {
 	margin-bottom: 30px;
 	margin-right: 35px;
 }
-.catalog_foreing :last-child {
-	margin-right: 0;
-}
-.catalog_russian :last-child {
+.posud_catedory {
 	margin-right: 0;
 }
 .catalog_category_img {
@@ -315,15 +312,24 @@ form {
 	margin-bottom: 0;
 	margin-left: 5px;
 }
+.subcategory_block{
+	width: 100%;
+	border-left: solid 3px #6b1d23;
+	padding-left: 15px;
+	margin-top: -16px;
+	margin-bottom: 25px;
+	display: none;
+}
 .subcategory_column {
+	width: 97%;
 	display: inline-block;
 	background-color: #f6e8ea;
-	padding: 15px 20px 15px 3px;
+	padding: 15px 112px 15px 3px;
 }
-.subcategory_left {
+.subcategory_left, .producers_list {
 	float: left;
 }
-.subcategory_right {
+.subcategory_right, .producers_right {
 	float: right;
 }
 .subcategory_column ul {
@@ -336,15 +342,12 @@ form {
 .subcategory_column a:hover {
 	text-decoration: underline;
 } 
-.subcategory_block{
-	border-left: solid 3px #6b1d23;
-	padding-left: 15px;
-	margin-left: 110px;
-	margin-top: 25px;
-}
 .subheading_brands {
 	margin-left: 395px;
 	float: none;
+}
+.groups {
+	padding: 10px 90px 20px 10px;
 }
 .producers_list {
 	list-style: none;
@@ -354,8 +357,10 @@ form {
 	text-decoration: underline;
 	font-weight: bold;
 }
-
 /*TEMP*/
+.sub_1 {
+	display: block;
+}
 
 
 
