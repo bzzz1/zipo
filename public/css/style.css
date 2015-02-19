@@ -315,6 +315,29 @@ form {
 	margin-bottom: 0;
 	margin-left: 5px;
 }
+.subcategory_column {
+	display: inline-block;
+	background-color: #f6e8ea;
+	padding: 15px 20px 15px 3px;
+	max-height: 190px;
+	max-width: 260px;
+}
+.subcategory_column ul {
+	padding-left: 20px;
+}
+.subcategory_column a {
+	color: black;
+	text-decoration: none;
+}
+.subcategory_column a:hover {
+	text-decoration: underline;
+} 
+.subcategory_block{
+	border-left: solid 3px #6b1d23;
+	padding-left: 15px;
+	margin-left: 110px;
+	margin-top: 25px;
+}
 .subheading_brands {
 	margin-left: 395px;
 	float: none;
@@ -329,9 +352,6 @@ form {
 }
 
 /*TEMP*/
-.subcategory_block {
-	display: none;
-}
 
 
 
