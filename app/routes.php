@@ -1,5 +1,6 @@
 <?php
 
+// Main Controller
 Route::get('/', 'MainController@index');
 Route::get('/about', 'MainController@about');
 Route::get('/price', 'MainController@price');
@@ -18,37 +19,40 @@ Route::post('/feedback', 'MainController@feedback');
 Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
 Route::get('/search/{query?}', 'MainController@search');
-Route::get('/logout', 'MainController@logout');
+Route::get('/user_logout', 'MainController@user_logout');
+
+// Admin Controller
+Route::get('/admin', 'AdminController@admin');
+Route::post('/login_validate', 'AdminController@admin_login');
+Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
+	Route::get('/admin_logout', 'AdminController@admin_logout');
+	// Route::get('/catalog', 'AdminController@catalog');
+	// Route::get('/articles', 'AdminController@articles');
+	// Route::post('/import', 'AdminController@import');
+	// Route::post('/set_discount', 'AdminController@set_discount');
+	// Route::get('/search/{query}', 'AdminController@search');
+	// Route::get('/items', 'AdminController@items');
+	// Route::get('/articles/{article_id}', 'AdminController@article');
+	// Route::get('/change_item/{item_id}', 'AdminController@change_item');
+	// Route::post('/update_item', 'AdminController@update');
+	// Route::get('/change_article/{article_id}', 'AdminController@change_article');
+	// Route::post('/update_article', 'AdminController@update_article');
+	// Route::post('/subcategories', 'AdminController@subcategories');
+	// Route::post('/delete_item/{item_code}', 'AdminController@delete_item');
+	// Route::post('/delete_article/{article_id}', 'AdminController@delete_article');
+	// Route::post('/delete_subcat/{subcat_id}', 'AdminController@delete_subcat');
+	// Route::post('/delete_producer/{producer_id}', 'AdminController@delete_producer');
+	// Route::post('/change_subcat', 'AdminController@change_subcat');
+	// Route::post('/change_producer', 'AdminController@change_producer');
+	// Route::post('/ajax_change_subcat', 'AdminController@ajax_change_subcat');
+	// Route::post('/ajax_set_special', 'AdminController@ajax_set_special');
+	// Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
+	// Route::post('/ajax_delete', 'AdminController@ajax_delete');
+	// Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
+});
+
 Route::get('/{category}/{subcat}', 'MainController@items');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
-
-Route::get('/admin', 'AdminController@admin');
-Route::post('/admin_login', 'AdminController@admin_login');
-Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
-	Route::get('/catalog', 'AdminController@catalog');
-	Route::get('/articles', 'AdminController@articles');
-	Route::post('/import', 'AdminController@import');
-	Route::post('/set_discount', 'AdminController@set_discount');
-	Route::get('/search/{query}', 'AdminController@search');
-	Route::get('/items', 'AdminController@items');
-	Route::get('/articles/{article_id}', 'AdminController@article');
-	Route::get('/change_item/{item_id}', 'AdminController@change_item');
-	Route::post('/update_item', 'AdminController@update');
-	Route::get('/change_article/{article_id}', 'AdminController@change_article');
-	Route::post('/update_article', 'AdminController@update_article');
-	Route::post('/subcategories', 'AdminController@subcategories');
-	Route::post('/delete_item/{item_code}', 'AdminController@delete_item');
-	Route::post('/delete_article/{article_id}', 'AdminController@delete_article');
-	Route::post('/delete_subcat/{subcat_id}', 'AdminController@delete_subcat');
-	Route::post('/delete_producer/{producer_id}', 'AdminController@delete_producer');
-	Route::post('/change_subcat', 'AdminController@change_subcat');
-	Route::post('/change_producer', 'AdminController@change_producer');
-	Route::post('/ajax_change_subcat', 'AdminController@ajax_change_subcat');
-	Route::post('/ajax_set_special', 'AdminController@ajax_set_special');
-	Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
-	Route::post('/ajax_delete', 'AdminController@ajax_delete');
-	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
-});
 
 App::missing(function($exception) {
 	return Redirect::to('/');

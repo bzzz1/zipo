@@ -1,4 +1,7 @@
 <?php 
+// test user login 
+// email 	= vasiliyvertex@gmail.com
+// password = vertex
 
 private function overall() {
 // <-$user_id from session

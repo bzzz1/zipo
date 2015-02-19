@@ -1,4 +1,4 @@
-/*GENERAL*/
+GENERAL*/
 body {
 	font-family: Arial, sans-serif;
 }
@@ -284,3 +284,59 @@ form {
 }
 
 /*CATALOG_BRANDS*/
+
+
+/*------------------------------------------------
+| ADMIN LOGIN
+------------------------------------------------*/
+/*.admin_title {
+	display: inline-block;
+	color: #008ccb;
+	margin-left: 85px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	font-size: 27px;
+	margin-left: 20px;
+}
+.logout_button {
+	background: #4D4D4D;
+	padding: 5px 10px;
+	font-size: 20px;
+	border-radius: 10px;
+	color: white;
+}
+.logout_button:hover {
+	color: white;
+}*/
+.login_section {
+	height: 700px;
+	display: table;
+	margin: auto;
+}
+.login_section h2.admin_area {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.login_section img.admin_warning {
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+}
+.login_section input.admin_input {
+	width: 300px;
+	font-size: 24px;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.login_section input.login_button {
+	width: 100px;
+	margin: auto;
+	margin-top: 40px;
+	font-weight: bold;
+}
+/*------------------------------------------------
+| END ADMIN LOGIN
+------------------------------------------------

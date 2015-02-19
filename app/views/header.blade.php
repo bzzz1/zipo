@@ -17,9 +17,9 @@
 				и комплектующие<br>для предприятий общественного <br> питания и торговли</p>
 			</div>	
 			<div class="header_reg_adn_log">
-				@if (Auth::check())
-					<p class="header_login">Вы вошли как {{--$user->email--}}</p>
-					<a href="/" class="header_exit_button"></a>
+				@if (Auth::user()->check())
+					<p class="user_email">Вы вошли как: </br> {{ Auth::user()->get()->email }}</p>
+					{{ HTML::link('/user_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
 				@else 
 					<div class="btn-group btn-group-lg register" role="group" aria-label="reg">
 						<button type="button" class="btn btn-default">Войти</button>
