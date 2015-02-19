@@ -1,4 +1,4 @@
-/*GENERAL*/
+GENERAL*/
 body {
 	font-family: Arial, sans-serif;
 }
@@ -267,6 +267,99 @@ form {
 	text-decoration: none;
 }
 /*CATALOG*/
+.catalog_heding {
+	margin-top: 25px;
+	margin-bottom: 1px;
+}
+.catalog_subheading {
+	font-weight: bold;
+	padding: 9px 8px 4px 9px;
+	float: right;
+	margin-bottom: auto;
+	margin-top: 17px;
+	color: #fff;
+	background-color: #6b1d23;
+	border-top: 1px solid #6b1d23;
+	border-radius: 5px 5px 0px 0px;
+}
+.catalog_hr {
+	border: 1px solid #6b1d23;
+	margin-top: 0px;
+}
+.foreign_heding, .russian_heding {
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.catalog_category {
+	display: inline-block;
+	margin-bottom: 30px;
+	margin-right: 35px;
+}
+.catalog_foreing :last-child {
+	margin-right: 0;
+}
+.catalog_russian :last-child {
+	margin-right: 0;
+}
+.catalog_category_img {
+	height: 110px;
+	width: 110px;
+	vertical-align: bottom;
+}
+.catalog_category_heading {
+	font-size: 16px;
+	font-weight: bold;
+	color: #6b1d23;
+	margin-bottom: 0;
+	margin-left: 5px;
+}
+.subcategory_column {
+	display: inline-block;
+	background-color: #f6e8ea;
+	padding: 15px 20px 15px 3px;
+}
+.subcategory_left {
+	float: left;
+}
+.subcategory_right {
+	float: right;
+}
+.subcategory_column ul {
+	padding-left: 20px;
+}
+.subcategory_column a {
+	color: black;
+	text-decoration: none;
+}
+.subcategory_column a:hover {
+	text-decoration: underline;
+} 
+.subcategory_block{
+	border-left: solid 3px #6b1d23;
+	padding-left: 15px;
+	margin-left: 110px;
+	margin-top: 25px;
+}
+.subheading_brands {
+	margin-left: 395px;
+	float: none;
+}
+.producers_list {
+	list-style: none;
+}
+.producers_list a {
+	color: black;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+/*TEMP*/
+
+
+
+
 /*CONTACTS*/
 .contacts_form_table td, .change_input_register td {
 	padding-top: 5px;
@@ -284,3 +377,59 @@ form {
 }
 
 /*CATALOG_BRANDS*/
+
+
+/*------------------------------------------------
+| ADMIN LOGIN
+------------------------------------------------*/
+/*.admin_title {
+	display: inline-block;
+	color: #008ccb;
+	margin-left: 85px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	font-size: 27px;
+	margin-left: 20px;
+}
+.logout_button {
+	background: #4D4D4D;
+	padding: 5px 10px;
+	font-size: 20px;
+	border-radius: 10px;
+	color: white;
+}
+.logout_button:hover {
+	color: white;
+}*/
+.login_section {
+	height: 700px;
+	display: table;
+	margin: auto;
+}
+.login_section h2.admin_area {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.login_section img.admin_warning {
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+}
+.login_section input.admin_input {
+	width: 300px;
+	font-size: 24px;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.login_section input.login_button {
+	width: 100px;
+	margin: auto;
+	margin-top: 40px;
+	font-weight: bold;
+}
+/*------------------------------------------------
+| END ADMIN LOGIN
+------------------------------------------------

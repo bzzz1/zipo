@@ -96,7 +96,8 @@ return array(
 	'providers' => array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Illuminate\Auth\AuthServiceProvider',
+		// 'Illuminate\Auth\AuthServiceProvider',
+		'Ollieread\Multiauth\MultiauthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -121,7 +122,6 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider',
 	),
 
 	/*
@@ -187,9 +187,7 @@ return array(
 		'Str'             => 'Illuminate\Support\Str',
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
-		'View'            => 'Illuminate\Support\Facades\View',
-		'Excel' 		  => 'Maatwebsite\Excel\Facades\Excel',
-
+		'View'            => 'Illuminate\Support\Facades\View'
 	),
 
 );
