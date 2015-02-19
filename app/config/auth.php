@@ -1,6 +1,7 @@
 <?php
 	return array(
 
+<<<<<<< HEAD
     'multi' => array(
         'account' => array(
             'driver' => 'eloquent',
@@ -9,6 +10,19 @@
         'user' => array(
             'driver' => 'database',
             'table' => 'users'
+=======
+// 'Ollieread\Multiauth\MultiauthServiceProvider'
+return array(
+
+    'multi' => array(
+        'admin' => array(
+            'driver' => 'eloquent',
+            'model' => 'Cred'
+        ),
+        'user' => array(
+            'driver' => 'eloquent',
+            'model' => 'User'
+>>>>>>> 52d6e42c210f608dd40c2bc7f2b7b9822c7e11a6
         )
     ),
 
@@ -65,7 +79,11 @@
 // 	|
 	
 
+<<<<<<< HEAD
 // 	'table' => 'members',
+=======
+// 	'table' => 'creds',
+>>>>>>> 52d6e42c210f608dd40c2bc7f2b7b9822c7e11a6
 
 // 	/*
 // 	|--------------------------------------------------------------------------
@@ -92,4 +110,8 @@
 
 // 	),
 
+<<<<<<< HEAD
 // );
+=======
+// );
+>>>>>>> 52d6e42c210f608dd40c2bc7f2b7b9822c7e11a6

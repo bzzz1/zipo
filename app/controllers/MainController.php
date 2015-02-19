@@ -4,7 +4,6 @@ class MainController extends BaseController {
 		return View::make('index')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'subcats'   => Subcat::readAllSubcats(),
 			'env' 		=> 'catalog'
@@ -15,7 +14,6 @@ class MainController extends BaseController {
 		return View::make('about')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'about'
 		]);
@@ -26,7 +24,6 @@ class MainController extends BaseController {
 			'prices'	=> Helper::getPricesFromDir(Helper::$prices_dir),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'price'
 		]);
@@ -38,7 +35,6 @@ class MainController extends BaseController {
 
 		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header("Content-disposition: attachment; filename=$prices[$price_id]");
-		// LARAVEL SELF LOAD
 		// readfile($Helper::prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
 	}
 
@@ -46,7 +42,6 @@ class MainController extends BaseController {
 		return View::make('delivery')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'delivery'
 		]);
@@ -57,7 +52,6 @@ class MainController extends BaseController {
 			'items'     => Item::getSpecialItems(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'specials'
 		]);
@@ -67,7 +61,6 @@ class MainController extends BaseController {
 		return View::make('contacts')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'contacts'
 		]);
@@ -79,7 +72,6 @@ class MainController extends BaseController {
 			'subcats'	=> Subcat::getSubcatsByCategory($category),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'catalog'
 		]);
@@ -91,7 +83,6 @@ class MainController extends BaseController {
 			'current'	=> Subcat::getCurrentSubcat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'catalog'
 		]);
@@ -105,7 +96,6 @@ class MainController extends BaseController {
 			'current'	=> Subcat::getCurrentSubcat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'catalog'
 		]);
@@ -115,7 +105,6 @@ class MainController extends BaseController {
 		return View::make('articles')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 		]);
 	}
@@ -125,7 +114,6 @@ class MainController extends BaseController {
 			'article'	=> Article::readArticleById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 		]);
 	}
@@ -136,29 +124,89 @@ class MainController extends BaseController {
 			'current'	=> Producer::getProducerById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'byproducer'
 		]);
 	}
 
 	public function user_login() {
-		
+		$creds = [
+			'password'	=> Input::get('password'),
+			'email' 	=> Input::get('email')
+		];
+
+		Auth::user()->attempt($creds, true);
+		return Redirect::to('/');
 	}
 
-	public function logout() {
-		
+	public function user_logout() {
+		Auth::user()->logout();
+		return Redirect::to('/');
 	}
 
 	public function registration() {
-		
+		$fields = Input::all();
+		$rules = [
+			// 'username'			=> 'required|min:3|unique:users',
+			// 'password'			=> 'required|min:6',
+			// 'password_again'		=> 'required|same:password'
+
+			// 'name'					=>
+			// 'surname'				=>
+			// 'company'				=>
+			// 'email'					=> 'required|email|unique:users'
+			// 'phone'					=> 'required|alpha|min:2',
+			// 'activity'				=> 'email|unique:users',
+			'password'				=> 'required|alpha_num|between:6,12|confirmed',
+			'password_confirmation'  => 'required|alpha_num|between:6,12',
+		];
+
+		$validator = Validator::make($fields, $rules);
+		print_r($validator->fails());
+		dd($fields);
+
+		// $user = $this->user->create(Input::all());
+		 
+		// if ($user->isSaved()) {
+		// 	return Redirect::route('users.index')
+		// 		->with('flash', 'The new user has been created');
+		// }
+
+		// return Redirect::route('register.index')
+		// 	->withInput()
+		// 	->withErrors($s->errors());
+
+
+
+		// if ($validator->fails()) {
+		// 	return Redirect::back()->with('error_msg', 'Код должен быть уникальным!')->withInput();
+		// } else {
+		// 	$fields = Input::all();
+		// 	unset($fields['photo_name']); // clear unneeded fields from item
+
+		// 	if (Input::hasFile('photo')) {
+		// 		$file = Input::file('photo');
+		// 		$destinationPath = public_path().'/photos/';
+		// 		$filename = $file->getClientOriginalName();
+		// 		$fields['photo'] = $filename; // get photo name to store in db if has file
+		// 		$file->move($destinationPath, $filename);
+		// 	} else {
+		// 		if (Input::has('photo_name')) { // ensure this is not brand new item
+		// 			$fields['photo'] = Input::get('photo_name'); // if filename was from updating
+		// 		} else {
+		// 			unset($fields['photo']); // use default value from mysql if not $element->photo
+		// 		}
+		// 	}
+			
+		// 	Item::updateOrCreateItemByCode($code, $fields);
+		// 	return Redirect::back()->with('msg', 'Изменения сохранены');
+		// }
 	}
 
 	public function registration_page() {
 		return View::make('registration')->with([
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 		]);
 	}
@@ -176,7 +224,6 @@ class MainController extends BaseController {
 			'item'		=> Item::getItemById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 		]);
 	}
@@ -199,7 +246,6 @@ class MainController extends BaseController {
 			'current'	=> Input::get('query'),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'user'		=> Auth::attempt() ? Auth::user() : [],
 			'producers' => Producer::readAllProducers(),
 			'env' 		=> 'search'
 		]);

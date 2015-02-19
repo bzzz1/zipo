@@ -53,7 +53,7 @@
 				<div class="items_item_heading">
 					<p class="items_item_name">{{$item->title}}</p>
 					<p class="items_item_code">{{$item->code}}</p>
-					@if (Auth::check())
+					@if (Auth::user()->check())
 						<p class="items_item_price">{{$HELP::discount_price($item->price)}}</p>
 					@else 
 						<p class="items_item_price">{{$item->price}}</p>

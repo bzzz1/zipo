@@ -1,34 +1,26 @@
 <?php
 class AdminController extends BaseController {
 	public function admin() {
-		if (Auth::check()) {
-			return View::make('admin/admin')->with([
-				'element'	=> new Item
-			]);
+		if (Auth::admin()->check()) {
+			return View::make('admin/admin');
 		} else {
 			return View::make('admin/login');
 		}
 	}
 
 	public function admin_login() {
-		// dd(Hash::make('string'));
-		// dd(hash('sha512', 'string'));
-
-		// use $creds to escape where _token problem
 		$creds = [
 			'password'	=> Input::get('password'),
 			'login' 	=> Input::get('login')
 		];
 
-		// if (Auth::validate($creds)) {
-		// 	$admin = Member::where('login', $creds['login'])->first();
-		// 	Auth::login($admin, true); 		// true to remember user not only for this page session
-		// }
-
-		Auth::attempt($creds);
-
-		// with or without login, anyway redirect to /admin
+		Auth::admin()->attempt($creds, true);
 		return Redirect::to('admin');
+	}
+
+	public function admin_logout() {
+		Auth::admin()->logout();
+		return Redirect::to('/');
 	}
 
 	public function catalog() {
