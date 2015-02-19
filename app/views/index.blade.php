@@ -23,13 +23,25 @@
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 					<div class="subcategory_block" data-category='Механическое'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Механическое_en'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Механическое_en'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+									<li>Lorem ipsum dolor.</li>
+								</ul>
+							</div>
+							<div class="subcategory_right">
+								<!-- second foreach -->
+							</div>	
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -39,13 +51,16 @@
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 					<div class="subcategory_block" data-category='Тепловое'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Тепловое_en'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Тепловое_en'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -54,13 +69,16 @@
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 					<div class="subcategory_block " data-category='Холодильное'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Холодильное_en'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Холодильное_en'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -69,13 +87,16 @@
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
 					<div class="subcategory_block " data-category='Посудомоечное'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Посудомоечное_en'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Посудомоечное_en'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -87,13 +108,16 @@
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 					<div class="subcategory_block" data-category-ru='Механическое'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Механическое_ru'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Механическое_ru'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -102,13 +126,16 @@
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 					<div class="subcategory_block" data-category-ru='Тепловое'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Тепловое_ru'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Тепловое_ru'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -117,13 +144,16 @@
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 					<div class="subcategory_block second_line" data-category-ru='Холодильное'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Холодильное_ru'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Холодильное_ru'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -132,13 +162,16 @@
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
 					<div class="subcategory_block second_line" data-category-ru='Посудомоечное'>
 						<div class="subcategory_column">
-							<ul>
-								@foreach ($subcats['Посудомоечное_ru'] as $subcat)
-									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
-									</li>
-								@endforeach
-							</ul>
+							<div class="subcategory_left">
+								<ul>
+									@foreach ($subcats['Посудомоечное_ru'] as $subcat)
+										<li>
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										</li>
+									@endforeach
+								</ul>
+							</div>	
+							<div class="subcategory_right">
 						</div><!-- brands_column -->
 					</div><!-- subcategory block -->
 				</div>
@@ -151,13 +184,18 @@
 			</div>	
 			<div class = "groups">
 				<div class="brands_column">
-					<ul class="producers_list">
-						@foreach ($producers as $producer)
-							<li>
-							{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
-							</li>
-						@endforeach
-					</ul>
+					<div class="producers_left">
+						<ul class="producers_list">
+							@foreach ($producers as $producer)
+								<li>
+								{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+								</li>
+							@endforeach
+						</ul>
+					</div>
+					<div class="producers_right">
+						
+					</div>	
 				</div><!-- brands_column -->
 			</div><!-- brands -->
 		</div> <!-- groups  -->

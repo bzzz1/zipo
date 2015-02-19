@@ -319,8 +319,12 @@ form {
 	display: inline-block;
 	background-color: #f6e8ea;
 	padding: 15px 20px 15px 3px;
-	max-height: 190px;
-	max-width: 260px;
+}
+.subcategory_left {
+	float: left;
+}
+.subcategory_right {
+	float: right;
 }
 .subcategory_column ul {
 	padding-left: 20px;

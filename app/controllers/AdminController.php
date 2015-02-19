@@ -1,5 +1,5 @@
 <?php
-class MainController extends BaseController {
+class AdminController extends BaseController {
 	public function admin() {
 		if (Auth::check()) {
 			return View::make('admin/admin')->with([
