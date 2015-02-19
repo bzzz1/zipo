@@ -1,7 +1,5 @@
 <?php
-
-// 'Ollieread\Multiauth\MultiauthServiceProvider'
-return array(
+	return array(
 
     'multi' => array(
         'admin' => array(
@@ -67,6 +65,7 @@ return array(
 // 	|
 	
 
+// 	'table' => 'members',
 // 	'table' => 'creds',
 
 // 	/*
@@ -94,4 +93,5 @@ return array(
 
 // 	),
 
+// );
 // );

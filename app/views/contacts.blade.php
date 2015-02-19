@@ -10,7 +10,7 @@
 		  <li><a href="/">Главная</a></li>
 		  <li class="active">Контакты</li>
 		</ol>
-		<h2 class="about_heading universal_heading">О Контакты</h2>
+		<h2 class="about_heading universal_heading">Контакты</h2>
 		<hr class="main_hr">
 		<div class="about_text_block">
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>

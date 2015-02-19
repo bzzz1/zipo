@@ -9,7 +9,11 @@
 		"raveren/kint": "v0.9",
 		"phpunit/phpunit": "4.3.*@dev",
 		"phpoffice/phpexcel": "dev-master",
+<<<<<<< HEAD
+		"ollieread/multiauth": "dev-master"
+=======
         "ollieread/multiauth": "dev-master"
+>>>>>>> 52d6e42c210f608dd40c2bc7f2b7b9822c7e11a6
 	},
 	"autoload": {
 		"classmap": [

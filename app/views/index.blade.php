@@ -21,8 +21,15 @@
 				<div class="catalog_category" data-category='Механическое'>
 					<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
-					<div class="subcategory_block" data-category='Механическое'>
-						<div class="subcategory_column">
+				</div>
+
+				<div class="catalog_category" data-category='Тепловое'>
+					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
+				</div>
+				<div class="subcategory_block sub_1" data-category='Механическое'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Механическое_en'] as $subcat)
 									<li>
@@ -30,15 +37,16 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
-
-				<div class="catalog_category" data-category='Тепловое'>
-					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
-					<div class="subcategory_block" data-category='Тепловое'>
-						<div class="subcategory_column">
+						</div>
+						<div class="subcategory_right">
+							<ul>	
+							</ul>	
+						</div>	
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
+				<div class="subcategory_block" data-category='Тепловое'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Тепловое_en'] as $subcat)
 									<li>
@@ -46,14 +54,21 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category='Холодильное'>
 					<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
-					<div class="subcategory_block " data-category='Холодильное'>
-						<div class="subcategory_column">
+				</div>
+				<div class="catalog_category posud_catedory" data-category='Посудомоечное'>
+					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+				</div>
+				<div class="subcategory_block " data-category='Холодильное'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Холодильное_en'] as $subcat)
 									<li>
@@ -61,14 +76,13 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
-				<div class="catalog_category" data-category='Посудомоечное'>
-					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
-					<div class="subcategory_block " data-category='Посудомоечное'>
-						<div class="subcategory_column">
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
+				<div class="subcategory_block " data-category='Посудомоечное'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Посудомоечное_en'] as $subcat)
 									<li>
@@ -76,17 +90,24 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
 			</div>
 			<div class="catalog_russian">
 				<h4 class="russian_heding">Российское</h4>
 				<div class="catalog_category" data-category-ru='Механическое'>
 					<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
-					<div class="subcategory_block" data-category-ru='Механическое'>
-						<div class="subcategory_column">
+				</div>
+				<div class="catalog_category" data-category-ru='Тепловое'>
+					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
+				</div>
+				<div class="subcategory_block" data-category-ru='Механическое'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Механическое_ru'] as $subcat)
 									<li>
@@ -94,14 +115,13 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
-				<div class="catalog_category" data-category-ru='Тепловое'>
-					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
-					<div class="subcategory_block" data-category-ru='Тепловое'>
-						<div class="subcategory_column">
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
+				<div class="subcategory_block" data-category-ru='Тепловое'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Тепловое_ru'] as $subcat)
 									<li>
@@ -109,14 +129,21 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category-ru='Холодильное'>
 					<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
-					<div class="subcategory_block second_line" data-category-ru='Холодильное'>
-						<div class="subcategory_column">
+				</div>
+				<div class="catalog_category posud_catedory" data-category-ru='Посудомоечное'>
+					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+				</div>
+				<div class="subcategory_block second_line" data-category-ru='Холодильное'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Холодильное_ru'] as $subcat)
 									<li>
@@ -124,14 +151,13 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
-				<div class="catalog_category" data-category-ru='Посудомоечное'>
-					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
-					<div class="subcategory_block second_line" data-category-ru='Посудомоечное'>
-						<div class="subcategory_column">
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
+				<div class="subcategory_block second_line" data-category-ru='Посудомоечное'>
+					<div class="subcategory_column">
+						<div class="subcategory_left">
 							<ul>
 								@foreach ($subcats['Посудомоечное_ru'] as $subcat)
 									<li>
@@ -139,9 +165,10 @@
 									</li>
 								@endforeach
 							</ul>
-						</div><!-- brands_column -->
-					</div><!-- subcategory block -->
-				</div>
+						</div>	
+						<div class="subcategory_right"></div>
+					</div><!-- brands_column -->
+				</div><!-- subcategory block -->
 			</div><!--catalog_russian-->	
 		</div>
 		<div class="catalog_producers">
@@ -151,13 +178,23 @@
 			</div>	
 			<div class = "groups">
 				<div class="brands_column">
-					<ul class="producers_list">
-						@foreach ($producers as $producer)
-							<li>
-							{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
-							</li>
-						@endforeach
-					</ul>
+					<div class="producers_left">
+						<ul class="producers_list">
+							@foreach ($producers as $producer)
+								<li>
+								{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+								</li>
+							@endforeach
+						</ul>
+					</div>
+					<div class="producers_middle">
+						<ul class="producers_list">
+						</ul>	
+					</div>
+					<div class="producers_right">
+						<ul class="producers_list">
+						</ul>
+					</div>	
 				</div><!-- brands_column -->
 			</div><!-- brands -->
 		</div> <!-- groups  -->
