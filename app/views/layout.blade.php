@@ -11,9 +11,9 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
-	{{ HTML::style('css/left_sidebar.css') }}
-	{{ HTML::style('css/right_sidebar.css') }}
-	{{ HTML::style('css/footer.css') }}
+	{{ HTML::style('css/left_sidebar.css') }}<!--delete it-->
+	{{ HTML::style('css/right_sidebar.css') }}<!--delete it-->
+	{{ HTML::style('css/footer.css') }}<!--delete it-->
 	{{ HTML::script('js/angular.min.js') }}
 	{{ HTML::script('js/jquery.min.js') }}
 
@@ -38,6 +38,7 @@
 
 	{{ HTML::script('js/jquery.columnizer.js') }}
 	{{ HTML::script('js/script.js') }}
+	{{ HTML::script('js/bootstrap.min.js') }}
 	@yield('js')
 </body>
 </html>

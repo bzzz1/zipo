@@ -1,19 +1,29 @@
 @section('right_sidebar') 
-	<div class="right_sidebar">	
-		<div class="container_sidebar">
-			<div class="articles">
-				<h3 class="articles_heading">Новости</h3>
-				@foreach ($articles as $article)
-					<div class="article">
-						<a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
-							{{ HTML::image("/img/photos/$article->photo", $article->title, ['class' => 'article_minimage']) }}
-						</a>
-						<p class="article_date">{{$article->time}}</p>
-						<a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_title">{{$article->title}}</a>
-					</div>
-				@endforeach
-				<a href="/articles" class="articles_all_link">Все новости >> </a>
-			</div>
-		</div>
-	</div>    
-@stop
+  <div class="right_sidebar">	
+  	<div class="container_sidebar">
+    		<div class="articles">
+    			<h3 class="articles_heading">Новости</h3>
+              @foreach ($articles as $article)
+        			<div class="article">
+        				<a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
+                          <img src="/img/photos/{{$article->photo}}" alt="{{$article->title}}" class="article_minimage">
+                      </a>
+        				<p class="article_date">{{$article->time}}</p>
+                @if (strLen($article->title)>=25)
+        				  <div class="article_title">
+                    <a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_title_1">{{mb_substr ($article->title, 0, 25)}} ...</a>
+                    <a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_title_1 article_title_full">{{$article->title}}</a>
+                  </div> 
+                @else
+                  <div class="article_title">
+                    <a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_title_1">{{$article->title}}</a>
+                    <a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_title_1 article_title_full">{{$article->title}}</a>
+                  </div>  
+                @endif 
+        			</div>
+              @endforeach
+    			<a href="/articles" class="articles_all_link">Все новости >> </a>
+    		</div>
+  	</div>
+  </div>    
+@stop    
