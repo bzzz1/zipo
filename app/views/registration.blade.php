@@ -15,9 +15,6 @@
 			</h3>
         @endif
 		<hr class="main_hr">
-		@if (isset($error))
-			<p class="error">Error</p>
-		@endif	
 		{{ Form::open(['url'=>'/registration', 'method'=>'POST', 'class'=>'register_form']) }}
 			<table class="change_input_register">
 				<tr>

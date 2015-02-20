@@ -16,6 +16,8 @@
 	{{ HTML::style('css/footer.css') }}
 	{{ HTML::script('js/angular.min.js') }}
 	{{ HTML::script('js/jquery.min.js') }}
+	{{ HTML::script('js/jquery.sticky-kit.min.js') }}
+	{{ HTML::script('js/jquery.sticky.min.js') }}
 	@yield('css')
 	<!--[if lt IE 10]>
 		<!!!!!!!!!!!!!!!script src="{{ asset('js/modernizr_columns.js') }}"></script>
