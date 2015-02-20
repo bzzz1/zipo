@@ -31,6 +31,17 @@
 // 	'offset_top' : '30px'
 // });
 
+// $('.left-sidebar').affix({
+//   offset: {
+//     top: 100,
+//     bottom: function () {
+//       return (this.bottom = $('.footer').outerHeight(true))
+//     }
+//   }
+// })
+
+// $.stickysidebarscroll(".left_sidebar, .right_sidebar",{offset: {top: 0, bottom: 115}});
+
 // (function($) {
 // 	$(window).load(function() {
 // 		var $window = $(window);
@@ -38,6 +49,7 @@
 // 		var $footer = $('.full_screen');
 // 		var $body = $('body');
 // 		var page_height = $body.height();
+// 		$left_sidebar.clearQueue().css({'position' : 'fixed', 'top' : '249px'})
 
 		
 // 			// window.page_height = document.documentElement.scrollHeight;
@@ -66,22 +78,32 @@
 // 			// var visible_height = $window.height();
 // 			var left_sidebar_height = $left_sidebar.height();
 
-// 			if (scroll > sidebar_offset_top && scroll < page_height - sidebar_height) {
+
+// 			if (scroll > sidebar_offset_top && scroll < 1000) {
 // 				$left_sidebar.clearQueue().animate({
-// 					'margin-top' : scroll - 279 + 60
-// 				})
-// 			} else if (scroll > page_height - sidebar_height) {
-// 				$left_sidebar.clearQueue().animate({
-// 					'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+// 					'top' : '30px'
 // 				})
 // 			}
+// 			// } else if (scroll > 1000) {
+// 			// 	$left_sidebar.clearQueue().animate({
+// 			// 		'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+// 			// 	})
+// 			// }
+
+// 			// if (scroll > sidebar_offset_top && scroll < page_height - sidebar_height) {
+// 			// 	$left_sidebar.clearQueue().animate({
+// 			// 		'margin-top' : scroll - 279 + 60
+// 			// 	})
+// 			// } else if (scroll > page_height - sidebar_height) {
+// 			// 	$left_sidebar.clearQueue().animate({
+// 			// 		'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+// 			// 	})
+// 			// }
 // 			// } else {
 // 			// 	$left_sidebar.clearQueue().animate({
 // 			// 		'margin-top' : '30px'
 // 			// 	})
 // 			// }
-// 			console.log('scroll: '+scroll);
-// 			console.log('sidebar: '+sidebar_offset_top);
 // 		});	
 // 	});
 // })(jQuery);
