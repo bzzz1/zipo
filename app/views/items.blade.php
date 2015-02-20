@@ -19,52 +19,56 @@
 			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
 			  <li class="active">{{$current->subcat}}</li>
 			</ol>
-			<h3 class="items_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
+			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
 		@elseif ($env=='byproducer')
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
 			  <li class="active">{{$current->producer}}</li>
 			</ol>
-			<h3 class="items_main_header">{{$current->producer}}</h3>
+			<h3 class="items_page_main_header universal_heading">{{$current->producer}}</h3>
 		@elseif ($env=='search')
-			<h3 class="items_main_header">Резуьтаты поиска: {{$current}}</h3>
+			<h3 class="items_page_main_header universal_heading">Резуьтаты поиска: {{$current}}</h3>
 		@endif
 
 		<hr class="main_hr">
-		<p class="items sort_by">Сортировать по: </p>
-		<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
-		<select name="items_sort" id="items_sort">
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'имени(а-я)', ['class'=>"icon_tr_dw"]) }}
-			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'имени(я-а)', ['class'=>"icon_tr_up"]) }}
-			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'цене(вверх)', ['class'=>"icon_tr_up"]) }}
-			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'цене(вниз)', ['class'=>"icon_tr_dw"]) }}
-			</option>
-		</select>
+		<div class="items_sort_div">	
+			<p class="items_sort_by">Сортировать по: </p>
+			<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
+			<select name="items_sort" id="items_sort">
+				<option>
+					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'имени(а-я)', ['class'=>"icon_tr_dw"]) }}
+				</option>
+				<option>
+					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'имени(я-а)', ['class'=>"icon_tr_up"]) }}
+				</option>
+				<option>
+					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'цене(вверх)', ['class'=>"icon_tr_up"]) }}
+				</option>
+				<option>
+					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'цене(вниз)', ['class'=>"icon_tr_dw"]) }}
+				</option>
+			</select>
+		</div>	
 		@foreach ($items as $item)
 			<div class="@if ($item->hit) item_hit @endif items_item_one">
 				<div class="items_item_heading">
-					<p class="items_item_name">{{$item->title}}</p>
-					<p class="items_item_code">{{$item->code}}</p>
+					<div class="name_and_code">
+						<p class="items_item_name">{{$item->title}}</p>
+						<p class="items_item_code">Арт: {{$item->code}}</p>
+					</div>	
+					<p class="items_item_currency">{{$item->currency}}.</p>
 					@if (Auth::user()->check())
-						<p class="items_item_price">{{$HELP::discount_price($item->price)}}</p>
+						<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
 					@else 
-						<p class="items_item_price">{{$item->price}}</p>
+						<p class="items_item_price">{{$item->price}}&nbsp</p>
 					@endif
-					<p class="items_item_currency">{{$item->currency}}</p>
 				</div>
 				<div class="items_item_descript">
-					{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
+					{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
 					<table class="items_item_text">
 						<tr>
-							<td colspan='2'>Характеристики</td>
+							<td colspan='2' class="small_heading">Характеристики</td>
 						</tr>
 						<tr>
 							<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
@@ -88,8 +92,10 @@
 						</tr>
 					</table>
 				</div>
-		 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее') }}
-				<a href="/order?item_id={{ $item->item_id }}" class="items_order">Заказать</a>
+				<div class="items_buttons">
+			 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
+					<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
+				</div>	
 			</div>
 		@endforeach
 		<div class="catalog_bottom_pages">

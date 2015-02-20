@@ -74,8 +74,8 @@
 						<div class="items_item_heading">
 							<p class="items_item_name">{{$item->title}}</p>
 							<p class="items_item_code">{{$item->code}}</p>
-							<p class="items_item_price">{{$item->price}}</p>
 							<p class="items_item_currency">{{$item->currency}}</p>
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
 						</div>
 						<div class="items_item_descript">
 							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
