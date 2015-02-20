@@ -20,14 +20,14 @@
 		  <li>{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat"])."?subcat_id=$item->subcat_id", $item->subcat) }}</li>
 		  <li class="active">{{$item->title}}</li>
 		</ol>
-		<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
-		<hr class="main_hr">
+		<!-- <hr class="main_hr"> -->
 		<div class="item_page">
 			<div class="item_page_heading">
-				<p class="item_page_name">{{$item->title}}</p>
-				<p class="item_page_code">{{$item->code}}</p>
-				<p class="item_page_price">{{$item->price}}</p>
+				<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
+				<!-- <p class="item_page_name">{{$item->title}}</p> -->
+				<p class="item_page_code">Артикул: {{$item->code}}</p>
 				<p class="item_page_currency">{{$item->currency}}</p>
+				<p class="item_page_price">{{$item->price}}</p>
 			</div>
 			<div class="item_page_descript">
 				{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
@@ -58,11 +58,12 @@
 				</table>
 			</div>
 			<div class="item_page_descr">
+				<p class="item_page_descr_title">Описание:</p>
 				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
 			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
 			<a href="/contacts#contact_sorm_ancher" class="item_more">Задать вопрос</a>
-			<a href="/delivery" class="item_more">Условия доставки</a>
+			<a href="/delivery" class="item_more item_more_delivery">Условия доставки</a>
 
 
 
@@ -73,8 +74,8 @@
 						<div class="items_item_heading">
 							<p class="items_item_name">{{$item->title}}</p>
 							<p class="items_item_code">{{$item->code}}</p>
-							<p class="items_item_price">{{$item->price}}</p>
 							<p class="items_item_currency">{{$item->currency}}</p>
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
 						</div>
 						<div class="items_item_descript">
 							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
