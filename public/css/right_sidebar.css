@@ -61,3 +61,9 @@
 .articles_all_link:hover {
 	color: #4c4c4c;
 }
+.article_title_full {
+	display: none;
+}
+.article_title:hover .article_title_full {
+	display: block;
+}
