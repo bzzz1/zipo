@@ -1,0 +1,54 @@
+.breadcrumb {
+	color: #6c2227;
+	font-size: 14px;
+}
+.breadcrumb .active {
+	color: #999999
+}
+.items_main_header {
+	margin-bottom: 0px;
+}
+.item_page_code {
+	font-size: 16px;
+	font-weight: bold;
+	color: #383838;
+}
+.item_page_price,
+.item_page_currency {
+	font-size: 30px;
+	font-weight: bold;
+	color: #662025;
+	text-transform: lowercase;
+}
+.item_page_descript {
+	display: inline-block;
+}
+.items_item_img {
+	float: left;
+	height: 206px;
+	width: 242px;
+}
+.item_page_text {
+	display: inline-block;
+	height: 206px;
+	width: 300px;
+	padding: 20px;
+	background-color: #eeeeee;
+	font-size: 14px;
+	color: #1e1d1d;
+}
+.item_page_text tr:first-child td {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.item_page_recommended_heading {
+	color: #6b1d23;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.items_item_one {
+	display: inline-block;
+
+}
