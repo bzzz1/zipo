@@ -19,7 +19,7 @@
 			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
 			  <li class="active">{{$current->subcat}}</li>
 			</ol>
-			<h3 class="items_main_header">{{$HELP::getNormal($current->category) }} оборудование</h3>
+			<h3 class="items_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
 		@elseif ($env=='byproducer')
 			<ol class="breadcrumb">
@@ -36,16 +36,16 @@
 		<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
 		<select name="items_sort" id="items_sort">
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'по имени(а-я)', ['class'=>"icon_tr_dw"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'имени(а-я)', ['class'=>"icon_tr_dw"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'по имени(я-а)', ['class'=>"icon_tr_up"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'имени(я-а)', ['class'=>"icon_tr_up"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'по цене(вверх)', ['class'=>"icon_tr_up"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'цене(вверх)', ['class'=>"icon_tr_up"]) }}
 			</option>
 			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'по цене(вниз)', ['class'=>"icon_tr_dw"]) }}
+				{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'цене(вниз)', ['class'=>"icon_tr_dw"]) }}
 			</option>
 		</select>
 		@foreach ($items as $item)
