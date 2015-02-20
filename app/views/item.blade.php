@@ -20,15 +20,14 @@
 		  <li>{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat"])."?subcat_id=$item->subcat_id", $item->subcat) }}</li>
 		  <li class="active">{{$item->title}}</li>
 		</ol>
-		<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
-		<hr class="main_hr">
 		<div class="item_page">
 			<div class="item_page_heading">
-				<p class="item_page_name">{{$item->title}}</p>
-				<p class="item_page_code">{{$item->code}}</p>
+				<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
+				<p class="item_page_code">Артикул: {{$item->code}}</p>
 				<p class="item_page_price">{{$item->price}}</p>
 				<p class="item_page_currency">{{$item->currency}}</p>
 			</div>
+		<!-- <hr class="main_hr"> -->
 			<div class="item_page_descript">
 				{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
 				<table class="item_page_text">
