@@ -26,8 +26,8 @@
 				<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
 				<!-- <p class="item_page_name">{{$item->title}}</p> -->
 				<p class="item_page_code">Артикул: {{$item->code}}</p>
-				<p class="item_page_price">{{$item->price}}</p>
 				<p class="item_page_currency">{{$item->currency}}</p>
+				<p class="item_page_price">{{$item->price}}</p>
 			</div>
 			<div class="item_page_descript">
 				{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
@@ -58,11 +58,12 @@
 				</table>
 			</div>
 			<div class="item_page_descr">
+				<p class="item_page_descr_title">Описание:</p>
 				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
 			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
 			<a href="/contacts#contact_sorm_ancher" class="item_more">Задать вопрос</a>
-			<a href="/delivery" class="item_more">Условия доставки</a>
+			<a href="/delivery" class="item_more item_more_delivery">Условия доставки</a>
 
 
 
