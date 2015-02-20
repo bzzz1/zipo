@@ -285,6 +285,7 @@ form {
 .catalog_hr {
 	border: 1px solid #6b1d23;
 	margin-top: 0px;
+	width: 544px;
 }
 .foreign_heding, .russian_heding {
 	display: block;
@@ -342,10 +343,6 @@ form {
 .subcategory_column a:hover {
 	text-decoration: underline;
 } 
-.subheading_brands {
-	margin-left: 395px;
-	float: none;
-}
 .groups {
 	padding: 10px 90px 20px 10px;
 }
