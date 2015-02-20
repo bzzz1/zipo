@@ -89,7 +89,8 @@ class MainController extends BaseController {
 	}
 
 	public function item() {
-		// Helper::storeRecents();
+		Recent::writeRecentForSession();
+
 		return View::make('item')->with([
 			'same'		=> Item::getSameItems(),
 			'item'      => Item::getItemById(),

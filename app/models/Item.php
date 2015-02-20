@@ -11,7 +11,7 @@ class Item extends Eloquent {
 		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
 	}
 
-	private static function __items() {
+	public static function __items() {
 		$items = new Item;
 		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
 						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
@@ -27,7 +27,7 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = self::__items();
+		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
@@ -41,7 +41,7 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = self::__items();
+		$items = Item::__items();
 		$items = $items->where('items.producer_id', $producer_id);
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
@@ -52,7 +52,7 @@ class Item extends Eloquent {
 	public static function getItemById() {
 		$item_id = Input::get('item_id');
 		
-		$item = self::__items();
+		$item = Item::__items();
 		$item = $item->where('item_id', $item_id);
 		$item = $item->first();
 
@@ -63,7 +63,7 @@ class Item extends Eloquent {
 		$subcat_id = Input::get('subcat_id');
 		$item_id = Input::get('item_id');
 
-		$items = self::__items();
+		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->whereNotIn('items.item_id', [$item_id]);
 		$items = $items->get();
@@ -77,7 +77,7 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = self::__items();
+		$items = Item::__items();
 		$items = $items->where('title', 'like', '%'.$query.'%');
 		$items = $items->orWhere('code', 'like', '%'.$query.'%');
 		$items = $items->orWhere('description', 'like', '%'.$query.'%');
@@ -92,7 +92,7 @@ class Item extends Eloquent {
 		$order = Input::get('order', 'asc');
 		$pages_by = Input::get('order', '10');
 
-		$items = self::__items();
+		$items = Item::__items();
 		$items = $items->where('special', '1');
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);

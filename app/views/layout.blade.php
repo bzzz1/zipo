@@ -20,7 +20,7 @@
 	{{-- HTML::script('js/jquery.sticky-kit.min.js') --}}
 	{{-- HTML::script('js/jquery.sticky.min.js') --}}
 	{{-- HTML::script('js/jquery.sticky-sidebar-scroll.min.js') --}}
-	{{-- HTML::script('js/bootstrap.zin.js') --}}
+	{{-- HTML::script('js/bootstrap.min.js') --}}
 
 	@yield('css')
 	<!--[if lt IE 10]>
