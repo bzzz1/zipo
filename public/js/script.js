@@ -1,4 +1,5 @@
-(function(){
+// Store and retrieve SORT param
+(function($){
 	if (localStorage['sort'] != 'undefined') {
 		var sort = localStorage['sort'];
 		var $options = $('#items_sort option');
@@ -21,8 +22,69 @@
 		var link = $option.data('link');
 		window.location = link;
 	});
-})();
+})(jQuery);
 
+// FIXED sidebars on scroll
+// $(".left_sidebar, .right_sidebar").stick_in_parent();
+// $(".left_sidebar, .right_sidebar").sticky({topSpacing:30});
+// ({
+// 	'offset_top' : '30px'
+// });
+
+// (function($) {
+// 	$(window).load(function() {
+// 		var $window = $(window);
+// 		var $left_sidebar = $('.left_sidebar');
+// 		var $footer = $('.full_screen');
+// 		var $body = $('body');
+// 		var page_height = $body.height();
+
+		
+// 			// window.page_height = document.documentElement.scrollHeight;
+// 			console.log(page_height);
+		
+// 		var sidebar_height = $left_sidebar.height();
+
+// 		// var body = document.body,
+// 		//     html = document.documentElement;
+
+// 		// var height = Math.max( body.scrollHeight, body.offsetHeight, 
+// 		//                        html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+// 		// console.log('formula: '+height);
+
+// 		console.log(sidebar_height);
+// 		console.log(page_height-sidebar_height);
+
+// 		$(window).on('scroll', function() { 
+
+// 			var scroll = $window.scrollTop();
+// 			var sidebar_offset_top = $left_sidebar.offset().top;
+// 			var footer_outer_height = $footer.outerHeight();
+// 			// var diff_height = scroll - footer_outer_height ;
+
+// 			// var visible_height = $window.height();
+// 			var left_sidebar_height = $left_sidebar.height();
+
+// 			if (scroll > sidebar_offset_top && scroll < page_height - sidebar_height) {
+// 				$left_sidebar.clearQueue().animate({
+// 					'margin-top' : scroll - 279 + 60
+// 				})
+// 			} else if (scroll > page_height - sidebar_height) {
+// 				$left_sidebar.clearQueue().animate({
+// 					'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+// 				})
+// 			}
+// 			// } else {
+// 			// 	$left_sidebar.clearQueue().animate({
+// 			// 		'margin-top' : '30px'
+// 			// 	})
+// 			// }
+// 			console.log('scroll: '+scroll);
+// 			console.log('sidebar: '+sidebar_offset_top);
+// 		});	
+// 	});
+// })(jQuery);
 
 
 // (function ($) {

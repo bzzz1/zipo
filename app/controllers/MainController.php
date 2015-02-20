@@ -147,60 +147,28 @@ class MainController extends BaseController {
 	public function registration() {
 		$fields = Input::all();
 		$rules = [
-			// 'username'			=> 'required|min:3|unique:users',
-			// 'password'			=> 'required|min:6',
-			// 'password_again'		=> 'required|same:password'
-
-			// 'name'					=>
-			// 'surname'				=>
-			// 'company'				=>
-			// 'email'					=> 'required|email|unique:users'
-			// 'phone'					=> 'required|alpha|min:2',
-			// 'activity'				=> 'email|unique:users',
-			'password'				=> 'required|alpha_num|between:6,12|confirmed',
-			'password_confirmation'  => 'required|alpha_num|between:6,12',
+			'name'		=> 'required|between:1,64',
+			'surname'	=> 'required|between:1,64',
+			'company'	=> 'between:1,64',
+			'email'		=> 'required|email|between:6,64|unique:users',
+			'phone'		=> 'required|between:1,32',
+			'activity'	=> 'required|between:1,32',
+			'password'	=> 'required|between:6,128',
+			'confirm' 	=> 'required|same:password',
 		];
 
 		$validator = Validator::make($fields, $rules);
-		print_r($validator->fails());
-		dd($fields);
 
-		// $user = $this->user->create(Input::all());
-		 
-		// if ($user->isSaved()) {
-		// 	return Redirect::route('users.index')
-		// 		->with('flash', 'The new user has been created');
-		// }
-
-		// return Redirect::route('register.index')
-		// 	->withInput()
-		// 	->withErrors($s->errors());
-
-
-
-		// if ($validator->fails()) {
-		// 	return Redirect::back()->with('error_msg', 'Код должен быть уникальным!')->withInput();
-		// } else {
-		// 	$fields = Input::all();
-		// 	unset($fields['photo_name']); // clear unneeded fields from item
-
-		// 	if (Input::hasFile('photo')) {
-		// 		$file = Input::file('photo');
-		// 		$destinationPath = public_path().'/photos/';
-		// 		$filename = $file->getClientOriginalName();
-		// 		$fields['photo'] = $filename; // get photo name to store in db if has file
-		// 		$file->move($destinationPath, $filename);
-		// 	} else {
-		// 		if (Input::has('photo_name')) { // ensure this is not brand new item
-		// 			$fields['photo'] = Input::get('photo_name'); // if filename was from updating
-		// 		} else {
-		// 			unset($fields['photo']); // use default value from mysql if not $element->photo
-		// 		}
-		// 	}
-			
-		// 	Item::updateOrCreateItemByCode($code, $fields);
-		// 	return Redirect::back()->with('msg', 'Изменения сохранены');
-		// }
+		if ($validator->fails()) {
+			return Redirect::back()
+				->withInput()
+					->withErrors($validator->errors());
+		} else {
+			unset($fields['confirm']); // remove confirm field
+			User::create($fields);
+			return Redirect::to('/')
+				->with('message', 'Вы успешно зарегестрированы, '.$fields['name'].' '.$fields['surname']);
+		}
 	}
 
 	public function registration_page() {
