@@ -24,7 +24,7 @@
 		<hr class="main_hr">
 		<div class="item_page">
 			<div class="item_page_heading">
-				{{-- <p class="item_page_name">{{$item->title}}</p> --}}
+				<p class="item_page_name">{{$item->title}}</p>
 				<p class="item_page_code">{{$item->code}}</p>
 				<p class="item_page_price">{{$item->price}}</p>
 				<p class="item_page_currency">{{$item->currency}}</p>
