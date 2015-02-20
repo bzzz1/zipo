@@ -14,6 +14,7 @@
 	{{ HTML::style('css/left_sidebar.css') }}<!--delete it-->
 	{{ HTML::style('css/right_sidebar.css') }}<!--delete it-->
 	{{ HTML::style('css/footer.css') }}<!--delete it-->
+	{{ HTML::style('css/item.css') }}<!--delete it-->
 	{{ HTML::script('js/angular.min.js') }}
 	{{ HTML::script('js/jquery.min.js') }}
 
