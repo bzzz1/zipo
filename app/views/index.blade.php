@@ -20,7 +20,8 @@
 				<h4 class="foreign_heding">Импортное</h4>
 				<div class="catalog_category" data-category='Механическое'>
 					<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Механическое<br> оборудование</p>
+					{{ HTML::link($HELP::url_slug(['/','category', '/', 'Механическое_en']), "Механическое<br> оборудование", ['class'=>'catalog_category_heading']) }}
+					<!-- <p class="catalog_category_heading">Механическое<br> оборудование</p> -->
 				</div>
 
 				<div class="catalog_category" data-category='Тепловое'>
