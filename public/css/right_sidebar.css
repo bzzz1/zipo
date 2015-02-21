@@ -33,7 +33,7 @@
 .article:nth-child(2n) {
 	margin-right: 10px;
 }
-.article_date {
+.right_sidebar_article_date {
 	font-size: 11px;
 	color: #292929;
 	margin-top: 10px;

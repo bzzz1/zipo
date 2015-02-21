@@ -17,9 +17,10 @@
 					<p class="article_one_date">{{ $article->time }}</p>
 					<h2 class="article_preview_header">{{ $article->title }}</h2>
 					<div class="article_photo_preview_div">
-						{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'article_minimg']) }}
+						{{ HTML::image("img/photos/$article->photo", "$article->title", ['class'=>'articles_minimg']) }}
 					</div>
 					<p class="article_text">{{ $article->body }}</p>
+					<a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="articles_button_read btn btn-default">Читать</a>
 					<a href='/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="articles_all_link"></a>
 				</div>
 			</div>
