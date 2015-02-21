@@ -1,0 +1,19 @@
+.article_main_header {
+	display: block;
+	margin-left: 15px;
+}
+.article_heading {
+	width: 340px;
+	margin-left: 15px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #383838;
+}
+.article_date {
+	margin-left: 15px;
+}
+.article_minimg {
+	float: right;
+	height: 110px;
+	width: 110px;
+}
