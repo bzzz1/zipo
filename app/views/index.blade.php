@@ -178,21 +178,52 @@
 			</div>	
 			<div class = "groups">
 				<div class="brands_column">
+					<?php 
+						$producers = $producers->all();
+						$count = count($producers);
+						$rest = $count % 3;
+						$end = ($count - $rest)/3;
+
+						switch ($rest) {
+						    case 0:
+								$first = $end;
+								$second = $end;
+								break;
+						    case 1:
+								$first = $end + 1;
+								$second = $end;
+								break;
+						    case 2:
+								$first = $end + 1;
+								$second = $end + 1;
+								break;
+						}
+					?>
 					<div class="producers_left">
 						<ul class="producers_list">
-							@foreach ($producers as $producer)
+							@foreach (array_slice($producers, 0, $first) as $producer)
 								<li>
-								{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 								</li>
 							@endforeach
 						</ul>
 					</div>
 					<div class="producers_middle">
 						<ul class="producers_list">
+							@foreach (array_slice($producers, $first, $second) as $producer)
+								<li>
+									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+								</li>
+							@endforeach
 						</ul>	
 					</div>
 					<div class="producers_right">
 						<ul class="producers_list">
+							@foreach (array_slice($producers, $first+$second, $end) as $producer)
+								<li>
+									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+								</li>
+							@endforeach
 						</ul>
 					</div>	
 				</div><!-- brands_column -->
