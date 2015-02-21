@@ -115,4 +115,8 @@
 .items_item_one {
 	display: inline-block;
 }
-
+.items_item_img {
+	height: 90px;
+	width: 110px;
+	float: left;
+}
