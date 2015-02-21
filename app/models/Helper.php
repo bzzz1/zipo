@@ -59,12 +59,12 @@ class Helper {
 			if (!in_array($value, array(".",".."))) { 
 				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
 					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
-					} 
-				else { 
-					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
+				} else {
+					$result[] = iconv(mb_detect_encoding($value, mb_detect_order(), true), "UTF-8", $value);
 				} 
 			} 
-		} 
+		}
+		// dd($result);
 		return $result; 
 	}
 

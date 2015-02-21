@@ -200,31 +200,37 @@
 						}
 					?>
 					<div class="producers_left">
-						<ul class="producers_list">
+						<table class="producers_list producers_left">
 							@foreach (array_slice($producers, 0, $first) as $producer)
-								<li>
-									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
-								</li>
+								<tr>
+									<td>
+										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+									</td>
+								</tr>
 							@endforeach
-						</ul>
+						</table>
 					</div>
 					<div class="producers_middle">
-						<ul class="producers_list">
+						<table class="producers_list producers_middle">
 							@foreach (array_slice($producers, $first, $second) as $producer)
-								<li>
-									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
-								</li>
+								<tr>
+									<td>
+										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+									</td>
+								</tr>	
 							@endforeach
-						</ul>	
+						</table>	
 					</div>
 					<div class="producers_right">
-						<ul class="producers_list">
+						<table class="producers_list producers_right">
 							@foreach (array_slice($producers, $first+$second, $end) as $producer)
-								<li>
-									{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
-								</li>
+								<tr>
+									<td>
+										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+									</td>
+								</tr>	
 							@endforeach
-						</ul>
+						</table>
 					</div>	
 				</div><!-- brands_column -->
 			</div><!-- brands -->

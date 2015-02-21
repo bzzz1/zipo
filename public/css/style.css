@@ -298,6 +298,9 @@ form {
 	font-weight: bold;
 	margin-bottom: 20px;
 }
+.catalog_category_img, .catalog_category_heading {
+	cursor: pointer;
+}
 .catalog_category {
 	display: inline-block;
 	margin-bottom: 30px;
@@ -349,7 +352,17 @@ form {
 	text-decoration: underline;
 } 
 .groups {
-	padding: 10px 90px 20px 10px;
+	padding: 10px 0px 20px 0px;
+}
+.producers_left {
+	margin-left: 20px;
+}
+.producers_middle {
+	margin-left: 48px;
+	margin-right: 20px;
+}
+.producers_right {
+	margin-right: 20px;
 }
 .producers_list {
 	list-style: none;
@@ -388,8 +401,8 @@ form {
 	box-shadow: 4px 5px 17px #cecece;
 }
 .items_page_item_img {
-	height: 90px;
-	width: 110px;
+	max-height: 90px;
+	max-width: 110px;
 	float: left;
 }
 .name_and_code {
