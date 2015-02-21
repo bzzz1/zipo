@@ -52,46 +52,48 @@
 		</div>	
 		@foreach ($items as $item)
 			<div class="@if ($item->hit) item_hit @endif items_item_one">
-				<div class="items_item_heading">
-					<div class="name_and_code">
-						<p class="items_item_name">{{$item->title}}</p>
-						<p class="items_item_code">Арт: {{$item->code}}</p>
-					</div>	
-					<p class="items_item_currency">{{$item->currency}}.</p>
-					@if (Auth::user()->check())
-						<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-					@else 
-						<p class="items_item_price">{{$item->price}}&nbsp</p>
-					@endif
-				</div>
-				<div class="items_item_descript">
-					{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
-					<table class="items_item_text">
-						<tr>
-							<td colspan='2' class="small_heading">Характеристики</td>
-						</tr>
-						<tr>
-							<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
-							<td>{{$item->producer}}</td>
-						</tr>
-						<tr>
-							<td>Код:</td>
-							<td>{{$item->code}}</td>
-						</tr>
-						<tr>
-							<td>Тип:&nbsp</td>
-							<td>{{$item->subcat}}</td>
-						</tr>
-						<tr>
-							<td>Наличие:&nbsp</td>
-							@if ($item->procurement)
-								<td>В наличии</td>
-							@else	
-								<td>Под заказ</td>
-							@endif	
-						</tr>
-					</table>
-				</div>
+				<div class="items_item_text_block">	
+					<div class="items_item_heading">
+						<div class="name_and_code">
+							<p class="items_item_name">{{$item->title}}</p>
+							<p class="items_item_code">Арт: {{$item->code}}</p>
+						</div>	
+						<p class="items_item_currency">{{$item->currency}}.</p>
+						@if (Auth::user()->check())
+							<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+						@else 
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
+						@endif
+					</div>
+					<div class="items_item_descript">
+						{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
+						<table class="items_item_text">
+							<tr>
+								<td colspan='2' class="small_heading">Характеристики</td>
+							</tr>
+							<tr>
+								<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
+								<td>{{$item->producer}}</td>
+							</tr>
+							<tr>
+								<td>Код:</td>
+								<td>{{$item->code}}</td>
+							</tr>
+							<tr>
+								<td>Тип:&nbsp</td>
+								<td>{{$item->subcat}}</td>
+							</tr>
+							<tr>
+								<td>Наличие:&nbsp</td>
+								@if ($item->procurement)
+									<td>В наличии</td>
+								@else	
+									<td>Под заказ</td>
+								@endif	
+							</tr>
+						</table>
+					</div>
+				</div>	
 				<div class="items_buttons">
 			 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
 					<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
