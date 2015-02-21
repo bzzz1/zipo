@@ -1,5 +1,5 @@
 .articles_one {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 .articles_main_header {
 	display: block;
@@ -38,11 +38,9 @@
 	margin-right: 15px;
 	white-space: pre-wrap;
 	overflow: hidden;
-	height: 220px;
+	max-height: 220px;
 }
 .articles_button_read {
 	margin-left: 15px;
 	background: linear-gradient(to top, #ffffff, #cccccc);
-	border-radius: 5px;
-	border: 3px solid #dddddd;
 }
