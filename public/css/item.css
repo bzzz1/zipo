@@ -31,8 +31,8 @@
 }
 .items_item_img {
 	float: left;
-	height: 206px;
-	width: 242px;
+	max-height: 206px;
+	max-width: 242px;
 	margin-right: 15px;
 }
 .item_page_text {
