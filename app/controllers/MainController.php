@@ -35,7 +35,6 @@ class MainController extends BaseController {
 
 		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header("Content-disposition: attachment; filename=$prices[$price_id]");
-		// readfile($Helper::prices_dir.DIRECTORY_SEPARATOR."$prices[$price_id]");
 	}
 
 	public function delivery() {
@@ -165,7 +164,7 @@ class MainController extends BaseController {
 				->withInput()
 					->withErrors($validator->errors());
 		} else {
-			unset($fields['confirm']); // remove confirm field
+			unset($fields['confirm']);
 			User::create($fields);
 			return Redirect::to('/')
 				->with('message', 'Вы успешно зарегестрированы, '.$fields['name'].' '.$fields['surname']);

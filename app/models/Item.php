@@ -25,7 +25,7 @@ class Item extends Eloquent {
 		$subcat_id = Input::get('subcat_id');
 		$sort = Input::get('sort', 'title');
 		$order = Input::get('order', 'asc');
-		$pages_by = Input::get('order', '10');
+		$pages_by = Input::get('pages_by', '10');
 
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
@@ -39,7 +39,7 @@ class Item extends Eloquent {
 		$producer_id = Input::get('producer_id');
 		$sort = Input::get('sort', 'title');
 		$order = Input::get('order', 'asc');
-		$pages_by = Input::get('order', '10');
+		$pages_by = Input::get('pages_by', '10');
 
 		$items = Item::__items();
 		$items = $items->where('items.producer_id', $producer_id);
@@ -75,7 +75,7 @@ class Item extends Eloquent {
 		$query = Input::get('query');
 		$sort = Input::get('sort', 'title');
 		$order = Input::get('order', 'asc');
-		$pages_by = Input::get('order', '10');
+		$pages_by = Input::get('pages_by', '10');
 
 		$items = Item::__items();
 		$items = $items->where('title', 'like', '%'.$query.'%');
@@ -90,7 +90,7 @@ class Item extends Eloquent {
 	public static function getSpecialItems() {
 		$sort = Input::get('sort', 'title');
 		$order = Input::get('order', 'asc');
-		$pages_by = Input::get('order', '10');
+		$pages_by = Input::get('pages_by', '10');
 
 		$items = Item::__items();
 		$items = $items->where('special', '1');
