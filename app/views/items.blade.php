@@ -104,6 +104,7 @@
 		@endforeach
 		<div class="catalog_bottom_pages">
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
+		</div>
 			<p class="items sort_by">Показать по: </p>
 			<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
 			<select name="pages_by" id="pages_by">
@@ -120,7 +121,6 @@
 					все
 				</option>
 			</select>
-		</div>
 
 
 	</div>	
