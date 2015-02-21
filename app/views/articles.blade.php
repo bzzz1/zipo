@@ -11,6 +11,7 @@
 		  <li class="active">Новости</li>
 		</ol>
 		<h3 class="articles_main_header universal_heading">Новости</h3>
+		<hr class="main_hr">
 		@foreach ($articles as $article)
 			<div class="articles_one">
 				<div class="article_preview">
@@ -24,6 +25,7 @@
 					<a href='/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="articles_all_link"></a>
 				</div>
 			</div>
+		<hr>
 		@endforeach
 	</div>	
 @stop
