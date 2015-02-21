@@ -1,5 +1,7 @@
-// Store and retrieve SORT param
 (function($){
+	/*------------------------------------------------
+	| Store and retrieve SORT param
+	------------------------------------------------*/
 	if (localStorage['sort'] != 'undefined') {
 		var sort = localStorage['sort'];
 		var $options = $('#items_sort option');
@@ -8,7 +10,6 @@
 				$(this).attr("selected", "selected");
 			} 
 		});
-
 	} else {
 		var $option = $('#items_sort').find('option:selected');
 		var sort = $option.val();
@@ -22,6 +23,31 @@
 		var link = $option.data('link');
 		window.location = link;
 	});
+	/*------------------------------------------------
+	| Store and retrieve PAGES_BY param
+	------------------------------------------------*/
+	if (localStorage['pages_by'] != 'undefined') {
+		var pages_by = localStorage['pages_by'];
+		var $options = $('#pages_by option');
+		$options.each(function(index) {
+			if ($(this).val() == pages_by) {
+				$(this).attr("selected", "selected");
+			} 
+		});
+	} else {
+		var $option = $('#pages_by').find('option:selected');
+		var pages_by = $option.val();
+		localStorage['pages_by'] = pages_by;
+	}
+
+	$('#pages_by').on('change', function() {
+		var $option = $(this).find('option:selected');
+		var pages_by = $option.val();				
+		localStorage['pages_by'] = pages_by;
+		var link = $option.data('link');
+		window.location = link;
+	});
+	// /*----------------------------------------------*/
 })(jQuery);
 
 // FIXED sidebars on scroll

@@ -78,7 +78,7 @@
 							<p class="items_item_price">{{$item->price}}&nbsp</p>
 						</div>
 						<div class="items_item_descript">
-							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}
+							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
 							<table class="items_item_text">
 								<tr>
 									<td colspan='2'>Характеристики</td>

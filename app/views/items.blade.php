@@ -34,21 +34,23 @@
 		<hr class="main_hr">
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
-			<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
+
+			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
 			<select name="items_sort" id="items_sort">
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'имени(а-я)', ['class'=>"icon_tr_dw"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
+					имени(а-я)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'имени(я-а)', ['class'=>"icon_tr_up"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=desc' }}">
+					имени(я-а)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'цене(вверх)', ['class'=>"icon_tr_up"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
+					цене(вверх)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'цене(вниз)', ['class'=>"icon_tr_dw"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
+					цене(вниз)
 				</option>
 			</select>
+
 		</div>	
 		@foreach ($items as $item)
 			<div class="@if ($item->hit) item_hit @endif items_item_one">
@@ -104,19 +106,22 @@
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
 		</div>
 		<p class="items sort_by">Показать по: </p>
+
+		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
 		<select name="pages_by" id="pages_by">
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=10', '10', ['class'=>"icon_tr_dw"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
+				10
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=50', '50', ['class'=>"icon_tr_up"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
+				50
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=100', '100', ['class'=>"icon_tr_up"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
+				100
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=999999', 'все', ['class'=>"icon_tr_dw"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
+				все
 			</option>
 		</select>
+
 	</div>	
 @stop
