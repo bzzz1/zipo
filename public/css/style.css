@@ -477,6 +477,10 @@ form {
 .items_order:hover {
 	color: white;
 }
+.catalog_bottom_pages {
+	display: table;
+	margin: auto;
+}
 
 
 
