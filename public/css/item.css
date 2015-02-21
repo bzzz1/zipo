@@ -84,6 +84,10 @@
 	color: white;
 	text-decoration: none;
 }
+.item_order:focus {
+	color: white;
+	border: none;
+}
 .item_more {
 	display: inline-block;
 	height: 44px;
@@ -95,12 +99,14 @@
 	padding: 8px;
 	font-size: 18px;
 	color: black;
-	border: 3px solid #dddddd;
 	font-weight: bold;
 }
 .item_more:hover {
 	color: black;
 	text-decoration: none;
+}
+.item_more:focus {
+	border: 1px solid transparent;
 }
 .item_more_delivery {
 	margin-left: 20px;

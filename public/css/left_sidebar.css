@@ -17,8 +17,9 @@
 	height: 45px;
 	outline-color: #cecece;
 }	
-.left_sidebar_input:active {
+.left_sidebar_input:focus {
 	border-color: #cecece;
+	outline-color: #cecece;
 }
 .left_sidebar_catalog_main_heading,
 .left_sidebar_heading,

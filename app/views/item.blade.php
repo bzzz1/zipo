@@ -61,9 +61,9 @@
 				<p class="item_page_descr_title">Описание:</p>
 				<p class="item_page_descr_p">{{$item->description}}</p>
 			</div>
-			<a href="/order?item_id={{ $item->item_id }}" class="item_order">Заказать</a>
-			<a href="/contacts#contact_sorm_ancher" class="item_more">Задать вопрос</a>
-			<a href="/delivery" class="item_more item_more_delivery">Условия доставки</a>
+			<a href="/order?item_id={{ $item->item_id }}" class="item_order btn btn-default">Заказать</a>
+			<a href="/contacts#contact_sorm_ancher" class="item_more btn btn-default">Задать вопрос</a>
+			<a href="/delivery" class="item_more item_more_delivery btn btn-default">Условия доставки</a>
 
 
 

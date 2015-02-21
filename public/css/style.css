@@ -91,13 +91,13 @@ p,h1,h2,h3,h4,h5,a {
 	font-size: 17px;
 }
 .navbar_wraper {
-	background-color: #6b1d23;
+	background: linear-gradient(to top, #702329, #441518);
 }
 .nav_header {
-	background-color: #6b1d23;
+	background: linear-gradient(to top, #702329, #441518);
 	display: table;
 	margin: auto;
-	border: 1px solid #6b1d23;
+	border: none;
 }
 .nav_header ul li {
 	text-decoration: none;
@@ -502,6 +502,11 @@ form {
 	text-align: center;
 	display: inline;
 }
+.main_label {
+	height: 50px;
+	line-height: 50px;
+}
+
 
 /*CATALOG_BRANDS*/
 
