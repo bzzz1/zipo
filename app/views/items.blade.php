@@ -104,24 +104,24 @@
 		@endforeach
 		<div class="catalog_bottom_pages">
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
+			<p class="items sort_by">Показать по: </p>
+			<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
+			<select name="pages_by" id="pages_by">
+				<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
+					10
+				</option>
+				<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
+					50
+				</option>
+				<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
+					100
+				</option>
+				<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
+					все
+				</option>
+			</select>
 		</div>
-		<p class="items sort_by">Показать по: </p>
 
-		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
-		<select name="pages_by" id="pages_by">
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
-				10
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
-				50
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
-				100
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
-				все
-			</option>
-		</select>
 
 	</div>	
 @stop
