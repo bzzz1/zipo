@@ -75,15 +75,15 @@
 							</tr>
 							<tr>
 								<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
-								<td>{{$item->producer}}</td>
+								<td class="items_item_dyn_text">{{$item->producer}}</td>
 							</tr>
 							<tr>
 								<td>Код:</td>
-								<td>{{$item->code}}</td>
+								<td class="items_item_dyn_text">{{$item->code}}</td>
 							</tr>
 							<tr>
 								<td>Тип:&nbsp</td>
-								<td>{{$item->subcat}}</td>
+								<td class="items_item_dyn_text">{{$item->subcat}}</td>
 							</tr>
 							<tr>
 								<td>Наличие:&nbsp</td>
