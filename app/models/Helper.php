@@ -60,7 +60,8 @@ class Helper {
 				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
 					$result[$value] = getPricesFromDir($dir.DIRECTORY_SEPARATOR.$value); 
 				} else {
-					$result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
+					// $result[] = mb_convert_encoding($value, 'UTF-8', 'Windows-1251');
+					$result[] = iconv("Windows-1251", "UTF-8", $value);
 					// $result[] = $value;
 				} 
 			} 
