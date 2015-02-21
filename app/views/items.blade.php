@@ -34,64 +34,68 @@
 		<hr class="main_hr">
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
-			<?php $q = http_build_query(Input::except(['item', 'order'])); ?>
+
+			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
 			<select name="items_sort" id="items_sort">
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=desc', 'имени(а-я)', ['class'=>"icon_tr_dw"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
+					имени(а-я)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=item&order=asc', 'имени(я-а)', ['class'=>"icon_tr_up"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=desc' }}">
+					имени(я-а)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=asc', 'цене(вверх)', ['class'=>"icon_tr_up"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
+					цене(вверх)
 				</option>
-				<option>
-					{{ HTML::link(URL::current().'?'.$q.'&sort=price&order=desc', 'цене(вниз)', ['class'=>"icon_tr_dw"]) }}
+				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
+					цене(вниз)
 				</option>
 			</select>
+
 		</div>	
 		@foreach ($items as $item)
 			<div class="@if ($item->hit) item_hit @endif items_item_one">
-				<div class="items_item_heading">
-					<div class="name_and_code">
-						<p class="items_item_name">{{$item->title}}</p>
-						<p class="items_item_code">Арт: {{$item->code}}</p>
-					</div>	
-					<p class="items_item_currency">{{$item->currency}}.</p>
-					@if (Auth::user()->check())
-						<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-					@else 
-						<p class="items_item_price">{{$item->price}}&nbsp</p>
-					@endif
-				</div>
-				<div class="items_item_descript">
-					{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
-					<table class="items_item_text">
-						<tr>
-							<td colspan='2' class="small_heading">Характеристики</td>
-						</tr>
-						<tr>
-							<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
-							<td>{{$item->producer}}</td>
-						</tr>
-						<tr>
-							<td>Код:</td>
-							<td>{{$item->code}}</td>
-						</tr>
-						<tr>
-							<td>Тип:&nbsp</td>
-							<td>{{$item->subcat}}</td>
-						</tr>
-						<tr>
-							<td>Наличие:&nbsp</td>
-							@if ($item->procurement)
-								<td>В наличии</td>
-							@else	
-								<td>Под заказ</td>
-							@endif	
-						</tr>
-					</table>
-				</div>
+				<div class="items_item_text_block">	
+					<div class="items_item_heading">
+						<div class="name_and_code">
+							<p class="items_item_name">{{$item->title}}</p>
+							<p class="items_item_code">Арт: {{$item->code}}</p>
+						</div>	
+						<p class="items_item_currency">{{$item->currency}}.</p>
+						@if (Auth::user()->check())
+							<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+						@else 
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
+						@endif
+					</div>
+					<div class="items_item_descript">
+						{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
+						<table class="items_item_text">
+							<tr>
+								<td colspan='2' class="small_heading">Характеристики</td>
+							</tr>
+							<tr>
+								<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
+								<td>{{$item->producer}}</td>
+							</tr>
+							<tr>
+								<td>Код:</td>
+								<td>{{$item->code}}</td>
+							</tr>
+							<tr>
+								<td>Тип:&nbsp</td>
+								<td>{{$item->subcat}}</td>
+							</tr>
+							<tr>
+								<td>Наличие:&nbsp</td>
+								@if ($item->procurement)
+									<td>В наличии</td>
+								@else	
+									<td>Под заказ</td>
+								@endif	
+							</tr>
+						</table>
+					</div>
+				</div>	
 				<div class="items_buttons">
 			 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
 					<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
@@ -102,19 +106,22 @@
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
 		</div>
 		<p class="items sort_by">Показать по: </p>
+
+		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
 		<select name="pages_by" id="pages_by">
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=10', '10', ['class'=>"icon_tr_dw"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
+				10
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=50', '50', ['class'=>"icon_tr_up"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
+				50
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=100', '100', ['class'=>"icon_tr_up"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
+				100
 			</option>
-			<option>
-				{{ HTML::link(URL::current().'?'.$q.'&pages_by=999999', 'все', ['class'=>"icon_tr_dw"]) }}
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
+				все
 			</option>
 		</select>
+
 	</div>	
 @stop
