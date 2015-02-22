@@ -3,6 +3,15 @@ body {
 	font-family: 'Myriad Pro';
 	background-color: #ececec;
 }
+.admin_uni_button {
+	background-color: #9dcb20;
+	color: #fff;
+	font-size: 16px;
+}
+.admin_uni_heading {
+	font-size: 24px;
+	color: #9dcb20;
+}
 /*HEADER*/
 header {
 	background-color: #222222;
@@ -18,11 +27,7 @@ header {
 	color: #eeeeee;
 }
 /*PANEL*/
-.admin_uni_heading {
-	font-size: 24px;
-	color: #9dcb20;
-}
-.admin_panel_main_content {
+.admin_main_content {
 	background-color: #fff;
 	box-shadow: 2px 3px 7px #757171;
 	padding: 25px 30px 30px 65px;
@@ -31,9 +36,4 @@ header {
 	font-size: 16px;
 	font-weight: bold;
 	color: #222222;
-}
-.admin_panel_button {
-	background-color: #9dcb20;
-	color: #fff;
-	font-size: 16px;
 }
