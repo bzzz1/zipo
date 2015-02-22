@@ -9,7 +9,9 @@
 				<i class="fa fa-user"></i>Привет, admin_zip<!--user_name--> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" role="menu">
-				<li><a href="#">Выйти</a></li>
+				<li>
+					{{ HTML::link('/admin/admin_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
+				</li>
 			</ul>
 		</div>	
 	</header>

@@ -12,6 +12,11 @@ body {
 	font-size: 24px;
 	color: #9dcb20;
 }
+.admin_uni_lable {
+	font-size: 16px;
+	font-weight: bold;
+	color: #222222;
+}
 /*HEADER*/
 header {
 	background-color: #222222;
@@ -32,8 +37,41 @@ header {
 	box-shadow: 2px 3px 7px #757171;
 	padding: 25px 30px 30px 65px;
 }
-.admin_panel_label {
+/*CHANGE_ITEM*/
+/*SUBCATS*/
+.admin_one_cat_heading {
+	font-size: 18px;
+	font-weight: bold;
+}
+.admin_one_cat_add {
 	font-size: 16px;
 	font-weight: bold;
-	color: #222222;
+	color: #9dcb20;
+	text-decoration: underline;
 }
+.admin_one_cat_subcats_block {
+	border-left: solid 3px #9dcb20;
+	padding: 10px 30px;
+}
+.admin_subcategory i {
+	color: #9dcb20;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
