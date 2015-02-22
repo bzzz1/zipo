@@ -375,7 +375,7 @@ form {
 /*ITEMS*/
 .items_page_main_header {
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .items_subheading {
 	font-size: 16px;
@@ -399,11 +399,18 @@ form {
 	margin-bottom: 20px;
 	overflow: hidden;
 	box-shadow: 4px 5px 17px #cecece;
+	padding-right: 7px;
+	padding-left: 7px;
+	/*position: relative;*/
 }
 .items_page_item_img {
 	max-height: 90px;
 	max-width: 110px;
+	margin-top: 30px;
 	float: left;
+}
+.items_item_price_div, .item_price_div {
+	float: right;
 }
 .name_and_code {
 	display: inline-block;
@@ -425,7 +432,7 @@ form {
 	font-weight: bold;
 	font-style: italic;
 	color: #662025;
-	float: right;
+	/*float: right;*/
 }
 .items_item_currency {
 	text-transform: lowercase;
@@ -438,12 +445,13 @@ form {
 }
 .items_item_text {
 	min-width: 134px;
-	background-color: #f1f1f1;
+	background-color: #f7f7f7;
 	float: right;
 	display: inline-block;
+	padding-left: 10px;
 }
 .items_item_dyn_text {
-	max-width: 80px;
+	max-width: 70px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -462,6 +470,7 @@ form {
 }
 .small_heading {
 	font-weight: bold;
+	height: 25px;
 }
 .items_buttons {
 	display: inline-block;
@@ -494,7 +503,13 @@ form {
 	display: table;
 	margin: auto;
 }
-
+.item_hit, .item_spec {
+	background-color: #f6e8ea;
+}
+.items_item_flag {
+	position: absolute;
+	z-index: 10;
+}
 
 
 

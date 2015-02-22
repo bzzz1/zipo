@@ -6,6 +6,10 @@
 
 @section('body')
 	<div class="main_content">
+		<ol class="breadcrumb">
+		  <li><a href="/">Каталог</a></li>
+		  <li class="active">{{ $HELP::getNormal($HELP::$translit[Request::segment(2)]) }} оборудование</li>
+		</ol>
 		<h2 class="one_category_heading universal_heading">{{ $HELP::getNormal($HELP::$translit[Request::segment(2)]) }} оборудование</h2>
 		<hr class="main_hr">
 		@foreach ($subcats as $subcat)

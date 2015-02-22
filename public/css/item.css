@@ -116,7 +116,13 @@
 	font-weight: bold;
 	font-size: 18px;
 	margin-bottom: 20px;
+	display: block;
 }
 .items_item_one {
 	display: inline-block;
 }
+.item_rec {
+	margin-right: 6px;
+	margin-left: 0px;
+}
+.
