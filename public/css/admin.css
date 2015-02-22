@@ -1,0 +1,18 @@
+/*GENERAL*/
+body {
+	font-family: 'Myriad Pro';
+}
+/*HEADER*/
+header {
+	background-color: #222222;
+	color: #eeeeee;
+}
+.admin_header_link {
+	font-weight: bold;
+	text-decoration: none;
+}
+.admin_header_link:hover {
+	background-color: #4d4d4d;
+	text-decoration: none;
+	color: #eeeeee;
+}

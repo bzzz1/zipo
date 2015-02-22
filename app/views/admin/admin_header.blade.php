@@ -1,2 +1,16 @@
-<!-- some_text goes here to test git -->
-<!-- second_line -->
+@section('header') 
+	<header>
+		<div class="admin_to_site">
+			<a href="/" class="admin_header_link"><i class="fa fa-home"></i> Зип Общепит</a>
+			<a href="/" class="admin_header_link">Перейти на сайт</a>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				<i class="fa fa-user"></i>Привет, admin_zip<!--user_name--> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Выйти</a></li>
+			</ul>
+		</div>	
+	</header>
+@stop
