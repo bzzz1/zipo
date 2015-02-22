@@ -32,6 +32,11 @@
 				@elseif ($item->special)
 					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
 				@endif	
+				<div class="admin_items_buttons">
+					<!-- checkbox_here -->
+					<i class="fa fa-pencil change_items_group_icon"></i>
+					<i class="fa fa-times delete_items_group_icon"> 
+				</div>
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
@@ -78,5 +83,17 @@
 				</div>	
 			</div>
 		@endforeach
+		<div class="admin_items_footer">
+			<p class="admin_items_quantity">Выделено {{--$quantity (how many?)--}} товаров</p>
+			<div class="change_items_buttons_first">
+				<a href="#" class="admin_uni_button">Добавить в спецпредложения</a>
+				<a href="#" class="admin_uni_button">Сделать хитом продаж</a>
+				<a href="#" class="admin_uni_button">Изменить наличие</a>
+			</div>
+			<div class="change_items_buttons_second">
+				<a href="#" class="admin_uni_button">Изменить категорию/подкатегорию</a>
+				<a href="#" class="admin_uni_button">Удалить товары</a>
+			</div>
+		</div>
 	</div>
 @stop
