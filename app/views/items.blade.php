@@ -53,26 +53,19 @@
 
 		</div>	
 		@foreach ($items as $item)
-			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one">
-				@if ($item->hit)
-					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
-				@elseif ($item->special)
-					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
-				@endif	
+			<div class="@if ($item->hit) item_hit @endif items_item_one">
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
 							<p class="items_item_name">{{$item->title}}</p>
 							<p class="items_item_code">Арт: {{$item->code}}</p>
 						</div>	
-						<div class="items_item_price_div">
-							@if (Auth::user()->check())
-								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-							@else 
-								<p class="items_item_price">{{$item->price}}&nbsp</p>
-							@endif
-							<p class="items_item_currency">{{$item->currency}}.</p>
-						</div>	
+						<p class="items_item_currency">{{$item->currency}}.</p>
+						@if (Auth::user()->check())
+							<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+						@else 
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
+						@endif
 					</div>
 					<div class="items_item_descript">
 						{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
