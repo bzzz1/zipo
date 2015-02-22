@@ -19,7 +19,6 @@
 }
 .item_page_price,
 .item_page_currency {
-	float: right;
 	font-size: 30px;
 	font-weight: bold;
 	font-style: italic;
@@ -125,4 +124,3 @@
 	margin-right: 6px;
 	margin-left: 0px;
 }
-.
