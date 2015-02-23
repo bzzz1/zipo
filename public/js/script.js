@@ -88,6 +88,92 @@
 	});
 })(jQuery);
 
+
+(function($) {
+	$(window).load(function() {
+		var $window = $(window);
+		var $left_sidebar = $('.left_sidebar');
+		var $right_sidebar = $('.right_sidebar');
+
+		var offset_top = $left_sidebar.offset().top;
+		// var $footer = $('.full_screen');
+		var $body = $('body');
+		var page_height = $body.height();
+		var sidebar_height = $left_sidebar.height();
+		var max = page_height - sidebar_height - 80;
+		// $left_sidebar.clearQueue().css({'position' : 'fixed', 'top' : '249px'})
+
+		
+			// window.page_height = document.documentElement.scrollHeight;
+			// console.log(page_height);
+		
+
+		// var body = document.body,
+		//     html = document.documentElement;
+
+		// var height = Math.max( body.scrollHeight, body.offsetHeight, 
+		//                        html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+		// console.log('formula: '+height);
+
+		// console.log(sidebar_height);
+		// console.log(page_height-sidebar_height);
+
+		$window.on('scroll', function() { 
+
+			var scroll = $window.scrollTop();
+			// var footer_outer_height = $footer.outerHeight();
+			// var diff_height = scroll - footer_outer_height ;
+
+			// var visible_height = $window.height();
+			// var left_sidebar_height = $left_sidebar.height();
+
+
+			if (scroll > offset_top && scroll < max-342) {
+				$left_sidebar.clearQueue().animate({
+					'margin-top' : scroll-offset_top + 30
+				});
+				$right_sidebar.clearQueue().animate({
+					'margin-top' : scroll-offset_top + 30
+				});
+			} else if (scroll < offset_top) {
+				$left_sidebar.clearQueue().animate({
+					'margin-top' : '0px'
+				});
+				$right_sidebar.clearQueue().animate({
+					'margin-top' : '0px'
+				});
+			} else if (scroll > max-342) {
+				$left_sidebar.clearQueue().animate({
+					'margin-top' : max-342+'px'
+				});
+				$right_sidebar.clearQueue().animate({
+					'margin-top' : max-342+'px'
+				});
+			}
+			// } else if (scroll > 1000) {
+			// 	$left_sidebar.clearQueue().animate({
+			// 		'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+			// 	})
+			// }
+
+			// if (scroll > left_sidebar_offset_top && scroll < page_height - sidebar_height) {
+			// 	$left_sidebar.clearQueue().animate({
+			// 		'margin-top' : scroll - 279 + 60
+			// 	})
+			// } else if (scroll > page_height - sidebar_height) {
+			// 	$left_sidebar.clearQueue().animate({
+			// 		'margin-top' : page_height - 1140				// 'margin-top' : '274px'
+			// 	})
+			// }
+			// } else {
+			// 	$left_sidebar.clearQueue().animate({
+			// 		'margin-top' : '30px'
+			// 	})
+			// }
+		});	
+	});
+})(jQuery);
 // FIXED sidebars on scroll
 // $(".left_sidebar, .right_sidebar").stick_in_parent();
 // $(".left_sidebar, .right_sidebar").sticky({topSpacing:30});
@@ -135,7 +221,7 @@
 // 		$(window).on('scroll', function() { 
 
 // 			var scroll = $window.scrollTop();
-// 			var sidebar_offset_top = $left_sidebar.offset().top;
+// 			var left_sidebar_offset_top = $left_sidebar.offset().top;
 // 			var footer_outer_height = $footer.outerHeight();
 // 			// var diff_height = scroll - footer_outer_height ;
 
@@ -143,7 +229,7 @@
 // 			var left_sidebar_height = $left_sidebar.height();
 
 
-// 			if (scroll > sidebar_offset_top && scroll < 1000) {
+// 			if (scroll > left_sidebar_offset_top && scroll < 1000) {
 // 				$left_sidebar.clearQueue().animate({
 // 					'top' : '30px'
 // 				})
@@ -154,7 +240,7 @@
 // 			// 	})
 // 			// }
 
-// 			// if (scroll > sidebar_offset_top && scroll < page_height - sidebar_height) {
+// 			// if (scroll > left_sidebar_offset_top && scroll < page_height - sidebar_height) {
 // 			// 	$left_sidebar.clearQueue().animate({
 // 			// 		'margin-top' : scroll - 279 + 60
 // 			// 	})
