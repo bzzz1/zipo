@@ -53,19 +53,26 @@
 
 		</div>	
 		@foreach ($items as $item)
-			<div class="@if ($item->hit) item_hit @endif items_item_one">
+			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one">
+				@if ($item->hit)
+					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
+				@elseif ($item->special)
+					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
+				@endif
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
 							<p class="items_item_name">{{$item->title}}</p>
 							<p class="items_item_code">Арт: {{$item->code}}</p>
 						</div>	
-						<p class="items_item_currency">{{$item->currency}}.</p>
-						@if (Auth::user()->check())
-							<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-						@else 
-							<p class="items_item_price">{{$item->price}}&nbsp</p>
-						@endif
+						<div class="items_item_price_div">
+							@if (Auth::user()->check())
+								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+							@else 
+								<p class="items_item_price">{{$item->price}}&nbsp</p>
+							@endif
+							<p class="items_item_currency">{{$item->currency}}.</p>
+						</div>	
 					</div>
 					<div class="items_item_descript">
 						{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
@@ -105,23 +112,21 @@
 		<div class="catalog_bottom_pages">
 			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
 		</div>
-			<p class="items sort_by">Показать по: </p>
-			<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
-			<select name="pages_by" id="pages_by">
-				<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
-					10
-				</option>
-				<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
-					50
-				</option>
-				<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
-					100
-				</option>
-				<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
-					все
-				</option>
-			</select>
-
-
+		<p class="items sort_by">Показать по: </p>
+		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
+		<select name="pages_by" id="pages_by">
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
+				10
+			</option>
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
+				50
+			</option>
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
+				100
+			</option>
+			<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
+				все
+			</option>
+		</select>
 	</div>	
 @stop

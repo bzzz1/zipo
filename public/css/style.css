@@ -18,7 +18,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-size: 18px;
 	text-transform: uppercase;
 	margin-bottom: 10px;
-	padding-left: 15`px;
+	padding-left: 15px;
 }
 .main_hr {
 	color: #6b1d23;
@@ -89,7 +89,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-weight: bold;
 }
 .header_description_text {
-	font-size: 17px;
+	font-size: 14px;
 }
 .navbar_wraper {
 	background: linear-gradient(to top, #702329, #441518);
@@ -519,6 +519,8 @@ form {
 /*CONTACTS*/
 .contacts_form_table td, .change_input_register td {
 	padding-top: 5px;
+	padding-bottom: 30px;
+	padding-right: 5px;
 }
 .change_input_contacts, .change_input_register {
 	width: 250px;
@@ -632,3 +634,18 @@ form {
 /*------------------------------------------------
 | END ADMIN LOGIN
 ------------------------------------------------
+/*ONE_CATEGORY*/
+.subcats {
+	padding-left: 15px;
+}
+.subcat {
+	list-style: none;
+}
+.subcat a {
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+}
+.subcat a:hover {
+	color: black;
+}
