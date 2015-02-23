@@ -1,5 +1,5 @@
 @section('header') 
-	<header>
+	<div class="header_admin">
 		<div class="admin_to_site">
 			<a href="/" class="admin_header_link"><i class="fa fa-home"></i> Зип Общепит</a>
 			<a href="/" class="admin_header_link">Перейти на сайт</a>
@@ -16,5 +16,5 @@
 				</li>
 			</ul>
 		</div>	
-	</header>
+	</div>
 @stop

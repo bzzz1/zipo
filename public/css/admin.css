@@ -1,5 +1,5 @@
 /*GENERAL*/
-body {
+.admin_body {
 	font-family: 'Myriad Pro';
 	background-color: #ececec;
 }
@@ -18,7 +18,7 @@ body {
 	color: #222222;
 }
 /*HEADER*/
-header {
+.header_admin {
 	background-color: #222222;
 	color: #eeeeee;
 }
