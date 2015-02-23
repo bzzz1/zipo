@@ -19,8 +19,11 @@
 								<td>
 									<p class="admin_producer_one">
 										{{$producer->producer}} 
-										<i class="fa fa-pencil change_prod_icon"></i>
-										<i class="fa fa-times delete_prod_icon"></i>
+										<a href="/admin/change_producer?producer_id={{$producer->producer_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										{{ Form::open(array('url' => "/delete_producer", 'method' => 'POST', 'class'=>'')) }}
+											<i class="fa fa-times delete_icon"></i>
+											{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+										{{ Form::close() }}
 									</p>
 								</td>
 							</tr>
@@ -34,8 +37,11 @@
 								<td>
 									<p class="admin_producer_one">
 										{{$producer->producer}} 
-										<i class="fa fa-pencil change_prod_icon"></i>
-										<i class="fa fa-times delete_prod_icon"></i>
+										<a href="/admin/change_producer?producer_id={{$producer->producer_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										{{ Form::open(array('url' => "/delete_producer", 'method' => 'POST', 'class'=>'')) }}
+											<i class="fa fa-times delete_icon"></i>
+											{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+										{{ Form::close() }}
 									</p>
 								</td>
 							</tr>	
@@ -49,8 +55,11 @@
 								<td>
 									<p class="admin_producer_one">
 										{{$producer->producer}} 
-										<i class="fa fa-pencil change_prod_icon"></i>
-										<i class="fa fa-times delete_prod_icon"></i>
+										<a href="/admin/change_producer?producer_id={{$producer->producer_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										{{ Form::open(array('url' => "/delete_producer", 'method' => 'POST', 'class'=>'')) }}
+											<i class="fa fa-times delete_icon"></i>
+											{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+										{{ Form::close() }}
 									</p>
 								</td>
 							</tr>	
@@ -64,8 +73,11 @@
 								<td>
 									<p class="admin_producer_one">
 										{{$producer->producer}} 
-										<i class="fa fa-pencil change_prod_icon"></i>
-										<i class="fa fa-times delete_prod_icon"></i>
+										<a href="/admin/change_producer?producer_id={{$producer->producer_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										{{ Form::open(array('url' => "/delete_producer", 'method' => 'POST', 'class'=>'')) }}
+											<i class="fa fa-times delete_icon"></i>
+											{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+										{{ Form::close() }}
 									</p>
 								</td>
 							</tr>	
