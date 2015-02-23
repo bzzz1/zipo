@@ -36,8 +36,8 @@ class AdminController extends BaseController {
 	}
 
 	public function catalog() {
-		return View::make('index_only')->with([
-			'env' 		=> 'catalog',
+		return View::make('index')->with([
+			'env' 		=> 'catalog_admin',
 			'subcats'   => Subcat::readAllSubcats(),
 			'producers' => Producer::readAllProducers(),
 
@@ -45,8 +45,8 @@ class AdminController extends BaseController {
 	}
 
 	public function subcat() {
-		return View::make('items_only')->with([
-			'env' 		=> 'catalog'
+		return View::make('items')->with([
+			'env' 		=> 'catalog_admin'
 		]);
 	}
 
