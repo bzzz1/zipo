@@ -26,11 +26,13 @@ body {
 header {
 	background-color: #222222;
 	color: #eeeeee;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .admin_to_site {
 	display: inline-block;
 }
-.admin_header_btn_group {
+.admin_header_btn_group_r {
 	left: 795px;
 }
 .admin_header_btn_group>button {
@@ -40,7 +42,7 @@ header {
 .fa_user {
 	margin-right: 5px;
 }
-.admin_header_btn_group>button {
+.admin_header_btn_group>button, .admin_header_btn_group>button {
 	background-color: #222222;
 	color: #eee;
 }
@@ -68,7 +70,10 @@ header {
 	border-top: 0px;
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
+}
+.bigger {
 	width: 162px;
+
 }
 .btn_exit {
 	margin-left: 13px;
@@ -76,6 +81,22 @@ header {
 }
 .btn_exit:hover {
 	color: #9dcb20;
+}
+.dropdown-menu>li>a:hover {
+	color: #9dcb20;
+}
+.dropdown-menu>li>a {
+	color: #eee;
+}
+.btn_link {
+	margin-left: 0;
+}
+.dropdown-menu {
+	min-width: 129px;
+}
+.dropdown-menu>li>a {
+	padding: 2px 13px;
+
 }
 .admin_header_link {
 	font-weight: bold;
