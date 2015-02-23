@@ -36,13 +36,16 @@ class AdminController extends BaseController {
 	}
 
 	public function catalog() {
-		return View::make('index')->with([
-			'env' 		=> 'catalog'
+		return View::make('index_only')->with([
+			'env' 		=> 'catalog',
+			'subcats'   => Subcat::readAllSubcats(),
+			'producers' => Producer::readAllProducers(),
+
 		]);
 	}
 
 	public function subcat() {
-		return View::make('items')->with([
+		return View::make('items_only')->with([
 			'env' 		=> 'catalog'
 		]);
 	}
@@ -73,7 +76,8 @@ class AdminController extends BaseController {
 
 	public function producers() {
 		return View::make('admin/admin_producers')->with([
-			'env' 		=> 'producers'
+			'env' 		=> 'producers',
+			'producers' => Producer::readAllProducers(),
 		]);
 	}
 

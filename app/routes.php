@@ -35,9 +35,8 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 
 	Route::get('/articles', 'AdminController@articles');
 	Route::get('/change_article', 'AdminController@change_article');
-
-	Route::post('/subcats', 'AdminController@subcats');
-	Route::post('/producers', 'AdminController@producers');
+	Route::get('/subcats', 'AdminController@subcats');
+	Route::get('/producers', 'AdminController@producers');
 
 	// Route::get('/items', 'AdminController@items');
 	// Route::get('/articles/{article_id}', 'AdminController@article');
