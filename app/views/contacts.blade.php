@@ -28,15 +28,11 @@
 					</tr>
 					<tr>
 						<td class="info_label">Эл. почта</td>
-						<td>9872206@mail.ru</td>
+						<td><a href="mailto:9872206@mail.ru">9872206@mail.ru</a></td>
 					</tr>
 					<tr>
 						<td class="info_label">Дополнительный сайт</td>
-						<td>mssservice.ds78.ru</td>
-					</tr>
-					<tr>
-						<td class="info_label">Оставить запрос</td>
-						<td>отправить письмо</td>
+						<td><a href="http://www.mssservice.ds78.ru">mssservice.ds78.ru</a></td>
 					</tr>
 					<tr>
 						<td class="info_label">Контактное лицо</td>
