@@ -13,8 +13,8 @@
 			</div>	
 			<div class="header_description">
 				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>
-				<p class="header_description_text">Оборудование и запчасти<br>
-				и комплектующие<br>для предприятий общественного <br> питания и торговли</p>
+				<p class="header_description_text">Кухонное оборудование запасные части<br>
+				к оборудованию пищеблоков<br>для баров, кафе, ресторанов и столовых<br>  (предприятий общественного питания). <br>Срочный ремонт и техническое обслуживание. </p>
 			</div>	
 			<div class="header_reg_adn_log">
 				@if (Auth::user()->check())
