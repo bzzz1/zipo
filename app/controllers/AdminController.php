@@ -48,31 +48,31 @@ class AdminController extends BaseController {
 	}
 
 	public function change_item() {
-		return View::make('admin_change_item')->with([
+		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item'
 		]);
 	}
 
 	public function articles() {
-		return View::make('admin_articles')->with([
+		return View::make('admin/admin_articles')->with([
 			'env' 		=> 'articles'
 		]);
 	}
 
 	public function change_article() {
-		return View::make('admin_change_article')->with([
+		return View::make('admin/admin_change_article')->with([
 			'env' 		=> 'change_article'
 		]);
 	}
 
 	public function subcats() {
-		return View::make('admin_subcats')->with([
+		return View::make('admin/admin_subcats')->with([
 			'env' 		=> 'subcats'
 		]);
 	}
 
 	public function producers() {
-		return View::make('admin_producers')->with([
+		return View::make('admin/admin_producers')->with([
 			'env' 		=> 'producers'
 		]);
 	}
