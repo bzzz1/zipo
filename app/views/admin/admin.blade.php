@@ -8,19 +8,25 @@
 	<div class="admin_panel_main_content">
 		<div class="admin_panel_import">
 			<p class="admin_uni_label"><i class="fa fa-reply"></i> Импорт</p>
-			<!--some input field goes here-->
-			<a href="#" class="admin_uni_button">Обзор...</a>
-			<a href="#" class="admin_uni_button">Добавить</a>
+			{{ Form::open(['url'=>'/import', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+				{{ Form::file('excel', ['class'=>'admin_uni_button']) }}
+				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::close() }}	
 		</div>
 		<div class="admin_panel_search">
 			<p class="admin_uni_label"><i class="fa fa-search"></i> Поиск по артикулу</p>
-			<!--some input field goes here-->
-			<a href="#" class="admin_uni_button">Поиск</a>
+			{{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'')) }}
+				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
+				{{ Form::submit('Поиск', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::close() }}
 		</div>
 		<div class="admin_panel_discount">
 			<p class="admin_uni_label">% Скидка для<br> зарегестрированных<br> пользователей</p>
 			<!--some input field goes here-->
-			<a href="#" class="admin_uni_button">Сохранить</a>
+			{{ Form::open(array('url' => "/set_discount", 'method' => 'GET', 'class'=>'')) }}
+				{{ Form::text('query', null, ['class'=>'form-control', 'id' =>'search_1']) }} 
+				{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::close() }}
 		</div>
 	</div>
 	<p>THIS IS ADMIN PANEl</p>
