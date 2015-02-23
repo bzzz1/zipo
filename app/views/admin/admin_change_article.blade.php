@@ -2,6 +2,9 @@
 @extends('admin/admin_header')
 @extends('admin/admin_sidebar')
 @extends('admin/admin_footer')
+@section('css')
+	{{ HTML::style('css/admin.css') }}<!--delete it-->
+@stop
 
 @section('body')
 	<h1 class="admin_uni_heading">Добавить новость</h1>
