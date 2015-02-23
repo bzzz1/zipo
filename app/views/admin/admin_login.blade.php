@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('partials/layout')
 
 @section('body')
 	<div class='login_section'>

@@ -1,4 +1,3 @@
-
 (function($){
 	/*------------------------------------------------
 	| Store and retrieve SORT param

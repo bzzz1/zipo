@@ -1,7 +1,7 @@
-@extends('layout')
-@extends('admin/admin_header')
-@extends('admin/admin_sidebar')
-@extends('admin/admin_footer')
+@extends('partials/layout')
+@extends('partials/admin_header')
+@extends('partials/admin_sidebar')
+@extends('partials/admin_footer')
 @section('css')
 	{{ HTML::style('css/admin.css') }}<!--delete it-->
 @stop

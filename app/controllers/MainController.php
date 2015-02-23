@@ -183,7 +183,7 @@ class MainController extends BaseController {
 		$fields = Input::all();
 		$subject = Input::get('theme');
 
-		Helper::sendMail($fields, $subject, 'emails.feedback_email');
+		Helper::sendMail($fields, $subject, 'emails.email_feedback');
 		return Redirect::to('/')->with('message', 'Ваше письмо отправлено!');
 	}
 
@@ -201,9 +201,9 @@ class MainController extends BaseController {
 		$email = Input::get('email');
 
 		// send to admin
-		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email');
+		Helper::sendMail($fields, 'Заказ оформлен', 'emails.email_order');
 		// send to user
-		Helper::sendMail($fields, 'Заказ оформлен', 'emails.order_email_user', $email);
+		Helper::sendMail($fields, 'Заказ оформлен', 'emails.email_order_user', $email);
 
 		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}

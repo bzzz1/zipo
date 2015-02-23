@@ -1,8 +1,8 @@
-@extends('layout')
-@extends('header')
-@extends('footer')
-@extends('left_sidebar')
-@extends('right_sidebar')
+@extends('partials/layout')
+@extends('partials/header')
+@extends('partials/footer')
+@extends('partials/left_sidebar')
+@extends('partials/right_sidebar')
 
 {{--
 @section('meta')

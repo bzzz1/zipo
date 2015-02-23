@@ -4,7 +4,7 @@ class AdminController extends BaseController {
 		if (Auth::admin()->check()) {
 			return View::make('admin/admin');
 		} else {
-			return View::make('admin/login');
+			return View::make('admin/admin_login');
 		}
 	}
 
@@ -36,7 +36,7 @@ class AdminController extends BaseController {
 	}
 
 	public function catalog() {
-		return View::make('index')->with([
+		return View::make('admin/admin_catalog')->with([
 			'env' 		=> 'catalog_admin',
 			'subcats'   => Subcat::readAllSubcats(),
 			'producers' => Producer::readAllProducers(),

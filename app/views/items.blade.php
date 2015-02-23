@@ -1,10 +1,8 @@
-@extends('layout')
-@if ($env != 'catalog_admin')
-	@extends('header')
-	@extends('footer')
-	@extends('left_sidebar')
-	@extends('right_sidebar')
-@endif
+@extends('partials/layout')
+@extends('partials/header')
+@extends('partials/footer')
+@extends('partials/left_sidebar')
+@extends('partials/right_sidebar')
 
 @section('body')
 	<div class="main_content">
@@ -112,7 +110,7 @@
 			</div>
 		@endforeach
 		<div class="catalog_bottom_pages">
-			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
+			{{ $items->appends(Request::except('page'))->links('partials/zurb_presenter') }}
 		</div>
 		<p class="items sort_by">Показать по: </p>
 		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
