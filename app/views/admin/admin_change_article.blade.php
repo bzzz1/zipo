@@ -14,16 +14,12 @@
 			<!--some input field goes here-->
 			<a href="#" class="change_adrticle_to_all"><i class="fa fa-list-alt"></i>&nbsp К списку новостей</a>
 		</div>
-		<div class="change_article_code_block">
-			<p class="admin_uni_lable">ID записи</p>
-			<!--some input field goes here-->
-		</div>
 		<div class="change_article_weight_div">
 			<p class="admin_uni_lable">Вес новости</p>
 			<!--some input field goes here-->
 		</div>
 		<div class="change_article_descript_block">
-			<!--CKEDITOR field goes here-->
+			<textarea class='editor' name="ckeditor" id="ckeditor" cols="30" rows="10"></textarea>
 		</div>
 		<div class="change_article_img">
 			<p class="admin_uni_lable">Добавить миниатюру для статьи</p>

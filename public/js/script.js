@@ -1,3 +1,20 @@
+CKEDITOR.replace('ckeditor', {
+			filebrowserBrowseUrl 	   : 'vendor/sunhater/kcfinder/browse.php?opener=ckeditor&type=files',
+			filebrowserImageBrowseUrl  : 'vendor/sunhater/kcfinder/browse.php?opener=ckeditor&type=images',
+			filebrowserFlashBrowseUrl  : 'vendor/sunhater/kcfinder/browse.php?opener=ckeditor&type=flash',
+			filebrowserUploadUrl  	   : 'vendor/sunhater/kcfinder/upload.php?opener=ckeditor&type=files',
+			filebrowserImageUploadUrl  : 'vendor/sunhater/kcfinder/upload.php?opener=ckeditor&type=images',
+			filebrowserFlashUploadUrl  : 'vendor/sunhater/kcfinder/upload.php?opener=ckeditor&type=flash',
+			// uiColor: '#702329'
+			// toolbar : [
+				// ['ajaxsave'],
+				// ['Bold', 'Italic', 'Underline', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+				// ['Cut','Copy','Paste','PasteText'],
+				// ['Undo','Redo','-','RemoveFormat'],
+				// ['TextColor','BGColor'],
+				// ['Maximize', 'Image']
+			// ],
+		});
 (function($){
 	/*------------------------------------------------
 	| Store and retrieve SORT param
