@@ -1,0 +1,93 @@
+/*GENERAL*/
+body {
+	font-family: 'Myriad Pro';
+	background-color: #ececec;
+}
+.admin_uni_button {
+	background-color: #9dcb20;
+	color: #fff;
+	font-size: 16px;
+}
+.admin_uni_heading {
+	font-size: 24px;
+	color: #9dcb20;
+}
+.admin_uni_lable {
+	font-size: 16px;
+	font-weight: bold;
+	color: #222222;
+}
+/*HEADER*/
+header {
+	background-color: #222222;
+	color: #eeeeee;
+}
+.admin_header_link {
+	font-weight: bold;
+	text-decoration: none;
+}
+.admin_header_link:hover {
+	background-color: #4d4d4d;
+	text-decoration: none;
+	color: #eeeeee;
+}
+/*PANEL*/
+.admin_main_content {
+	background-color: #fff;
+	box-shadow: 2px 3px 7px #757171;
+	padding: 25px 30px 30px 65px;
+}
+/*CHANGE_ITEM*/
+/*SUBCATS*/
+.admin_one_cat_heading {
+	font-size: 18px;
+	font-weight: bold;
+}
+.admin_one_cat_add {
+	font-size: 16px;
+	font-weight: bold;
+	color: #9dcb20;
+	text-decoration: underline;
+}
+.admin_one_cat_subcats_block {
+	border-left: solid 3px #9dcb20;
+	padding: 10px 30px;
+}
+.admin_subcategory i {
+	color: #9dcb20;
+}
+/*ITEMS*/
+.admin_items_quantity {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+}
+/*PRODUCERS*/
+.admin_producer_add {
+	font-size: 16px;
+	font-weight: bold;
+	color: #9dcb20;
+	text-decoration: underline;
+}
+.admin_producer_one {
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

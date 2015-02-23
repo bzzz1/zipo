@@ -1,40 +1,14 @@
 @extends('layout')
-@extends('header')
-@extends('footer')
-@extends('left_sidebar')
-@extends('right_sidebar')
+@extends('admin/admin_header')
+@extends('admin/admin_sidebar')
+@extends('admin/admin_footer')
 
 @section('body')
-	<div class="main_content">
-		@if ($env=='specials')
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li class="active">Спецпредложения</li>
-			</ol>
-			<h3 class="items_main_header universal_heading">Спецпредложения</h3>
-		@elseif ($env=='catalog')	
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li>
-			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
-			  <li class="active">{{$current->subcat}}</li>
-			</ol>
-			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
-			<p class="items_subheading">{{$current->subcat}}</p>
-		@elseif ($env=='byproducer')
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li class="active">{{$current->producer}}</li>
-			</ol>
-			<h3 class="items_page_main_header universal_heading">{{$current->producer}}</h3>
-		@elseif ($env=='search')
-			<h3 class="items_page_main_header universal_heading">Резуьтаты поиска: {{$current}}</h3>
-		@endif
-
+	<h1 class="admin_uni_heading">Каталог</h1>
+	<div class="admin_main_content">
 		<hr class="main_hr">
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
-
 			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
 			<select name="items_sort" id="items_sort">
 				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
@@ -50,15 +24,19 @@
 					цене(вниз)
 				</option>
 			</select>
-
 		</div>	
 		@foreach ($items as $item)
-			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one">
+			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one admin_items"><!--last class is for admin css-->
 				@if ($item->hit)
 					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
 				@elseif ($item->special)
 					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
-				@endif
+				@endif	
+				<div class="admin_items_buttons">
+					<!-- checkbox_here -->
+					<i class="fa fa-pencil change_items_group_icon"></i>
+					<i class="fa fa-times delete_items_group_icon"> 
+				</div>
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
@@ -103,30 +81,19 @@
 						</table>
 					</div>
 				</div>	
-				<div class="items_buttons">
-			 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
-					<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
-				</div>	
 			</div>
 		@endforeach
-		<div class="catalog_bottom_pages">
-			{{ $items->appends(Request::except('page'))->links('zurb_presenter') }}
+		<div class="admin_items_footer">
+			<p class="admin_items_quantity">Выделено {{--$quantity (how many?)--}} товаров</p>
+			<div class="change_items_buttons_first">
+				<a href="#" class="admin_uni_button">Добавить в спецпредложения</a>
+				<a href="#" class="admin_uni_button">Сделать хитом продаж</a>
+				<a href="#" class="admin_uni_button">Изменить наличие</a>
+			</div>
+			<div class="change_items_buttons_second">
+				<a href="#" class="admin_uni_button">Изменить категорию/подкатегорию</a>
+				<a href="#" class="admin_uni_button">Удалить товары</a>
+			</div>
 		</div>
-		<p class="items sort_by">Показать по: </p>
-		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
-		<select name="pages_by" id="pages_by">
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
-				10
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
-				50
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
-				100
-			</option>
-			<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
-				все
-			</option>
-		</select>
-	</div>	
+	</div>
 @stop
