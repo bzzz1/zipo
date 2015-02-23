@@ -14,11 +14,11 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Механическое_en'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}}
+									{{ $subcat->subcat }}
 									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
 									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
 										<i class="fa fa-times delete_icon"></i>
@@ -27,26 +27,25 @@
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
-		</div>	
 		<div class="catalog_category" data-category='Тепловое_en'>
 					<h4 class="admin_one_cat_heading">Тепловое <br> оборудование(импортное)</h4>
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Тепловое_en'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -55,17 +54,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Холодильное_en'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -74,17 +73,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Механическое_ru'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -93,17 +92,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Тепловое_ru'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -112,17 +111,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Посудомоечное_en'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -131,17 +130,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Холодильное_ru'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>
@@ -150,17 +149,17 @@
 			<a href="#" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">
-					{{--@foreach ($subcats as $subcat)--}}
+					@foreach ($subcats['Посудомоечное_ru'] as $subcat)
 						<tr>
 							<td>
 								<p class="admin_subcategory">
-									{{--$subcat->subcat--}} 
+									{{ $subcat->subcat }}
 									<i class="fa fa-pencil change_icon"></i>
 									<i class="fa fa-times delete_icon"></i>
 								</p>
 							</td>
 						</tr>	
-					{{--@endforeach--}}
+					@endforeach
 				</table><!--need to change foreach-->
 			</div>
 		</div>

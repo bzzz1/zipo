@@ -70,7 +70,8 @@ class AdminController extends BaseController {
 
 	public function subcats() {
 		return View::make('admin/admin_subcats')->with([
-			'env' 		=> 'subcats'
+			'env' 		=> 'subcats',
+			'subcats'   => Subcat::readAllSubcats(),
 		]);
 	}
 
