@@ -66,7 +66,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->whereNotIn('items.item_id', [$item_id]);
-		$items = $items->get();
+		$items = $items->take(4)->get();
 
 		return $items;
 	}

@@ -6,6 +6,7 @@ class Helper {
 	public static $prices_dir; 
 	public static $discount;
 	public static $translit;
+	public static $categories;
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
@@ -19,6 +20,12 @@ class Helper {
 			'teplovoe_ru' 		=> 'Тепловое_ru',
 			'holodilnoe_ru' 	=> 'Холодильное_ru',
 			'posudomoechnoe_ru' => 'Посудомоечное_ru'
+		];
+		static::$categories = [
+			'Механическое',
+			'Тепловое',
+			'Холодильное',
+			'Посудомоечное'
 		];
 	}
 
@@ -236,5 +243,36 @@ class Helper {
 		} else {
 			echo 'Message has been sent';
 		}
+	}
+
+	public static function columnize($array, $columns, $current) {
+		$current--; // set indexes from 1
+		$array = method_exists($array, 'all') ? $array->all() : $array;
+		$count = count($array);
+		$rest = $count % $columns;
+		$base = ($count - $rest)/$columns;
+		$borders = [];
+
+		for ($i=0; $i<$columns; $i++) {
+			if ($i > 0) {
+				$borders[$i] = $base + $borders[$i-1];
+			} else {
+				$borders[$i] = $base;
+			}
+			if ($rest > 0) {
+				$borders[$i]++;
+				$rest--;
+			}
+		}
+
+		if ($current > 0) {
+			$start = $borders[$current-1];
+			$length = $borders[$current]-$borders[$current-1];
+		} else {
+			$start = 0;
+			$length = $borders[$current];
+		}
+
+		return array_slice($array, $start, $length);
 	}
 }
