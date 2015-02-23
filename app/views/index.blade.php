@@ -1,5 +1,4 @@
 @extends('layout')
-
 @if ($env != 'catalog_admin')
 	@extends('header')
 	@extends('footer')

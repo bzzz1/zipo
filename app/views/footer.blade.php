@@ -18,5 +18,5 @@
 			<p class="footer_copy"><i class="fa fa-copyright"></i>2015. "Зип Общепит" All rights reserved</p>
 			<p class="footer_link">made by <a href="http:www.dev.bzzz.biz.ua">bzzz! web development studio</a></p>
 		</div>
-	</div>	
+	</div>
 @stop
