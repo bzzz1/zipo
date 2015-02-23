@@ -18,26 +18,30 @@ Route::post('/registration', 'MainController@registration');
 Route::post('/feedback', 'MainController@feedback');
 Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
-Route::get('/search/{query?}', 'MainController@search');
-Route::get('/user_logout', 'MainController@user_logout');
+Route::get('/search', 'MainController@search');
+Route::post('/user_logout', 'MainController@user_logout');
 
 // Admin Controller
 Route::get('/admin', 'AdminController@admin');
-Route::post('/login_validate', 'AdminController@admin_login');
+Route::post('/admin_login', 'AdminController@admin_login');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
+	Route::post('/set_discount', 'AdminController@set_discount');
+	Route::get('/search', 'AdminController@search');
+	Route::post('/import', 'AdminController@import');
 	Route::get('/admin_logout', 'AdminController@admin_logout');
-	// Route::get('/catalog', 'AdminController@catalog');
-	// Route::get('/articles', 'AdminController@articles');
-	// Route::post('/import', 'AdminController@import');
-	// Route::post('/set_discount', 'AdminController@set_discount');
-	// Route::get('/search/{query}', 'AdminController@search');
+	Route::get('/catalog', 'AdminController@catalog');
+	Route::get('/category/subcat', 'AdminController@subcat');
+	Route::get('/change_item', 'AdminController@change_item');
+
+	Route::get('/articles', 'AdminController@articles');
+	Route::get('/change_article', 'AdminController@change_article');
+	Route::get('/subcats', 'AdminController@subcats');
+	Route::get('/producers', 'AdminController@producers');
+
 	// Route::get('/items', 'AdminController@items');
 	// Route::get('/articles/{article_id}', 'AdminController@article');
-	// Route::get('/change_item/{item_id}', 'AdminController@change_item');
 	// Route::post('/update_item', 'AdminController@update');
-	// Route::get('/change_article/{article_id}', 'AdminController@change_article');
 	// Route::post('/update_article', 'AdminController@update_article');
-	// Route::post('/subcategories', 'AdminController@subcategories');
 	// Route::post('/delete_item/{item_code}', 'AdminController@delete_item');
 	// Route::post('/delete_article/{article_id}', 'AdminController@delete_article');
 	// Route::post('/delete_subcat/{subcat_id}', 'AdminController@delete_subcat');

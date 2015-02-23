@@ -9,30 +9,9 @@
 		<a href="#" class="admin_producer_add"><i class="fa fa-plus"></i>&nbsp Добавить производителя</a>
 		<div class = "groups">
 			<div class="brands_column">
-				<?php 
-					$producers = $producers->all();
-					$count = count($producers);
-					$rest = $count % 3;
-					$end = ($count - $rest)/3;
-
-					switch ($rest) {
-					    case 0:
-							$first = $end;
-							$second = $end;
-							break;
-					    case 1:
-							$first = $end + 1;
-							$second = $end;
-							break;
-					    case 2:
-							$first = $end + 1;
-							$second = $end + 1;
-							break;
-					}
-				?>
 				<div class="producers_first">
 					<table class="producers_list producers_first">
-						@foreach (array_slice($producers, 0, $first) as $producer)
+						@foreach ($HELP::columnize($producers, 4, 1) as $producer)
 							<tr>
 								<td>
 									<p class="admin_producer_one">
@@ -47,7 +26,7 @@
 				</div>
 				<div class="producers_second">
 					<table class="producers_list producers_second">
-						@foreach (array_slice($producers, $first, $second) as $producer)
+						@foreach ($HELP::columnize($producers, 4, 2) as $producer)
 							<tr>
 								<td>
 									<p class="admin_producer_one">
@@ -62,7 +41,7 @@
 				</div>
 				<div class="producers_third">
 					<table class="producers_list producers_third">
-						@foreach (array_slice($producers, $first+$second, $end) as $producer)
+						@foreach ($HELP::columnize($producers, 4, 3) as $producer)
 							<tr>
 								<td>
 									<p class="admin_producer_one">
@@ -77,7 +56,7 @@
 				</div>	
 				<div class="producers_fourth">
 					<table class="producers_list producers_fourth">
-						@foreach (array_slice($producers, $first+$second, $end) as $producer)
+						@foreach ($HELP::columnize($producers, 4, 4) as $producer)
 							<tr>
 								<td>
 									<p class="admin_producer_one">
