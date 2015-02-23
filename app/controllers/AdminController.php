@@ -58,7 +58,8 @@ class AdminController extends BaseController {
 
 	public function articles() {
 		return View::make('admin/admin_articles')->with([
-			'env' 		=> 'articles'
+			'env' 		=> 'articles',
+			'articles'	=> Article::readAllArticles(),
 		]);
 	}
 
