@@ -1,4 +1,3 @@
-
 @extends('layout')
 @extends('admin/admin_header')
 @extends('admin/admin_sidebar')

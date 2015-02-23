@@ -10,7 +10,9 @@
 			</button>
 			<ul class="dropdown-menu" role="menu">
 				<li>
-					{{ HTML::link('/admin/admin_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
+					{{ Form::open(array('url' => "/admin/admin_logout", 'method' => 'POST')) }}
+						{{ Form::submit('Выйти', ['class'=>'btn btn-exit']) }}
+					{{ Form::close() }}
 				</li>
 			</ul>
 		</div>	
