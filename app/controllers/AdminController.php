@@ -18,16 +18,11 @@ class AdminController extends BaseController {
 		return Redirect::to('admin');
 	}
 
-	public function admin_logout() {
-		Auth::admin()->logout();
-		return Redirect::to('/');
-	}
-
-	public function catalog() {
+	public function set_discount() {
 		
 	}
 
-	public function news() {
+	public function search() {
 		
 	}
 
@@ -35,12 +30,51 @@ class AdminController extends BaseController {
 		
 	}
 
-	public function set_discount() {
-		
+	public function admin_logout() {
+		Auth::admin()->logout();
+		return Redirect::to('/');
 	}
 
-	public function search() {
-		
+	public function catalog() {
+		return View::make('index')->with([
+			'env' 		=> 'catalog'
+		]);
+	}
+
+	public function subcat() {
+		return View::make('items')->with([
+			'env' 		=> 'catalog'
+		]);
+	}
+
+	public function change_item() {
+		return View::make('admin_change_item')->with([
+			'env' 		=> 'change_item'
+		]);
+	}
+
+	public function articles() {
+		return View::make('admin_articles')->with([
+			'env' 		=> 'articles'
+		]);
+	}
+
+	public function change_article() {
+		return View::make('admin_change_article')->with([
+			'env' 		=> 'change_article'
+		]);
+	}
+
+	public function subcats() {
+		return View::make('admin_subcats')->with([
+			'env' 		=> 'subcats'
+		]);
+	}
+
+	public function producers() {
+		return View::make('admin_producers')->with([
+			'env' 		=> 'producers'
+		]);
 	}
 
 	public function items() {
@@ -51,23 +85,11 @@ class AdminController extends BaseController {
 
 	}
 
-	public function change_item() {
-		
-	}
-
-	public function update_item() {
-		
-	}
-
 	public function change_new() {
 		
 	}
 
 	public function update_new() {
-		
-	}
-
-	public function subcategories() {
 		
 	}
 
