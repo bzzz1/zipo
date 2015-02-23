@@ -47,6 +47,7 @@
 }
 .left_sidebar_categories li a {
 	color: #292929;
+	display: block;
 }
 .left_sidebar_recent {
 	margin-top: 25px;

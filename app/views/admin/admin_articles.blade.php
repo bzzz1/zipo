@@ -9,13 +9,13 @@
 @section('body')
 	<h1 class="admin_uni_heading">Список новостей</h1>
 	<div class="admin_main_content">
-		{{--@foreach ($articles as $article)
+		@foreach ($articles as $article)
 			<div class="admin_articles_one">
 				<img src="/img/photos/{{$article->photo}}" alt="{{$article->title}}" class="admin_article_minimg">
 				<p class="admin_article_date">
 					{{$article->time}}&nbsp&nbsp&nbsp 
 					<i class="fa fa-pencil change_article_icon"></i>
-					<i class="fa fa-times delete_article_icon"> 
+					<i class="fa fa-times delete_article_icon"></i> 
 				</p>
 				@if (strLen($article->title) <=60)
 					<div class="admin_article_title">
@@ -29,6 +29,6 @@
                   </div> 
                 @endif 
 			</div>
-		@endforeach--}}	
+		@endforeach
 	</div>
 @stop

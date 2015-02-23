@@ -13,7 +13,41 @@
 		<h2 class="about_heading universal_heading">Контакты</h2>
 		<hr class="main_hr">
 		<div class="about_text_block">
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
+			<table class="contacts_info_table">
+					<tr>
+						<td class="info_label">Адрес</td>
+						<td>г. Санкт-Петербург, Болотная улица дом 16</td>
+					</tr>
+					<tr>
+						<td class="info_label">Телефон</td>
+						<td>+7 (812) 987-22-06</td>
+					</tr>
+					<tr>
+						<td class="info_label">Доп. телефон</td>
+						<td>+7 (812) 987-08-81</td>
+					</tr>
+					<tr>
+						<td class="info_label">Эл. почта</td>
+						<td>9872206@mail.ru</td>
+					</tr>
+					<tr>
+						<td class="info_label">Дополнительный сайт</td>
+						<td>mssservice.ds78.ru</td>
+					</tr>
+					<tr>
+						<td class="info_label">Оставить запрос</td>
+						<td>отправить письмо</td>
+					</tr>
+					<tr>
+						<td class="info_label">Контактное лицо</td>
+						<td>Дежурный менеджер</td>
+					</tr>
+					<tr>
+						<td class="info_label">Часы работы</td>
+						<td>09:00-18:00, без перерыва, по субботам по договоренности</td>
+					</tr>
+				</table>
+			<!-- <p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, magni.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, aut.</p>
@@ -22,7 +56,7 @@
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, reprehenderit.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, natus.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, recusandae.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, unde!</p>
+			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, unde!</p> -->
 		</div>
 		<p class="conacts_subheading">Если у вас остались вопросы - напишите нам.</p>
 		<div class="contacts_contact_form" id="contact_sorm_ancher">

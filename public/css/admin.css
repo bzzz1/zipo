@@ -75,7 +75,9 @@ header {
 .admin_producer_one {
 	text-decoration: underline;
 }
-
+.admin_article_title_full {
+	display: none;
+}
 
 
 

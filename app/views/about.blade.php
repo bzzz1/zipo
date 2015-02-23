@@ -13,21 +13,59 @@
 		<h2 class="about_heading universal_heading">О нас</h2>
 		<hr class="main_hr">
 		<div class="about_text_block">
-Обеспечения  запасными  частями любого Российского или импортного оборудования, (номенклатура 3 миллиона позиций)
-Наша компания  предлагает широкий ассортимент комплектующих и запасных частей импортного и российского производства для торгового, холодильного, теплового и другого оборудования, используемого на предприятиях общественного питания, торговли, сферы услуг и пищевых производствах.
- Среди наших партнеров как предприятия торговли, общественного питания, производственные предприятия так и организации, занимающиеся сервисным обслуживанием. 
-Запчасти данных производителей у нас есть в наличие , на складе в Санкт Петербурге
-
 			<p class="about_text">Наши виды деятельности </p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, magni.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, aut.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, quam?</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, incidunt.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, reprehenderit.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, natus.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, recusandae.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, unde!</p>
+			<b><p class="about_text">Обеспечения  запасными  частями любого Российского или импортного оборудования, (номенклатура 3 миллиона позиций)</p></b>
+			<p class="about_text">Наша компания  предлагает широкий ассортимент комплектующих и запасных частей импортного и российского производства для торгового, холодильного, теплового и другого оборудования, используемого на предприятиях общественного питания, торговли, сферы услуг и пищевых производствах.</p>
+			<p class="about_text">Среди наших партнеров как предприятия торговли, общественного питания, производственные предприятия так и организации, занимающиеся сервисным обслуживанием.</p>
+			<p class="about_text">Запчасти данных производителей у нас есть в наличие , на складе в Санкт Петербурге</p>
+			<img src="/img/photos/brand_1.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_2.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_3.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_4.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_5.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_6.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_7.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_8.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_9.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_10.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_11.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_12.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_13.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_14.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_15.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_16.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_17.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_18.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_19.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_20.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_21.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_22.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_23.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_24.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_25.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_26.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_27.png" alt="" class="about_brand">
+			<img src="/img/photos/brand_28.png" alt="" class="about_brand about_brand_last">
+			<b><p class="about_text">Поставка оборудования для вашего ресторана, кафе столовой или др. точки общественного  питания.</p></b>
+			<b><p class="about_text">Постановка на сервисное обслуживание.</p></b>
+			<p class="about_text">Процедура постановки, ресторана, кафе, магазина на сервис торгового оборудования в нашей компании выглядит следующим образом:</p>
+			<ol>
+				<li><p class="about_text about_list">Вы оформляете заявку по телефону /факсу или на эл. почту <a href="mailto:9872206@mail.ru">9872206@mail.ru</a>  в заявке нужно указать перечень оборудования.</p></li>
+				<li><p class="about_text about_list">С Вами связывается наш специалист и договаривается о встрече;</p></li>
+				<li><p class="about_text about_list">Производится осмотр Вашего оборудования;</p></li>
+				<li><p class="about_text about_list">Выдается заключение об осмотре оборудования, для постановки на сервисное обслуживание а также рекомендации по эксплуатации;</p></li>
+				<li><p class="about_text about_list">В случае Вашего согласия, оформляется договор сервисного обслуживания.</p></li>
+			</ol>
+			<p class="about_text">Что Вы получаете заключив с нами договор сервисного обслуживания:</p>
+			<ul>
+				<li><p class="about_text about_list">профилактические работы не менее 1-го раза в месяц;</p></li>
+				<li><p class="about_text about_list">выезд на объект не позже чем через 4 часа с момента заявки;;</p></li>
+				<li><p class="about_text about_list">ремонт оборудования за наш счет;</p></li>
+				<li><p class="about_text about_list">наличие запчастей на нашем складе;</p></li>
+				<li><p class="about_text about_list">обучение персонала в эксплуатации оборудования.</p></li>
+			</ul>
+			<img src="/img/photos/giant_banner.png" alt="" class="giant_banner">
+			<b><p class="about_text">Обращаем ваше внимание на то, что сведения, размещенные на данном интернет-сайте, носят исключительно информативный характер и ни при каких условиях не могут расцениваться как публичная оферта, определяемая положениями Статьи 437 ГК РФ</p></b>
 		</div>
 	</div>
 @stop
