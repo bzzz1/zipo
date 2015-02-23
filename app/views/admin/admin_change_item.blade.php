@@ -39,7 +39,7 @@
 				{{ Form::checkbox('hit', false, false, ['class'=>'', 'required']) }}
 			</div>
 			<div class="img_preview">
-				@if (true)
+				@if (false)
 					{{ HTML::image("img/photos/temp", "", ['class'=>'items_item_img']) }} 
 					<i class="fa fa-times delete_img_icon"></i>
 				@else
