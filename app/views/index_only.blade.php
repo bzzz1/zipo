@@ -1,5 +1,3 @@
-
-
 @section('body')
 	@if (Session::get('message'))
 		<p style='color: rgb(0,255,0)'>{{ Session::get('message') }}</p>

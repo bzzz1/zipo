@@ -13,7 +13,12 @@
 		<h2 class="about_heading universal_heading">О нас</h2>
 		<hr class="main_hr">
 		<div class="about_text_block">
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
+Обеспечения  запасными  частями любого Российского или импортного оборудования, (номенклатура 3 миллиона позиций)
+Наша компания  предлагает широкий ассортимент комплектующих и запасных частей импортного и российского производства для торгового, холодильного, теплового и другого оборудования, используемого на предприятиях общественного питания, торговли, сферы услуг и пищевых производствах.
+ Среди наших партнеров как предприятия торговли, общественного питания, производственные предприятия так и организации, занимающиеся сервисным обслуживанием. 
+Запчасти данных производителей у нас есть в наличие , на складе в Санкт Петербурге
+
+			<p class="about_text">Наши виды деятельности </p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, magni.</p>
 			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, aut.</p>
