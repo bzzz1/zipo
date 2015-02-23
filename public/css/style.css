@@ -18,6 +18,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-size: 18px;
 	text-transform: uppercase;
 	margin-bottom: 10px;
+	padding-left: 15`px;
 }
 .main_hr {
 	color: #6b1d23;
@@ -88,7 +89,7 @@ p,h1,h2,h3,h4,h5,a {
 	font-weight: bold;
 }
 .header_description_text {
-	font-size: 14px;
+	font-size: 17px;
 }
 .navbar_wraper {
 	background: linear-gradient(to top, #702329, #441518);
@@ -517,9 +518,7 @@ form {
 
 /*CONTACTS*/
 .contacts_form_table td, .change_input_register td {
-	/*padding-top: 5px;*/
-	padding-bottom: 30px;
-	padding-right: 5px;
+	padding-top: 5px;
 }
 .change_input_contacts, .change_input_register {
 	width: 250px;
@@ -533,8 +532,46 @@ form {
 	display: inline;
 }
 .main_label {
-	/*height: 50px;*/
-	/*line-height: 50px;*/
+	height: 50px;
+	line-height: 50px;
+}
+/*DELIVERY*/
+.about_text_block {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.delivery_outer_link {
+	margin-right: 23px;
+	margin-bottom: 30px;
+	margin-left: 36px;
+}
+.dimex {
+	display: table;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.delivery_pic {
+	max-width: 200px;
+}
+.grey_and_small {
+	font-size: 12px;
+	color: #cecece;
+	text-align: center;
+}
+.delivary_subheading_text {
+	display: block;
+}
+.delivery_regions_1 {
+	float: left;
+}
+.delivery_regions_3 {
+	/*float: right;*/
+}
+.delivery_regions_1, .delivery_regions_2, .delivery_regions_3 {
+	list-style: none;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 11px;
 }
 
 
@@ -595,19 +632,3 @@ form {
 /*------------------------------------------------
 | END ADMIN LOGIN
 ------------------------------------------------
-
-/*ONE_CATEGORY*/
-.subcats {
-	padding-left: 15px;
-}
-.subcat {
-	list-style: none;
-}
-.subcat a {
-	color: black;
-	font-size: 16px;
-	font-weight: bold;
-}
-.subcat a:hover {
-	color: black;
-}
