@@ -32,7 +32,7 @@
 					</tr>
 					<tr>
 						<td class="info_label">Дополнительный сайт</td>
-						<td><a href="http://www.mssservice.ds78.ru">mssservice.ds78.ru</a></td>
+						<td><a href="http://www.mssservice.ds78.ru" target="_blank">mssservice.ds78.ru</a></td>
 					</tr>
 					<tr>
 						<td class="info_label">Контактное лицо</td>
