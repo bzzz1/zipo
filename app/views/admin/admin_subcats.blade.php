@@ -41,8 +41,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -60,8 +63,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -79,8 +85,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -98,8 +107,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -117,8 +129,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -136,8 +151,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
@@ -155,8 +173,11 @@
 							<td>
 								<p class="admin_subcategory">
 									{{--$subcat->subcat--}} 
-									<i class="fa fa-pencil change_icon"></i>
-									<i class="fa fa-times delete_icon"></i>
+									<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+									{{ Form::open(array('url' => "/delete_subcat", 'method' => 'POST', 'class'=>'')) }}
+										<i class="fa fa-times delete_icon"></i>
+										{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
+									{{ Form::close() }} 
 								</p>
 							</td>
 						</tr>	
