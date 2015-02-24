@@ -1,15 +1,11 @@
 /*GENERAL*/
 .container_main {
-	width: auto;
-	margin: auto;
-	display: block;
 	padding-top: 0;
+	width: 930px;
 }
 body {
 	font-family: 'Myriad Pro';
 	background-color: #ececec;
-	/*width: 1200px;*/
-	/*margin: auto;*/
 }
 .admin_uni_button {
 	background-color: #9dcb20;
@@ -19,11 +15,15 @@ body {
 .admin_uni_heading {
 	font-size: 24px;
 	color: #9dcb20;
+	margin-left: 25px;
 }
-.admin_uni_lable {
+.admin_uni_label {
 	font-size: 16px;
 	font-weight: bold;
 	color: #222222;
+}
+.admin_uni_label>i {
+	margin-right: 5px;
 }
 .hidden {
 	display: none;
@@ -43,15 +43,13 @@ header {
 }
 .container_admin_header {
 	padding-top: 0;
+	width: 930px;
 }
 .admin_to_site {
 	display: inline-block;
 }
-.admin_header_btn_group {
-	left: 252px;
-}
 .admin_header_btn_group_r {
-	left: 795px;
+	margin-left: 642px;
 }
 .admin_header_btn_group>button {
 	border: 0px;
@@ -95,6 +93,8 @@ header {
 .btn_exit {
 	margin-left: 13px;
 	background-color: #4d4d4d!important;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 .btn_exit:hover {
 	color: #9dcb20;
@@ -126,11 +126,65 @@ header {
 	text-decoration: none;
 	color: #eeeeee;
 }
+
+/*SIDEBAR*/
+.admin_sidebar_container {
+	width: 930px;
+	background-color: #222222;
+	padding: 10px;
+	display: table;
+	margin: auto;
+}
+.admin_sidebar_button {
+	color: #eee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 16px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+.admin_sidebar_button:hover {
+	background-color: #4d4d4d;
+	text-decoration: none;
+	color: #eeeeee;
+}
+.admin_sidebar_button:hover {
+	color: #eee;
+	text-decoration: none;
+}
+.active_my {
+	background-color: #9dcb20;
+	text-decoration: none;
+	color: #eeeeee;
+}
+.admin_sidebar_button i {
+	margin-right: 3px;
+	margin-left: 5px;
+}
+
+.delete_img_icon {
+	cursor: pointer;
+}
+.full_screen {
+	background-color: #222222;
+	margin-top: 0;
+	padding: 0;
+	height: auto;
+}
 /*PANEL*/
 .admin_main_content {
 	background-color: #fff;
 	box-shadow: 2px 3px 7px #757171;
 	padding: 25px 30px 30px 65px;
+}
+input[type=file].admin_panel_input {
+	display: inline;
+	margin-left: 100px;
+	font-size: 16px;
+}
+.input[type="file" i]::-webkit-file-upload-button {
+	margin-left: 50px;
 }
 /*CHANGE_ITEM*/
 /*SUBCATS*/
@@ -150,6 +204,26 @@ header {
 }
 .admin_subcategory i {
 	color: #9dcb20;
+}
+.admin_panel_search {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.admin_input_search {
+	margin-left: 20px;
+	margin-right: 86px;
+}
+.form-control {
+	display: inline-block;
+	width: auto;
+}
+.admin_discount_input {
+	vertical-align: top;
+	margin-top: 18px;
+	margin-left: 34px;
+}
+.discount_input {
+	margin-right: 85px;
 }
 /*ITEMS*/
 .admin_items_quantity {
@@ -180,48 +254,3 @@ footer {
 	display: table;
 	margin: auto;
 }
-/*SIDEBAR*/
-.admin_sidebar_container {
-	width: 185px;
-	min-height: 780px;
-	background-color: #222222;
-	padding: 10px;
-	display: inline-block;
-	margin-right: 20px;
-	float: left;
-}
-.admin_sidebar_button {
-	color: #eee;
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-.admin_sidebar_button:hover {
-	color: #eee;
-	text-decoration: none;
-}
-.admin_sidebar_button i {
-	margin-right: 10px;
-}
-
-.delete_img_icon, .delete_icon {
-	cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -409,9 +409,14 @@ form {
 	right: 0px;
 	top: 0px;
 }
+.empty_scape {
+	padding-top: 27px;
+	display: inline-block;
+	position: relative;
+}
 .items_item_one {
 	width: 250px;
-	height: 300px;
+	height: 315px;
 	padding: 3px;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -425,7 +430,6 @@ form {
 .items_page_item_img {
 	max-height: 90px;
 	max-width: 110px;
-	margin-top: 30px;
 	float: left;
 }
 .items_item_price_div, .item_price_div {
@@ -434,12 +438,36 @@ form {
 .name_and_code {
 	display: inline-block;
 }
+.items_item_name_div {
+	position: relative;
+	margin-top: 4px;
+	height: 90px;
+}
 .items_item_name {
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 0;
 	color: #662025;
 	cursor: pointer;
+	background-color: #f4f4f4;
+	margin-bottom: 0;
+	max-height: 90px;
+	overflow: hidden;
+	padding: 5px;
+}
+.items_item_name_full {
+	display: none;
+	position: absolute;
+	top: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #662025;
+	background-color: #f4f4f4;
+	margin-bottom: 0;
+	cursor: pointer;
+	padding: 5px;
+}
+.items_item_name_div:hover .items_item_name_full {
+	display: block;
 }
 .items_item_code {
 	font-size: 12px;
@@ -531,6 +559,8 @@ form {
 .items_item_flag {
 	position: absolute;
 	z-index: 10;
+	top: 0px;
+	right: 0px;
 }
 .pagination {
 	display: table;
