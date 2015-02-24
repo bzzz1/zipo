@@ -1,15 +1,13 @@
 /*GENERAL*/
+.full_screen_admin {
+	background-color: #9dcb20;
+}
 .container_main {
-	width: auto;
-	margin: auto;
-	display: block;
 	padding-top: 0;
+	background-color: #ececec;
 }
 body {
 	font-family: 'Myriad Pro';
-	background-color: #ececec;
-	/*width: 1200px;*/
-	/*margin: auto;*/
 }
 .admin_uni_button {
 	background-color: #9dcb20;
@@ -43,6 +41,7 @@ header {
 }
 .container_admin_header {
 	padding-top: 0;
+	background-color: #222222;
 }
 .admin_to_site {
 	display: inline-block;
@@ -182,13 +181,11 @@ footer {
 }
 /*SIDEBAR*/
 .admin_sidebar_container {
-	width: 185px;
-	min-height: 780px;
+	width: 930px;
 	background-color: #222222;
 	padding: 10px;
-	display: inline-block;
-	margin-right: 20px;
-	float: left;
+	display: table;
+	margin: auto;
 }
 .admin_sidebar_button {
 	color: #eee;
