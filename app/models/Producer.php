@@ -25,4 +25,13 @@ class Producer extends Eloquent {
 		$producer = $producer->first();
 		return $producer;
 	}
+
+/*------------------------------------------------
+| DELETE
+------------------------------------------------*/
+	public static function deleteProducerById() {
+		$producer_id = Input::get('producer_id');
+
+		Producer::where('producer_id', $producer_id)->delete();
+	}
 }

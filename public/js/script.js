@@ -86,10 +86,9 @@
 
 		HIDING = false;						
 	});
-})(jQuery);
 
 
-(function($) {
+	// FIXED SIDEBARS
 	$(window).load(function() {
 		var $window = $(window);
 		var $left_sidebar = $('.left_sidebar');
@@ -128,14 +127,18 @@
 			}
 		});	
 	});
+
+
+	// DELETE IMG ICON
+	$('.delete_img_icon').on('click', function() {
+		location.reload();
+	});
+
+	// DELETE ICON FORM SUBMIT
+	$('.delete_icon').on('click', function() {
+		$(this).closest('form').submit();
+	});
 })(jQuery);
-
-
-// DELETE IMG ICON
-$('.delete_img_icon').on('click', function() {
-	location.reload();
-});
-
 
 // 	function run_deleting_confirm() {
 // 		$('.confirm_delete').on('click', function() {

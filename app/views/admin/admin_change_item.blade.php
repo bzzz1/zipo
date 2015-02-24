@@ -2,14 +2,24 @@
 @extends('partials/admin_header')
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
-@section('css')
-	{{ HTML::style('css/admin.css') }}<!--delete it-->
-@stop
 
 @section('body')
 	<h1 class="admin_uni_heading">Добавить товар</h1>
+
+	@if (Session::get('message'))
+		{{ Session::get('message') }}
+	@endif
+	
+	<?php 
+		if ($item) {
+			$url = "/admin/update_item?item_id=$item->item_id";
+		} else {
+			$url = "/admin/update_item";
+		}
+	?>
+
 	<div class="admin_main_content">
-		{{ Form::model($item, ['url'=>['/admin/update_item'], 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($item, ['url'=>[$url], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_item_title_block">
 				{{ Form::label('title', 'Название: ', ['class'=>'admin_uni_lable']) }}
 				{{ Form::text('title', null, ['class'=>'', 'required']) }}
@@ -28,18 +38,19 @@
 			</div>
 			<div class="change_item_descript_block">
 				{{ Form::label('description', 'Описание: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::textarea('description', null, ['class'=>'', 'required']) }}
+				{{ Form::textarea('description', null, ['class'=>'']) }}
 			</div>
 			<div class="make_spec_block">
 				{{ Form::label('special', 'Добавить в спецпредложения: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::checkbox('special', false, false, ['class'=>'']) }}
+				{{ Form::checkbox('special', true, false, ['class'=>'']) }}
 			</div>
 			<div class="make_hit_block">
 				{{ Form::label('hit', 'Сделать хитом продаж: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::checkbox('hit', false, false, ['class'=>'']) }}
+				{{ Form::checkbox('hit', true, false, ['class'=>'']) }}
 			</div>
 			<div class="img_preview">
 				@if (Session::get('temp'))
+					{{ Form::hidden('with_image', Session::get('temp')) }}
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else

@@ -2,16 +2,15 @@
 @extends('partials/admin_header')
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
-@section('css')
-	{{ HTML::style('css/admin.css') }}<!--delete it-->
-@stop
 
 @section('body')
 	<h1 class="admin_uni_heading">Панель управления</h1>
 	<div class="admin_main_content">
+
 		@if (Session::get('message'))
 			{{ Session::get('message') }}
 		@endif
+		
 		<div class="admin_panel_import">
 			<p class="admin_uni_label"><i class="fa fa-reply"></i> Импорт</p>
 			{{ Form::open(['url'=>'/admin/import', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}

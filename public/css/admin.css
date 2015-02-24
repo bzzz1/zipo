@@ -203,9 +203,10 @@ footer {
 	margin-right: 10px;
 }
 
-.delete_img_icon {
+.delete_img_icon, .delete_icon {
 	cursor: pointer;
 }
+
 
 
 
