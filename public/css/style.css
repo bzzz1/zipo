@@ -411,7 +411,7 @@ form {
 }
 .items_item_one {
 	width: 250px;
-	height: 300px;
+	height: 315px;
 	padding: 3px;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -440,6 +440,10 @@ form {
 	margin-bottom: 0;
 	color: #662025;
 	cursor: pointer;
+	padding: 5px;
+	margin-top: 4px;
+	height: 90px;
+	background-color: #f4f4f4;
 }
 .items_item_code {
 	font-size: 12px;
