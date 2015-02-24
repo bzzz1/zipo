@@ -51,8 +51,12 @@ class Item extends Eloquent {
 
 	public static function getItemById() {
 		$item_id = Input::get('item_id');
-		
+
+		// ERROR !!!!
 		$item = Item::__items();
+		// $item = new Item;
+		// $item = $item->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
+		// 				->join('producers', 'items.producer_id', '=', 'producers.producer_id');
 		$item = $item->where('item_id', $item_id);
 		$item = $item->first();
 
@@ -106,11 +110,11 @@ class Item extends Eloquent {
 	public static function updateOrCreateItemById($fields) {
 		$item_id = Input::get('item_id');
 
-		// if ($item_id) {
-		// 	dd('WORKS!');
-		// }
-
-		($item_id) ? $item = Item::find($item_id) : $item = new Item;
+		$item = new Item;
+		if ($item_id) {
+			$item = $item->where('item_id', $item_id); 
+			$item = $item->first();
+		}		
 		$item->fill($fields);
 		$item->save();
 

@@ -560,7 +560,7 @@ form {
 	position: absolute;
 	z-index: 10;
 	top: 0px;
-	right: 0px;
+	right: 6px;
 }
 .pagination {
 	display: table;
