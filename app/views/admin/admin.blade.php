@@ -11,7 +11,7 @@
 	<div class="admin_panel_main_content">
 		<div class="admin_panel_import">
 			<p class="admin_uni_label"><i class="fa fa-reply"></i> Импорт</p>
-			{{ Form::open(['url'=>'/admin/import', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>'/admin/import', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('excel', ['class'=>'admin_uni_button']) }}
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}	

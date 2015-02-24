@@ -27,7 +27,17 @@ class AdminController extends BaseController {
 	}
 
 	public function import() {
-		
+		if (Input::hasFile('excel')) {
+			$file = Input::file('excel');
+			$destinationPath = public_path().DIRECTORY_SEPARATOR.'excel';
+			$extension = $file->getClientOriginalExtension();
+			// $filename = $file->getClientOriginalName(); // full
+			$filename = 'excel.'.$extension;
+			$file->move($destinationPath, $filename);
+		}
+
+		$count = 10;
+		return Redirect::to('/admin')->with('message', 'Импорт завершен успешно, добавлено '.$count.' товаров.');
 	}
 
 	public function admin_logout() {
