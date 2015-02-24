@@ -2,7 +2,10 @@
 class AdminController extends BaseController {
 	public function admin() {
 		if (Auth::admin()->check()) {
-			return View::make('admin/admin');
+			return View::make('admin/admin')->with([
+				'env' 		=> 'panel',
+				'discount'  => Cred::getDiscount()
+			]);
 		} else {
 			return View::make('admin/admin_login');
 		}
@@ -19,15 +22,32 @@ class AdminController extends BaseController {
 	}
 
 	public function set_discount() {
-		
+		$discount = Input::get('discount');
+		Cred::setDiscount();
+
+		return Redirect::to('/admin')->with('message', 'Скидка для зарегестрированных пользователей: '.$discount.'%.');
 	}
 
 	public function search() {
-		
+		return View::make('admin/admin_items')->with([
+			'items'     => Item::getItemsByQuery(),
+			'current'	=> Input::get('query'),
+			'env' 		=> 'catalog_admin'
+		]);
 	}
 
 	public function import() {
-		
+		if (Input::hasFile('excel')) {
+			$file = Input::file('excel');
+			$destinationPath = public_path().DIRECTORY_SEPARATOR.'excel';
+			$extension = $file->getClientOriginalExtension();
+			// $filename = $file->getClientOriginalName(); // full
+			$filename = 'excel.'.$extension;
+			$file->move($destinationPath, $filename);
+		}
+
+		$count = 10;
+		return Redirect::to('/admin')->with('message', 'Импорт завершен успешно, добавлено '.$count.' товаров.');
 	}
 
 	public function admin_logout() {
@@ -40,12 +60,11 @@ class AdminController extends BaseController {
 			'env' 		=> 'catalog_admin',
 			'subcats'   => Subcat::readAllSubcats(),
 			'producers' => Producer::readAllProducers(),
-
 		]);
 	}
 
 	public function subcat() {
-		return View::make('items')->with([
+		return View::make('admin/admin_items')->with([
 			'env' 		=> 'catalog_admin'
 		]);
 	}

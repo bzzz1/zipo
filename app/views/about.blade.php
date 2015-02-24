@@ -64,7 +64,7 @@
 				<li><p class="about_text about_list">наличие запчастей на нашем складе;</p></li>
 				<li><p class="about_text about_list">обучение персонала в эксплуатации оборудования.</p></li>
 			</ul>
-			<img src="/img/photos/giant_banner.png" alt="" class="giant_banner">
+			<img src="/img/markup/giant_banner.png" alt="" class="giant_banner">
 			<b><p class="about_text">Обращаем ваше внимание на то, что сведения, размещенные на данном интернет-сайте, носят исключительно информативный характер и ни при каких условиях не могут расцениваться как публичная оферта, определяемая положениями Статьи 437 ГК РФ</p></b>
 		</div>
 	</div>

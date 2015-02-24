@@ -26,9 +26,6 @@
 						<a href="/registration" class="btn btn-default reg_button">Регистрация</a>
 					</div>
 					<div class="header_login">
-						@if (isset($error))
-							<p class="error">Error</p>
-						@endif	
 						{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form input-group']) }}
 							{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
 							{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
@@ -36,8 +33,7 @@
 						{{ Form::close() }}
 					</div>	
 				@endif
-			    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'header_search')) }}
-					<!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
+				{{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'header_search')) }}
 					{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
 				{{ Form::close() }}
 			</div>
