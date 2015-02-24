@@ -34,6 +34,11 @@
 	color: #cecece;
 	text-decoration: none;
 }
+.footer_description_block {
+	float: left;
+	display: inline-block;
+	width: 300px;
+}
 .footer_description,
 .footer_copy,
 .footer_link {
@@ -43,7 +48,7 @@
 	margin-bottom: 2px;
 }
 .footer_description {
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 }
 .footer_link a {
 	color: white;
