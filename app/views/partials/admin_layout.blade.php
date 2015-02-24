@@ -37,12 +37,10 @@
 
 <body>
 	@yield('header')
-	<div class="full_screen_admin">
-		<div class="container_main">
-			@yield('left_sidebar')
-			@yield('right_sidebar')
-			@yield('body')
-		</div>	
+	@yield('left_sidebar')
+	<div class="container_main">
+		@yield('right_sidebar')
+		@yield('body')
 	</div>	
 	@yield('footer')
 
