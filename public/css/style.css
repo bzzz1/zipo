@@ -409,6 +409,11 @@ form {
 	right: 0px;
 	top: 0px;
 }
+.empty_scape {
+	padding-top: 27px;
+	display: inline-block;
+	position: relative;
+}
 .items_item_one {
 	width: 250px;
 	height: 315px;
@@ -554,6 +559,8 @@ form {
 .items_item_flag {
 	position: absolute;
 	z-index: 10;
+	top: 0px;
+	right: 0px;
 }
 .pagination {
 	display: table;
