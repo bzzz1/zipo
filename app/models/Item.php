@@ -101,12 +101,30 @@ class Item extends Eloquent {
 	}
 
 /*------------------------------------------------
+| CREATE UPDATE
+------------------------------------------------*/
+	public static function updateOrCreateItemById($fields) {
+		$item_id = Input::get('item_id');
+
+		// if ($item_id) {
+		// 	dd('WORKS!');
+		// }
+
+		($item_id) ? $item = Item::find($item_id) : $item = new Item;
+		$item->fill($fields);
+		$item->save();
+
+		// GET JUST SAVED ITEM ID!!!!!!!!
+		// return $item_id;
+	}
+
+/*------------------------------------------------
 | DELETE
 ------------------------------------------------*/
 	public static function deleteItemById() {
 		$item_id = Input::get('item_id');
 
-		Article::where('item_id', $item_id)->delete();
+		Item::where('item_id', $item_id)->delete();
 	}	
 }
 

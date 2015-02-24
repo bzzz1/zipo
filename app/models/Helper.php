@@ -7,9 +7,15 @@ class Helper {
 	public static $discount;
 	public static $translit;
 	public static $categories;
+	public static $excel_import_dir;
+	public static $item_photo_dir;
+	public static $article_photo_dir;
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
+		static::$excel_import_dir = public_path().DIRECTORY_SEPARATOR.'excel';
+		static::$item_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
+		static::$article_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
 		static::$discount = Cred::getDiscount();
 		static::$translit = [
 			'mehanicheskoe_en' 	=> 'Механическое_en',
@@ -71,7 +77,6 @@ class Helper {
 				} 
 			} 
 		}
-		// dd($result);
 		return $result; 
 	}
 
@@ -275,4 +280,39 @@ class Helper {
 
 		return array_slice($array, $start, $length);
 	}
+
+	// KCFinder SETTINGS
+	// 	conf -> config.php
+	// 		'disabled' => false, 
+	// 		'uploadURL' => "../../../upload", 
+	// 		'uploadDir' => "../../../upload",
+			
+	// 	js -> 080.files.js 69
+	// 		if (file.thumb) {
+	//             /*------------------------------------------------
+	//             | >>beststrelok<<
+	//             ------------------------------------------------*/
+	//             // icon = _.getURL('thumb') + "&file=" + encodeURIComponent(file.name) + "&dir=" + encodeURIComponent(_.dir) + "&stamp=" + stamp;
+	//             icon = _.uploadURL + "/" + _.dir + "/" + encodeURIComponent(file.name);
+	//             icon = $.$.escapeDirs(icon).replace(/\'/g, "%27");
+	//             /*------------------------------------------------
+	//             | REPLACE THUMBS !!!
+	//             ------------------------------------------------*/
+	//             icon = icon.replace("upload/images", "upload/.thumbs/images");
+	//             /*----------------------------------------------*/
+	//         }
+	//         else if (file.smallThumb) {
+	//             icon = _.uploadURL + "/" + _.dir + "/" + encodeURIComponent(file.name);
+	//             icon = $.$.escapeDirs(icon).replace(/\'/g, "%27");
+	//         } else {
+	//             /*------------------------------------------------
+	//             | >>beststrelok<<
+	//             ------------------------------------------------*/
+	//             icon = _.uploadURL + "/" + _.dir + "/" + encodeURIComponent(file.name);
+	//             icon = $.$.escapeDirs(icon).replace(/\'/g, "%27");
+	//             // icon = file.bigIcon ? $.$.getFileExtension(file.name) : ".";
+	//             // if (!icon.length) icon = ".";
+	//             // icon = "themes/" + _.theme + "/img/files/big/" + icon + ".png";
+	//             /*----------------------------------------------*/
+	// 		                }
 }

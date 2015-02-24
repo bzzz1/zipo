@@ -3,6 +3,3 @@
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
 @extends('partials/catalog')
-@section('css')
-	{{ HTML::style('css/admin.css') }}<!--delete it-->
-@stop
