@@ -18,34 +18,34 @@
 			<p class="about_text">Наша компания  предлагает широкий ассортимент комплектующих и запасных частей импортного и российского производства для торгового, холодильного, теплового и другого оборудования, используемого на предприятиях общественного питания, торговли, сферы услуг и пищевых производствах.</p>
 			<p class="about_text">Среди наших партнеров как предприятия торговли, общественного питания, производственные предприятия так и организации, занимающиеся сервисным обслуживанием.</p>
 			<p class="about_text">Запчасти данных производителей у нас есть в наличие , на складе в Санкт Петербурге</p>
-			<img src="/img/photos/brand_1.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_2.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_3.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_4.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_5.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_6.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_7.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_8.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_9.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_10.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_11.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_12.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_13.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_14.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_15.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_16.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_17.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_18.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_19.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_20.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_21.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_22.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_23.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_24.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_25.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_26.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_27.png" alt="" class="about_brand">
-			<img src="/img/photos/brand_28.png" alt="" class="about_brand about_brand_last">
+			<img src="/img/markup/brand_1.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_2.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_3.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_4.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_5.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_6.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_7.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_8.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_9.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_10.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_11.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_12.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_13.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_14.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_15.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_16.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_17.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_18.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_19.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_20.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_21.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_22.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_23.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_24.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_25.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_26.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_27.png" alt="" class="about_brand">
+			<img src="/img/markup/brand_28.png" alt="" class="about_brand about_brand_last">
 			<b><p class="about_text">Поставка оборудования для вашего ресторана, кафе столовой или др. точки общественного  питания.</p></b>
 			<b><p class="about_text">Постановка на сервисное обслуживание.</p></b>
 			<p class="about_text">Процедура постановки, ресторана, кафе, магазина на сервис торгового оборудования в нашей компании выглядит следующим образом:</p>
