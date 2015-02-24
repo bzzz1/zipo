@@ -51,4 +51,13 @@ class Subcat extends Eloquent {
 		
 		return $subcats;
 	}
+
+/*------------------------------------------------
+| DELETE
+------------------------------------------------*/
+	public static function deleteSubcatById() {
+		$subcat_id = Input::get('subcat_id');
+
+		Subcat::where('subcat_id', $subcat_id)->delete();
+	}
 }

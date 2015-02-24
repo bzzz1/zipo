@@ -39,7 +39,7 @@ class AdminController extends BaseController {
 	public function import() {
 		if (Input::hasFile('excel')) {
 			$file = Input::file('excel');
-			$destinationPath = public_path().DIRECTORY_SEPARATOR.'excel';
+			$destinationPath = Helper::$excel_import_dir;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'excel.'.$extension;
@@ -77,22 +77,37 @@ class AdminController extends BaseController {
 	}
 
 	public function update_item() {
-		// get file /img/photos/temp.??? and rename to $filename
+		$item_id = Input::get('item_id');
+		$fields = Input::all();
 
-		// CHANGE IMAGE NAME
-		// $filename = 'photo_'.$current_timestamp;
+		if (Input::get('with_image')) {
+			$temp_image = Input::get('with_image');
+
+			// CHANGE IMAGE NAME
+			$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
+			$extension = File::extension($old);
+			$filename = 'photo_'.time().'.'.$extension;
+			$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
+			rename($old, $new);
+
+			$fields['photo'] = $filename;
+			unset($fields['with_image']);
+		}
+
+		$item_id = Item::updateOrCreateItemById($fields);
+		return Redirect::back()->withInput(Input::get())
+								->with('message', ($item_id) ? 'Товар изменен' : 'Товар добавлен');
 	}
 
 	public function delete_item() {
-		dd(Input::get('item_id'));
 		Item::deleteItemById();
-		// return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
+		return Redirect::back()->with('message', 'Товар удален');
 	}
 
 	public function item_upload_image() {
 		if (Input::hasFile('photo')) {
 			$file = Input::file('photo');
-			$destinationPath = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+			$destinationPath = Helper::$item_photo_dir;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'temp.'.$extension;
@@ -113,24 +128,23 @@ class AdminController extends BaseController {
 		return View::make('admin/admin_change_article')->with([
 			'env' 		=> 'change_article',
 			'article'	=> Article::getArticleById()
-
 		]);
 	}
 
 	public function update_article() {
-		
+		$filename = 'article_'.time();
 	}
 
 	public function delete_article() {
 		dd(Input::get('article_id'));
 		Article::deleteArticleById();
-		// return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
+				return Redirect::back()->with('message', 'Новость удалена');
 	}
 
 	public function article_upload_image() {
 		if (Input::hasFile('photo')) {
 			$file = Input::file('photo');
-			$destinationPath = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+			$destinationPath = Helper::$article_photo_dir;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'temp_article.'.$extension;
@@ -152,7 +166,9 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_subcat() {
-		
+		dd(Input::get('subcat_id'));
+		Subcat::deleteSubcatById();
+		return Redirect::back()->with('message', 'Подкатегория удалена');
 	}
 
 	public function producers() {
@@ -167,7 +183,9 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_producer() {
-		
+		dd(Input::get('producer_id'));
+		Producer::deleteProducerById();
+		return Redirect::back()->with('message', 'Производитель удален');
 	}
 
 	public function ajax_change_subcat() {

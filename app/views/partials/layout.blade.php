@@ -17,7 +17,7 @@
 	{{ HTML::style('css/item.css') }}<!--delete it-->
 	{{ HTML::style('css/article.css') }}<!--delete it-->
 	{{ HTML::style('css/articles.css') }}<!--delete it-->
-	{{ HTML::script('js/angular.min.js') }}
+	{{-- HTML::script('js/angular.min.js') --}}
 	{{ HTML::script('js/jquery.min.js') }}
 	<!-- // <script src="vendor/ckeditor/ckeditor/ckeditor.js"></script> -->
 
