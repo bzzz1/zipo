@@ -2,7 +2,10 @@
 class AdminController extends BaseController {
 	public function admin() {
 		if (Auth::admin()->check()) {
-			return View::make('admin/admin');
+			return View::make('admin/admin')->with([
+				'env' 		=> 'panel',
+				'discount'  => Cred::getDiscount()
+			]);
 		} else {
 			return View::make('admin/admin_login');
 		}
@@ -19,7 +22,10 @@ class AdminController extends BaseController {
 	}
 
 	public function set_discount() {
-		
+		$discount = Input::get('discount');
+		Cred::setDiscount();
+
+		return Redirect::to('/admin')->with('message', 'Скидка для зарегестрированных пользователей: '.$discount.'%.');
 	}
 
 	public function search() {
@@ -50,7 +56,6 @@ class AdminController extends BaseController {
 			'env' 		=> 'catalog_admin',
 			'subcats'   => Subcat::readAllSubcats(),
 			'producers' => Producer::readAllProducers(),
-
 		]);
 	}
 

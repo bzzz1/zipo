@@ -8,12 +8,17 @@
 
 @section('body')
 	<h1 class="admin_uni_heading">Панель управления</h1>
+
+	@if (Session::get('message'))
+		{{ Session::get('message') }}
+	@endif
+
 	<div class="admin_panel_main_content">
 		<div class="admin_panel_import">
 			<p class="admin_uni_label"><i class="fa fa-reply"></i> Импорт</p>
 			{{ Form::open(['url'=>'/admin/import', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('excel', ['class'=>'admin_uni_button']) }}
-				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
+				{{ Form::submit('Импортировать', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}	
 		</div>
 		<div class="admin_panel_search">
@@ -25,10 +30,9 @@
 		</div>
 		<div class="admin_panel_discount">
 			<p class="admin_uni_label">% Скидка для<br> зарегестрированных<br> пользователей</p>
-			<!--some input field goes here-->
-			{{ Form::open(array('url' => "/admin/set_discount", 'method' => 'GET', 'class'=>'')) }}
-				{{ Form::text('query', null, ['class'=>'form-control', 'id' =>'search_1']) }} 
-				{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'')) }}
+				{{ Form::text('discount', $discount, ['class'=>'form-control']) }} 
+				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
 	</div>
