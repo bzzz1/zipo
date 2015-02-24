@@ -61,7 +61,7 @@
 		</div>
 
 		@if ($item)
-			{{ Form::open(['url'=>"/admin/delete_item?$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>"/admin/delete_item?item_id=$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}	
 		@endif

@@ -3,11 +3,13 @@
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
 @section('css')
+	{{ HTML::style('css/admin.css') }}<!--delete it-->
 @stop
+
 @section('body')
 	<h1 class="admin_uni_heading">Добавить новость</h1>
 	<div class="admin_main_content">
-		{{ Form::model([], ['url'=>['/admin/update_article'], 'files'=>true, 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($article, ['url'=>['/admin/update_article'], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_article_title_block">
 				<p class="admin_uni_lable">Заголовок</p>
 				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_lable']) }}
@@ -23,8 +25,8 @@
 				<textarea class='editor' name="ckeditor" id="ckeditor" cols="10" rows="10"></textarea>
 			</div>
 			<div class="img_preview">
-				@if (false)
-					{{ HTML::image("img/photos/temp", "", ['class'=>'items_item_img']) }} 
+				@if (Session::get('temp_article'))
+					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp_article") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
@@ -35,15 +37,19 @@
 			</div>
 			{{ Form::submit('Сохранить', ['class'=>'admin_uni_button']) }}
 		{{ Form::close() }}
+
 		<div class="change_article_img">
 			<p class="admin_uni_lable">Добавить миниатюру для статьи</p>
-			{{ Form::open(['url'=>'/admin/item_add_image', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>'/admin/article_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('photo', ['class'=>'admin_uni_button']) }}
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
-		{{ Form::open(['url'=>'/admin/delete_item', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-			{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
-		{{ Form::close() }}	
+
+		@if ($article)
+			{{ Form::open(['url'=>"/admin/delete_article?article_id=$article->article_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::close() }}
+		@endif
 	</div>
 @stop

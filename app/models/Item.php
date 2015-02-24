@@ -99,7 +99,17 @@ class Item extends Eloquent {
 
 		return $items;
 	}
+
+/*------------------------------------------------
+| DELETE
+------------------------------------------------*/
+	public static function deleteItemById() {
+		$item_id = Input::get('item_id');
+
+		Article::where('item_id', $item_id)->delete();
+	}	
 }
+
 // 	public static function readItemsByBrands($type, $brand) {
 // 		$sort = Input::get('sort', 'item');
 // 		$order = Input::get('order', 'ASC');
