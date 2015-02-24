@@ -1,6 +1,6 @@
 <?php
 
-// Main Controller
+// MAIN CONTROLLER
 Route::get('/', 'MainController@index');
 Route::get('/about', 'MainController@about');
 Route::get('/price', 'MainController@price');
@@ -21,7 +21,7 @@ Route::post('/order', 'MainController@order');
 Route::get('/search', 'MainController@search');
 Route::post('/user_logout', 'MainController@user_logout');
 
-// Admin Controller
+// ADMIN CONTROLLER
 Route::get('/admin', 'AdminController@admin');
 Route::post('/admin_login', 'AdminController@admin_login');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
@@ -30,29 +30,37 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/import', 'AdminController@import');
 	Route::get('/admin_logout', 'AdminController@admin_logout');
 	Route::get('/catalog', 'AdminController@catalog');
+
+	// ITEM
 	Route::get('/category/subcat', 'AdminController@subcat');
 	Route::get('/change_item', 'AdminController@change_item');
+	Route::post('/update_item', 'AdminController@update_item');
+	Route::post('/delete_item', 'AdminController@delete_item');
+	Route::post('/item_upload_image', 'AdminController@item_upload_image');
 
+	// ARTICLE
 	Route::get('/articles', 'AdminController@articles');
 	Route::get('/change_article', 'AdminController@change_article');
-	Route::get('/subcats', 'AdminController@subcats');
-	Route::get('/producers', 'AdminController@producers');
+	Route::post('/update_article', 'AdminController@update_article');
+	Route::post('/delete_article', 'AdminController@delete_article');
+	Route::post('/article_upload_image', 'AdminController@article_upload_image');
 
-	// Route::get('/items', 'AdminController@items');
-	// Route::get('/articles/{article_id}', 'AdminController@article');
-	// Route::post('/update_item', 'AdminController@update');
-	// Route::post('/update_article', 'AdminController@update_article');
-	// Route::post('/delete_item/{item_code}', 'AdminController@delete_item');
-	// Route::post('/delete_article/{article_id}', 'AdminController@delete_article');
-	// Route::post('/delete_subcat/{subcat_id}', 'AdminController@delete_subcat');
-	// Route::post('/delete_producer/{producer_id}', 'AdminController@delete_producer');
-	// Route::post('/change_subcat', 'AdminController@change_subcat');
-	// Route::post('/change_producer', 'AdminController@change_producer');
-	// Route::post('/ajax_change_subcat', 'AdminController@ajax_change_subcat');
-	// Route::post('/ajax_set_special', 'AdminController@ajax_set_special');
-	// Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
-	// Route::post('/ajax_delete', 'AdminController@ajax_delete');
-	// Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
+	// SUBCAT
+	Route::get('/subcats', 'AdminController@subcats');
+	Route::post('/update_subcat', 'AdminController@update_subcat');
+	Route::post('/delete_subcat', 'AdminController@delete_subcat');
+
+	// PRODUCER
+	Route::get('/producers', 'AdminController@producers');
+	Route::post('/update_producer', 'AdminController@update_producer');
+	Route::post('/delete_producer', 'AdminController@delete_producer');
+
+	// AJAX
+	Route::post('/ajax_change_subcat', 'AdminController@ajax_change_subcat');
+	Route::post('/ajax_set_special', 'AdminController@ajax_set_special');
+	Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
+	Route::post('/ajax_delete', 'AdminController@ajax_delete');
+	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');
@@ -86,41 +94,3 @@ App::missing(function($exception) {
 // 	});
 // }
 // /*----------------------------------------------*/
-
-
-
-// Route::get('/', 'MainController@index');
-// Route::get('/info', 'MainController@info');
-// Route::get('/itemSearch', ['as'=>'itemSearch', 'uses'=>'MainController@itemSearch']);
-// Route::get('/admin', 'MainController@login');
-// Route::post('/validate', 'MainController@validate');
-// Route::get('/attachment', 'MainController@attachment');
-// Route::get('/excel_import', 'ExcelController@excelImport'); // items and spares
-// Route::get('/{env}', 'MainController@index'); // items and spares
-
-// Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
-// 	Route::get('/logout', 'MainController@logout');
-// 	Route::get('/info', 'MainController@adminInfo');
-// 	Route::get('/codeSearch', ['as'=>'codeSearchAdmin', 'uses'=>'MainController@codeSearchAdmin']);
-// 	Route::get('/itemSearch', ['as'=>'itemSearchAdmin', 'uses'=>'MainController@itemSearchAdmin']);
-
-// 	/*------------------------------------------------
-// 	| ITEM
-// 	------------------------------------------------*/
-// 	// Route::post('/createItem', 'MainController@createItem');
-// 	Route::get('/changeItem/{code?}', 'MainController@changeItem');
-// 	Route::post('/changeItem/{code?}', 'MainController@changeItemJson');
-// 	Route::post('/updateItem/{code?}', 'MainController@updateOrCreateItem');
-// 	Route::post('/deleteItem/{code}', 'MainController@deleteItem');
-// 	/*------------------------------------------------
-// 	| ARTICLE
-// 	------------------------------------------------*/
-// 	// Route::post('/info/createArticle', 'MainController@createArticle');
-// 	Route::get('/info/changeArticle/{id?}', 'MainController@changeArticle');
-// 	Route::post('/info/updateArticle/{id?}', 'MainController@updateOrCreateArticle');
-// 	Route::post('/info/deleteArticle/{id}', 'MainController@deleteArticle');
-// });
-
-// Route::get('/{env}/{brand}', 'MainController@catalogBrand');
-// Route::get('/{env}/{category}/Всё', 'MainController@catalogCategory');
-// Route::get('/{env}/{category}/{subcategory}', 'MainController@catalogSubcategory');
