@@ -1,4 +1,9 @@
 /*GENERAL*/
+.container_main {
+	width: auto;
+	margin: auto;
+	display: block;
+}
 body {
 	font-family: 'Myriad Pro';
 	background-color: #ececec;
@@ -35,11 +40,11 @@ header {
 .admin_to_site {
 	display: inline-block;
 }
-.admin_header_btn_group_r {
-	left: 795px;
-}
 .admin_header_btn_group {
 	left: 252px;
+}
+.admin_header_btn_group_r {
+	left: 795px;
 }
 .admin_header_btn_group>button {
 	border: 0px;

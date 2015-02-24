@@ -12,8 +12,6 @@
 						</li>
 					</ul>
 				</div>	
-				<!-- <a href="/" class="admin_header_link"><i class="fa fa-home"></i> Зип Общепит</a> -->
-				<!-- <a href="/" class="admin_header_link">Перейти на сайт</a> -->
 			</div>
 			<div class="btn-group admin_header_btn_group admin_header_btn_group_r">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
