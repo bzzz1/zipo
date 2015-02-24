@@ -1,4 +1,4 @@
-@extends('partials/layout')
+@extends('partials/admin_layout')
 @extends('partials/admin_header')
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
@@ -61,12 +61,12 @@
 		{{ Form::close() }}
 		<div class="change_article_img">
 			<p class="admin_uni_lable">Добавить миниатюру для статьи</p>
-			{{ Form::open(['url'=>'/item_add_image', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>'/admin/item_add_image', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('photo', ['class'=>'admin_uni_button']) }}
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
-		{{ Form::open(['url'=>'/delete_item', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+		{{ Form::open(['url'=>'/admin/delete_item', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 			{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
 		{{ Form::close() }}	
 	</div>

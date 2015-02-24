@@ -66,9 +66,9 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 Route::get('/{category}/{subcat}', 'MainController@items');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
-App::missing(function($exception) {
-	return Redirect::to('/');
-});
+// App::missing(function($exception) {
+// 	return Redirect::to('/');
+// });
 
 // /*------------------------------------------------
 // | SQL Listener or using debug bar

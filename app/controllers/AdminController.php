@@ -52,20 +52,35 @@ class AdminController extends BaseController {
 
 	public function change_item() {
 		return View::make('admin/admin_change_item')->with([
-			'env' 		=> 'change_item'
+			'env' 		=> 'change_item',
+			'item'		=> Item::getItemById()
 		]);
 	}
 
 	public function update_item() {
-		
+		// get file /img/photos/temp.??? and rename to $filename
+
+		// CHANGE IMAGE NAME
+		// $filename = 'photo_'.$current_timestamp;
 	}
 
 	public function delete_item() {
-		
+		Item::deleteItemById($code);
+		print_r(Redirect::back());
+		return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
 	}
 
 	public function item_upload_image() {
-		
+		if (Input::hasFile('photo')) {
+			$file = Input::file('photo');
+			$destinationPath = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+			$extension = $file->getClientOriginalExtension();
+			// $filename = $file->getClientOriginalName(); // full
+			$filename = 'temp.'.$extension;
+			$file->move($destinationPath, $filename);
+		}
+
+		return Redirect::back()->with('temp', $filename);
 	}
 
 	public function articles() {
@@ -124,22 +139,22 @@ class AdminController extends BaseController {
 	}
 
 	public function ajax_change_subcat() {
-		
+		// return Response::json($data);
 	}
 
 	public function ajax_set_special() {
-		
+		// return Response::json($data);
 	}
 
 	public function ajax_set_hit() {
-		
+		// return Response::json($data);
 	}
 
 	public function ajax_delete() {
-		
+		// return Response::json($data);
 	}
 
 	public function ajax_set_procurement() {
-		
+		// return Response::json($data);
 	}
 }

@@ -129,6 +129,13 @@
 	});
 })(jQuery);
 
+
+// DELETE IMG ICON
+$('.delete_img_icon').on('click', function() {
+	location.reload();
+});
+
+
 // 	function run_deleting_confirm() {
 // 		$('.confirm_delete').on('click', function() {
 // 			if (confirm('Подтвердить удаление')) {

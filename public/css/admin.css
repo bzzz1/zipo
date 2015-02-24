@@ -154,6 +154,10 @@ header {
 	display: none;
 }
 
+.delete_img_icon {
+	cursor: pointer;
+}
+
 
 
 
