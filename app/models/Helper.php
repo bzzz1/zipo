@@ -10,7 +10,7 @@ class Helper {
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-		static::$discount = Cred::getCred()['discount'];
+		static::$discount = Cred::getDiscount();
 		static::$translit = [
 			'mehanicheskoe_en' 	=> 'Механическое_en',
 			'teplovoe_en' 		=> 'Тепловое_en',
