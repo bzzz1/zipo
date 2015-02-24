@@ -28,6 +28,12 @@ body {
 .hidden {
 	display: none;
 }
+.admin_main_content {
+	width: 930px;
+	display: table;
+	margin: auto;
+	margin-bottom: 30px;
+}
 /*HEADER*/
 header {
 	background-color: #222222;
@@ -49,7 +55,6 @@ header {
 }
 .admin_header_btn_group>button {
 	border: 0px;
-	/*padding-left: 15px;*/
 }
 .fa_user {
 	margin-right: 5px;
@@ -183,7 +188,7 @@ footer {
 	padding: 10px;
 	display: inline-block;
 	margin-right: 20px;
-	margin-top: -56px;
+	float: left;
 }
 .admin_sidebar_button {
 	color: #eee;
