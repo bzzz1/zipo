@@ -1,6 +1,7 @@
 /*GENERAL*/
 .container_main {
 	padding-top: 0;
+	width: 930px;
 }
 body {
 	font-family: 'Myriad Pro';
@@ -14,11 +15,15 @@ body {
 .admin_uni_heading {
 	font-size: 24px;
 	color: #9dcb20;
+	margin-left: 25px;
 }
-.admin_uni_lable {
+.admin_uni_label {
 	font-size: 16px;
 	font-weight: bold;
 	color: #222222;
+}
+.admin_uni_label>i {
+	margin-right: 5px;
 }
 .hidden {
 	display: none;
@@ -121,11 +126,68 @@ header {
 	text-decoration: none;
 	color: #eeeeee;
 }
+
+/*SIDEBAR*/
+.admin_sidebar_container {
+	width: 930px;
+	background-color: #222222;
+	padding: 10px;
+	display: table;
+	margin: auto;
+}
+.admin_sidebar_button {
+	color: #eee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 16px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+.admin_sidebar_button:hover {
+	background-color: #4d4d4d;
+	text-decoration: none;
+	color: #eeeeee;
+}
+.admin_sidebar_button:hover {
+	color: #eee;
+	text-decoration: none;
+}
+.active_my {
+	background-color: #9dcb20;
+	text-decoration: none;
+	color: #eeeeee;
+}
+.admin_sidebar_button i {
+	margin-right: 3px;
+	margin-left: 5px;
+}
+
+.delete_img_icon {
+	cursor: pointer;
+}
+.full_screen {
+	background-color: #222222;
+	margin-top: 0;
+	padding: 0;
+	height: auto;
+}
 /*PANEL*/
 .admin_main_content {
 	background-color: #fff;
 	box-shadow: 2px 3px 7px #757171;
 	padding: 25px 30px 30px 65px;
+}
+input[type=file].admin_panel_input {
+	display: inline;
+	margin-left: 100px;
+	font-size: 16px;
+}
+.input[type="file" i]::-webkit-file-upload-button {
+	margin-left: 50px;
+}
+.selected-file{
+    color: green;
 }
 /*CHANGE_ITEM*/
 /*SUBCATS*/
@@ -174,36 +236,6 @@ footer {
 .copy_footer_admin {
 	display: table;
 	margin: auto;
-}
-/*SIDEBAR*/
-.admin_sidebar_container {
-	width: 930px;
-	background-color: #222222;
-	padding: 10px;
-	display: table;
-	margin: auto;
-}
-.admin_sidebar_button {
-	color: #eee;
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-.admin_sidebar_button:hover {
-	color: #eee;
-	text-decoration: none;
-}
-.admin_sidebar_button i {
-	margin-right: 10px;
-}
-
-.delete_img_icon {
-	cursor: pointer;
-}
-.full_screen {
-	background-color: #222222;
-	margin-top: 0;
-	padding: 0;
-	height: auto;
 }
 
 
