@@ -536,7 +536,7 @@ form {
 	display: table;
 	margin: auto;
 }
-.form-control {
+.form_control {
 	display: inline-block;
 	width: 55px;
 	padding: 0px;
