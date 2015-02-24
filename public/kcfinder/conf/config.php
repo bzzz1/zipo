@@ -22,8 +22,8 @@ return array(
 // GENERAL SETTINGS
 
     'disabled' => false,
-    'uploadURL' => "../upload",
-    'uploadDir' => "../upload",
+    'uploadURL' => "../img/upload",
+    'uploadDir' => "../img/upload",
     'theme' => "default",
 
     'types' => array(

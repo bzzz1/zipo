@@ -22,7 +22,7 @@
 				{{ Form::text('weight', null, ['class'=>'', 'required']) }}
 			</div>
 			<div class="change_article_descript_block">
-				<textarea class='editor' name="ckeditor" id="ckeditor" cols="10" rows="10"></textarea>
+				{{ Form::textarea('body', null, array('class' => 'name', 'id' => 'ckeditor')) }}
 			</div>
 			<div class="img_preview">
 				@if (Session::get('temp_article'))
