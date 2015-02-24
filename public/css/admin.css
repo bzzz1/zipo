@@ -3,6 +3,7 @@
 	width: auto;
 	margin: auto;
 	display: block;
+	padding-top: 0;
 }
 body {
 	font-family: 'Myriad Pro';
@@ -179,7 +180,6 @@ footer {
 	width: 185px;
 	min-height: 780px;
 	background-color: #222222;
-	margin-left: 20px;
 	padding: 10px;
 	display: inline-block;
 	margin-right: 20px;
