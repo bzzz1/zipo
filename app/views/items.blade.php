@@ -63,8 +63,8 @@
 					<div class="items_item_heading">
 						<div class="name_and_code">
 							<p class="items_item_name">{{$item->title}}</p>
-							<p class="items_item_code">Арт: {{$item->code}}</p>
 						</div>	
+						<p class="items_item_code">Арт: {{$item->code}}</p>
 						<div class="items_item_price_div">
 							@if (Auth::user()->check())
 								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
