@@ -176,7 +176,7 @@ header {
 .admin_main_content {
 	background-color: #fff;
 	box-shadow: 2px 3px 7px #757171;
-	padding: 25px 30px 30px 65px;
+	padding: 25px 30px 30px 25px;
 }
 input[type=file].admin_panel_input {
 	display: inline;
@@ -230,6 +230,33 @@ input[type=file].admin_panel_input {
 	color: #fff;
 	font-size: 18px;
 	font-weight: bold;
+}
+.change_block {
+	display: inline-block;
+}
+.change_item_cur_div {
+	float: right;
+}
+.change_item_price_div {
+	margin-left: 35px;
+}
+.title_input {
+	width: 758px;
+	margin-left: 40px;
+}
+.code_input {
+	width: 280px;
+	margin-left: 45px;
+	margin-top: 16px;
+}
+.price_input {
+	width: 165px;
+	margin-left: 25px;
+}
+.currency_input {
+	width: 80px;
+	margin-top: 17px;
+	margin-left: 25px;
 }
 /*PRODUCERS*/
 .admin_producer_add {
