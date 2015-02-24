@@ -19,34 +19,34 @@
 	?>
 
 	<div class="admin_main_content">
-		{{ Form::model($item, ['url'=>[$url], 'method'=>'POST', 'class'=>'']) }}
-			<div class="change_item_title_block">
-				{{ Form::label('title', 'Название: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::text('title', null, ['class'=>'', 'required']) }}
+		{{ Form::model($item, ['url'=>['/admin/update_item'], 'method'=>'POST', 'class'=>'']) }}
+			<div class="change_block change_item_title_block">
+				{{ Form::label('title', 'Название: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::text('title', null, ['class'=>'form-control title_input', 'required']) }}
 			</div>
-			<div class="change_item_code_block">
-				{{ Form::label('code', 'Артикул: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::text('code', null, ['class'=>'', 'required']) }}
+			<div class="change_block change_item_code_block">
+				{{ Form::label('code', 'Артикул: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::text('code', null, ['class'=>'form-control code_input', 'required']) }}
 			</div>
-			<div class="change_item_price_div">
-				{{ Form::label('price', 'Цена: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::text('price', null, ['class'=>'', 'required']) }}
+			<div class="change_block change_item_price_div">
+				{{ Form::label('price', 'Цена: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::text('price', null, ['class'=>'form-control price_input', 'required']) }}
 			</div>
-			<div class="change_item_cur_div">
-				{{ Form::label('currency', 'Валюта: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::text('currency', 'РУБ', ['class'=>'', 'required']) }}
+			<div class="change_block change_item_cur_div">
+				{{ Form::label('currency', 'Валюта: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::text('currency', 'РУБ', ['class'=>'form-control currency_input', 'required']) }}
 			</div>
-			<div class="change_item_descript_block">
-				{{ Form::label('description', 'Описание: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::textarea('description', null, ['class'=>'']) }}
+			<div class="change_block change_item_descript_block">
+				{{ Form::label('description', 'Описание: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::textarea('description', null, ['class'=>'form-control', 'required']) }}
 			</div>
 			<div class="make_spec_block">
-				{{ Form::label('special', 'Добавить в спецпредложения: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::checkbox('special', true, false, ['class'=>'']) }}
+				{{ Form::label('special', 'Добавить в спецпредложения: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::checkbox('special', false, false, ['class'=>'form-control']) }}
 			</div>
 			<div class="make_hit_block">
-				{{ Form::label('hit', 'Сделать хитом продаж: ', ['class'=>'admin_uni_lable']) }}
-				{{ Form::checkbox('hit', true, false, ['class'=>'']) }}
+				{{ Form::label('hit', 'Сделать хитом продаж: ', ['class'=>'admin_uni_label']) }}
+				{{ Form::checkbox('hit', false, false, ['class'=>'form-control']) }}
 			</div>
 			<div class="img_preview">
 				@if (Session::get('temp'))
