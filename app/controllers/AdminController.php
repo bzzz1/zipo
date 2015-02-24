@@ -65,9 +65,9 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		Item::deleteItemById($code);
-		print_r(Redirect::back());
-		return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
+		dd(Input::get('item_id'));
+		Item::deleteItemById();
+		// return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
 	}
 
 	public function item_upload_image() {
@@ -92,7 +92,9 @@ class AdminController extends BaseController {
 
 	public function change_article() {
 		return View::make('admin/admin_change_article')->with([
-			'env' 		=> 'change_article'
+			'env' 		=> 'change_article',
+			'article'	=> Article::getArticleById()
+
 		]);
 	}
 
@@ -101,11 +103,22 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_article() {
-		
+		dd(Input::get('article_id'));
+		Article::deleteArticleById();
+		// return Redirect::back()->with('msg', 'Товар #'.$code.' удален');
 	}
 
 	public function article_upload_image() {
-		
+		if (Input::hasFile('photo')) {
+			$file = Input::file('photo');
+			$destinationPath = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+			$extension = $file->getClientOriginalExtension();
+			// $filename = $file->getClientOriginalName(); // full
+			$filename = 'temp_article.'.$extension;
+			$file->move($destinationPath, $filename);
+		}
+
+		return Redirect::back()->with('temp_article', $filename);
 	}
 
 	public function subcats() {

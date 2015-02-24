@@ -13,7 +13,7 @@ class Article extends Eloquent {
 		return $articles;
 	}
 
-	public static function readArticleById() {
+	public static function getArticleById() {
 		$article_id = Input::get('article_id');
 
 		$article = new Article;
@@ -21,6 +21,18 @@ class Article extends Eloquent {
 		$article = $article->first();
 		return $article;
 	}
+
+
+/*------------------------------------------------
+| DELETE
+------------------------------------------------*/
+	public static function deleteArticleById() {
+		$article_id = Input::get('article_id');
+
+		Article::where('article_id', $article_id)->delete();
+	}
+}
+
 // 	public static function readItemsByBrands($type, $brand) {
 // 		$sort = Input::get('sort', 'item');
 // 		$order = Input::get('order', 'ASC');
@@ -137,4 +149,3 @@ class Article extends Eloquent {
 // 	public static function deleteItemByCode($code) {
 // 		Item::where('code', $code)->delete();
 // 	}
-}
