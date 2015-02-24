@@ -186,6 +186,13 @@ input[type=file].admin_panel_input {
 .input[type="file" i]::-webkit-file-upload-button {
 	margin-left: 50px;
 }
+.admin_panel_import {
+	position: relative;
+}
+.admin_panel_import a {
+	position: absolute;
+	left: 192px;
+}
 /*CHANGE_ITEM*/
 /*SUBCATS*/
 .admin_one_cat_heading {
@@ -254,7 +261,9 @@ footer {
 	display: table;
 	margin: auto;
 }
-
+.copy_footer_admin a img {
+	float: right;
+}
 
 
 
