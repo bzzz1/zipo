@@ -21,25 +21,25 @@
 				на  сайтах компаний, с которыми мы работаем (кликнув по картинке ниже), либо запросить у менеджера.
 			</p>
 			<a href="http://www.edostavka.ru/calculator.html" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/evrodostavka.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/evrodostavka.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://www.dellin.ru" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/dellin.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/dellin.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://emspost.ru/ru/" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/ems.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/ems.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://www.ponyexpress.ru/tariff.php" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/pony.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/pony.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://pecom.ru/ru/" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/pek.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/pek.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://www.ae5000.ru/about/affiliates/branch_details/?city=Санкт-Петербург" class="delivery_outer_link" target="_blank">
-				<img src="/img/photos/avtotreid.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/avtotreid.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<a href="http://www.dimex.ws/rus/rus/calc_expr.php?mode=2" class="delivery_outer_link dimex" target="_blank">
-				<img src="/img/photos/dimex.png" alt="delivery_brand" class="delivery_pic">
+				<img src="/img/markup/dimex.png" alt="delivery_brand" class="delivery_pic">
 			</a>
 			<p class="about_text grey_and_small">Также Вы можете заказать доставку в любой другой транспортно-экспедиционной компании по Вашему выбору. </p>
 			<p class="about_text">Оплата стоимости доставки большинства транспортных компаний - при получении груза.
