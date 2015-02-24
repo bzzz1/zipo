@@ -102,13 +102,13 @@
 		var max = page_height - sidebar_height - 80;
 		$window.on('scroll', function() { 
 			var scroll = $window.scrollTop();
-
-			if (scroll > offset_top && scroll < max-342) {
+			// was max-342 +30
+			if (scroll > offset_top && scroll < max-42) {
 				$left_sidebar.clearQueue().animate({
-					'margin-top' : scroll-offset_top + 30
+					'margin-top' : scroll-offset_top + 10
 				});
 				$right_sidebar.clearQueue().animate({
-					'margin-top' : scroll-offset_top + 30
+					'margin-top' : scroll-offset_top + 10
 				});
 			} else if (scroll < offset_top) {
 				$left_sidebar.clearQueue().animate({
