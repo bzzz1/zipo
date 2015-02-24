@@ -9,7 +9,7 @@
 @section('body')
 	<h1 class="admin_uni_heading">Добавить товар</h1>
 	<div class="admin_main_content">
-		{{ Form::model([], ['url'=>['/admin/item_update'], 'files'=>true, 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model([], ['url'=>['/admin/update_item'], 'files'=>true, 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_item_title_block">
 				{{ Form::label('title', 'Название: ', ['class'=>'admin_uni_lable']) }}
 				{{ Form::text('title', null, ['class'=>'', 'required']) }}
@@ -53,7 +53,7 @@
 		{{ Form::close() }}
 		<div class="change_item_img">
 			<p class="admin_uni_lable">Добавить изображение 110*95 пикс.</p>
-			{{ Form::open(['url'=>'/item_add_image', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>'/item_upload_image', 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('photo', ['class'=>'admin_uni_button']) }}
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}	
