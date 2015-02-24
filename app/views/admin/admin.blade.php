@@ -24,86 +24,86 @@
 				    e.preventDefault();
 				    $('.admin_panel_input').trigger('click');
 				});
-				(function ( $, window, document, undefined ) {
+			// 	(function ( $, window, document, undefined ) {
 
-			    var defaults = {
-			        buttonText: "Browse",
-			        buttonClass: "btn admin_uni_button",
-			        selectedFileClass: 'selected-file',
-			        selectedFileEmptyText: ' No File',
-			    };
+			//     var defaults = {
+			//         buttonText: "Browse",
+			//         buttonClass: "btn admin_uni_button",
+			//         selectedFileClass: 'selected-file',
+			//         selectedFileEmptyText: ' No File',
+			//     };
 
-			    function FilePrettify( element, options ) {
-			        this.element = element;
-			        this.$element = $(element);
-			        this.options = $.extend( {}, defaults, options) ;
+			//     function FilePrettify( element, options ) {
+			//         this.element = element;
+			//         this.$element = $(element);
+			//         this.options = $.extend( {}, defaults, options) ;
 			        
-			        this._defaults = defaults;
+			//         this._defaults = defaults;
 			        
-			        this.init();
-			    }
+			//         this.init();
+			//     }
 
-			    FilePrettify.prototype.updateSelectedFile = function(fileName){
-			        if(!fileName)
-			            this.$selectedFile.html(' ' + this.options.selectedFileEmptyText);
-			        else
-			            this.$selectedFile.html(' ' + fileName.replace("C:\\fakepath\\", ""));
-			    }
+			//     FilePrettify.prototype.updateSelectedFile = function(fileName){
+			//         if(!fileName)
+			//             this.$selectedFile.html(' ' + this.options.selectedFileEmptyText);
+			//         else
+			//             this.$selectedFile.html(' ' + fileName.replace("C:\\fakepath\\", ""));
+			//     }
 
-			    FilePrettify.prototype.init = function () {
-			        var self = this;
-			        var $elem = this.$element;
-			        $elem.hide();
-			        var $button = $('<button class = "' + this.options.buttonClass + '">' +
-			                this.options.buttonText + '</button>');
-			        var $selectedFile = $('<span class = "' + this.options.selectedFileClass 
-			                + '">' + this.options.selectedFileEmptyText + '</span>');
-			        $button.on('click.fileprettify', function(e){
-			            console.log($elem);
-			            e.preventDefault();
-			            $elem.click();
-			        });
-			        $($elem.parent()).append($button);
-			        $($elem.parent()).append($selectedFile);
+			//     FilePrettify.prototype.init = function () {
+			//         var self = this;
+			//         var $elem = this.$element;
+			//         $elem.hide();
+			//         var $button = $('<button class = "' + this.options.buttonClass + '">' +
+			//                 this.options.buttonText + '</button>');
+			//         var $selectedFile = $('<span class = "' + this.options.selectedFileClass 
+			//                 + '">' + this.options.selectedFileEmptyText + '</span>');
+			//         $button.on('click.fileprettify', function(e){
+			//             console.log($elem);
+			//             e.preventDefault();
+			//             $elem.click();
+			//         });
+			//         $($elem.parent()).append($button);
+			//         $($elem.parent()).append($selectedFile);
 			        
-			        $elem.on('change.fileprettify', function(e){
-			            var fileName = $(this).val();
-			            self.updateSelectedFile(fileName);
-			        });
+			//         $elem.on('change.fileprettify', function(e){
+			//             var fileName = $(this).val();
+			//             self.updateSelectedFile(fileName);
+			//         });
 
-			        this.$button = $button;
-			        this.$selectedFile = $selectedFile;
-			        this.updateSelectedFile($elem.val());
-			    };
+			//         this.$button = $button;
+			//         this.$selectedFile = $selectedFile;
+			//         this.updateSelectedFile($elem.val());
+			//     };
 
-			    $.fn.fileprettify = function ( options ) {
-			        return this.each(function () {
-			            if (!$.data(this, 'fileprettify' )) {
-			                $.data(this, 'fileprettify' , 
-			                new FilePrettify( this, options ));
-			            }
-			        });
-			    }
+			//     $.fn.fileprettify = function ( options ) {
+			//         return this.each(function () {
+			//             if (!$.data(this, 'fileprettify' )) {
+			//                 $.data(this, 'fileprettify' , 
+			//                 new FilePrettify( this, options ));
+			//             }
+			//         });
+			//     }
 
-			})( jQuery, window, document )
+			// })( jQuery, window, document )
 
 
 
-			$('input').fileprettify()
+			// $('input').fileprettify()
 
 			</script>	
 		</div>
 		<div class="admin_panel_search">
 			<p class="admin_uni_label"><i class="fa fa-search"></i> Поиск по артикулу</p>
-			{{ Form::open(array('url' => "/admin/search", 'method' => 'GET', 'class'=>'')) }}
-				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
+			{{ Form::open(array('url' => "/admin/search", 'method' => 'GET', 'class'=>'admin_panel_search')) }}
+				{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control admin_input_search', 'id' =>'search']) }} 
 				{{ Form::submit('Поиск', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
 		<div class="admin_panel_discount">
 			<p class="admin_uni_label">% Скидка для<br> зарегестрированных<br> пользователей</p>
-			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'')) }}
-				{{ Form::text('discount', $discount, ['class'=>'form-control']) }} 
+			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'admin_discount_input')) }}
+				{{ Form::text('discount', $discount, ['class'=>'form-control discount_input']) }} 
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>

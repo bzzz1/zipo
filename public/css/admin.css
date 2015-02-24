@@ -186,9 +186,6 @@ input[type=file].admin_panel_input {
 .input[type="file" i]::-webkit-file-upload-button {
 	margin-left: 50px;
 }
-.selected-file{
-    color: green;
-}
 /*CHANGE_ITEM*/
 /*SUBCATS*/
 .admin_one_cat_heading {
@@ -207,6 +204,26 @@ input[type=file].admin_panel_input {
 }
 .admin_subcategory i {
 	color: #9dcb20;
+}
+.admin_panel_search {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.admin_input_search {
+	margin-left: 20px;
+	margin-right: 86px;
+}
+.form-control {
+	display: inline-block;
+	width: auto;
+}
+.admin_discount_input {
+	vertical-align: top;
+	margin-top: 18px;
+	margin-left: 34px;
+}
+.discount_input {
+	margin-right: 85px;
 }
 /*ITEMS*/
 .admin_items_quantity {
