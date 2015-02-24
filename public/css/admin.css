@@ -29,6 +29,9 @@ header {
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
+.container_admin_header {
+	padding-top: 0;
+}
 .admin_to_site {
 	display: inline-block;
 }

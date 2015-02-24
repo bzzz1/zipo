@@ -1,6 +1,6 @@
 @section('header') 
 	<header>
-		<div class="container_main">
+		<div class="container_main container_admin_header">
 			<div class="admin_to_site">
 				<div class="btn-group admin_header_btn_group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
