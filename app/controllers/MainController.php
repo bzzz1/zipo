@@ -111,7 +111,7 @@ class MainController extends BaseController {
 
 	public function article() {
 		return View::make('article')->with([
-			'article'	=> Article::readArticleById(),
+			'article'	=> Article::getArticleById(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
