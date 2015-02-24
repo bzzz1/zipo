@@ -56,6 +56,18 @@ class AdminController extends BaseController {
 		]);
 	}
 
+	public function update_item() {
+		
+	}
+
+	public function delete_item() {
+		
+	}
+
+	public function item_upload_image() {
+		
+	}
+
 	public function articles() {
 		return View::make('admin/admin_articles')->with([
 			'env' 		=> 'articles',
@@ -69,11 +81,31 @@ class AdminController extends BaseController {
 		]);
 	}
 
+	public function update_article() {
+		
+	}
+
+	public function delete_article() {
+		
+	}
+
+	public function article_upload_image() {
+		
+	}
+
 	public function subcats() {
 		return View::make('admin/admin_subcats')->with([
 			'env' 		=> 'subcats',
 			'subcats'   => Subcat::readAllSubcats(),
 		]);
+	}
+
+	public function update_subcat() {
+		
+	}
+
+	public function delete_subcat() {
+		
 	}
 
 	public function producers() {
@@ -83,43 +115,11 @@ class AdminController extends BaseController {
 		]);
 	}
 
-	public function items() {
-		
-	}
-
-	public function article() {
-
-	}
-
-	public function change_new() {
-		
-	}
-
-	public function update_new() {
-		
-	}
-
-	public function delete_item() {
-		
-	}
-
-	public function delete_new() {
-		
-	}
-
-	public function delete_subcat() {
+	public function update_producer() {
 		
 	}
 
 	public function delete_producer() {
-		
-	}
-
-	public function change_subcat() {
-		
-	}
-
-	public function change_producer() {
 		
 	}
 

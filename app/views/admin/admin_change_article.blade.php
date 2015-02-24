@@ -31,7 +31,7 @@
 @section('body')
 	<h1 class="admin_uni_heading">Добавить новость</h1>
 	<div class="admin_main_content">
-		{{ Form::model([], ['url'=>['/admin/article_update'], 'files'=>true, 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model([], ['url'=>['/admin/update_article'], 'files'=>true, 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_article_title_block">
 				<p class="admin_uni_lable">Заголовок</p>
 				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_lable']) }}
