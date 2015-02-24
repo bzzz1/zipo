@@ -1,9 +1,15 @@
 /*GENERAL*/
+.container_main {
+	width: auto;
+	margin: auto;
+	display: block;
+	padding-top: 0;
+}
 body {
 	font-family: 'Myriad Pro';
 	background-color: #ececec;
-	width: 1200px;
-	margin: auto;
+	/*width: 1200px;*/
+	/*margin: auto;*/
 }
 .admin_uni_button {
 	background-color: #9dcb20;
@@ -29,8 +35,14 @@ header {
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
+.container_admin_header {
+	padding-top: 0;
+}
 .admin_to_site {
 	display: inline-block;
+}
+.admin_header_btn_group {
+	left: 252px;
 }
 .admin_header_btn_group_r {
 	left: 795px;
@@ -152,6 +164,38 @@ header {
 }
 .admin_article_title_full {
 	display: none;
+}
+/*FOOTER*/
+footer {
+	background-color: #9dcb20;
+	height: 65px;
+	padding-top: 20px;
+}
+.copy_footer_admin {
+	display: table;
+	margin: auto;
+}
+/*SIDEBAR*/
+.admin_sidebar_container {
+	width: 185px;
+	min-height: 780px;
+	background-color: #222222;
+	padding: 10px;
+	display: inline-block;
+	margin-right: 20px;
+	margin-top: -56px;
+}
+.admin_sidebar_button {
+	color: #eee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.admin_sidebar_button:hover {
+	color: #eee;
+	text-decoration: none;
+}
+.admin_sidebar_button i {
+	margin-right: 10px;
 }
 
 .delete_img_icon {

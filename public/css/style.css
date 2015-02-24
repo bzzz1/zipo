@@ -255,6 +255,10 @@ form {
 	border-color: #cecece;
 	outline-color: #cecece;
 }
+.btn_exit {
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
 /*PRICES*/
 .prices_heading {
 	font-size: 18px;
@@ -400,6 +404,11 @@ form {
 .items_sort {
 	/*something here*/
 }
+.items_sort_by_main {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
 .items_item_one {
 	width: 250px;
 	height: 300px;
@@ -510,8 +519,11 @@ form {
 	color: white;
 }
 .catalog_bottom_pages {
+	position: relative;
 	display: table;
-	margin: auto;
+	/*margin: auto;*/
+	width: 100%;
+	margin-bottom: 10px;
 }
 .item_hit, .item_spec {
 	background-color: #f6e8ea;
@@ -519,6 +531,15 @@ form {
 .items_item_flag {
 	position: absolute;
 	z-index: 10;
+}
+.pagination {
+	display: table;
+	margin: auto;
+}
+.form_control {
+	display: inline-block;
+	width: 55px;
+	padding: 0px;
 }
 /*CONTACTS*/
 .contacts_info_table tr {
