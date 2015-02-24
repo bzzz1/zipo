@@ -29,7 +29,11 @@ class AdminController extends BaseController {
 	}
 
 	public function search() {
-		
+		return View::make('admin/admin_items')->with([
+			'items'     => Item::getItemsByQuery(),
+			'current'	=> Input::get('query'),
+			'env' 		=> 'catalog_admin'
+		]);
 	}
 
 	public function import() {
@@ -60,7 +64,7 @@ class AdminController extends BaseController {
 	}
 
 	public function subcat() {
-		return View::make('items')->with([
+		return View::make('admin/admin_items')->with([
 			'env' 		=> 'catalog_admin'
 		]);
 	}
