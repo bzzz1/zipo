@@ -265,6 +265,17 @@ input[type=file].admin_panel_input {
 	margin-top: 17px;
 	margin-left: 25px;
 }
+.change_item_category_div {
+	margin-right: 65px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.category_label, .proc_label {
+	margin-right: 30px;
+}
+.subcat_label {
+	margin-right: 25px;
+}
 .descr_label {
 	vertical-align: top;
 	margin-top: 15px;
