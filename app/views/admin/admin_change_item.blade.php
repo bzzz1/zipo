@@ -9,9 +9,9 @@
 	@if (Session::get('message'))
 		{{ Session::get('message') }}
 	@endif
-
+	
 	<div class="admin_main_content">
-		{{ Form::model($item, ['url'=>['/admin/update_item'], 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($item, ['url'=>[URL::to('/admin/update_item?item_id=', Input::get('item_id'))], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_block change_item_title_block">
 				{{ Form::label('title', 'Название', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'form-control title_input', 'required']) }}

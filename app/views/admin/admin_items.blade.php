@@ -38,7 +38,10 @@
 				<div class="admin_items_buttons">
 					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox']) }}
 					<div class="fa_block">
-						<i class="fa fa-pencil change_items_group_icon fa-lg"></i>
+						<a href='{{URL::to("admin/change_item?item_id=$item->item_id")}}' class="admin_item_title_1">
+							<i class="fa fa-pencil change_items_group_icon fa-lg"></i>
+						</a>
+						<!-- <i class="fa fa-pencil change_items_group_icon fa-lg"></i> -->
 						<i class="fa fa-times delete_items_group_icon fa-lg"></i> 
 					</div>	
 				</div>

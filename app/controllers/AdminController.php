@@ -73,7 +73,7 @@ class AdminController extends BaseController {
 	public function change_item() {
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
-			'item'		=> Item::getItemById(),
+			'item'		=> Item::find(Input::get('item_id')),
 			'producers' => Producer::readAllProducers()
 		]);
 	}
@@ -99,15 +99,18 @@ class AdminController extends BaseController {
 
 		/*----------------------------------------------*/
 
-		$r = Item::updateOrCreate(['item_id' => $item_id], $fields);
-		dd($r);
+		// $r = Item::updateOrCreate(['item_id' => $item_id], $fields);
+		// $item = Item::updateOrCreate(['item_id' => $item_id], $fields);
+		dd($item_id);
 
 		if ($item_id) { // update
+			Item::find($item_id)->fill($fields)->save();
 			// Item::updateItemById($fields);
 			return Redirect::back()->with('message', 'Товар изменен');
 			// return Redirect::back()->withInput(Input::get())
 			// 						->with('message', 'Товар изменен');
 		} else { // create
+			Item::create($fields);
 			// Item::create($filds);
 			// return Redirect::to('/admin/change_item?item_id='.$item_id)
 							// ->with('message', 'Товар добавлен');
