@@ -288,3 +288,6 @@ footer {
 	display: table;
 	margin: auto;
 }
+.copy_footer_admin a img {
+	float: right;
+}
