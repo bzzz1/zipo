@@ -83,6 +83,6 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div> <!-- groups  -->
-		<a href="#" class="admin_uni_button">Сохранить</a>
+		<a href="#" class="btn admin_uni_button">Сохранить</a>
 	</div>
 @stop

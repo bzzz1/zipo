@@ -355,9 +355,21 @@ input[name="hit"] {
 	font-weight: bold;
 	color: #9dcb20;
 	text-decoration: underline;
+	margin-bottom: 20px;
+}
+.admin_producer_add:hover {
+	color: black;
+}
+.producers_list {
+	width: 200px;
 }
 .admin_producer_one {
 	text-decoration: underline;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+.change_icon {
+	color: #9dcb20;
 }
 .admin_article_title_full {
 	display: none;

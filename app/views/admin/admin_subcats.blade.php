@@ -61,8 +61,6 @@
 								</p>
 							</li>
 						@endforeach
-								
-
 					</ul>
 				</div>
 				<div class="subcategory_right">
