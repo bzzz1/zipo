@@ -46,7 +46,7 @@
 			</div>
 			<div class="change_block change_item_producer_div">
 				{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
-				{{ Form::text('producer', null, ['class'=>'form-control producer_input', 'required']) }}
+				{{ Form::select('category', $HELP::createOptions($producers),['class'=>'form-control producer_input', 'required']) }}
 			</div>
 			<div class="change_block change_item_procurement_div">
 				{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
