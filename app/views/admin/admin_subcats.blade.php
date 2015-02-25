@@ -44,7 +44,7 @@
 				</div><!-- brands_column -->
 			</div>
 		</div>	
-		<div class="catalog_category" data-category='Тепловое_en'>
+		<div class="admin_catalog_category" data-category='Тепловое_en'>
 			<h4 class="admin_one_cat_heading">Тепловое <br> оборудование(импортное)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
@@ -59,6 +59,9 @@
 										<i class="fa fa-times delete_icon"></i>
 									{{ Form::close() }} 
 								</p>
+							</li>
+						@endforeach
+								
 
 					</ul>
 				</div>
@@ -79,7 +82,7 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div>
-		<div class="catalog_category" data-category='Холодильное_en'>
+		<div class="admin_catalog_category" data-category='Холодильное_en'>
 			<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(импортное)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
@@ -115,7 +118,7 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div>
-		<div class="catalog_category posud_catedory" data-category='Посудомоечное_en'>
+		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_en'>
 			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование(импортное)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
@@ -151,7 +154,7 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div>
-		<div class="catalog_category" data-category='Механическое_ru'>
+		<div class="admin_catalog_category" data-category='Механическое_ru'>
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(российское)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
@@ -223,7 +226,7 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div>
-		<div class="catalog_category" data-category='Холодильное_ru'>
+		<div class="admin_catalog_category" data-category='Холодильное_ru'>
 			<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(российское)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
@@ -259,7 +262,7 @@
 				</div>	
 			</div><!-- brands_column -->
 		</div>
-		<div class="catalog_category posud_catedory" data-category='Посудомоечное_ru'>
+		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_ru'>
 			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование(российское)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
