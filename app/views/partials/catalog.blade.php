@@ -13,12 +13,20 @@
 			<div class="catalog_foreing">
 				<h4 class="foreign_heding">Импортное</h4>
 				<div class="catalog_category" data-category='Механическое_en'>
-					<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@endif	
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 				</div>
 
 				<div class="catalog_category" data-category='Тепловое_en'>
-					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@endif
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 				</div>
 				<div class="subcategory_block sub_1" data-category='Механическое_en'>
@@ -66,11 +74,19 @@
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category='Холодильное_en'>
-					<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@endif	
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
 				<div class="catalog_category posud_catedory" data-category='Посудомоечное_en'>
-					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@endif
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block " data-category='Холодильное_en'>
@@ -121,11 +137,19 @@
 			<div class="catalog_russian">
 				<h4 class="russian_heding">Российское</h4>
 				<div class="catalog_category" data-category='Механическое_ru'>
-					<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+					@endif	
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 				</div>
 				<div class="catalog_category" data-category='Тепловое_ru'>
-					<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+					@endif
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 				</div>
 				<div class="subcategory_block" data-category='Механическое_ru'>
@@ -173,11 +197,20 @@
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category='Холодильное_ru'>
-					<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+					@endif
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
 				<div class="catalog_category posud_catedory" data-category='Посудомоечное_ru'>
-					<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@if ($env == 'catalog_admin')
+						<img src="../../img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@else
+						<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+					@endif
+
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block second_line" data-category='Холодильное_ru'>

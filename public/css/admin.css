@@ -4,7 +4,7 @@
 	width: 930px;
 }
 body {
-	font-family: 'Myriad Pro';
+	font-family: 'MyriadPro';
 	background-color: #ececec;
 }
 .admin_uni_button {
@@ -33,6 +33,9 @@ body {
 	display: table;
 	margin: auto;
 	margin-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 2px 3px 7px #757171;
+	padding: 25px 30px 30px 25px;
 }
 /*HEADER*/
 header {
@@ -175,11 +178,6 @@ header {
 	height: auto;
 }
 /*PANEL*/
-.admin_main_content {
-	background-color: #fff;
-	box-shadow: 2px 3px 7px #757171;
-	padding: 25px 30px 30px 25px;
-}
 input[type=file].admin_panel_input {
 	display: inline;
 	margin-left: 100px;
@@ -515,4 +513,49 @@ footer {
 	display: block;
 	text-decoration: none;
 	color: black;
+}
+/*CATALOG*/
+.main_content {
+	width: 930px;
+	display: table;
+	margin: auto;
+	margin-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 2px 3px 7px #757171;
+	padding: 25px 50px 30px 50px;
+}
+.catalog_hr {
+	width: 100%;
+	border: 1px solid #9dcb20;
+}
+.universal_heading, .foreign_heding, .russian_heding {
+	color: #9dcb20;
+}
+.catalog_subheading {
+	background-color: #9dcb20;
+	border-top: 1px solid #9dcb20;
+}
+.catalog_category_heading  {
+	color: #222222;
+}
+.catalog_category {
+	margin-right: 0;
+}
+.catalog_category[data-category='Механическое_en'], .catalog_category[data-category='Механическое_ru'] {
+	margin-right: 200px;
+}
+.catalog_category[data-category='Холодильное_en'], .catalog_category[data-category='Холодильное_ru']{
+	margin-right: 205px;
+}
+.subcategory_block{
+	border-left: solid 3px #9dcb20;
+}
+.subcategory_column {
+	width: 97%;
+	display: inline-block;
+	background-color: #ececec;
+	padding: 15px 112px 15px 3px;
+}
+.subcategory_column a {
+	font-size: 16px;
 }
