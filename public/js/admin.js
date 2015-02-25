@@ -1,4 +1,4 @@
-if ($('#ckeditor').length > 0) {
+if ($('#ckeditor').length) {
 	CKEDITOR.replace('ckeditor', {
 		filebrowserBrowseUrl 	   : '../kcfinder/browse.php?opener=ckeditor&type=files',
 		filebrowserImageBrowseUrl  : '../kcfinder/browse.php?opener=ckeditor&type=images',
@@ -20,4 +20,47 @@ if ($('#ckeditor').length > 0) {
 
 $('.item_upload_image').on('change', function() {
 	$('.item_upload_image_submit').click();
+	// change img src to 
 });
+
+/*------------------------------------------------
+| RUN SUBCATEGORIES FROM SELECT
+------------------------------------------------*/
+// INITIAL SET SUBCATS
+send_category($('#category').val());
+
+$('#category').on('change', function() {
+	send_category($('#category').val());	
+});
+
+
+function send_category(category) {
+	$.ajax({
+		url: AJAX_GET_SUBCATS,
+		type: 'POST',
+		dataType: "json",
+		data: {
+			'category' : category
+		},
+		success: function(data) {
+			$select = $('#subcat');
+			// CLEAR OLD SUBCATS
+			$select.html('');
+
+			for (var i=0; i<data.length; i++) {
+				var subcat = data[i]['subcat'];
+				var subcat_id = data[i]['subcat_id'];
+
+				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+				$select.append($option);
+			}
+		}, 
+		error: function(data, error, error_details){
+			console.log("err:",error, error_details);
+			console.log(data);
+		}
+	});	
+}
+/*------------------------------------------------
+| END SUBCATEGORIES FROM SELECT
+------------------------------------------------*/
