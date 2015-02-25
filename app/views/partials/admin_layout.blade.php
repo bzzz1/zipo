@@ -21,8 +21,11 @@
 	{{-- HTML::script('js/angular.min.js') --}}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('ckeditor/ckeditor.js') }}
-	<!-- // <script src="vendor/ckeditor/ckeditor/ckeditor.js"></script> -->
 
+	{{-- SETTING GLOBAL VARS --}}
+	<script>
+		var AJAX_GET_SUBCATS = "{{ URL::to('/admin/ajax_get_subcats') }}";
+	</script>
 
 	{{-- HTML::script('js/jquery.sticky-kit.min.js') --}}
 	{{-- HTML::script('js/jquery.sticky.min.js') --}}

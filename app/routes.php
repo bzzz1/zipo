@@ -61,6 +61,11 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
 	Route::post('/ajax_delete', 'AdminController@ajax_delete');
 	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
+	Route::post('/ajax_get_subcats', 'AdminController@ajax_get_subcats');
+});
+
+Route::get('/test', function() {
+	// test goes here
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');

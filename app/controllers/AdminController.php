@@ -208,4 +208,11 @@ class AdminController extends BaseController {
 	public function ajax_set_procurement() {
 		// return Response::json($data);
 	}
+
+	public function ajax_get_subcats() {
+		$category = Input::get('category');
+		$all = Subcat::readAllSubcats();
+		$subcats = $all[$category];
+		return Response::json($subcats);
+	}
 }
