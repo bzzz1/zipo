@@ -79,7 +79,7 @@ class MainController extends BaseController {
 	public function items() {
 		return View::make('items')->with([
 			'items'     => Item::getItemsForCatalog(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
@@ -93,7 +93,7 @@ class MainController extends BaseController {
 		return View::make('item')->with([
 			'same'		=> Item::getSameItems(),
 			'item'      => Item::getItemById(),
-			'current'	=> Subcat::getCurrentSubcat(),
+			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
@@ -111,7 +111,7 @@ class MainController extends BaseController {
 
 	public function article() {
 		return View::make('article')->with([
-			'article'	=> Article::getArticleById(),
+			'article'	=> Article::find(Input::get('article_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
@@ -121,7 +121,7 @@ class MainController extends BaseController {
 	public function byproducer() {
 		return View::make('items')->with([
 			'items'     => Item::getItemsByProducer(),
-			'current'	=> Producer::getProducerById(),
+			'current'	=> Producer::find(Input::get('producer_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),

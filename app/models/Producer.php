@@ -3,35 +3,17 @@
 class Producer extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
+	protected $primaryKey = 'producer_id';
 
-	public function item() {
+	public function items() {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');
 	}
 /*------------------------------------------------
 | READ
 ------------------------------------------------*/
 	public static function readAllProducers() {
-		$producers = new Producer;
-		$producers = $producers->orderBy('producer', 'ASC');
+		$producers = Producer::orderBy('producer', 'ASC');
 		$producers = $producers->get();
 		return $producers;
-	}
-
-	public static function getProducerById() {
-		$producer_id = Input::get('producer_id');
-
-		$producer = new Producer;
-		$producer = $producer->where('producer_id', $producer_id);
-		$producer = $producer->first();
-		return $producer;
-	}
-
-/*------------------------------------------------
-| DELETE
-------------------------------------------------*/
-	public static function deleteProducerById() {
-		$producer_id = Input::get('producer_id');
-
-		Producer::where('producer_id', $producer_id)->delete();
 	}
 }

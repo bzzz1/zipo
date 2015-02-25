@@ -9,15 +9,7 @@
 	@if (Session::get('message'))
 		{{ Session::get('message') }}
 	@endif
-	
-	<?php 
-		if ($item) {
-			$url = "/admin/update_item?item_id=$item->item_id";
-		} else {
-			$url = "/admin/update_item";
-		}
-	?>
-{{-- Helper::createOptions($producers) --}}
+
 	<div class="admin_main_content">
 		{{ Form::model($item, ['url'=>['/admin/update_item'], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_block change_item_title_block">
@@ -41,16 +33,16 @@
 				{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control', 'required', 'form' => 'none']) }}
 			</div>
 			<div class="change_block change_item_subcat_div">
-				{{ Form::label('subcat', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
-				{{ Form::select('subcat', [], ['class'=>'form-control subcat_input', 'required']) }}
+				{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
+				{{ Form::select('subcat_id', [], ['class'=>'form-control subcat_input', 'required']) }}
 			</div>
 			<div class="change_block change_item_producer_div">
-				{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
-				{{ Form::select('category', $HELP::createOptions($producers),['class'=>'form-control producer_input', 'required']) }}
+				{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
+				{{ Form::select('producer_id', $HELP::createOptions($producers),['class'=>'form-control producer_input', 'required']) }}
 			</div>
 			<div class="change_block change_item_procurement_div">
 				{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
-				{{ Form::select('procurement', ['1' => 'В наличии', '0' => 'Под заказ'],['class'=>'form-control procurement_input', 'required']) }}
+				{{ Form::checkbox('procurement', true, true, ['class'=>'']) }}
 			</div>
 			<div class="change_block change_item_descript_block">
 				{{ Form::label('description', 'Описание', ['class'=>'admin_uni_label descr_label']) }}
@@ -58,16 +50,16 @@
 			</div>
 			<div class="make_spec_block">
 				{{ Form::label('special', 'Добавить в спецпредложения', ['class'=>'admin_uni_label']) }}
-				{{ Form::checkbox('special', false, false, ['class'=>'']) }}
+				{{ Form::checkbox('special', true, false, ['class'=>'']) }}
 			</div>
 			<div class="make_hit_block">
 				{{ Form::label('hit', 'Сделать хитом продаж', ['class'=>'admin_uni_label']) }}
-				{{ Form::checkbox('hit', false, false, ['class'=>'']) }}
+				{{ Form::checkbox('hit', true, false, ['class'=>'']) }}
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
 			<div class="img_preview">
 				@if (Session::get('temp'))
-					{{ Form::hidden('with_image', Session::get('temp')) }}
+					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else

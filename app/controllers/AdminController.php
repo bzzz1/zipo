@@ -65,7 +65,8 @@ class AdminController extends BaseController {
 
 	public function subcat() {
 		return View::make('admin/admin_items')->with([
-			'env' 		=> 'catalog_admin'
+			'env' 		=> 'catalog_admin',
+			'items'     => Item::getItemsForCatalog()
 		]);
 	}
 
@@ -78,30 +79,52 @@ class AdminController extends BaseController {
 	}
 
 	public function update_item() {
-		$item_id = Input::get('item_id');
 		$fields = Input::all();
+		$item_id = Input::get('item_id');
 
-		if (Input::get('with_image')) {
-			$temp_image = Input::get('with_image');
 
-			// CHANGE IMAGE NAME
-			$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
-			$extension = File::extension($old);
-			$filename = 'photo_'.time().'.'.$extension;
-			$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
-			rename($old, $new);
+		// if (Input::get('with_image')) {
+		// 	$temp_image = Input::get('with_image');
 
-			$fields['photo'] = $filename;
-			unset($fields['with_image']);
+		// 	// CHANGE IMAGE NAME
+		// 	$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
+		// 	$extension = File::extension($old);
+		// 	$filename = 'photo_'.time().'.'.$extension;
+		// 	$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
+		// 	rename($old, $new);
+
+		// 	$fields['photo'] = $filename;
+		// 	// unset($fields['with_image']); <--delete it -->
+		// }
+
+		/*----------------------------------------------*/
+
+		$r = Item::updateOrCreate(['item_id' => $item_id], $fields);
+		dd($r);
+
+		if ($item_id) { // update
+			// Item::updateItemById($fields);
+			return Redirect::back()->with('message', 'Товар изменен');
+			// return Redirect::back()->withInput(Input::get())
+			// 						->with('message', 'Товар изменен');
+		} else { // create
+			// Item::create($filds);
+			// return Redirect::to('/admin/change_item?item_id='.$item_id)
+							// ->with('message', 'Товар добавлен');
+			return Redirect::back()->withInput(Input::get())
+									->with('message', 'Товар добавлен');
 		}
 
-		$item_id = Item::updateOrCreateItemById($fields);
-		return Redirect::back()->withInput(Input::get())
-								->with('message', ($item_id) ? 'Товар изменен' : 'Товар добавлен');
+		// $item = Item::updateOrCreateItemById($fields);
+		// return Redirect::back()->withInput(Input::get())
+		// 						->with('message', ($item->code) ? 'Товар изменен' : 'Товар добавлен');
 	}
 
 	public function delete_item() {
-		Item::deleteItemById();
+		dd(Input::get('item_id'));
+		$item_id = Input::get('item_id');
+		// Item::where('item_id', $item_id)->delete();
+		Item::destroy($item_id);
 		return Redirect::back()->with('message', 'Товар удален');
 	}
 
@@ -128,7 +151,7 @@ class AdminController extends BaseController {
 	public function change_article() {
 		return View::make('admin/admin_change_article')->with([
 			'env' 		=> 'change_article',
-			'article'	=> Article::getArticleById()
+			'article'	=> Article::find(Input::get('article_id'))
 		]);
 	}
 
@@ -138,8 +161,10 @@ class AdminController extends BaseController {
 
 	public function delete_article() {
 		dd(Input::get('article_id'));
-		Article::deleteArticleById();
-				return Redirect::back()->with('message', 'Новость удалена');
+		$article_id = Input::get('article_id');
+		// Article::where('article_id', $article_id)->delete();
+		Article::destroy($article_id);
+		return Redirect::back()->with('message', 'Новость удалена');
 	}
 
 	public function article_upload_image() {
@@ -168,7 +193,9 @@ class AdminController extends BaseController {
 
 	public function delete_subcat() {
 		dd(Input::get('subcat_id'));
-		Subcat::deleteSubcatById();
+		$subcat_id = Input::get('subcat_id');
+		// Subcat::where('subcat_id', $subcat_id)->delete();
+		Subcat::destroy($subcat_id);
 		return Redirect::back()->with('message', 'Подкатегория удалена');
 	}
 
@@ -185,7 +212,9 @@ class AdminController extends BaseController {
 
 	public function delete_producer() {
 		dd(Input::get('producer_id'));
-		Producer::deleteProducerById();
+		$producer_id = Input::get('producer_id');
+		// Producer::where('producer_id', $producer_id)->delete();
+		Producer::destroy($producer_id);
 		return Redirect::back()->with('message', 'Производитель удален');
 	}
 
