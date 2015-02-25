@@ -343,3 +343,37 @@ footer {
 .copy_footer_admin a img {
 	float: right;
 }
+
+/*ADMIN_CHANGE_ARTICLE*/
+.change_article_title_block {
+	margin-bottom: 22px;
+}
+.change_article_title_form {
+	width: 478px;
+	margin-left: 35px;
+	margin-right: 48px;
+}
+.change_adrticle_to_all {
+	color: black;
+	text-decoration: underline;
+	font-size: 16px;
+}
+.change_adrticle_to_all:hover {
+	color: #9dcb20;
+}
+.change_adrticle_to_all:focus {
+	color: #9dcb20;
+	outline: none;
+}
+.change_adrticle_to_all i {
+	text-decoration: underline;
+}
+.change_article_weight_div {
+	margin-bottom: 25px;
+}
+.change_article_weight_form {
+	margin-left: 22px;
+}
+.change_article_descript_block {
+	margin-bottom: 55px;
+}
