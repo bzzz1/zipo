@@ -36,9 +36,25 @@
 				{{ Form::label('currency', 'Валюта', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('currency', 'РУБ', ['class'=>'form-control currency_input', 'required']) }}
 			</div>
+			<div class="change_block change_item_category_div">
+				{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
+				{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'],['class'=>'form-control', 'required']) }}
+			</div>
+			<div class="change_block change_item_subcat_div">
+				{{ Form::label('subact', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
+				{{ Form::text('subact', null, ['class'=>'form-control subcat_input', 'required']) }}
+			</div>
+			<div class="change_block change_item_producer_div">
+				{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
+				{{ Form::text('producer', null, ['class'=>'form-control producer_input', 'required']) }}
+			</div>
+			<div class="change_block change_item_procurement_div">
+				{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
+				{{ Form::select('procurement', ['1' => 'В наличии', '0' => 'Под заказ'],['class'=>'form-control procurement_input', 'required']) }}
+			</div>
 			<div class="change_block change_item_descript_block">
 				{{ Form::label('description', 'Описание', ['class'=>'admin_uni_label descr_label']) }}
-				{{ Form::textarea('description', null, ['class'=>'form-control descr_input', 'required']) }}
+				{{ Form::textarea('description', null, ['class'=>'form-control descr_input']) }}
 			</div>
 			<div class="make_spec_block">
 				{{ Form::label('special', 'Добавить в спецпредложения', ['class'=>'admin_uni_label']) }}
@@ -66,8 +82,8 @@
 
 		<div class="change_item_img">
 			{{ Form::open(['url'=>'/admin/item_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import browse_file_admin']) }}
-				{{ Form::file('photo', ['class'=>'']) }}
-				{{ Form::submit('Добавить миниатюру', ['class'=>'btn min_img_btn admin_uni_button']) }}
+				{{ Form::file('photo', ['class'=>' item_upload_image']) }}
+				{{ Form::submit('Добавить миниатюру', ['class'=>'btn min_img_btn admin_uni_button item_upload_image_submit']) }}
 			{{ Form::close() }}	
 		</div>
 
