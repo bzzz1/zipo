@@ -9,12 +9,12 @@
 		{{ Form::model($article, ['url'=>['/admin/update_article'], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_article_title_block">
  				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_label']) }}
-				{{ Form::text('title', null, ['class'=>'', 'required']) }}
+				{{ Form::text('title', null, ['class'=>'form-control', 'required']) }}
 				<a href="/admin/articles" class="change_adrticle_to_all"><i class="fa fa-list-alt"></i>&nbsp К списку новостей</a>
 			</div>
 			<div class="change_article_weight_div">
  				{{ Form::label('weight', 'Вес новости: ', ['class'=>'admin_uni_label']) }}
-				{{ Form::text('weight', null, ['class'=>'', 'required']) }}
+				{{ Form::text('weight', null, ['class'=>'form-control', 'required']) }}
 			</div>
 			<div class="change_article_descript_block">
 				{{ Form::textarea('body', null, array('class' => 'name', 'id' => 'ckeditor')) }}
