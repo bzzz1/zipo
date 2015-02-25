@@ -212,10 +212,22 @@ input[type=file].admin_panel_input {
 }
 .admin_one_cat_subcats_block {
 	border-left: solid 3px #9dcb20;
-	padding: 10px 30px;
+	padding: 0px 15px;
 	margin-left: 140px;
+	margin-top: 15px;
+}
+.admin_subcats_list {
+	background-color: #ececec;
+}
+.admin_subcategory {
+	color: black;
+	font-family: 'Arial';
+	font-size: 14px; 
 }
 .admin_subcategory i {
+	color: #9dcb20;
+}
+.delete_icon {
 	color: #9dcb20;
 }
 .admin_panel_search {
