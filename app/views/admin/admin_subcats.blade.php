@@ -26,6 +26,7 @@
 					@endforeach
 				</table><!--need to change foreach-->
 			</div>
+		</div>	
 		<div class="catalog_category" data-category='Тепловое_en'>
 					<h4 class="admin_one_cat_heading">Тепловое <br> оборудование(импортное)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
@@ -137,7 +138,7 @@
 			</div>
 		</div>
 		<div class="catalog_category" data-category='Холодильное_ru'>
-					<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(российское)</h4>
+			<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(российское)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus"></i>&nbsp Добавить подкатегорию</a>
 			<div class="admin_one_cat_subcats_block">
 				<table class="admin_subcats_list">

@@ -265,6 +265,58 @@ input[type=file].admin_panel_input {
 	margin-top: 17px;
 	margin-left: 25px;
 }
+.descr_label {
+	vertical-align: top;
+	margin-top: 15px;
+}
+.descr_input {
+	width: 760px;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+.make_spec_block, .make_hit_block {
+	margin-top: 25px;
+}
+.make_hit_block {
+	margin-bottom: 25px;
+}	
+input[name="special"] {
+	margin-left: 65px;
+}
+input[name="hit"] {
+	margin-left: 111px;
+}
+.img_preview {
+	/*float: right;*/
+	margin-top: 0px;
+	/*margin-right: 658px;*/
+}
+.change_item_buttons {
+	margin-top: 237px;
+	margin-bottom: 25px;
+	display: inline-block;
+	margin-right: 30px;
+	margin-left: -223px;
+}
+.change_item_img {
+	display: inline-block;
+	float: right;
+	margin-top: -341px;
+}
+.admin_panel_import {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.min_img_btn {
+	margin-left: 40px;
+	margin-top: -9px;
+	display: inline-block;
+	float: right;
+	vertical-align: top;
+}
 /*PRODUCERS*/
 .admin_producer_add {
 	font-size: 16px;
