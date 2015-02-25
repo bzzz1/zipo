@@ -43,7 +43,7 @@ function send_category(category) {
 			'category' : category
 		},
 		success: function(data) {
-			$select = $('#subcat');
+			$select = $('#subcat_id');
 			// CLEAR OLD SUBCATS
 			$select.html('');
 

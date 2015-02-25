@@ -391,6 +391,9 @@ input[name="hit"] {
 	width: 200px;
 	margin-right: 18px;
 }
+.producers_first, .producers_second, .producers_third, .producers_fourth {
+	display: inline-block;
+}
 .admin_producer_one {
 	text-decoration: underline;
 	font-weight: bold;
