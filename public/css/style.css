@@ -716,6 +716,7 @@ form {
 	margin: auto;
 	margin-top: 40px;
 	font-weight: bold;
+	display: block;
 }
 /*------------------------------------------------
 | END ADMIN LOGIN
