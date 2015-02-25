@@ -35,7 +35,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -44,7 +48,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -57,7 +65,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -66,7 +78,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -95,7 +111,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -104,7 +124,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -117,7 +141,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -126,7 +154,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -158,7 +190,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -167,7 +203,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Механическое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -180,7 +220,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -189,7 +233,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Тепловое', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -219,7 +267,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -228,7 +280,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Холодильное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -241,7 +297,11 @@
 							<ul>
 								@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 1) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>
@@ -250,7 +310,11 @@
 							<ul>	
 								@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 2) as $subcat)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+										@endif
 									</li>
 								@endforeach
 							</ul>	
@@ -271,7 +335,11 @@
 							@foreach ($HELP::columnize($producers, 3, 1) as $producer)
 								<tr>
 									<td>
-										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@endif
 									</td>
 								</tr>
 							@endforeach
@@ -282,7 +350,11 @@
 							@foreach ($HELP::columnize($producers, 3, 2) as $producer)
 								<tr>
 									<td>
-										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@endif
 									</td>
 								</tr>	
 							@endforeach
@@ -293,7 +365,11 @@
 							@foreach ($HELP::columnize($producers, 3, 3) as $producer)
 								<tr>
 									<td>
-										{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@if ($env == 'catalog_admin')
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@else
+											{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										@endif
 									</td>
 								</tr>	
 							@endforeach
