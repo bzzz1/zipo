@@ -4,7 +4,7 @@
 	width: 930px;
 }
 body {
-	font-family: 'Myriad Pro';
+	font-family: 'MyriadPro';
 	background-color: #ececec;
 }
 .admin_uni_button {
@@ -33,6 +33,9 @@ body {
 	display: table;
 	margin: auto;
 	margin-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 2px 3px 7px #757171;
+	padding: 25px 30px 30px 25px;
 }
 /*HEADER*/
 header {
@@ -149,9 +152,11 @@ header {
 	text-decoration: none;
 	color: #eeeeee;
 }
-.admin_sidebar_button:hover {
-	color: #eee;
+.admin_sidebar_button:focus {
+	background-color: #9dcb20;
 	text-decoration: none;
+	color: #eeeeee;
+	outline: none;
 }
 .active_my {
 	background-color: #9dcb20;
@@ -173,11 +178,6 @@ header {
 	height: auto;
 }
 /*PANEL*/
-.admin_main_content {
-	background-color: #fff;
-	box-shadow: 2px 3px 7px #757171;
-	padding: 25px 30px 30px 25px;
-}
 input[type=file].admin_panel_input {
 	display: inline;
 	margin-left: 100px;
@@ -195,6 +195,9 @@ input[type=file].admin_panel_input {
 }
 /*CHANGE_ITEM*/
 /*SUBCATS*/
+.admin_catalog_category {
+	margin-bottom: 50px;
+}
 .admin_one_cat_heading {
 	font-size: 18px;
 	font-weight: bold;
@@ -204,14 +207,59 @@ input[type=file].admin_panel_input {
 	font-weight: bold;
 	color: #9dcb20;
 	text-decoration: underline;
+	display: block;
+	margin-left: 160px;
+}
+.admin_one_cat_add:hover {
+	color: black;
 }
 .admin_one_cat_subcats_block {
 	border-left: solid 3px #9dcb20;
-	padding: 10px 30px;
+	padding: 0px 15px;
+	margin-left: 140px;
+	margin-top: 15px;
+}
+.subcategory_left {
+	float: none;
+	display: inline-block;
+	width: 305px;
+}
+.subcategory_right {
+	display: inline-block;
+	width: 305px;
+}
+.subcategory_left ul {
+	padding-left: 15px;
+	margin-bottom: 0px;
+}
+.subcategory_right ul {
+	padding-left: 15px;
+	margin-bottom: 0px;
+}
+.admin_subcats_list {
+	background-color: #ececec;
+	padding: 10px 15px 10px 15px;
+}
+.admin_subcategory {
+	color: black;
+	font-family: 'Arial';
+	font-size: 14px; 
+	width: 273px;
+	margin-bottom: 0px;
 }
 .admin_subcategory i {
 	color: #9dcb20;
 }
+.admin_subcategory a {
+	float: right;
+}
+.delete_icon {
+	color: #9dcb20;
+}
+.admin_subcategory_form {
+	float: right;
+}
+/*dsfsdfdsfsdfds*/
 .admin_panel_search {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -334,9 +382,21 @@ input[name="hit"] {
 	font-weight: bold;
 	color: #9dcb20;
 	text-decoration: underline;
+	margin-bottom: 20px;
+}
+.admin_producer_add:hover {
+	color: black;
+}
+.producers_list {
+	width: 200px;
 }
 .admin_producer_one {
 	text-decoration: underline;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+.change_icon {
+	color: #9dcb20;
 }
 .admin_article_title_full {
 	display: none;
@@ -387,4 +447,115 @@ footer {
 }
 .change_article_descript_block {
 	margin-bottom: 55px;
+}
+
+/*ARTICLES*/
+.admin_articles_one {
+	display: inline-block;
+	width: 110px;
+	float: left;
+	margin-right: 115px;
+	margin-bottom: 40px;
+}
+.admin_articles_one:nth-child(4n+1) {
+	margin-left: 15px;
+}
+.admin_articles_one:nth-child(4n) {
+	margin-right: 0px;
+}
+.admin_article_minimg {
+	width: 110px;
+	height: 110px;
+	display: block;
+}
+.admin_article_date {
+	font-family: 'Arial';
+	font-size: 11px;
+	color: #292929;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.change_article_icon,
+.delete_article_icon {
+	color: #9dcb20;
+	font-size: 18px;
+	margin-left: 2px;
+}
+.change_article_icon {
+	margin-left: 5px;
+}
+.admin_article_title {
+	font-family: 'Arial';
+	width: 110px;
+	height: 30px;
+	position: relative;
+	margin-top: 5px;
+}
+.admin_article_title a {
+	font-size: 11px;
+	color: black;
+}
+.admin_article_title:hover {
+	text-decoration: none;
+	color: black;
+}
+.admin_article_title_full {
+	display: none;
+	top: 0px;
+	position: absolute;
+	background-color: #f4f4f4;
+	border-radius: 5px;
+	border: 1px solid #e6e6e6;
+	color: black;
+	text-decoration: none;
+}
+.admin_article_title:hover .admin_article_title_full {
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+/*CATALOG*/
+.main_content {
+	width: 930px;
+	display: table;
+	margin: auto;
+	margin-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 2px 3px 7px #757171;
+	padding: 25px 50px 30px 50px;
+}
+.catalog_hr {
+	width: 100%;
+	border: 1px solid #9dcb20;
+}
+.universal_heading, .foreign_heding, .russian_heding {
+	color: #9dcb20;
+}
+.catalog_subheading {
+	background-color: #9dcb20;
+	border-top: 1px solid #9dcb20;
+}
+.catalog_category_heading  {
+	color: #222222;
+}
+.catalog_category {
+	margin-right: 0;
+}
+.catalog_category[data-category='Механическое_en'], .catalog_category[data-category='Механическое_ru'] {
+	margin-right: 200px;
+}
+.catalog_category[data-category='Холодильное_en'], .catalog_category[data-category='Холодильное_ru']{
+	margin-right: 205px;
+}
+.subcategory_block{
+	border-left: solid 3px #9dcb20;
+}
+.subcategory_column {
+	width: 97%;
+	display: inline-block;
+	background-color: #ececec;
+	padding: 15px 112px 15px 3px;
+}
+.subcategory_column a {
+	font-size: 16px;
 }
