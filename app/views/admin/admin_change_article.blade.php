@@ -8,14 +8,12 @@
 	<div class="admin_main_content">
 		{{ Form::model($article, ['url'=>['/admin/update_article'], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_article_title_block">
-				<p class="admin_uni_lable">Заголовок</p>
-				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_lable']) }}
+ 				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'', 'required']) }}
 				<a href="/admin/articles" class="change_adrticle_to_all"><i class="fa fa-list-alt"></i>&nbsp К списку новостей</a>
 			</div>
 			<div class="change_article_weight_div">
-				<p class="admin_uni_lable">Вес новости</p>
-				{{ Form::label('weight', 'Вес новости: ', ['class'=>'admin_uni_lable']) }}
+ 				{{ Form::label('weight', 'Вес новости: ', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('weight', null, ['class'=>'', 'required']) }}
 			</div>
 			<div class="change_article_descript_block">
@@ -36,7 +34,7 @@
 		{{ Form::close() }}
 
 		<div class="change_article_img">
-			<p class="admin_uni_lable">Добавить миниатюру для статьи</p>
+			<p class="admin_uni_label">Добавить миниатюру для статьи</p>
 			{{ Form::open(['url'=>'/admin/article_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('photo', ['class'=>'admin_uni_button']) }}
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
