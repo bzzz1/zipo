@@ -5,7 +5,7 @@
 
 @section('body')
 	<h1 class="admin_uni_heading">Подкатегории</h1>
-	<div class="admin_one_cat_block admin_main_content"><!--8 -->
+	<div class="admin_one_cat_block admin_main_content">
 		<div class="admin_catalog_category" data-category='Механическое_en'>
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
 			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
@@ -24,42 +24,6 @@
 									</p>
 								</li>
 							@endforeach
-							<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
 						</ul>
 					</div>
 					<div class="subcategory_right">
@@ -75,60 +39,6 @@
 									</p>
 								</li>
 							@endforeach
-							<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
-								<li>
-									<p class="admin_subcategory">
-										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'')) }}
-											<i class="fa fa-times delete_icon"></i>
-										{{ Form::close() }} 
-									</p>
-								</li>
 						</ul>	
 					</div>	
 				</div><!-- brands_column -->
