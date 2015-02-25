@@ -221,6 +221,13 @@ input[type=file].admin_panel_input {
 	margin-left: 140px;
 	margin-top: 15px;
 }
+.subcategory_left {
+	float: none;
+	display: inline-block;
+}
+.subcategory_right {
+	display: inline-block;
+}
 .admin_subcats_list {
 	background-color: #ececec;
 }
@@ -235,6 +242,7 @@ input[type=file].admin_panel_input {
 .delete_icon {
 	color: #9dcb20;
 }
+/*dsfsdfdsfsdfds*/
 .admin_panel_search {
 	margin-top: 20px;
 	margin-bottom: 20px;
