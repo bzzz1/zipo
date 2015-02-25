@@ -224,23 +224,42 @@ input[type=file].admin_panel_input {
 .subcategory_left {
 	float: none;
 	display: inline-block;
+	width: 305px;
 }
 .subcategory_right {
 	display: inline-block;
+	width: 305px;
+}
+.subcategory_left ul {
+	padding-left: 15px;
+	margin-bottom: 0px;
+}
+.subcategory_right ul {
+	padding-left: 15px;
+	margin-bottom: 0px;
 }
 .admin_subcats_list {
 	background-color: #ececec;
+	padding: 10px 15px 10px 15px;
 }
 .admin_subcategory {
 	color: black;
 	font-family: 'Arial';
 	font-size: 14px; 
+	width: 273px;
+	margin-bottom: 0px;
 }
 .admin_subcategory i {
 	color: #9dcb20;
 }
+.admin_subcategory a {
+	float: right;
+}
 .delete_icon {
 	color: #9dcb20;
+}
+.admin_subcategory_form {
+	float: right;
 }
 /*dsfsdfdsfsdfds*/
 .admin_panel_search {
