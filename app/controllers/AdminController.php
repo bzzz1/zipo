@@ -72,7 +72,8 @@ class AdminController extends BaseController {
 	public function change_item() {
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
-			'item'		=> Item::getItemById()
+			'item'		=> Item::getItemById(),
+			'producers' => Producer::readAllProducers()
 		]);
 	}
 

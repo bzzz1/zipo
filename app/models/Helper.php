@@ -281,6 +281,15 @@ class Helper {
 		return array_slice($array, $start, $length);
 	}
 
+	public static function createOptions($array) {
+		$options = [];
+
+		foreach ($array as $element) {
+			$options[$element->producer] = $element->producer;
+		}
+		return $options;
+	}
+
 	// KCFinder SETTINGS
 	// 	conf -> config.php
 	// 		'disabled' => false, 
