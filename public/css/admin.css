@@ -562,3 +562,26 @@ footer {
 .subcategory_column a {
 	font-size: 16px;
 }
+.admin_items {
+	margin-right: 0;
+}
+.empty_scape {
+	margin-right: 45px;
+}
+.empty_scape:nth-child(4n) {
+	margin-right: 0px;
+}
+.admin_items_buttons i {
+	color: #9dcb20;
+	margin-right: 5px;
+}
+.fa_block {
+	float: right;
+	margin-right: 20px;
+}
+.admin_items_buttons input[type='checkbox'] {
+	margin-left: 5px;
+}
+.items_item_flag {
+	right: 85px;
+}

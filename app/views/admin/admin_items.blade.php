@@ -6,7 +6,9 @@
 @section('body')
 	<h1 class="admin_uni_heading">Каталог</h1>
 	<div class="admin_main_content">
+		@if ($env != 'catalog_admin')
 		<hr class="main_hr">
+		@endif
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
 			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
@@ -26,23 +28,26 @@
 			</select>
 		</div>	
 		@foreach ($items as $item)
+		<div class="empty_scape">
+			@if ($item->hit)
+				{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
+			@elseif ($item->special)
+				{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
+			@endif	
 			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one admin_items"><!--last class is for admin css-->
-				@if ($item->hit)
-					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
-				@elseif ($item->special)
-					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
-				@endif	
 				<div class="admin_items_buttons">
-					<!-- checkbox_here -->
-					<i class="fa fa-pencil change_items_group_icon"></i>
-					<i class="fa fa-times delete_items_group_icon"> 
+					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox']) }}
+					<div class="fa_block">
+						<i class="fa fa-pencil change_items_group_icon fa-lg"></i>
+						<i class="fa fa-times delete_items_group_icon fa-lg"></i> 
+					</div>	
 				</div>
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
 							<p class="items_item_name">{{$item->title}}</p>
-							<p class="items_item_code">Арт: {{$item->code}}</p>
 						</div>	
+						<p class="items_item_code">Арт: {{$item->code}}</p>
 						<div class="items_item_price_div">
 							@if (Auth::user()->check())
 								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
@@ -82,17 +87,17 @@
 					</div>
 				</div>	
 			</div>
+		</div>	
 		@endforeach
 		<div class="admin_items_footer">
-			<p class="admin_items_quantity">Выделено {{--$quantity (how many?)--}} товаров</p>
 			<div class="change_items_buttons_first">
-				<a href="#" class="admin_uni_button">Добавить в спецпредложения</a>
-				<a href="#" class="admin_uni_button">Сделать хитом продаж</a>
-				<a href="#" class="admin_uni_button">Изменить наличие</a>
+				<a href="#" class="btn admin_uni_button">Добавить в спецпредложения</a>
+				<a href="#" class="btn admin_uni_button">Сделать хитом продаж</a>
+				<a href="#" class="btn admin_uni_button">Изменить наличие</a>
 			</div>
 			<div class="change_items_buttons_second">
-				<a href="#" class="admin_uni_button">Изменить категорию/подкатегорию</a>
-				<a href="#" class="admin_uni_button">Удалить товары</a>
+				<a href="#" class="btn admin_uni_button">Изменить категорию/подкатегорию</a>
+				<a href="#" class="btn admin_uni_button">Удалить товары</a>
 			</div>
 		</div>
 	</div>
