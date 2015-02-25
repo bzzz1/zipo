@@ -5,14 +5,17 @@ class Item extends Eloquent {
 	public $timestamps = false;
 	protected $primaryKey = 'item_id';
 
-	public function producers() {
-		return $this->hasOne('Producer', 'producer_id', 'producer_id')->select(['producer_id', 'producer']);
+	public function producer() {
+		return $this->hasOne('Producer', 'producer_id', 'producer_id');
 	}
-	public function subcats() {
-		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id')->select(['subcat_id', 'subcat', 'category']);
+	public function subcat() {
+		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
 	}
 
 	public static function __items() {
+		// 	$item = Item::with('subcat', 'producer');
+		// $customer->drinks()->attach($drink_id); //this executes the insert-query
+
 		$items = new Item;
 		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
 						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
@@ -48,35 +51,6 @@ class Item extends Eloquent {
 		$items = $items->paginate($pages_by);
 
 		return $items;
-	}
-
-	public static function getItemById() {
-		$item_id = Input::get('item_id');
-		$item = new Item;
-		// $item = Item::eagerLoadAll()->all();
-
-		// $item = Item::with('subcat', 'producer');
-		// $item = $item->find(1)->producers();
-		// $item = $item->with('subcats', 'producers');
-		dd($item->get());
-		// $item = $item->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
-		// 		->join('producers', 'items.producer_id', '=', 'producers.producer_id');
-
-
-		dd($item->first()->category);
-
-		// ERROR !!!!
-		// $item = Item::__items();
-		$item = new Item;
-		$item = $item->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
-						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
-		dd($item->get());
-		die();
-
-		$item = $item->where('item_id', $item_id);
-		$item = $item->first();
-
-		return $item;
 	}
 
 	public static function getSameItems() {

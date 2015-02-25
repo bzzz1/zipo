@@ -27,11 +27,13 @@ $('.item_upload_image').on('change', function() {
 | RUN SUBCATEGORIES FROM SELECT
 ------------------------------------------------*/
 // INITIAL SET SUBCATS
-send_category($('#category').val());
+if ($('#category').length) {
+	send_category($('#category').val());
 
-$('#category').on('change', function() {
-	send_category($('#category').val());	
-});
+	$('#category').on('change', function() {
+		send_category($('#category').val());	
+	});
+}
 
 
 function send_category(category) {
