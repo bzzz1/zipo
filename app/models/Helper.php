@@ -285,7 +285,7 @@ class Helper {
 		$options = [];
 
 		foreach ($array as $element) {
-			$options[$element->producer] = $element->producer;
+			$options[$element->producer_id] = $element->producer;
 		}
 		return $options;
 	}
