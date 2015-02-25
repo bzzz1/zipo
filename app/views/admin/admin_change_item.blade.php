@@ -66,8 +66,8 @@
 		<div class="change_item_img">
 			<p class="admin_uni_lable">Добавить изображение 110*95 пикс.</p>
 			{{ Form::open(['url'=>'/admin/item_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-				{{ Form::file('photo', ['class'=>'admin_uni_button']) }}
-				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
+				{{ Form::file('photo', ['class'=>'admin_uni_button item_upload_image']) }}
+				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button item_upload_image_submit']) }}
 			{{ Form::close() }}	
 		</div>
 
