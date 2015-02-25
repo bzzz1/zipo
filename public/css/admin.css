@@ -149,9 +149,11 @@ header {
 	text-decoration: none;
 	color: #eeeeee;
 }
-.admin_sidebar_button:hover {
-	color: #eee;
+.admin_sidebar_button:focus {
+	background-color: #9dcb20;
 	text-decoration: none;
+	color: #eeeeee;
+	outline: none;
 }
 .active_my {
 	background-color: #9dcb20;
