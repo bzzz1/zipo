@@ -62,7 +62,7 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/update_item', 'AdminController@update_item');
 	Route::post('/delete_item', 'AdminController@delete_item');
 	Route::post('/item_upload_image', 'AdminController@item_upload_image');
-	Route::get('/{category}/{subcat}', 'AdminController@subcat');
+	Route::get('/{category}/{subcat}', 'AdminController@items');
 });
 
 Route::get('/test', function() {
