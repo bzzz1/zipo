@@ -204,10 +204,16 @@ input[type=file].admin_panel_input {
 	font-weight: bold;
 	color: #9dcb20;
 	text-decoration: underline;
+	display: block;
+	margin-left: 160px;
+}
+.admin_one_cat_add:hover {
+	color: black;
 }
 .admin_one_cat_subcats_block {
 	border-left: solid 3px #9dcb20;
 	padding: 10px 30px;
+	margin-left: 140px;
 }
 .admin_subcategory i {
 	color: #9dcb20;
@@ -376,4 +382,9 @@ footer {
 }
 .change_article_descript_block {
 	margin-bottom: 55px;
+}
+
+/*SUBCATS*/
+.admin_catalog_category {
+	margin-bottom: 50px;
 }
