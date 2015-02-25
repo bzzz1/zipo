@@ -17,7 +17,7 @@
 	{{ HTML::style('css/item.css') }}<!--delete it-->
 	{{ HTML::style('css/article.css') }}<!--delete it-->
 	{{ HTML::style('css/articles.css') }}<!--delete it-->
-	{{ HTML::style('css/admin.css') }}<!--delete it-->
+	{{ HTML::style('css/admin.css') }}
 	{{-- HTML::script('js/angular.min.js') --}}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('ckeditor/ckeditor.js') }}
@@ -44,27 +44,8 @@
 	</div>	
 	@yield('footer')
 
-	<script>
-		CKEDITOR.replace('ckeditor', {
-			filebrowserBrowseUrl 	   : '../kcfinder/browse.php?opener=ckeditor&type=files',
-			filebrowserImageBrowseUrl  : '../kcfinder/browse.php?opener=ckeditor&type=images',
-			filebrowserFlashBrowseUrl  : '../kcfinder/browse.php?opener=ckeditor&type=flash',
-			filebrowserUploadUrl  	   : '../kcfinder/upload.php?opener=ckeditor&type=files',
-			filebrowserImageUploadUrl  : '../kcfinder/upload.php?opener=ckeditor&type=images',
-			filebrowserFlashUploadUrl  : '../kcfinder/upload.php?opener=ckeditor&type=flash',
-			// uiColor: '#702329'
-			// toolbar : [
-				// ['ajaxsave'],
-				// ['Bold', 'Italic', 'Underline', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
-				// ['Cut','Copy','Paste','PasteText'],
-				// ['Undo','Redo','-','RemoveFormat'],
-				// ['TextColor','BGColor'],
-				// ['Maximize', 'Image']
-			// ],
-		});
-	</script>
 	{{ HTML::script('js/jquery.columnizer.js') }}
-	{{ HTML::script('js/script.js') }}
+	{{ HTML::script('js/admin.js') }}
 	{{ HTML::script('js/bootstrap.min.js') }}
 	@yield('js')
 </body>

@@ -82,8 +82,8 @@
 
 		<div class="change_item_img">
 			{{ Form::open(['url'=>'/admin/item_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import browse_file_admin']) }}
-				{{ Form::file('photo', ['class'=>'']) }}
-				{{ Form::submit('Добавить миниатюру', ['class'=>'btn min_img_btn admin_uni_button']) }}
+				{{ Form::file('photo', ['class'=>' item_upload_image']) }}
+				{{ Form::submit('Добавить миниатюру', ['class'=>'btn min_img_btn admin_uni_button item_upload_image_submit']) }}
 			{{ Form::close() }}	
 		</div>
 
