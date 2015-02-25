@@ -8,7 +8,9 @@
 	<div class="admin_main_content">
 		@foreach ($articles as $article)
 			<div class="admin_articles_one">
-				<img src="/img/photos/{{$article->photo}}" alt="{{$article->title}}" class="admin_article_minimg">
+				<a href='admin/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
+					<img src="/img/photos/{{$article->photo}}" alt="{{$article->title}}" class="admin_article_minimg">
+				</a>	
 				<p class="admin_article_date">
 					{{$article->time}}&nbsp&nbsp&nbsp 
 					<i class="fa fa-pencil change_article_icon"></i>

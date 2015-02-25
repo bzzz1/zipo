@@ -606,3 +606,7 @@ footer {
 .items_item_flag {
 	right: 85px;
 }
+/*LOGIN*/
+.admin_login {
+	display: block;
+}
