@@ -17,7 +17,7 @@
 			$url = "/admin/update_item";
 		}
 	?>
-
+{{-- Helper::createOptions($producers) --}}
 	<div class="admin_main_content">
 		{{ Form::model($item, ['url'=>['/admin/update_item'], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_block change_item_title_block">
