@@ -92,7 +92,7 @@ class MainController extends BaseController {
 
 		return View::make('item')->with([
 			'same'		=> Item::getSameItems(),
-			'item'      => Item::find(Input::get('item_id')),
+			'item'      => Item::__items()->find(Input::get('item_id')),
 			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
@@ -189,7 +189,7 @@ class MainController extends BaseController {
 
 	public function order_page() {
 		return View::make('order')->with([
-			'item'		=> Item::find(Input::get('item_id')),
+			'item'		=> Item::__items()->find(Input::get('item_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
