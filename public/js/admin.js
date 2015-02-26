@@ -66,12 +66,27 @@ function send_category(category) {
 /*------------------------------------------------
 | END SUBCATEGORIES FROM SELECT
 ------------------------------------------------*/
-	// DELETE IMG ICON
-	$('.delete_img_icon').on('click', function() {
-		location.reload();
-	});
 
-	// DELETE ICON FORM SUBMIT
-	$('.delete_icon').on('click', function() {
-		$(this).closest('form').submit();
-	});
+/*------------------------------------------------
+| BUTTONS
+------------------------------------------------*/
+// DELETE IMG ICON
+$('.delete_img_icon').on('click', function() {
+	location.reload();
+});
+
+// DELETE ICON FORM SUBMIT
+$('.delete_icon').on('click', function() {
+	$(this).closest('form').submit();
+});
+
+// CREAR ITEM BUTTON
+$('.clear_item_button').on('click', function() {
+	// $input = 
+	// $('input[name="title"]')
+	// $('input[name="code"]')
+	// $('input[name="price"]')
+	// $('input[name="currency"]')
+
+});
+/*----------------------------------------------*/
