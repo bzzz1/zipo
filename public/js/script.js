@@ -93,15 +93,7 @@
 	});
 
 
-	// DELETE IMG ICON
-	$('.delete_img_icon').on('click', function() {
-		location.reload();
-	});
-
-	// DELETE ICON FORM SUBMIT
-	$('.delete_icon').on('click', function() {
-		$(this).closest('form').submit();
-	});
+	
 })(jQuery);
 
 // 	function run_deleting_confirm() {

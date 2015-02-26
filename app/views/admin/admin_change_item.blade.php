@@ -61,6 +61,16 @@
 				{{ Form::checkbox('hit', true, false) }}
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
+			<div class="change_item_img">
+				<input type="file" class="browse_img_admin">
+				<a href="" id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
+				<script>
+					$('#trigger_link_img').click(function(e){
+					    e.preventDefault();
+					    $('.browse_img_admin').trigger('click');
+					});
+				</script>
+			</div>
 			<div class="img_preview">
 				@if (Session::get('temp'))
 					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
@@ -70,19 +80,11 @@
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
 				@endif	
 			</div>
+			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 			<div class="change_item_buttons">
 				<p class="btn admin_uni_button low_button">Очистить</p>
 			</div>
-			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 		{{ Form::close() }}
-
-		<div class="change_item_img">
-			{{ Form::open(['url'=>'/admin/item_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import browse_file_admin']) }}
-				{{ Form::file('photo', ['class'=>' item_upload_image']) }}
-				{{ Form::submit('Добавить миниатюру', ['class'=>'btn min_img_btn admin_uni_button item_upload_image_submit']) }}
-			{{ Form::close() }}	
-		</div>
-
 		@if ($item)
 			{{ Form::open(['url'=>"/admin/delete_item?item_id=$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import admin_delete_form']) }}
 				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button btn_del']) }}

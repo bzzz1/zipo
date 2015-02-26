@@ -373,7 +373,7 @@ input[name="hit"] {
 .img_preview {
 	margin-top: 0px;
 }
-.change_item_buttons {
+/*.change_item_buttons {
 	margin-top: 237px;
 	margin-bottom: 25px;
 	display: inline-block;
@@ -401,9 +401,27 @@ input[name="hit"] {
 }
 .low_button {
 	margin-left: 125px;
-}
-.low_button[type='submit'] {
+}*/
+/*.low_button[type='submit'] {
 	margin-left: -245px;
+}*/
+.change_item_img {
+	display: inline-block;
+	margin-left: 100px;
+}
+.img_preview {
+	/*display: inline-block;*/
+}
+.items_item_img {
+	float: none;
+}
+.change_item_buttons {
+	display: inline-block;
+	margin-left: 20px;
+}
+/*HIDE STANDART UPLOAD*/
+.browse_img_admin {
+	visibility: hidden;
 }
 /*PRODUCERS*/
 .admin_producers_groups {
