@@ -6,6 +6,9 @@
 .container_main {
 	padding-top: 30px ;
 }
+.active_cat {
+	text-decoration: underline;
+}
 /*GENERAL*/
 @font-face {
     font-family: 'MyriadPro'; /* Имя шрифта */
