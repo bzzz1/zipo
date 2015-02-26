@@ -73,7 +73,7 @@ class AdminController extends BaseController {
 	public function change_item() {
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
-			'item'		=> Item::__items()->find(Input::get('item_id')),
+			'item'		=> Item::__items()->find(Input::get('item_id')), // or use Model::findOrFail(1); if need to show delete button everywere
 			'producers' => Producer::readAllProducers()
 		]);
 	}
@@ -89,15 +89,15 @@ class AdminController extends BaseController {
 
 		if ($validator->fails()) {
 			return Redirect::back()->withInput()
-				->with('message', 'Товар с таким кодом уже существует. Код должен быть уникальным!');
+				->with('message', '<p class="message_red">Товар с таким кодом уже существует. Код должен быть уникальным!</p>');
 		} else {
 			$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
 		}
 
 		if ($item_id) { 
-			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен');
+			return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' изменен</p>');
 		} else {
-			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
+			return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' добавлен</p>');
 		}
 
 		// if (Input::get('with_image')) {

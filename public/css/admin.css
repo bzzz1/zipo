@@ -139,7 +139,7 @@ header {
 /*SIDEBAR*/
 .admin_sidebar_container {
 	width: 930px;
-	padding: 10px;
+	padding: 10px 0px;
 	display: table;
 	margin: auto;
 }
