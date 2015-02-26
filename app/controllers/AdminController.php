@@ -118,7 +118,7 @@ class AdminController extends BaseController {
 	public function delete_item() {
 		$item = Item::find(Input::get('item_id'));
 		Item::destroy(Input::get('item_id'));
-		return Redirect::back()->with('message', 'Товар '.$item->title.' удален');
+		return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' удален</p>');
 	}
 
 	public function item_upload_image() {
