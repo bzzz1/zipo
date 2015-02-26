@@ -14,7 +14,7 @@
 				</div>	
 			</div>
 			<div class="btn-group admin_header_btn_group admin_header_btn_group_r">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				<button type="button" class="btn btn-default dropdown-toggle admin_header_btn" data-toggle="dropdown" aria-expanded="false">
 					<i class="fa fa-user fa_user"></i>Привет, admin_zip<!--user_name--> <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu bigger" role="menu">
