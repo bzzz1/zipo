@@ -290,6 +290,15 @@ class Helper {
 		return $options;
 	}
 
+	public static function __delete($Model, $title) {
+		$instance = new $Model; // create instance to get primaryKey
+		dd($instance);
+		$object_id = Input::get($instance->primaryKey);
+		$object = $Model::find($object_id);
+		$Model::destroy($object_id);
+		return Redirect::back()->with('message', '<p class="message_green">Подкатегория '.$object->$title.' удалена</p>');
+	}
+
 	// KCFinder SETTINGS
 	// 	conf -> config.php
 	// 		'disabled' => false, 

@@ -3,7 +3,15 @@
 class Item extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
-	protected $primaryKey = 'item_id';
+	public $primaryKey = 'item_id';
+
+	// public static $key;
+	// public function __construct() {
+	// 	static::$key = $this->primaryKey;
+	// }
+	// public static function primaryKey() {
+	// 	return $this->primaryKey;
+	// }
 
 	public function producer() {
 		return $this->hasOne('Producer', 'producer_id', 'producer_id');

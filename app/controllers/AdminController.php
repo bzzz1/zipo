@@ -116,8 +116,9 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		$item = Item::find(Input::get('item_id'));
-		Item::destroy(Input::get('item_id'));
+		$item_id = Input::get('item_id');
+		$item = Item::find($item_id);
+		Item::destroy($item_id);
 		return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' удален</p>');
 	}
 
@@ -153,11 +154,11 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_article() {
-		dd(Input::get('article_id'));
+		die('prevent deleting!');
 		$article_id = Input::get('article_id');
-		// Article::where('article_id', $article_id)->delete();
+		$article = Article::find($article_id);
 		Article::destroy($article_id);
-		return Redirect::back()->with('message', 'Новость удалена');
+		return Redirect::back()->with('message', '<p class="message_green">Новость '.$article->title.' удалена</p>');
 	}
 
 	public function article_upload_image() {
@@ -185,11 +186,11 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_subcat() {
-		dd(Input::get('subcat_id'));
+		die('prevent deleting!');
 		$subcat_id = Input::get('subcat_id');
-		// Subcat::where('subcat_id', $subcat_id)->delete();
+		$subcat = Subcat::find($subcat_id);
 		Subcat::destroy($subcat_id);
-		return Redirect::back()->with('message', 'Подкатегория удалена');
+		return Redirect::back()->with('message', '<p class="message_green">Подкатегория '.$subcat->subcat.' удалена</p>');
 	}
 
 	public function producers() {
@@ -204,11 +205,11 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_producer() {
-		dd(Input::get('producer_id'));
+		die('prevent deleting!');
 		$producer_id = Input::get('producer_id');
-		// Producer::where('producer_id', $producer_id)->delete();
+		$producer = Producer::find($producer_id);
 		Producer::destroy($producer_id);
-		return Redirect::back()->with('message', 'Производитель удален');
+		return Redirect::back()->with('message', '<p class="message_green">Подкатегория '.$producer->producer.' удалена</p>');
 	}
 
 	public function ajax_change_subcat() {

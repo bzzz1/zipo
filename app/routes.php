@@ -66,7 +66,7 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 });
 
 Route::get('/test', function() {
-	// test goes here
+	Helper::__delete('Item', 'title');
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');
