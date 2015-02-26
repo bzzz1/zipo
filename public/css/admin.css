@@ -74,6 +74,10 @@ header {
 	background-color: #4d4d4d;
 	color: #eee;
 }
+.admin_header_btn:focus {
+	background-color: #222222;
+	color: #eee;
+}
 .open>.dropdown-toggle.btn-default {
 	background-color: #4d4d4d!important;
 	color: #eee!important;
@@ -94,9 +98,10 @@ header {
 	border-top: 0px;
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
+	left: -1px;
 }
 .bigger {
-	width: 162px;
+	width: 165px;
 
 }
 .btn_exit {
@@ -118,10 +123,10 @@ header {
 	margin-left: 0;
 }
 .dropdown-menu {
-	min-width: 129px;
+	min-width: 122px;
 }
 .dropdown-menu>li>a {
-	padding: 2px 13px;
+	padding: 2px 9px;
 
 }
 .admin_header_link {
@@ -135,11 +140,15 @@ header {
 	text-decoration: none;
 	color: #eeeeee;
 }
-
+.admin_header_link:focus {
+	font-weight: bold;
+	text-decoration: none;
+	color: #eeeeee;
+}
 /*SIDEBAR*/
 .admin_sidebar_container {
 	width: 930px;
-	padding: 10px 0px;
+	/*padding: 10px 0px;*/
 	display: table;
 	margin: auto;
 }
@@ -150,8 +159,8 @@ header {
 	font-size: 16px;
 	padding-left: 3px;
 	padding-right: 7px;
-	padding-bottom: 4px;
-	padding-top: 4px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 .admin_sidebar_button:hover {
 	background-color: #666666;
