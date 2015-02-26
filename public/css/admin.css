@@ -324,11 +324,11 @@ input[type=file].admin_panel_input {
 }
 .title_input {
 	width: 758px;
-	margin-left: 45px;
+	margin-left: 47px;
 }
 .code_input {
 	width: 280px;
-	margin-left: 51px;
+	margin-left: 56px;
 }
 .price_input {
 	width: 165px;
@@ -349,7 +349,7 @@ input[type=file].admin_panel_input {
 	margin-right: 91px;
 }
 .category_label {
-	margin-right: 37px;
+	margin-right: 42px;
 }
 .subcat_label {
 	margin-right: 52px;
