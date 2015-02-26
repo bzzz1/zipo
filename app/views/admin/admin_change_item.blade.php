@@ -16,34 +16,38 @@
 				{{ Form::label('title', 'Название', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'form-control title_input', 'required']) }}
 			</div>
-			<div class="change_block change_item_code_block">
-				{{ Form::label('code', 'Артикул', ['class'=>'admin_uni_label']) }}
-				{{ Form::text('code', null, ['class'=>'form-control code_input', 'required']) }}
+			<div class="left_block">
+				<div class="change_block change_item_code_block">
+					{{ Form::label('code', 'Артикул', ['class'=>'admin_uni_label']) }}
+					{{ Form::text('code', null, ['class'=>'form-control code_input', 'required']) }}
+				</div>
+				<div class="change_block change_item_category_div">
+					{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
+					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control', 'required', 'form' => 'none']) }}
+				</div>
+				<div class="change_block change_item_producer_div">
+					{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
+					{{ Form::select('producer_id', $HELP::createOptions($producers), '', ['class'=>'form-control producer_input', 'required']) }}
+				</div>
 			</div>
-			<div class="change_block change_item_price_div">
-				{{ Form::label('price', 'Цена', ['class'=>'admin_uni_label']) }}
-				{{ Form::text('price', null, ['class'=>'form-control price_input', 'required']) }}
-			</div>
-			<div class="change_block change_item_cur_div">
-				{{ Form::label('currency', 'Валюта', ['class'=>'admin_uni_label']) }}
-				{{ Form::text('currency', 'РУБ', ['class'=>'form-control currency_input', 'required']) }}
-			</div>
-			<div class="change_block change_item_category_div">
-				{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
-				{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control', 'required', 'form' => 'none']) }}
-			</div>
-			<div class="change_block change_item_subcat_div">
-				{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
-				{{ Form::select('subcat_id', [], '', ['class'=>'form-control subcat_input', 'required']) }}
-			</div>
-			<div class="change_block change_item_producer_div">
-				{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
-				{{ Form::select('producer_id', $HELP::createOptions($producers), '', ['class'=>'form-control producer_input', 'required']) }}
-			</div>
-			<div class="change_block change_item_procurement_div">
-				{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
-				{{ Form::checkbox('procurement', true, true, ['class'=>'']) }}
-			</div>
+			<div class="right_block">	
+				<div class="change_block change_item_price_div">
+					{{ Form::label('price', 'Цена', ['class'=>'admin_uni_label']) }}
+					{{ Form::text('price', null, ['class'=>'form-control price_input', 'required']) }}
+				</div>
+				<div class="change_block change_item_cur_div">
+					{{ Form::label('currency', 'Валюта', ['class'=>'admin_uni_label']) }}
+					{{ Form::text('currency', 'РУБ', ['class'=>'form-control currency_input', 'required']) }}
+				</div>
+				<div class="change_block change_item_subcat_div">
+					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
+					{{ Form::select('subcat_id', [], '', ['class'=>'form-control subcat_input', 'required']) }}
+				</div>
+				<div class="change_block change_item_procurement_div">
+					{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
+					{{ Form::checkbox('procurement', true, true, ['class'=>'']) }}
+				</div>
+			</div>	
 			<div class="change_block change_item_descript_block">
 				{{ Form::label('description', 'Описание', ['class'=>'admin_uni_label descr_label']) }}
 				{{ Form::textarea('description', null, ['class'=>'form-control descr_input']) }}
@@ -80,8 +84,8 @@
 		</div>
 
 		@if ($item)
-			{{ Form::open(['url'=>"/admin/delete_item?item_id=$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::open(['url'=>"/admin/delete_item?item_id=$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import admin_delete_form']) }}
+				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button btn_del']) }}
 			{{ Form::close() }}	
 		@endif
 	</div>
