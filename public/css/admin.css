@@ -154,7 +154,7 @@ header {
 	padding-top: 4px;
 }
 .admin_sidebar_button:hover {
-	background-color: #cecece;
+	background-color: #666666;
 	text-decoration: none;
 	color: #eeeeee;
 }
@@ -292,14 +292,26 @@ input[type=file].admin_panel_input {
 	font-size: 18px;
 	font-weight: bold;
 }
+.change_item_title_block {
+	margin-bottom: 16px;
+}
+.left_block {
+	float: left;
+	width: 430px;
+}
+.right_block {
+	float: right;
+	width: 430px;
+}
 .change_block {
 	display: inline-block;
 }
+.change_item_subcat_div {
+	display: inherit;
+	margin-top: 16px;
+}
 .change_item_cur_div {
 	float: right;
-}
-.change_item_price_div {
-	margin-left: 35px;
 }
 .title_input {
 	width: 758px;
@@ -308,7 +320,6 @@ input[type=file].admin_panel_input {
 .code_input {
 	width: 280px;
 	margin-left: 51px;
-	margin-top: 16px;
 }
 .price_input {
 	width: 165px;
@@ -316,26 +327,23 @@ input[type=file].admin_panel_input {
 }
 .currency_input {
 	width: 80px;
-	margin-top: 17px;
 	margin-left: 25px;
 }
 .change_item_category_div {
-	margin-right: 65px;
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
 .change_item_procurement_div {
-	margin-left: 126px;
+	margin-top: 16px;
 }
 .proc_label {
-	margin-right: 95px;
+	margin-right: 91px;
 }
 .category_label {
 	margin-right: 37px;
 }
 .subcat_label {
 	margin-right: 52px;
-	margin-left: 104px;
 }
 .producer_label {
 	margin-right: 5px;
@@ -363,9 +371,7 @@ input[name="hit"] {
 	margin-left: 111px;
 }
 .img_preview {
-	/*float: right;*/
 	margin-top: 0px;
-	/*margin-right: 658px;*/
 }
 .change_item_buttons {
 	margin-top: 237px;
@@ -488,6 +494,13 @@ footer {
 }
 .change_article_descript_block {
 	margin-bottom: 55px;
+}
+.admin_delete_form {
+	display: inline-block;
+	margin-left: 2px;
+}
+.btn_del {
+	width: 98px;
 }
 
 /*ARTICLES*/
