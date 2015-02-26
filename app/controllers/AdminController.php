@@ -116,9 +116,7 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		$item = Item::find(Input::get('item_id'));
-		Item::destroy(Input::get('item_id'));
-		return Redirect::back()->with('message', 'Товар '.$item->title.' удален');
+		return Helper::__delete('Item', 'Товар %s удален', 'title');
 	}
 
 	public function item_upload_image() {
@@ -149,15 +147,12 @@ class AdminController extends BaseController {
 	}
 
 	public function update_article() {
-		$filename = 'article_'.time();
+		// $filename = 'article_'.time();
 	}
 
 	public function delete_article() {
-		dd(Input::get('article_id'));
-		$article_id = Input::get('article_id');
-		// Article::where('article_id', $article_id)->delete();
-		Article::destroy($article_id);
-		return Redirect::back()->with('message', 'Новость удалена');
+		die('prevent deleting!');
+		return Helper::__delete('Article', 'Новость %s удалена', 'title');
 	}
 
 	public function article_upload_image() {
@@ -185,11 +180,8 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_subcat() {
-		dd(Input::get('subcat_id'));
-		$subcat_id = Input::get('subcat_id');
-		// Subcat::where('subcat_id', $subcat_id)->delete();
-		Subcat::destroy($subcat_id);
-		return Redirect::back()->with('message', 'Подкатегория удалена');
+		die('prevent deleting!');
+		return Helper::__delete('Subcat', 'Подкатегория %s удалена', 'subcat');
 	}
 
 	public function producers() {
@@ -204,11 +196,8 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_producer() {
-		dd(Input::get('producer_id'));
-		$producer_id = Input::get('producer_id');
-		// Producer::where('producer_id', $producer_id)->delete();
-		Producer::destroy($producer_id);
-		return Redirect::back()->with('message', 'Производитель удален');
+		die('prevent deleting!');
+		return Helper::__delete('Producer', 'Производитель %s удален', 'producer');
 	}
 
 	public function ajax_change_subcat() {
