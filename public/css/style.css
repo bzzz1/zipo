@@ -471,6 +471,10 @@ form {
 	overflow: hidden;
 	padding: 5px;
 }
+.items_item_name:hover {
+	text-decoration: none;
+	color: #662025;
+}
 .items_item_name_full {
 	display: none;
 	position: absolute;
@@ -482,6 +486,19 @@ form {
 	margin-bottom: 0;
 	cursor: pointer;
 	padding: 5px;
+}
+.items_item_name_full:hover {
+	display: none;
+	position: absolute;
+	top: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #662025;
+	background-color: #f4f4f4;
+	margin-bottom: 0;
+	cursor: pointer;
+	padding: 5px;
+	text-decoration: none;
 }
 .items_item_name_div:hover .items_item_name_full {
 	display: block;
