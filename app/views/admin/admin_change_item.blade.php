@@ -82,7 +82,7 @@
 			</div>
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 			<div class="change_item_buttons">
-				<p class="btn admin_uni_button low_button">Очистить</p>
+				<p class="btn admin_uni_button clear_item_button low_button">Очистить</p>
 			</div>
 		{{ Form::close() }}
 		@if ($item)
