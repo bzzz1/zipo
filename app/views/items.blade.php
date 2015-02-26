@@ -36,7 +36,7 @@
 			<p class="items_sort_by">Сортировать по: </p>
 
 			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
-			<select name="items_sort" id="items_sort">
+			<select name="items_sort" id="items_sort" class="form-control items_sort_c">
 				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
 					имени(а-я)
 				</option>
