@@ -233,6 +233,9 @@ form {
 	float: right;
 	margin-right: 10px;
 }
+.register_form {
+	padding-left: 15px;
+}
 .reg_button {
 	padding: 0;
 }
@@ -397,15 +400,26 @@ form {
 .items_subheading {
 	font-size: 16px;
 	font-weight: bold;
+	margin-left: 15px;
 }
 .items_sort_div {
 	display: block;
+	margin-left: 15px;
+	margin-bottom: 5px;
 }
 .items_sort_by {
 	font-size: 12px;
 }
-.items_sort {
-	/*something here*/
+.items_sort_c {
+	width: auto;
+	display: inline-block;
+}
+.form-control:focus {
+	outline-color: #cecece;
+	border-color: #cecece;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(73,73,73,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(73,73,73,.6);
 }
 .items_sort_by_main {
 	position: absolute;
@@ -590,7 +604,7 @@ form {
 }
 .contacts_form_table td, .change_input_register td {
 	padding-top: 5px;
-	padding-bottom: 30px;
+	padding-bottom: 15px;
 	padding-right: 5px;
 }
 .change_input_contacts, .change_input_register {
@@ -604,6 +618,7 @@ form {
 	text-align: center;
 	display: inline;
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 .main_label {
 	height: 21px;
@@ -611,9 +626,12 @@ form {
 }
 /*DELIVERY*/
 .about_text_block {
-	padding-left: 10px;
+	padding-left: 15px;
 	padding-right: 10px;
 	text-align: justify;
+}
+.conacts_subheading {
+	padding-left: 15px;
 }
 .delivery_outer_link {
 	margin-right: 23px;
@@ -665,6 +683,12 @@ form {
 	max-width: 500px;
 	display: table;
 	margin: auto;
+}
+/*ORDER*/
+.order_form_table td {
+	padding-top: 5px;
+	padding-bottom: 15px;
+	padding-right: 5px;
 }
 
 /*CATALOG_BRANDS*/

@@ -139,7 +139,6 @@ header {
 /*SIDEBAR*/
 .admin_sidebar_container {
 	width: 930px;
-	background-color: #222222;
 	padding: 10px;
 	display: table;
 	margin: auto;
@@ -149,7 +148,8 @@ header {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	font-size: 16px;
-	padding-right: 2px;
+	padding-left: 3px;
+	padding-right: 7px;
 	padding-bottom: 4px;
 	padding-top: 4px;
 }
@@ -178,7 +178,7 @@ header {
 	cursor: pointer;
 }
 .full_screen {
-	background-color: #222222;
+	background-color: #4d4d4d;
 	margin-top: 0;
 	padding: 0;
 	height: auto;
@@ -303,11 +303,11 @@ input[type=file].admin_panel_input {
 }
 .title_input {
 	width: 758px;
-	margin-left: 40px;
+	margin-left: 45px;
 }
 .code_input {
 	width: 280px;
-	margin-left: 45px;
+	margin-left: 51px;
 	margin-top: 16px;
 }
 .price_input {
@@ -321,21 +321,32 @@ input[type=file].admin_panel_input {
 }
 .change_item_category_div {
 	margin-right: 65px;
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-top: 16px;
+	margin-bottom: 16px;
 }
-.category_label, .proc_label {
-	margin-right: 30px;
+.change_item_procurement_div {
+	margin-left: 126px;
+}
+.proc_label {
+	margin-right: 95px;
+}
+.category_label {
+	margin-right: 37px;
 }
 .subcat_label {
-	margin-right: 25px;
+	margin-right: 52px;
+	margin-left: 104px;
+}
+.producer_label {
+	margin-right: 5px;
 }
 .descr_label {
 	vertical-align: top;
 	margin-top: 15px;
+	margin-right: 9px;
 }
 .descr_input {
-	width: 760px;
+	width: 756px;
 	margin-left: 35px;
 	margin-top: 20px;
 }
@@ -381,6 +392,12 @@ input[name="hit"] {
 	display: inline-block;
 	float: right;
 	vertical-align: top;
+}
+.low_button {
+	margin-left: 125px;
+}
+.low_button[type='submit'] {
+	margin-left: -245px;
 }
 /*PRODUCERS*/
 .admin_producers_groups {
@@ -594,17 +611,18 @@ footer {
 }
 .admin_items_buttons i {
 	color: #9dcb20;
-	margin-right: 5px;
+}
+.admin_item_title_1 {
+	margin-right: 6px;
 }
 .fa_block {
 	float: right;
-	margin-right: 20px;
 }
 .admin_items_buttons input[type='checkbox'] {
 	margin-left: 5px;
 }
-.items_item_flag {
-	right: 85px;
+.items_item_one {
+	height: auto;
 }
 /*LOGIN*/
 .admin_login {

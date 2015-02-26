@@ -14,45 +14,35 @@
 		<hr class="main_hr">
 		<div class="about_text_block">
 			<table class="contacts_info_table">
-					<tr>
-						<td class="info_label">Адрес</td>
-						<td>г. Санкт-Петербург, Болотная улица дом 16</td>
-					</tr>
-					<tr>
-						<td class="info_label">Телефон</td>
-						<td>+7 (812) 987-22-06</td>
-					</tr>
-					<tr>
-						<td class="info_label">Доп. телефон</td>
-						<td>+7 (812) 987-08-81</td>
-					</tr>
-					<tr>
-						<td class="info_label">Эл. почта</td>
-						<td><a href="mailto:9872206@mail.ru">9872206@mail.ru</a></td>
-					</tr>
-					<tr>
-						<td class="info_label">Дополнительный сайт</td>
-						<td><a href="http://www.mssservice.ds78.ru" target="_blank">mssservice.ds78.ru</a></td>
-					</tr>
-					<tr>
-						<td class="info_label">Контактное лицо</td>
-						<td>Дежурный менеджер</td>
-					</tr>
-					<tr>
-						<td class="info_label">Часы работы</td>
-						<td>09:00-18:00, без перерыва, по субботам по договоренности</td>
-					</tr>
-				</table>
-			<!-- <p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, in!</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, magni.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, aut.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, quam?</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, incidunt.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, reprehenderit.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, natus.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, recusandae.</p>
-			<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, unde!</p> -->
+				<tr>
+					<td class="info_label">Адрес</td>
+					<td>г. Санкт-Петербург, Болотная улица дом 16</td>
+				</tr>
+				<tr>
+					<td class="info_label">Телефон</td>
+					<td>+7 (812) 987-22-06</td>
+				</tr>
+				<tr>
+					<td class="info_label">Доп. телефон</td>
+					<td>+7 (812) 987-08-81</td>
+				</tr>
+				<tr>
+					<td class="info_label">Эл. почта</td>
+					<td><a href="mailto:9872206@mail.ru">9872206@mail.ru</a></td>
+				</tr>
+				<tr>
+					<td class="info_label">Дополнительный сайт</td>
+					<td><a href="http://www.mssservice.ds78.ru" target="_blank">mssservice.ds78.ru</a></td>
+				</tr>
+				<tr>
+					<td class="info_label">Контактное лицо</td>
+					<td>Дежурный менеджер</td>
+				</tr>
+				<tr>
+					<td class="info_label">Часы работы</td>
+					<td>09:00-18:00, без перерыва, по субботам по договоренности</td>
+				</tr>
+			</table>
 		</div>
 		<p class="conacts_subheading">Если у вас остались вопросы - напишите нам.</p>
 		<div class="contacts_contact_form" id="contact_sorm_ancher">
@@ -60,30 +50,30 @@
 				<table class="contacts_form_table">
 					<tr>
 						<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('name', null, ['class'=>'change_input_contacts', 'required']) }}</td>
+						<td>{{ Form::text('name', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('company', null, ['class'=>'change_input_contacts']) }}</td>
+						<td>{{ Form::text('company', null, ['class'=>'change_input_contacts form-control']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('phone', 'Контактный телефон: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('phone', null, ['class'=>'change_input_contacts']) }}</td>
+						<td>{{ Form::text('phone', null, ['class'=>'change_input_contacts form-control']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('email', null, ['class'=>'change_input_contacts', 'required']) }}</td>
+						<td>{{ Form::text('email', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('theme', null, ['class'=>'change_input_contacts']) }}</td>
+						<td>{{ Form::text('theme', null, ['class'=>'change_input_contacts form-control']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::textarea('body', null, ['class'=>'change_input_contacts contacts_form_body', 'required']) }}</td>
+						<td>{{ Form::textarea('body', null, ['class'=>'change_input_contacts contacts_form_body form-control', 'required']) }}</td>
 					</tr>
 				</table>
-				{{ Form::submit('Отправить', ['class'=>'submit_field save_button']) }} 
+				{{ Form::submit('Отправить', ['class'=>'btn submit_field save_button']) }} 
 			{{ Form::close() }}
 		</div>
 		<div id="map-container"></div>

@@ -34,11 +34,11 @@
 			</div>
 			<div class="change_block change_item_subcat_div">
 				{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
-				{{ Form::select('subcat_id', [], ['class'=>'form-control subcat_input', 'required']) }}
+				{{ Form::select('subcat_id', [], '', ['class'=>'form-control subcat_input', 'required']) }}
 			</div>
 			<div class="change_block change_item_producer_div">
 				{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
-				{{ Form::select('producer_id', $HELP::createOptions($producers),['class'=>'form-control producer_input', 'required']) }}
+				{{ Form::select('producer_id', $HELP::createOptions($producers), '', ['class'=>'form-control producer_input', 'required']) }}
 			</div>
 			<div class="change_block change_item_procurement_div">
 				{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
@@ -50,11 +50,11 @@
 			</div>
 			<div class="make_spec_block">
 				{{ Form::label('special', 'Добавить в спецпредложения', ['class'=>'admin_uni_label']) }}
-				{{ Form::checkbox('special', true, false, ['class'=>'']) }}
+				{{ Form::checkbox('special', true, false) }}
 			</div>
 			<div class="make_hit_block">
 				{{ Form::label('hit', 'Сделать хитом продаж', ['class'=>'admin_uni_label']) }}
-				{{ Form::checkbox('hit', true, false, ['class'=>'']) }}
+				{{ Form::checkbox('hit', true, false) }}
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
 			<div class="img_preview">
@@ -67,9 +67,9 @@
 				@endif	
 			</div>
 			<div class="change_item_buttons">
-				<p class="btn admin_uni_button">Очистить</p>
+				<p class="btn admin_uni_button low_button">Очистить</p>
 			</div>
-			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 		{{ Form::close() }}
 
 		<div class="change_item_img">
