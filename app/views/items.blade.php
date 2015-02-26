@@ -64,8 +64,10 @@
 						<div class="items_item_heading">
 							<div class="name_and_code">
 								<div class="items_item_name_div">
-									<p class="items_item_name">{{$item->title}}</p>
-									<p class="items_item_name_full">{{$item->title}}</p>
+									{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", '$item->title',['class'=>'items_item_name']) }}
+									<!-- <p class="items_item_name">{{$item->title}}</p> -->
+									{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", '$item->title',['class'=>'items_item_name_full']) }}
+									<!-- <p class="items_item_name_full">{{$item->title}}</p> -->
 								</div>	
 							</div>	
 							<p class="items_item_code">Арт: {{$item->code}}</p>
