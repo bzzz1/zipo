@@ -73,15 +73,32 @@ class AdminController extends BaseController {
 	public function change_item() {
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
-			'item'		=> Item::find(Input::get('item_id')),
+			'item'		=> Item::__items()->find(Input::get('item_id')),
 			'producers' => Producer::readAllProducers()
 		]);
 	}
 
 	public function update_item() {
-		$fields = Input::all();
 		$item_id = Input::get('item_id');
+		$fields = Input::all();
+		$rules = [
+			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
+		];
 
+		$validator = Validator::make($fields, $rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()
+				->with('message', 'Товар с таким кодом уже существует. Код должен быть уникальным!');
+		} else {
+			$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
+		}
+
+		if ($item_id) { 
+			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен');
+		} else {
+			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
+		}
 
 		// if (Input::get('with_image')) {
 		// 	$temp_image = Input::get('with_image');
@@ -96,39 +113,12 @@ class AdminController extends BaseController {
 		// 	$fields['photo'] = $filename;
 		// 	// unset($fields['with_image']); <--delete it -->
 		// }
-
-		/*----------------------------------------------*/
-
-		// $r = Item::updateOrCreate(['item_id' => $item_id], $fields);
-		// $item = Item::updateOrCreate(['item_id' => $item_id], $fields);
-		dd($item_id);
-
-		if ($item_id) { // update
-			Item::find($item_id)->fill($fields)->save();
-			// Item::updateItemById($fields);
-			return Redirect::back()->with('message', 'Товар изменен');
-			// return Redirect::back()->withInput(Input::get())
-			// 						->with('message', 'Товар изменен');
-		} else { // create
-			Item::create($fields);
-			// Item::create($filds);
-			// return Redirect::to('/admin/change_item?item_id='.$item_id)
-							// ->with('message', 'Товар добавлен');
-			return Redirect::back()->withInput(Input::get())
-									->with('message', 'Товар добавлен');
-		}
-
-		// $item = Item::updateOrCreateItemById($fields);
-		// return Redirect::back()->withInput(Input::get())
-		// 						->with('message', ($item->code) ? 'Товар изменен' : 'Товар добавлен');
 	}
 
 	public function delete_item() {
-		dd(Input::get('item_id'));
-		$item_id = Input::get('item_id');
-		// Item::where('item_id', $item_id)->delete();
-		Item::destroy($item_id);
-		return Redirect::back()->with('message', 'Товар удален');
+		$item = Item::find(Input::get('item_id'));
+		Item::destroy(Input::get('item_id'));
+		return Redirect::back()->with('message', 'Товар '.$item->title.' удален');
 	}
 
 	public function item_upload_image() {

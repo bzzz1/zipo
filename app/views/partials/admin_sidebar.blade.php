@@ -6,7 +6,7 @@
 			<a href="/admin/change_article" class="@if ($env == 'change_article') active_my @endif admin_sidebar_button"><i class="fa fa-bullhorn"></i>Добавить новость</a>
 			<a href="/admin/subcats" class="@if ($env == 'subcats') active_my @endif admin_sidebar_button"><i class="fa fa-sitemap"></i>Подкатегории</a>
 			<a href="/admin/catalog" class="@if ($env == 'catalog_admin') active_my @endif admin_sidebar_button"><i class="fa fa-book"></i>Каталог</a>
-			<a href="/admin/articles" class="@if ($env == 'articles') active_my @endif admin_sidebar_button"><i class="fa fa-list-alt"></i>Список новостей</a>
+			<a href="/admin/articles" class="@if ($env == 'articles') active_my @endif admin_sidebar_button"><i class="fa fa-list-alt"></i>Новости</a>
 			<a href="/admin/producers" class="@if ($env == 'producers') active_my @endif admin_sidebar_button"><i class="fa fa-users"></i>Производители</a>
 		</div>
 	</div>	
