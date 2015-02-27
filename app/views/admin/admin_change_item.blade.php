@@ -62,23 +62,25 @@
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
 			<div class="change_item_img">
-				<input type="file" class="browse_img_admin">
-				<a href="" id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
-				<script>
-					$('#trigger_link_img').click(function(e){
-					    e.preventDefault();
-					    $('.browse_img_admin').trigger('click');
-					});
-				</script>
+				<input id="fileupload" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'>
+				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
 			</div>
 			<div class="img_preview">
-				@if (Session::get('temp'))
+	{{-- 			@if (Session::get('temp'))
 					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
-				@endif	
+				@endif	 --}}
+				<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
+				
+				@if (Session::get('temp'))
+					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
+					<i class="fa fa-times delete_img_icon"></i>
+				@else
+					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
+				@endif
 			</div>
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 			<div class="change_item_buttons">

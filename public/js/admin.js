@@ -1,3 +1,6 @@
+/*------------------------------------------------
+| CKEDITOR EMBED
+------------------------------------------------*/
 if ($('#ckeditor').length) {
 	CKEDITOR.replace('ckeditor', {
 		filebrowserBrowseUrl 	   : '../kcfinder/browse.php?opener=ckeditor&type=files',
@@ -17,11 +20,7 @@ if ($('#ckeditor').length) {
 		// ],
 	});
 }
-
-$('.item_upload_image').on('change', function() {
-	$('.item_upload_image_submit').click();
-	// change img src to 
-});
+/*----------------------------------------------*/
 
 /*------------------------------------------------
 | RUN SUBCATEGORIES FROM SELECT
@@ -63,9 +62,7 @@ function send_category(category) {
 		}
 	});	
 }
-/*------------------------------------------------
-| END SUBCATEGORIES FROM SELECT
-------------------------------------------------*/
+/*-----------------------------------------------*/
 
 /*------------------------------------------------
 | BUTTONS
@@ -88,5 +85,23 @@ $('.clear_item_button').on('click', function() {
 	// $('input[name="price"]')
 	// $('input[name="currency"]')
 
+});
+/*----------------------------------------------*/
+
+/*------------------------------------------------
+| FILE UPLOAD
+------------------------------------------------*/
+$('#trigger_link_img').click(function(e){
+    e.preventDefault();
+    $('.browse_img_admin').trigger('click');
+});
+$(function () {
+	$('#fileupload').fileupload({
+		dataType: 'json',
+		done: function (e, data) {
+			console.log(data.result['111']);
+			
+		}
+	});
 });
 /*----------------------------------------------*/

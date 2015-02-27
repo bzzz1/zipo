@@ -99,37 +99,10 @@ class AdminController extends BaseController {
 		} else {
 			return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' добавлен</p>');
 		}
-
-		// if (Input::get('with_image')) {
-		// 	$temp_image = Input::get('with_image');
-
-		// 	// CHANGE IMAGE NAME
-		// 	$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
-		// 	$extension = File::extension($old);
-		// 	$filename = 'photo_'.time().'.'.$extension;
-		// 	$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
-		// 	rename($old, $new);
-
-		// 	$fields['photo'] = $filename;
-		// 	// unset($fields['with_image']); <--delete it -->
-		// }
 	}
 
 	public function delete_item() {
 		return Helper::__delete('Item', 'Товар %s удален', 'title');
-	}
-
-	public function item_upload_image() {
-		if (Input::hasFile('photo')) {
-			$file = Input::file('photo');
-			$destinationPath = Helper::$item_photo_dir;
-			$extension = $file->getClientOriginalExtension();
-			// $filename = $file->getClientOriginalName(); // full
-			$filename = 'temp.'.$extension;
-			$file->move($destinationPath, $filename);
-		}
-
-		return Redirect::back()->with('temp', $filename);
 	}
 
 	public function articles() {
@@ -148,24 +121,12 @@ class AdminController extends BaseController {
 
 	public function update_article() {
 		// $filename = 'article_'.time();
+		// UPDATE
 	}
 
 	public function delete_article() {
 		die('prevent deleting!');
 		return Helper::__delete('Article', 'Новость %s удалена', 'title');
-	}
-
-	public function article_upload_image() {
-		if (Input::hasFile('photo')) {
-			$file = Input::file('photo');
-			$destinationPath = Helper::$article_photo_dir;
-			$extension = $file->getClientOriginalExtension();
-			// $filename = $file->getClientOriginalName(); // full
-			$filename = 'temp_article.'.$extension;
-			$file->move($destinationPath, $filename);
-		}
-
-		return Redirect::back()->with('temp_article', $filename);
 	}
 
 	public function subcats() {
@@ -200,6 +161,9 @@ class AdminController extends BaseController {
 		return Helper::__delete('Producer', 'Производитель %s удален', 'producer');
 	}
 
+/*------------------------------------------------
+| AJAX
+------------------------------------------------*/
 	public function ajax_change_subcat() {
 		// return Response::json($data);
 	}
@@ -225,5 +189,41 @@ class AdminController extends BaseController {
 		$all = Subcat::readAllSubcats();
 		$subcats = $all[$category];
 		return Response::json($subcats);
+	}
+
+	public function ajax_item_image() {
+		// if (Input::get('with_image')) {
+		// 	$temp_image = Input::get('with_image');
+
+		// 	// CHANGE IMAGE NAME
+		// 	$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
+		// 	$extension = File::extension($old);
+		// 	$filename = 'photo_'.time().'.'.$extension;
+		// 	$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
+		// 	rename($old, $new);
+
+		// 	$fields['photo'] = $filename;
+		// 	// unset($fields['with_image']); <--delete it -->
+		// }
+
+
+		if (Input::hasFile('photo')) {
+			$file = Input::file('photo');
+			$destinationPath = Helper::$item_photo_dir;
+			$extension = $file->getClientOriginalExtension();
+			// $filename = $file->getClientOriginalName(); // full
+			$filename = 'temp.'.$extension;
+			$file->move($destinationPath, $filename);
+		}
+
+		// return Redirect::back()->with('temp', $filename);
+
+
+		$response = ['111' => '222'];
+		return Response::json($response);
+	}
+
+	public function ajax_article_image() {
+		// 
 	}
 }

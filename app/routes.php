@@ -37,7 +37,6 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::get('/change_article', 'AdminController@change_article');
 	Route::post('/update_article', 'AdminController@update_article');
 	Route::post('/delete_article', 'AdminController@delete_article');
-	Route::post('/article_upload_image', 'AdminController@article_upload_image');
 
 	// SUBCAT
 	Route::get('/subcats', 'AdminController@subcats');
@@ -56,17 +55,18 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/ajax_delete', 'AdminController@ajax_delete');
 	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
 	Route::post('/ajax_get_subcats', 'AdminController@ajax_get_subcats');
+	Route::post('/ajax_item_image', 'AdminController@ajax_item_image');
+	Route::post('/ajax_article_image', 'AdminController@ajax_article_image');
 	
 	// ITEM
 	Route::get('/change_item', 'AdminController@change_item');
 	Route::post('/update_item', 'AdminController@update_item');
 	Route::post('/delete_item', 'AdminController@delete_item');
-	Route::post('/item_upload_image', 'AdminController@item_upload_image');
 	Route::get('/{category}/{subcat}', 'AdminController@items');
 });
 
 Route::get('/test', function() {
-	// test
+	// echo '&#61';
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');
