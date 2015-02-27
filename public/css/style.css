@@ -816,3 +816,15 @@ form {
 .subcat a:hover {
 	color: black;
 }
+/*MESSAGE*/
+.message {
+	display: inline-block;
+	position: absolute;
+	top: 255px;
+	font-size: 16px;
+	color: #2cc36b;
+	margin-left: 28px;
+}
+.close_message {
+	cursor: pointer;
+}

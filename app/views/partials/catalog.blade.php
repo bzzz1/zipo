@@ -1,6 +1,6 @@
 @section('body')
 	@if (Session::get('message'))
-		<p style='color: rgb(0,255,0)'>{{ Session::get('message') }}</p>
+		<p class="message">{{ Session::get('message') }} <i class="fa fa-times close_message"></i></p>
 	@endif
 
 	<div class="main_content">
