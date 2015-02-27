@@ -22,10 +22,10 @@
 					{{ HTML::link('/user_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
 				@else 
 					<div class="btn-group btn-group-lg register" role="group" aria-label="reg">
-						<button type="button" class="btn btn-default">Войти</button>
+						<button type="button" class="btn btn-default login_button" data-effect="mfp-zoom-out">Войти</button>
 						<a href="/registration" class="btn btn-default reg_button">Регистрация</a>
 					</div>
-					<div class="header_login">
+					<div class="header_login mfp-hide mfp-zoom-out">
 						{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form input-group']) }}
 							{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
 							{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}

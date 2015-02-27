@@ -11,26 +11,18 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
-	{{ HTML::style('css/left_sidebar.css') }}<!--delete it-->
-	{{ HTML::style('css/right_sidebar.css') }}<!--delete it-->
-	{{ HTML::style('css/footer.css') }}<!--delete it-->
-	{{ HTML::style('css/item.css') }}<!--delete it-->
-	{{ HTML::style('css/article.css') }}<!--delete it-->
-	{{ HTML::style('css/articles.css') }}<!--delete it-->
-	{{-- HTML::script('js/angular.min.js') --}}
+	{{ HTML::style('css/left_sidebar.css') }}
+	{{ HTML::style('css/right_sidebar.css') }}
+	{{ HTML::style('css/footer.css') }}
+	{{ HTML::style('css/item.css') }}
+	{{ HTML::style('css/article.css') }}
+	{{ HTML::style('css/articles.css') }}
+	{{ HTML::style('css/magnific-popup.css') }}
+	{{ HTML::style('css/animate-popup.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
-	<!-- // <script src="vendor/ckeditor/ckeditor/ckeditor.js"></script> -->
-
-
-	{{-- HTML::script('js/jquery.sticky-kit.min.js') --}}
-	{{-- HTML::script('js/jquery.sticky.min.js') --}}
-	{{-- HTML::script('js/jquery.sticky-sidebar-scroll.min.js') --}}
-	{{-- HTML::script('js/bootstrap.min.js') --}}
+	{{ HTML::script('js/jquery.magnific-popup.js') }}
 
 	@yield('css')
-	<!--[if lt IE 10]>
-		<!!!!!!!!!!!!!!!script src="{{ asset('js/modernizr_columns.js') }}"></script>
-	<![endif]-->
 </head>
 <body>
 	@yield('header')
