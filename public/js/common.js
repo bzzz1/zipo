@@ -34,3 +34,12 @@
 		HIDING = false;						
 	});
 
+
+$('.login_button').magnificPopup({
+    items: [
+    	{
+	        src: '.header_login', // CSS selector of an element on page that should be used as a popup
+	        type: 'inline'
+	    }
+    ],
+});

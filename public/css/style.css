@@ -195,7 +195,7 @@ p,h1,h2,h3,h4,h5,a {
 }
 /*animation_nav_end*/
 .header_login {
-	display: none;
+	/*display: none;*/
 }
 .login_form_input {
 	border-radius: 4px;
@@ -204,9 +204,28 @@ p,h1,h2,h3,h4,h5,a {
 	margin-right: 10px;
 }
 .login_form {
+	/*margin-right: 10px;*/
+	margin: auto;
+	background-color: #fff;
+	width: 400px;
+	height: 200px;
+	padding: 15px 30px;
+}
+.login_form p {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+}
+.login_label_email {
+	margin-right: 22px;
+}
+.login_label_password {
 	margin-right: 10px;
 }
-
+.login_form_button {
+	margin-top: 10px;
+}
 .submit_field {
 	color: #333;
 	background-color: #fff;

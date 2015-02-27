@@ -22,13 +22,20 @@
 					{{ HTML::link('/user_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
 				@else 
 					<div class="btn-group btn-group-lg register" role="group" aria-label="reg">
-						<button type="button" class="btn btn-default">Войти</button>
+						<button type="button" class="btn btn-default login_button">Войти</button>
 						<a href="/registration" class="btn btn-default reg_button">Регистрация</a>
 					</div>
-					<div class="header_login">
+					<div class="header_login mfp-hide">
 						{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form input-group']) }}
-							{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
-							{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
+							<p class="login_form_title">Вход на сайт</p>
+							<div>
+								{{ Form::label('email', 'E-mail', ['class'=>'login_label_email']) }}
+								{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
+							</div>
+							<div>
+								{{ Form::label('password', 'Пароль', ['class'=>'login_label_password']) }}
+								{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
+							</div>
 							{{ Form::submit('Войти', ['class'=>'submit_field']) }}
 						{{ Form::close() }}
 					</div>	
