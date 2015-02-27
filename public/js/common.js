@@ -5,6 +5,10 @@
 	$categories = $('.catalog_category');
 	HIDING = false;
 
+	$($categories).click(function() {
+		$(".main_content").find(".active_cat").removeClass("active_cat");
+      	$(this).children('.catalog_category_heading').addClass('active_cat');
+	 });
 
 	$categories.on('click', function() {
 		var clicked_category_data = $(this).data('category');
