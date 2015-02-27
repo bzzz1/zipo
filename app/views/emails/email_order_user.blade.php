@@ -2,7 +2,7 @@
 <p class="change_input change_input_short form-control">{{{$title}}}</p>
 <p>был принят и будет обработан нашими специалистами в кратчайшие сроки!</p>
 <p>Проверте пожалуйста Ваши контактные данные. В случае ошибки, пожалуйста свяжитесь с нами.</p>
-<table class="order_form_table">
+<table class="order_form_table" style="width:100%;">
 	<tr>
 		<td class="main_label">Имя: </td>
 		<td class="change_input form-control">{{{$name}}}</td>

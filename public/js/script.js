@@ -24,7 +24,6 @@
 		window.location = link;
 	});
 
-
 	/*------------------------------------------------
 	| Store and retrieve PAGES_BY param
 	------------------------------------------------*/
@@ -91,10 +90,14 @@
 			}
 		});	
 	});
-
+	
+});
+$('.close_message').click(function() {
+    $('.message').css('display','none')
+});
 
 	
-})(jQuery);
+(jQuery);
 
 // 	function run_deleting_confirm() {
 // 		$('.confirm_delete').on('click', function() {
