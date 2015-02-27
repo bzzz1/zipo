@@ -68,8 +68,10 @@ function send_category(category) {
 | BUTTONS
 ------------------------------------------------*/
 // DELETE IMG ICON
-$('.delete_img_icon').on('click', function() {
-	location.reload();
+$('.delete_img_icon_ajax').on('click', function() {
+	src = '111';
+	$('.ajax_img_icon').attr('src', src);
+	$(this).remove();
 });
 
 // DELETE ICON FORM SUBMIT
@@ -100,7 +102,7 @@ $(function () {
 		dataType: 'json',
 		done: function (e, data) {
 			console.log(data.result['111']);
-			
+
 		}
 	});
 });

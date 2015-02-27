@@ -66,20 +66,19 @@
 				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
 			</div>
 			<div class="img_preview">
-	{{-- 			@if (Session::get('temp'))
+				{{-- if (Session::get('temp'))
 					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
 				@endif	 --}}
-				<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp") }}' class='items_item_img'>
-				
-				@if (Session::get('temp'))
-					{{ Form::hidden('with_image', Session::get('temp')), ['form' => 'none'] }}
-					<i class="fa fa-times delete_img_icon"></i>
+
+				@if (isset($item->photo))
+					<img src='{{ URL::to("img/photos/")}}/{{ $item->photo }}' class='items_item_img ajax_img_icon'>
+					<i class="fa fa-times delete_img_icon_ajax"></i>
 				@else
-					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
+					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img'>
 				@endif
 			</div>
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
