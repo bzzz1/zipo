@@ -19,7 +19,9 @@
 			<div class="header_reg_adn_log">
 				@if (Auth::user()->check())
 					<p class="user_email">Вы вошли как: </br> {{ Auth::user()->get()->email }}</p>
-					{{ HTML::link('/user_logout', 'Выйти', ['class' => 'btn btn-default btn_exit']) }}
+					{{ Form::open(['url'=>'/user_logout', 'method'=>'POST', 'class'=>'']) }}
+						{{ Form::submit('Выйти', ['class'=>'btn btn-default btn_exit']) }}
+					{{ Form::close() }}
 				@else 
 					<div class="btn-group btn-group-lg register" role="group" aria-label="reg">
 						<button type="button" class="btn btn-default login_button mfp-zoom-out" data-effect="mfp-zoom-out">Войти</button>
