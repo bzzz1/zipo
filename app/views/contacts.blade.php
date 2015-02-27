@@ -76,47 +76,6 @@
 				{{ Form::submit('Отправить', ['class'=>'btn submit_field save_button']) }} 
 			{{ Form::close() }}
 		</div>
-		<div id="map-container"></div>
-		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		<script>    
-          function init_map() {
-            var var_location = new google.maps.LatLng(60.002168, 30.353743);
-            var isDraggable = $(document).width() > 480 ? true : false;
-            var settings = {
-                  zoom: 17,
-                  center: var_location,
-                  mapTypeControl: true,
-                  mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-                  draggable: isDraggable,
-                  scrollwheel: false,
-                  disableDoubleClickZoom: true,
-                  navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
-              };
-     
-            var var_mapoptions = {
-              center: var_location,
-              zoom: 17,
-              draggable: isDraggable,
-              scrollwheel: false,
-              disableDoubleClickZoom: true,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-     
-            var var_marker = new google.maps.Marker({
-                position: var_location,
-                map: var_map,
-                title:"ZIPO"});
-     
-            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                var_mapoptions);
-     
-            var_marker.setMap(var_map); 
-     
-          }
-     
-          google.maps.event.addDomListener(window, 'load', init_map);
-     
-        </script>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15993.4633220432!2d30.345087900301397!3d59.929106931914134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1425056657661" width="550" height="300" frameborder="0" style="border:0"></iframe>
 	</div>
 @stop

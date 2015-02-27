@@ -245,8 +245,6 @@ class Helper {
 		if ( ! $mail->send()) {
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
-		} else {
-			echo 'Message has been sent';
 		}
 	}
 
@@ -296,6 +294,11 @@ class Helper {
 		$object = $Model::find($object_id);
 		$Model::destroy($object_id);
 		return Redirect::back()->with('message', '<p class="message_'.$color.'">'.sprintf($message, $object->$title).'</p>');
+	}
+
+	public static function formatDate($date) {
+		$newDate = date("d-m-Y", strtotime($date));
+		return $newDate;
 	}
 
 	// KCFinder SETTINGS

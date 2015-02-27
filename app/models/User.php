@@ -9,5 +9,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 	protected $guarded = [];
 	public $timestamps = false;
-	protected $primaryKey = 'user_id';
+	public $primaryKey = 'user_id';
 }

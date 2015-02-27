@@ -3,7 +3,7 @@
 class Article extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
-	protected $primaryKey = 'article_id';
+	public $primaryKey = 'article_id';
 // /*------------------------------------------------
 // | READ
 // ------------------------------------------------*/

@@ -3,7 +3,7 @@
 class Producer extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
-	protected $primaryKey = 'producer_id';
+	public $primaryKey = 'producer_id';
 
 	public function items() {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');

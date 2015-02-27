@@ -9,6 +9,7 @@ class Cred extends Eloquent implements UserInterface, RemindableInterface{
 	use UserTrait, RemindableTrait;
 	protected $guarded = [];
 	public $timestamps = false;
+	public $primaryKey = 'cred_id';
 
 	public static function getDiscount() {
 		$cred = new Cred;
