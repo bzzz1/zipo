@@ -197,9 +197,6 @@ p,h1,h2,h3,h4,h5,a {
 	text-decoration: underline;
 }
 /*animation_nav_end*/
-.header_login {
-	/*display: none;*/
-}
 .login_form_input {
 	border-radius: 4px;
 	outline-color: #cecece;
