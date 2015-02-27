@@ -19,6 +19,11 @@
 			<div class="change_article_descript_block">
 				{{ Form::textarea('body', null, array('class' => 'name', 'id' => 'ckeditor')) }}
 			</div>
+			<p class="admin_uni_label">Добавить миниатюру для статьи</p>
+			<div class="change_article_img">
+				<input id="fileupload_article" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'>
+				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать миниатюра</a>
+			</div>
 			<div class="img_preview">
 				@if (Session::get('temp_article'))
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp_article") }}' class='items_item_img'>
@@ -27,24 +32,16 @@
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
 				@endif	
 			</div>
+			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
 			<div class="change_item_buttons">
 				<a href="#" class="btn admin_uni_button">Очистить</a>
 			</div>
-			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
 		{{ Form::close() }}
 
-		<div class="change_article_img">
-			<p class="admin_uni_label">Добавить миниатюру для статьи</p>
-			{{ Form::open(['url'=>'/admin/article_upload_image', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-				{{ Form::file('photo', ['class'=>'']) }}
-				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
-			{{ Form::close() }}
-			<a href="" id="trigger_link" class="btn admin_uni_button">Выбрать файл</a>
-		</div>
 
 		@if ($article)
 			{{ Form::open(['url'=>"/admin/delete_article?article_id=$article->article_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button']) }}
+				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button btn_del']) }}
 			{{ Form::close() }}
 		@endif
 	</div>

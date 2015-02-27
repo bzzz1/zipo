@@ -62,7 +62,7 @@
 					</tr>
 					<tr>
 						<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('email', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
+						<td>{{ Form::email('email', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
