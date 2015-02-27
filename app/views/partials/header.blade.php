@@ -36,7 +36,7 @@
 								{{ Form::label('password', 'Пароль', ['class'=>'login_label_password']) }}
 								{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
 							</div>
-							{{ Form::submit('Войти', ['class'=>'submit_field']) }}
+							{{ Form::submit('Войти', ['class'=>'btn submit_field login_form_button']) }}
 						{{ Form::close() }}
 					</div>	
 				@endif
