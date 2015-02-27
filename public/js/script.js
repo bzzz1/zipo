@@ -65,6 +65,10 @@ $(window).load(function() {
 	});	
 });	
 
+$('.close_message').click(function() {
+	$('.message').css('display','none')
+});
+
 // 	/*------------------------------------------------
 // 	| Store and retrieve SORT param
 // 	------------------------------------------------*/
@@ -157,9 +161,6 @@ $(window).load(function() {
 // 		});	
 // 	});
 	
-// });
-// $('.close_message').click(function() {
-//     $('.message').css('display','none')
 // });
 // ==>=>=>=>
 // 	function run_deleting_confirm() {

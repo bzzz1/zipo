@@ -821,9 +821,9 @@ form {
 	display: inline-block;
 	position: absolute;
 	top: 255px;
-	font-size: 16px;
-	color: #2cc36b;
-	margin-left: 28px;
+	font-size: 21px;
+	color: #009D0E;
+	margin-left: 140px;
 }
 .close_message {
 	cursor: pointer;
