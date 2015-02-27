@@ -5,6 +5,10 @@ $subcategories = $('.subcategory_block');
 $categories = $('.catalog_category');
 HIDING = false;
 
+	$($categories).click(function() {
+		$(".main_content").find(".active_cat").removeClass("active_cat");
+      	$(this).children('.catalog_category_heading').addClass('active_cat');
+	 });
 
 $categories.on('click', function() {
 	var clicked_category_data = $(this).data('category');
@@ -35,17 +39,15 @@ $categories.on('click', function() {
 });
 
 // MAGNIFIC POPUP
-$(document).ready(function() {
-	$('.login_button').magnificPopup({
-		items: {
-			src: '.header_login', // CSS selector of an element on page that should be used as a popup
-			type: 'inline'
-		},
-		removalDelay: 500, //delay removal by X to allow out-animation
-		callbacks: {
-			beforeOpen: function() {
-				this.st.mainClass = this.st.el.attr('data-effect');
-			}
-		},
-	});
+$('.login_button').magnificPopup({
+	items: {
+		src: '.header_login', // CSS selector of an element on page that should be used as a popup
+		type: 'inline'
+	},
+	removalDelay: 500, //delay removal by X to allow out-animation
+	callbacks: {
+		beforeOpen: function() {
+			this.st.mainClass = this.st.el.attr('data-effect');
+		}
+	},
 });

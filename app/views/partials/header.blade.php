@@ -27,8 +27,15 @@
 					</div>
 					<div class="header_login mfp-hide mfp-zoom-out">
 						{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form input-group']) }}
-							{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
-							{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
+							<p class="login_form_title">Вход на сайт</p>
+							<div>
+								{{ Form::label('email', 'E-mail', ['class'=>'login_label_email']) }}
+								{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input']) }}
+							</div>
+							<div>
+								{{ Form::label('password', 'Пароль', ['class'=>'login_label_password']) }}
+								{{ Form::password('password', ['class'=>'login_input', 'required', 'placeholder'=>"Ваш пароль", 'class'=>'login_form_input']) }}
+							</div>
 							{{ Form::submit('Войти', ['class'=>'submit_field']) }}
 						{{ Form::close() }}
 					</div>	
