@@ -1,10 +1,5 @@
 <p>Ваш заказ: </p>
-<table>
-	<tr>
-		{{-- <td class="main_label">Наименование:</td> --}}
-		<td class="change_input change_input_short form-control">{{{$title}}}</td>
-	</tr>
-</table>
+<p class="change_input change_input_short form-control">{{{$title}}}</p>
 <p>был принят и будет обработан нашими специалистами в кратчайшие сроки!</p>
 <p>Проверте пожалуйста Ваши контактные данные. В случае ошибки, пожалуйста свяжитесь с нами.</p>
 <table class="order_form_table">
@@ -20,10 +15,6 @@
 		<td class="main_label">Наименование:</td>
 		<td class="change_input change_input_short form-control">{{{$title}}}</td>
 	</tr>
-	{{-- <tr>
-		<td class="main_label">Код:</td>
-		<td class="change_input change_input_code form-control">{{{$code}}}</td>
-	</tr> --}}
 	<tr>
 		<td class="main_label">Телефон:</td>
 		<td class="change_input change_input_code form-control">{{{$phone}}}</td>

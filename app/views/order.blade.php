@@ -20,11 +20,11 @@
 				</tr>
 				<tr>
 					<td>{{ Form::label('title', 'Наименование: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('title', null, ['class'=>'change_input change_input_short form-control', 'required']) }}</td>
+					<td>{{ Form::text('title', null, ['class'=>'change_input change_input_short form-control', 'required', 'disabled']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('code', 'Код: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('code', null, ['class'=>'change_input change_input_code form-control', 'required']) }}</td>
+					<td>{{ Form::text('code', null, ['class'=>'change_input change_input_code form-control', 'required', 'disabled']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('phone', 'Телефон: ', ['class'=>'main_label']) }}</td>
