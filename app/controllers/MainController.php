@@ -165,6 +165,7 @@ class MainController extends BaseController {
 					->withErrors($validator->errors());
 		} else {
 			unset($fields['confirm']);
+			$fields['password'] = Hash::make($fields['password']);
 			User::create($fields);
 			return Redirect::to('/')
 				->with('message', 'Вы успешно зарегестрированы, '.$fields['name'].' '.$fields['surname']);
