@@ -30,7 +30,7 @@
 							<p class="login_form_title">Вход на сайт</p>
 							<div>
 								{{ Form::label('email', 'E-mail', ['class'=>'login_label_email']) }}
-								{{ Form::text('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input form-control login_form_input_email']) }}
+								{{ Form::email('email', null, ['class'=>'login_input', 'required', 'placeholder'=>"Ваш e-mail", 'class'=>'login_form_input form-control login_form_input_email']) }}
 							</div>
 							<div>
 								{{ Form::label('password', 'Пароль', ['class'=>'login_label_password']) }}

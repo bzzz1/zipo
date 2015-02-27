@@ -1,44 +1,45 @@
 <p>Ваш заказ: </p>
-
 <table>
 	<tr>
-		<td>Имя</td>
-		<td>{{{ $name }}}</td>
+		{{-- <td class="main_label">Наименование:</td> --}}
+		<td class="change_input change_input_short form-control">{{{$title}}}</td>
 	</tr>
-	{{--
+</table>
+<p>был принят и будет обработан нашими специалистами в кратчайшие сроки!</p>
+<p>Проверте пожалуйста Ваши контактные данные. В случае ошибки, пожалуйста свяжитесь с нами.</p>
+<table class="order_form_table">
 	<tr>
-		<td>Имя</td>
-		<td>{{{ $name }}}</td>
-	</tr>
-	<tr>
-		<td>Фамилия</td>
-		<td>{{{ $surname }}}</td>
-	</tr>
-	<tr>
-		<td>Телефон</td>
-		<td>{{{ $phone }}}</td>
+		<td class="main_label">Имя: </td>
+		<td class="change_input form-control">{{{$name}}}</td>
 	</tr>
 	<tr>
-		<td>E-mail</td>
-		<td>{{{ $email }}}</td>
+		<td class="main_label">Фамилия:</td>
+		<td class="change_input form-control">{{{$surname}}}</td>
 	</tr>
 	<tr>
-		<td>Город</td>
-		<td>{{{ $city }}}</td>
+		<td class="main_label">Наименование:</td>
+		<td class="change_input change_input_short form-control">{{{$title}}}</td>
+	</tr>
+	{{-- <tr>
+		<td class="main_label">Код:</td>
+		<td class="change_input change_input_code form-control">{{{$code}}}</td>
+	</tr> --}}
+	<tr>
+		<td class="main_label">Телефон:</td>
+		<td class="change_input change_input_code form-control">{{{$phone}}}</td>
 	</tr>
 	<tr>
-		<td>Отделение</td>
-		<td>{{{ $np }}}</td>
+		<td class="main_label">E-Mail:</td>
+		<td class="change_input change_input_code form-control">{{{$email}}}</td>
 	</tr>
 	<tr>
-		<td>Адрес Отделения</td>
-		<td>{{{ $address }}}</td>
+		<td class="main_label">Компания:</td>
+		<td class="change_input change_input_code form-control">{{{$company}}}</td>
 	</tr>
 	<tr>
-		<td>Домашний Адрес</td>
-		<td>{{{ $manual_address }}}</td>
+		<td class="main_label">Комментарий:</td>
+		<td class="change_input change_input_code form-control">{{{$comment}}}</td>
 	</tr>
-	--}}
 </table>
 
-<a href="LINK!!!!!!!">SITE_NAME!!!!</a>
+<p>С уважением,<br> администрация сайта <a href="http://www.vertex-shop.ru">Зип Общепит.</a></p>

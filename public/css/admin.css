@@ -524,10 +524,10 @@ footer {
 }
 .admin_delete_form {
 	display: inline-block;
-	margin-left: 2px;
 }
 .btn_del {
 	width: 98px;
+	margin-top: 10px;
 }
 
 /*ARTICLES*/
@@ -646,7 +646,7 @@ footer {
 .empty_scape {
 	margin-right: 45px;
 }
-.empty_scape:nth-child(4n) {
+.empty_scape:nth-child(3n+1) {
 	margin-right: 0px;
 }
 .admin_items_buttons i {
