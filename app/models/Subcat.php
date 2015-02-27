@@ -3,7 +3,7 @@
 class Subcat extends Eloquent {
 	protected $guarded = [];
 	public $timestamps = false;
-	protected $primaryKey = 'subcat_id';
+	public $primaryKey = 'subcat_id';
 
 	public function items() {
 		return $this->belongsTo('Item', 'subcat_id', 'subcat_id');

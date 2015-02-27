@@ -298,6 +298,11 @@ class Helper {
 		return Redirect::back()->with('message', '<p class="message_'.$color.'">'.sprintf($message, $object->$title).'</p>');
 	}
 
+	public static function formatDate($date) {
+		$newDate = date("d-m-Y", strtotime($date));
+		return $newDate;
+	}
+
 	// KCFinder SETTINGS
 	// 	conf -> config.php
 	// 		'disabled' => false, 

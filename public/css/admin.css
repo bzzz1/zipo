@@ -646,7 +646,7 @@ footer {
 .empty_scape {
 	margin-right: 45px;
 }
-.empty_scape:nth-child(4n) {
+.empty_scape:nth-child(3n+1) {
 	margin-right: 0px;
 }
 .admin_items_buttons i {
