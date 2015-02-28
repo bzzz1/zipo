@@ -818,13 +818,29 @@ form {
 }
 /*MESSAGE*/
 .message {
-	display: inline-block;
+	width: 1132px;
 	position: absolute;
 	top: 255px;
 	font-size: 21px;
-	color: #009D0E;
-	margin-left: 140px;
+	/*color: #009D0E;*/
+	margin-left: 19px;
+}
+.message_text {
+	display: table;
+	margin: auto;
 }
 .close_message {
 	cursor: pointer;
+}
+.close {
+	margin-top: 6px;
+	margin-right: 30px;
+}
+.alert {
+	padding: 2px;
+}
+.error_message {
+	display: table;
+	margin: auto;
+	text-align: center;
 }

@@ -5,15 +5,18 @@
 @extends('partials/right_sidebar')
 
 @section('body')
-	<div class="main_content">
-		<h2 class="registration_heading universal_heading">Регистрация</h2>
-		@if ($errors->has())
-			<h3 class="error_message">
+	@if ($errors->has())
+		<div class="message alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+			<p class="error_message">
 			    @foreach ($errors->all() as $error)
 			        {{ $error }}<br>        
 			    @endforeach
-			</h3>
-        @endif
+			</p>
+		</div>
+    @endif
+	<div class="main_content">
+		<h2 class="registration_heading universal_heading">Регистрация</h2>
 		<hr class="main_hr">
 		{{ Form::open(['url'=>'/registration', 'method'=>'POST', 'class'=>'register_form']) }}
 			<table class="change_input_register">
