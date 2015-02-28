@@ -67,13 +67,6 @@ function send_category(category) {
 /*------------------------------------------------
 | BUTTONS
 ------------------------------------------------*/
-// DELETE IMG ICON
-$('.delete_img_icon_ajax').on('click', function() {
-	src = '111';
-	$('.ajax_img_icon').attr('src', src);
-	$(this).remove();
-});
-
 // DELETE ICON FORM SUBMIT
 $('.delete_icon').on('click', function() {
 	$(this).closest('form').submit();
@@ -94,16 +87,52 @@ $('.clear_item_button').on('click', function() {
 | FILE UPLOAD
 ------------------------------------------------*/
 $('#trigger_link_img').click(function(e){
-    e.preventDefault();
-    $('.browse_img_admin').trigger('click');
+	e.preventDefault();
+	$('.browse_img_admin').trigger('click');
 });
 $(function () {
 	$('#fileupload').fileupload({
 		dataType: 'json',
+		// add: function (e, data) {
+		// 	data.context = $('<button/>').text('Upload')
+		// 		.appendTo(document.body)
+		// 			.click(function () {
+		// 				data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+		// 				data.submit();
+		// 			});
+		// },
+		// progressall: function (e, data) {
+		//        var progress = parseInt(data.loaded / data.total * 100, 10);
+		//        $('#progress .bar').css(
+		//            'width',
+		//            progress + '%'
+		//        );
+		//    },
 		done: function (e, data) {
-			console.log(data.result['111']);
+			var filename = data.result;
+			var timestamp = new Date().getTime();
+			var $input = $('<input name="photo" type="hidden" value="'+filename+'" class="inserted_input">');
+			var $delete_icon = $('<i class="fa fa-times delete_img_icon_ajax"></i>');
+			var $img = $('.items_item_img');
 
+			$('.delete_img_icon_ajax').remove();
+			$('.inserted_input').remove();
+			$('.browse_img_admin').after($input);
+			$img.after($delete_icon);
+			$img.attr('src', AJAX_ITEM_IMG+'/'+filename+'?no_cache='+timestamp);
+
+			delegateDeleteEvent();
 		}
 	});
 });
-/*----------------------------------------------*/
+
+// DELETE IMG ICON
+function delegateDeleteEvent() {
+	$('.delete_img_icon_ajax').on('click', function() {
+		var $img = $('.items_item_img');
+		
+		$img.attr('src', AJAX_ITEM_IMG+'/no_photo.png');
+		$(this).remove();
+	});
+}
+delegateDeleteEvent();

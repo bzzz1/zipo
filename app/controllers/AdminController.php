@@ -81,9 +81,18 @@ class AdminController extends BaseController {
 	public function update_item() {
 		$item_id = Input::get('item_id');
 		$fields = Input::all();
+		$photo = Input::get('photo');
 		$rules = [
 			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
 		];
+
+		if ($photo) {
+			$fields['photo'] = time().'_'.$photo;
+		} else {
+			$fields['photo'] = 'no_photo.png';
+		}
+		// dd($fields);
+		// throw new Exception('Exception');
 
 		$validator = Validator::make($fields, $rules);
 
@@ -216,11 +225,7 @@ class AdminController extends BaseController {
 			$file->move($destinationPath, $filename);
 		}
 
-		// return Redirect::back()->with('temp', $filename);
-
-
-		$response = ['111' => '222'];
-		return Response::json($response);
+		return Response::json($filename);
 	}
 
 	public function ajax_article_image() {

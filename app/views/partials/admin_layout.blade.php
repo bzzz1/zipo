@@ -31,6 +31,7 @@
 	{{-- SETTING GLOBAL VARS --}}
 	<script>
 		var AJAX_GET_SUBCATS = "{{ URL::to('/admin/ajax_get_subcats') }}";
+		var AJAX_ITEM_IMG = "{{ URL::to('/img/photos') }}";
 	</script>
 
 	@yield('css')

@@ -828,3 +828,7 @@ form {
 .close_message {
 	cursor: pointer;
 }
+
+.delete_img_icon_ajax {
+	cursor: pointer;
+}
