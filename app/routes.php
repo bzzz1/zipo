@@ -20,6 +20,7 @@ Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
 Route::get('/search', 'MainController@search');
 Route::post('/user_logout', 'MainController@user_logout');
+// Route::post('/delete_file_from_server', 'MainController@delete_file_from_server');
 
 // ADMIN CONTROLLER
 Route::get('/admin', 'AdminController@admin');

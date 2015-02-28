@@ -82,9 +82,13 @@ class AdminController extends BaseController {
 		$item_id = Input::get('item_id');
 		$fields = Input::all();
 		$photo = Input::get('photo');
+		$old = Input::get('old');
+		unset($fields['old']);
 		$rules = [
 			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
 		];
+
+		
 
 		if ($photo) {
 			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
@@ -97,6 +101,13 @@ class AdminController extends BaseController {
 			$fields['photo'] = 'no_photo.png';
 		}
 
+		if ($old) {
+			if ($old != $fields['photo']) {
+				$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+				File::delete($filepath);
+			}
+		}
+
 		$validator = Validator::make($fields, $rules);
 
 		if ($validator->fails()) {
@@ -107,14 +118,14 @@ class AdminController extends BaseController {
 		}
 
 		if ($item_id) { 
-			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен!');
+			return Redirect::to('/admin/change_item')->with('message', 'Товар '.$item->title.' изменен!');
 		} else {
 			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
 		}
 	}
 
 	public function delete_item() {
-		return Help::__delete('Item', 'Товар %s удален!', 'title');
+		return Help::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
 	}
 
 	public function articles() {
@@ -138,7 +149,7 @@ class AdminController extends BaseController {
 
 	public function delete_article() {
 		die('prevent deleting!');
-		return Help::__delete('Article', 'Новость %s удалена', 'title');
+		return Help::__delete('Article', 'Новость %s удалена', 'title', '/admin/change_article');
 	}
 
 	public function subcats() {
@@ -154,7 +165,7 @@ class AdminController extends BaseController {
 
 	public function delete_subcat() {
 		die('prevent deleting!');
-		return Help::__delete('Subcat', 'Подкатегория %s удалена', 'subcat');
+		return Help::__delete('Subcat', 'Подкатегория %s удалена', 'subcat', '/admin/subcats');
 	}
 
 	public function producers() {
@@ -170,7 +181,7 @@ class AdminController extends BaseController {
 
 	public function delete_producer() {
 		die('prevent deleting!');
-		return Help::__delete('Producer', 'Производитель %s удален', 'producer');
+		return Help::__delete('Producer', 'Производитель %s удален', 'producer', '/admin/producers');
 	}
 
 /*------------------------------------------------

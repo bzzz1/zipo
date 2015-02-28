@@ -855,7 +855,10 @@ form {
 	margin: auto;
 	text-align: center;
 }
-/*CHANGE_BACKROUND*/
-.active_backround {
-	/*background-image: */
+/*BTN*/
+.btn:focus {
+	outline: none;
+}
+.btn:active:focus {
+	outline: none;
 }

@@ -219,4 +219,10 @@ class MainController extends BaseController {
 			'env' 		=> 'search'
 		]);
 	}
+
+	// public function delete_file_from_server() {
+	// 	$filepath = Input::get('filepath');
+	// 	File::delete($filepath);
+	// 	return Response::json('file '.$filepath.' deleted');
+	// }
 }
