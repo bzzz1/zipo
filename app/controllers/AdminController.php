@@ -88,8 +88,6 @@ class AdminController extends BaseController {
 			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
 		];
 
-		
-
 		if ($photo) {
 			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
 			$extension = File::extension($old);

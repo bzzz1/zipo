@@ -22,7 +22,6 @@
 	{{ HTML::style('css/animate-popup.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.js') }}
-	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('ckeditor/ckeditor.js') }}
 	{{ HTML::script('js/jquery.ui.widget.js') }}
 	{{ HTML::script('js/jquery.iframe-transport.js') }}
