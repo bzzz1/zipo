@@ -4,7 +4,7 @@
 $subcategories = $('.subcategory_block');
 $categories = $('.catalog_category');
 HIDING = false;
-
+// UNDERLINE ACTIVE
 $($categories).click(function() {
 	$(".main_content").find(".active_cat").removeClass("active_cat");
   	$(this).children('.catalog_category_heading').addClass('active_cat');
@@ -15,6 +15,12 @@ $categories.on('click', function() {
 	var $clicked_subcategory = $subcategories.filter(function(index) {
 		return $(this).data('category') === clicked_category_data;
 	});
+
+	// CHANGE BACKGROUND
+	var clicked_category_data = $(this).data('category');
+	if (clicked_category_data == 'Механическое_en' ) {
+		$(".main_content").css('background-image'== '');
+	};
 
 	// DETECT IF IT NEEDS HIDING DELAY
 	$.each($subcategories, function(index, value) {
