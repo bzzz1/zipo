@@ -1,21 +1,21 @@
 <?php
 
-class Helper {
+class Help {
 
 	// can't use function calls here!!!
 	public static $prices_dir; 
 	public static $discount;
 	public static $translit;
 	public static $categories;
-	public static $excel_import_dir;
-	public static $item_photo_dir;
-	public static $article_photo_dir;
+	public static $EXCEL_IMPORT_DIR;
+	public static $ITEM_PHOTO_DIR;
+	public static $ARTICLE_PHOTO_DIR;
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-		static::$excel_import_dir = public_path().DIRECTORY_SEPARATOR.'excel';
-		static::$item_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
-		static::$article_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+		static::$EXCEL_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'excel';
+		static::$ITEM_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
+		static::$ARTICLE_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
 		static::$discount = Cred::getDiscount();
 		static::$translit = [
 			'mehanicheskoe_en' 	=> 'Механическое_en',

@@ -21,7 +21,7 @@ class MainController extends BaseController {
 
 	public function price() {
 		return View::make('price')->with([
-			'prices'	=> Helper::getPricesFromDir(Helper::$prices_dir),
+			'prices'	=> Help::getPricesFromDir(Help::$prices_dir),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
@@ -30,7 +30,7 @@ class MainController extends BaseController {
 	}
 
 	public function get_price() {
-		$prices = Helper::getPricesFromDir(Helper::$prices_dir);
+		$prices = Help::getPricesFromDir(Help::$prices_dir);
 		$price_id = Input::get('price_id');
 
 		header('Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -184,7 +184,7 @@ class MainController extends BaseController {
 		$fields = Input::all();
 		$subject = Input::get('theme');
 
-		Helper::sendMail($fields, $subject, 'emails.email_feedback');
+		Help::sendMail($fields, $subject, 'emails.email_feedback');
 		return Redirect::to('/')->with('message', 'Ваше письмо отправлено!');
 	}
 
@@ -202,9 +202,9 @@ class MainController extends BaseController {
 		$email = Input::get('email');
 
 		// send to admin
-		Helper::sendMail($fields, 'Заказ оформлен', 'emails.email_order');
+		Help::sendMail($fields, 'Заказ оформлен', 'emails.email_order');
 		// send to user
-		Helper::sendMail($fields, 'Заказ оформлен', 'emails.email_order_user', $email);
+		Help::sendMail($fields, 'Заказ оформлен', 'emails.email_order_user', $email);
 
 		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}
