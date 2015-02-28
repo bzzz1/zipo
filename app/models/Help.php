@@ -288,12 +288,12 @@ class Help {
 		return $options;
 	}
 
-	public static function __delete($Model, $message, $title, $color='green') {
+	public static function __delete($Model, $message, $title) {
 		$instance = new $Model; // create instance to get primaryKey
 		$object_id = Input::get($instance->primaryKey);
 		$object = $Model::find($object_id);
 		$Model::destroy($object_id);
-		return Redirect::back()->with('message', '<p class="message_'.$color.'">'.sprintf($message, $object->$title).'</p>');
+		return Redirect::back()->with('message', sprintf($message, $object->$title));
 	}
 
 	public static function formatDate($date) {
