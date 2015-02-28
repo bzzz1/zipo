@@ -10,10 +10,6 @@
 	text-decoration: underline;
 }
 /*GENERAL*/
-@font-face {
-    font-family: 'MyriadPro'; /* Имя шрифта */
-    src: url(../fonts/MYRIADPRO-REGULAR_0.otf); /* Путь к файлу со шрифтом */
-}
 body {
 	font-family: Arial, sans-serif;
 }
