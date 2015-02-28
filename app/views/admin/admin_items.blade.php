@@ -41,8 +41,10 @@
 						<a href='{{URL::to("admin/change_item?item_id=$item->item_id")}}' class="admin_item_title_1">
 							<i class="fa fa-pencil change_items_group_icon fa-lg"></i>
 						</a>
-						<!-- <i class="fa fa-pencil change_items_group_icon fa-lg"></i> -->
-						<i class="fa fa-times delete_items_group_icon fa-lg"></i> 
+						{{ Form::open(array('url' => "/admin/delete_item?item_id=$item->item_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
+							<i class="fa fa-times delete_items_group_icon fa-lg"></i> 
+						{{ Form::close() }}	
+
 					</div>	
 				</div>
 				<div class="items_item_text_block">	
