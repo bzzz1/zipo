@@ -90,6 +90,9 @@ $('#trigger_link_img').click(function(e){
 	e.preventDefault();
 	$('.browse_img_admin').trigger('click');
 });
+
+// function 
+
 $(function () {
 	$('#fileupload').fileupload({
 		dataType: 'json',
@@ -109,9 +112,9 @@ $(function () {
 		//        );
 		//    },
 		done: function (e, data) {
-			var filename = data.result;
+			Img.filename = data.result;
 			var timestamp = new Date().getTime();
-			var $input = $('<input name="photo" type="hidden" value="'+filename+'" class="inserted_input">');
+			var $input = $('<input name="photo" type="hidden" value="'+Img.filename+'" class="inserted_input">');
 			var $delete_icon = $('<i class="fa fa-times delete_img_icon_ajax"></i>');
 			var $img = $('.items_item_img');
 
@@ -119,7 +122,7 @@ $(function () {
 			$('.inserted_input').remove();
 			$('.browse_img_admin').after($input);
 			$img.after($delete_icon);
-			$img.attr('src', AJAX_ITEM_IMG+'/'+filename+'?no_cache='+timestamp);
+			$img.attr('src', AJAX_ITEM_IMG+'/'+Img.filename+'?no_cache='+timestamp);
 
 			delegateDeleteEvent();
 		}
@@ -130,9 +133,40 @@ $(function () {
 function delegateDeleteEvent() {
 	$('.delete_img_icon_ajax').on('click', function() {
 		var $img = $('.items_item_img');
+		var folder = ITEM_PHOTO_DIR;
+		// var filepath = ITEM_PHOTO_DIR+'/'+;
 		
 		$img.attr('src', AJAX_ITEM_IMG+'/no_photo.png');
 		$(this).remove();
+		// deleteFileFromServer(filepath);
 	});
 }
 delegateDeleteEvent();
+
+function deleteFileFromServer(filepath) {
+	// $.ajax({
+	// 	url: AJAX_GET_SUBCATS,
+	// 	type: 'POST',
+	// 	dataType: "json",
+	// 	data: {
+	// 		'category' : category
+	// 	},
+	// 	success: function(data) {
+	// 		$select = $('#subcat_id');
+	// 		// CLEAR OLD SUBCATS
+	// 		$select.html('');
+
+	// 		for (var i=0; i<data.length; i++) {
+	// 			var subcat = data[i]['subcat'];
+	// 			var subcat_id = data[i]['subcat_id'];
+
+	// 			var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+	// 			$select.append($option);
+	// 		}
+	// 	}, 
+	// 	error: function(data, error, error_details){
+	// 		console.log("err:",error, error_details);
+	// 		console.log(data);
+	// 	}
+	// });	
+}

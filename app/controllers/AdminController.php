@@ -39,7 +39,7 @@ class AdminController extends BaseController {
 	public function import() {
 		if (Input::hasFile('excel')) {
 			$file = Input::file('excel');
-			$destinationPath = Helper::$excel_import_dir;
+			$destinationPath = Help::$EXCEL_IMPORT_DIR;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'excel.'.$extension;
@@ -87,18 +87,21 @@ class AdminController extends BaseController {
 		];
 
 		if ($photo) {
-			$fields['photo'] = time().'_'.$photo;
+			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+			$extension = File::extension($old);
+			$filename = 'photo_'.time().'.'.$extension;
+			$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+			rename($old, $new);
+			$fields['photo'] = $filename;
 		} else {
 			$fields['photo'] = 'no_photo.png';
 		}
-		// dd($fields);
-		// throw new Exception('Exception');
 
 		$validator = Validator::make($fields, $rules);
 
 		if ($validator->fails()) {
 			return Redirect::back()->withInput()
-				->with('message', '<p class="message_red">Товар с таким кодом уже существует. Код должен быть уникальным!</p>');
+				->withErrors('Товар с таким кодом уже существует. Код должен быть уникальным!');
 		} else {
 			$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
 		}
@@ -111,7 +114,7 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		return Helper::__delete('Item', 'Товар %s удален', 'title');
+		return Help::__delete('Item', 'Товар %s удален', 'title');
 	}
 
 	public function articles() {
@@ -135,7 +138,7 @@ class AdminController extends BaseController {
 
 	public function delete_article() {
 		die('prevent deleting!');
-		return Helper::__delete('Article', 'Новость %s удалена', 'title');
+		return Help::__delete('Article', 'Новость %s удалена', 'title');
 	}
 
 	public function subcats() {
@@ -151,7 +154,7 @@ class AdminController extends BaseController {
 
 	public function delete_subcat() {
 		die('prevent deleting!');
-		return Helper::__delete('Subcat', 'Подкатегория %s удалена', 'subcat');
+		return Help::__delete('Subcat', 'Подкатегория %s удалена', 'subcat');
 	}
 
 	public function producers() {
@@ -167,7 +170,7 @@ class AdminController extends BaseController {
 
 	public function delete_producer() {
 		die('prevent deleting!');
-		return Helper::__delete('Producer', 'Производитель %s удален', 'producer');
+		return Help::__delete('Producer', 'Производитель %s удален', 'producer');
 	}
 
 /*------------------------------------------------
@@ -205,10 +208,10 @@ class AdminController extends BaseController {
 		// 	$temp_image = Input::get('with_image');
 
 		// 	// CHANGE IMAGE NAME
-		// 	$old = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$temp_image;
+		// 	$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$temp_image;
 		// 	$extension = File::extension($old);
 		// 	$filename = 'photo_'.time().'.'.$extension;
-		// 	$new = Helper::$item_photo_dir.DIRECTORY_SEPARATOR.$filename;
+		// 	$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
 		// 	rename($old, $new);
 
 		// 	$fields['photo'] = $filename;
@@ -218,7 +221,7 @@ class AdminController extends BaseController {
 
 		if (Input::hasFile('photo')) {
 			$file = Input::file('photo');
-			$destinationPath = Helper::$item_photo_dir;
+			$destinationPath = Help::$ITEM_PHOTO_DIR;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'temp.'.$extension;
