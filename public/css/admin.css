@@ -730,3 +730,12 @@ footer {
 .delete_items_group_icon {
 	cursor: pointer;
 }
+/*MESSAGE*/
+.message {
+	width: 930px;
+	position: absolute;
+	top: 173px;
+	font-size: 21px;
+	margin-left: 0px;
+	text-align: center;
+}
