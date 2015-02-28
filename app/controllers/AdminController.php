@@ -107,9 +107,9 @@ class AdminController extends BaseController {
 		}
 
 		if ($item_id) { 
-			return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' изменен</p>');
+			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен');
 		} else {
-			return Redirect::back()->with('message', '<p class="message_green">Товар '.$item->title.' добавлен</p>');
+			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
 		}
 	}
 
