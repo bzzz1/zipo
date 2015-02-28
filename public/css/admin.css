@@ -726,3 +726,7 @@ footer {
 .change_items_buttons_second a:first-child {
 	margin-right: 70px;
 }
+/*ADMIN_DETELETE*/
+.delete_items_group_icon {
+	cursor: pointer;
+}
