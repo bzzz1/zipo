@@ -295,6 +295,9 @@ input[type=file].admin_panel_input {
 .discount_input {
 	margin-right: 85px;
 }
+.admin_add_subcategory_div {
+	/*display: none;*/
+}
 /*ITEMS*/
 .admin_items_quantity {
 	color: #fff;

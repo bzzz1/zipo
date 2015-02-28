@@ -8,7 +8,21 @@
 	<div class="admin_one_cat_block admin_main_content">
 		<div class="admin_catalog_category" data-category='Механическое_en'>
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="" class="admin_one_cat_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<div class="admin_add_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+				{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+					<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+					<div class="change_block admin_select_category_div">
+						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
+						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control', 'required', 'form' => 'none']) }}
+					</div>
+					<div class="change_block admin_select_title_div">
+						{{ Form::label('title', 'Название', ['class'=>'admin_uni_label']) }}
+						{{ Form::text('title', null, ['class'=>'form-control title_input', 'required']) }}
+					</div>
+					{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button admin_add_button']) }}
+				{{ Form::close() }}
+			</div>
 			@if (count($subcats['Механическое_en']))
 				<div class="admin_one_cat_subcats_block">
 					<div class="admin_subcats_list">
@@ -19,6 +33,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
