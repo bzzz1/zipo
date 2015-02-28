@@ -2,7 +2,7 @@
   <div class="right_sidebar">	
   	<div class="container_sidebar">
     		<div class="articles">
-    			<h3 class="articles_heading">Новости</h3>
+    			<a href="/articles" class="articles_heading">Новости</a>
               @foreach ($articles as $article)
         			<div class="article">
         				<a href='articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
