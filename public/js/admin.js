@@ -91,7 +91,7 @@ $('#trigger_link_img').click(function(e){
 	$('.browse_img_admin').trigger('click');
 });
 
-// function 
+Img = {};
 
 $(function () {
 	$('#fileupload').fileupload({
