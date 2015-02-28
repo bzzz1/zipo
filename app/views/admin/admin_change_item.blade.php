@@ -10,6 +10,16 @@
 			<p class="message_text">{{ Session::get('message') }}</p>
 		</div>
 	@endif
+	@if ($errors->has())
+		<div class="message alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+			<p class="error_message">
+			    @foreach ($errors->all() as $error)
+			        {{ $error }}<br>        
+			    @endforeach
+			</p>
+		</div>
+    @endif
 	<h1 class="admin_uni_heading">Добавить товар</h1>
 	<div class="admin_main_content">
 		{{ Form::model($item, ['url'=>[URL::to('/admin/update_item?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'']) }}
@@ -34,7 +44,7 @@
 			<div class="right_block">	
 				<div class="change_block change_item_price_div">
 					{{ Form::label('price', 'Цена', ['class'=>'admin_uni_label']) }}
-					{{ Form::text('price', null, ['class'=>'form-control price_input', 'required']) }}
+					{{ Form::number('price', null, ['class'=>'form-control price_input', 'required', 'onkeypress'=>'validate(event)']) }}
 				</div>
 				<div class="change_block change_item_cur_div">
 					{{ Form::label('currency', 'Валюта', ['class'=>'admin_uni_label']) }}

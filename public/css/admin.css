@@ -381,6 +381,8 @@ input[name="hit"] {
 }
 .img_preview {
 	margin-top: 0px;
+	max-width: 242px;
+	position: relative;
 }
 /*.change_item_buttons {
 	margin-top: 237px;
@@ -423,10 +425,19 @@ input[name="hit"] {
 }
 .items_item_img {
 	float: none;
+	margin-bottom: 15px;
 }
 .change_item_buttons {
 	display: inline-block;
 	margin-left: 20px;
+}
+.img_preview i {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 5px;
+	font-size: 20px;
+	color: #9dcb20;
 }
 /*HIDE STANDART UPLOAD*/
 .browse_img_admin {
@@ -521,6 +532,10 @@ footer {
 }
 .change_article_descript_block {
 	margin-bottom: 55px;
+}
+.change_article_img {
+	display: inline-block;
+	margin-left: 50px;
 }
 .admin_delete_form {
 	display: inline-block;

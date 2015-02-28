@@ -22,7 +22,7 @@
 			<p class="admin_uni_label">Добавить миниатюру для статьи</p>
 			<div class="change_article_img">
 				<input id="fileupload_article" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'>
-				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать миниатюра</a>
+				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать миниатюру</a>
 			</div>
 			<div class="img_preview">
 				@if (Session::get('temp_article'))
