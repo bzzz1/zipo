@@ -79,7 +79,7 @@
 			<div class="img_preview">
 				@if (isset($item->photo) && $item->photo != 'no_photo.png')
 					<img src='{{ URL::to("img/photos/")}}/{{ $item->photo }}' class='items_item_img'>
-					<i class="fa fa-times delete_img_icon_ajax"></i>
+					<i class="fa fa-times chlen delete_img_icon_ajax"></i>
 				@else
 					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img'>
 				@endif
