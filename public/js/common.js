@@ -19,7 +19,7 @@ $categories.on('click', function() {
 	// CHANGE BACKGROUND
 	var clicked_category_data = $(this).data('category');
 	if (clicked_category_data == 'Механическое_en' ) {
-		$(".main_content").css('background-image'== '');
+		$(".main_content").addClass('active_backround');
 	};
 
 	// DETECT IF IT NEEDS HIDING DELAY
@@ -58,6 +58,18 @@ if ($('.login_button').length) {
 			}
 		},
 	});
+}
+
+// VALIDATE INPUT
+function validate(evt) {
+	var theEvent = evt || window.event;
+	var key = theEvent.keyCode || theEvent.which;
+	key = String.fromCharCode( key );
+	var regex = /[0-9]|\./;
+	if( !regex.test(key) ) {
+	theEvent.returnValue = false;
+	if(theEvent.preventDefault) theEvent.preventDefault();
+	}
 }
 
 
