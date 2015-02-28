@@ -7,7 +7,7 @@
 	<meta name='description' content='Комплексное оснащение баров, ресторанов,кафе, пищевых производств и магазинов.'>
 	@yield('meta')
 	<title>Зип Общепит - Комплексное оснащение баров, ресторанов, кафе, пищевых производств и магазинов</title>
-	<link rel="shortcut icon" href="{{ asset('icons/favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ asset('img/markup/favicon.ico') }}">
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
