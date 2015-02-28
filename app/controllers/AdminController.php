@@ -107,14 +107,14 @@ class AdminController extends BaseController {
 		}
 
 		if ($item_id) { 
-			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен');
+			return Redirect::back()->with('message', 'Товар '.$item->title.' изменен!');
 		} else {
 			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
 		}
 	}
 
 	public function delete_item() {
-		return Help::__delete('Item', 'Товар %s удален', 'title');
+		return Help::__delete('Item', 'Товар %s удален!', 'title');
 	}
 
 	public function articles() {
