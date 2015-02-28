@@ -33,6 +33,10 @@
 	margin-bottom: 5px;
 	text-transform: uppercase;
 }
+.left_sidebar_catalog_main_heading:hover {
+	color: #6f2429;
+	text-decoration: underline;
+}
 .left_sidebar_heading {
 	text-decoration: underline;
 	margin-top: 25px;
