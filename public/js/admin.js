@@ -37,7 +37,7 @@ if ($('#category').length) {
 
 function send_category(category) {
 	$.ajax({
-		url: AJAX_GET_SUBCATS,
+		url: ROOT+'/admin/ajax_get_subcats',
 		type: 'POST',
 		dataType: "json",
 		data: {
@@ -91,8 +91,6 @@ $('#trigger_link_img').click(function(e){
 	$('.browse_img_admin').trigger('click');
 });
 
-Img = {};
-
 $(function () {
 	$('#fileupload').fileupload({
 		dataType: 'json',
@@ -112,9 +110,9 @@ $(function () {
 		//        );
 		//    },
 		done: function (e, data) {
-			Img.filename = data.result;
+			filename = data.result;
 			var timestamp = new Date().getTime();
-			var $input = $('<input name="photo" type="hidden" value="'+Img.filename+'" class="inserted_input">');
+			var $input = $('<input name="photo" type="hidden" value="'+filename+'" class="inserted_input">');
 			var $delete_icon = $('<i class="fa fa-times delete_img_icon_ajax"></i>');
 			var $img = $('.items_item_img');
 
@@ -122,7 +120,7 @@ $(function () {
 			$('.inserted_input').remove();
 			$('.browse_img_admin').after($input);
 			$img.after($delete_icon);
-			$img.attr('src', AJAX_ITEM_IMG+'/'+Img.filename+'?no_cache='+timestamp);
+			$img.attr('src', ROOT+'/img/photos/'+filename+'?no_cache='+timestamp);
 
 			delegateDeleteEvent();
 		}
@@ -133,40 +131,30 @@ $(function () {
 function delegateDeleteEvent() {
 	$('.delete_img_icon_ajax').on('click', function() {
 		var $img = $('.items_item_img');
-		var folder = ITEM_PHOTO_DIR;
-		// var filepath = ITEM_PHOTO_DIR+'/'+;
 		
-		$img.attr('src', AJAX_ITEM_IMG+'/no_photo.png');
+		$img.attr('src', ROOT+'/img/photos/no_photo.png');
 		$(this).remove();
+
+		// var filepath = $img.data('filepath');
 		// deleteFileFromServer(filepath);
 	});
 }
 delegateDeleteEvent();
 
-function deleteFileFromServer(filepath) {
-	// $.ajax({
-	// 	url: AJAX_GET_SUBCATS,
-	// 	type: 'POST',
-	// 	dataType: "json",
-	// 	data: {
-	// 		'category' : category
-	// 	},
-	// 	success: function(data) {
-	// 		$select = $('#subcat_id');
-	// 		// CLEAR OLD SUBCATS
-	// 		$select.html('');
-
-	// 		for (var i=0; i<data.length; i++) {
-	// 			var subcat = data[i]['subcat'];
-	// 			var subcat_id = data[i]['subcat_id'];
-
-	// 			var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
-	// 			$select.append($option);
-	// 		}
-	// 	}, 
-	// 	error: function(data, error, error_details){
-	// 		console.log("err:",error, error_details);
-	// 		console.log(data);
-	// 	}
-	// });	
-}
+// function deleteFileFromServer(filepath) {
+// 	$.ajax({
+// 		url: ROOT+'/delete_file_from_server',
+// 		type: 'POST',
+// 		dataType: "json",
+// 		data: {
+// 			'filepath' : filepath
+// 		},
+// 		success: function(data) {
+// 			// console.log(data);
+// 		}, 
+// 		error: function(data, error, error_details){
+// 			console.log("err:",error, error_details);
+// 			console.log(data);
+// 		}
+// 	});	
+// }

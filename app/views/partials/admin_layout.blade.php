@@ -30,9 +30,7 @@
 
 	{{-- SETTING GLOBAL VARS --}}
 	<script>
-		var AJAX_GET_SUBCATS = "{{ URL::to('/admin/ajax_get_subcats') }}";
-		var AJAX_ITEM_IMG = "{{ URL::to('/img/photos') }}";
-		var ITEM_PHOTO_DIR = "{{ $HELP::$ITEM_PHOTO_DIR }}";
+		ROOT = "{{ URL::to('') }}";
 	</script>
 
 	@yield('css')

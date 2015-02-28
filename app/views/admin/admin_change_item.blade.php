@@ -63,15 +63,16 @@
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
 			<div class="change_item_img">
-				<input id="fileupload" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'>
+				<input id="fileupload" name='photo' type="file" class="browse_img_admin" data-url="ajax_item_image" multiple form='none'>
 				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
 			</div>
 			<div class="img_preview">
 				@if (isset($item->photo) && $item->photo != 'no_photo.png')
-					<img src='{{ URL::to("img/photos/")}}/{{ $item->photo }}' class='items_item_img'>
+					<img src='{{ URL::to("img/photos/")}}/{{ $item->photo }}' class='items_item_img' data-filepath='{{ $HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$item->photo }}'>
 					<i class="fa fa-times delete_img_icon_ajax"></i>
+					{{ Form::hidden('old', $item->photo) }}
 				@else
-					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img'>
+					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img' >
 				@endif
 			</div>
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
