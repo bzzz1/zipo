@@ -33,7 +33,7 @@ class Subcat extends Eloquent {
 	}
 
 	public static function getSubcatsByCategory($category) {
-		$category_fixed = Helper::$translit[$category];
+		$category_fixed = Help::$translit[$category];
 
 		$subcats = new Subcat;
 		$subcats = $subcats->where('category', $category_fixed);

@@ -66,7 +66,7 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 });
 
 Route::get('/test', function() {
-	// echo '&#61';
+	echo sys_get_temp_dir();
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');

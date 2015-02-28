@@ -1,21 +1,21 @@
 <?php
 
-class Helper {
+class Help {
 
 	// can't use function calls here!!!
 	public static $prices_dir; 
 	public static $discount;
 	public static $translit;
 	public static $categories;
-	public static $excel_import_dir;
-	public static $item_photo_dir;
-	public static $article_photo_dir;
+	public static $EXCEL_IMPORT_DIR;
+	public static $ITEM_PHOTO_DIR;
+	public static $ARTICLE_PHOTO_DIR;
 
 	public function __construct() {
 		static::$prices_dir = public_path().DIRECTORY_SEPARATOR.'prices';
-		static::$excel_import_dir = public_path().DIRECTORY_SEPARATOR.'excel';
-		static::$item_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
-		static::$article_photo_dir = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
+		static::$EXCEL_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'excel';
+		static::$ITEM_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
+		static::$ARTICLE_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
 		static::$discount = Cred::getDiscount();
 		static::$translit = [
 			'mehanicheskoe_en' 	=> 'Механическое_en',
@@ -288,12 +288,12 @@ class Helper {
 		return $options;
 	}
 
-	public static function __delete($Model, $message, $title, $color='green') {
+	public static function __delete($Model, $message, $title) {
 		$instance = new $Model; // create instance to get primaryKey
 		$object_id = Input::get($instance->primaryKey);
 		$object = $Model::find($object_id);
 		$Model::destroy($object_id);
-		return Redirect::back()->with('message', '<p class="message_'.$color.'">'.sprintf($message, $object->$title).'</p>');
+		return Redirect::back()->with('message', sprintf($message, $object->$title));
 	}
 
 	public static function formatDate($date) {
