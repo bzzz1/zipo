@@ -10,6 +10,10 @@
 	text-decoration: underline;
 }
 /*GENERAL*/
+@font-face {
+    font-family: MyriadPro; /* Имя шрифта */
+    src: url(../fonts/MYRIADPRO-REGULAR_0.OTF); /* Путь к файлу со шрифтом */
+}
 body {
 	font-family: Arial, sans-serif;
 }
@@ -491,6 +495,7 @@ form {
 }
 .name_and_code {
 	display: inline-block;
+	width: 100%;
 }
 .items_item_name_div {
 	position: relative;
@@ -498,6 +503,7 @@ form {
 	height: 90px;
 }
 .items_item_name {
+	width: 100%;
 	font-size: 14px;
 	font-weight: bold;
 	color: #662025;
