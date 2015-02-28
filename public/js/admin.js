@@ -140,6 +140,10 @@ $(function () {
 		}
 	});
 });
+// Delete item
+$('.delete_items_group_icon').on('click',function(){
+	$(this).closest('form').submit();
+}) 
 
 // DELETE IMG ICON
 function delegateDeleteEvent() {
