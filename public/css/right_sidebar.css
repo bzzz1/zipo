@@ -24,6 +24,9 @@
 	margin-top: 25px;
 	width: 100%
 }
+.articles_heading:hover {
+	color: #6f2429;
+}
 .article {
 	display: inline-block;
 	width: 110px;
