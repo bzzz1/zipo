@@ -1,8 +1,10 @@
 @section('body')
 	@if (Session::get('message'))
-		<p class="message">{{ Session::get('message') }} <i class="fa fa-times close_message"></i></p>
+		<div class="message alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+			<p class="message_text">{{ Session::get('message') }}</p>
+		</div>	
 	@endif
-
 	<div class="main_content">
 		<div class="headings">
 			<p class="catalog_heding universal_heading">Каталог продукции</p>

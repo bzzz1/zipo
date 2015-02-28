@@ -76,6 +76,12 @@
 				{{ Form::submit('Отправить', ['class'=>'btn submit_field save_button']) }} 
 			{{ Form::close() }}
 		</div>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15993.4633220432!2d30.345087900301397!3d59.929106931914134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1425056657661" width="550" height="300" frameborder="0" style="border:0"></iframe>
+		<iframe 
+			width="550"
+			height="300" 
+			frameborder="0"
+			style="border:0"
+			src="https://www.google.com/maps/embed/v1/place?q=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%D1%83%D0%BB.%D0%91%D0%BE%D0%BB%D0%BE%D1%82%D0%BD%D0%B0%D1%8F%2C%D0%B4.16&key=AIzaSyBR6ruk6PgDAPS4ObXScQCVKtw9a2y0RXw"
+		</iframe>
 	</div>
 @stop

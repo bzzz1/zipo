@@ -2,6 +2,7 @@
 	margin-top: 15px;
 	height: 100px;
 	padding-top: 17px;
+	padding-bottom: 17px;
 	background-color: #702329;
 	display: table;
 	width: 100%;
@@ -15,19 +16,25 @@
 	float: left;
 	height: 77px;
 	padding-top: 20px;
-	margin-left: 35px;
-	margin-right: 80px;
+	margin-left: 94px;
+	margin-right: 76px;
+	margin-top: 20px;
 	background-color: #702329;
 }
 .nav_footer ul li {
 	float: left;
 	padding: 4px;
+	padding-right: 6px;
 	list-style: none;
 	font-size: 12px;
 	font-weight: bold;
+	border-left: 1px solid #fff;
+}
+.nav_footer ul li:first-child {
+	border-left: none;
 }
 .nav_footer ul li a {
-	color: white;
+	color: #fff;
 	text-decoration: none;
 }
 .nav_footer ul li a:hover {
@@ -37,7 +44,7 @@
 .footer_description_block {
 	float: left;
 	display: inline-block;
-	width: 300px;
+	width: 231px;
 }
 .footer_description,
 .footer_copy,
