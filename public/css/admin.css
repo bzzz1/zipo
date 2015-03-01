@@ -299,6 +299,19 @@ input[type=file].admin_panel_input {
 	/*display: none;*/
 }
 /*ITEMS*/
+.selected_quantity_fixed_main {
+	height: 45px;
+}
+.selected_quantity_fixed {
+	background-color: #4d4d4d;
+	width: 930px;
+	padding: 5px 20px;
+	box-shadow: 2px 3px 7px #757171;
+}
+.selected_quantity_fixed.affix {
+	top: 0px;
+	z-index: 1000;
+}
 .admin_items_quantity {
 	color: #fff;
 	font-size: 18px;
