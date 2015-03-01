@@ -50,9 +50,15 @@
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
-							<p class="items_item_name">{{$item->title}}</p>
+							<div class="items_item_name_div">
+								<p class="items_item_name">{{$item->title}}</p>
+								<p class="items_item_name_full">{{$item->title}}</p>
+							</div>	
 						</div>	
-						<p class="items_item_code">Арт: {{$item->code}}</p>
+						<div class="items_item_code_div">
+							<p class="items_item_code">Арт: {{$item->code}}</p>
+							<p class="items_item_code_full">Арт: {{$item->code}}</p>
+						</div>	
 						<div class="items_item_price_div">
 							@if (Auth::user()->check())
 								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
