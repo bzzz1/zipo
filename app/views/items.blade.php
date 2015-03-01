@@ -1,3 +1,4 @@
+
 @extends('partials/layout')
 @extends('partials/header')
 @extends('partials/footer')

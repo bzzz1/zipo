@@ -18,6 +18,11 @@ $categories.on('click', function() {
 
 	// CHANGE BACKGROUND
 	var clicked_category_data = $(this).data('category');
+	// var path = '../img/markup';
+	// var path_f = function(param) {
+	// 	var adress = url(path + param)
+	// 	return adress
+	// };
 	if (clicked_category_data == 'Механическое_en'|| clicked_category_data=='Механическое_ru') {
 		$(".main_content").css({'background-image' : 'url(../img/markup/background_mechan.png)',
 								'background-repeat': 'no-repeat',
