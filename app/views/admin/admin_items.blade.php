@@ -4,6 +4,11 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	<div class="selected_quantity_fixed_main">	
+		<div class="selected_quantity_fixed" data-spy="affix" data-offset-top="84">
+			<p class="selected_quantity">Выбрано 10 элементов</p>
+		</div>	
+	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
 	<div class="admin_main_content admin_main_content_items">
 		@if ($env != 'catalog_admin')
@@ -103,7 +108,6 @@
 	</div>
 		<div class="admin_items_footer_main">
 			<div class="admin_items_footer">
-				<p class="selected_quantity">Выбрано 10 элементов</p>
 				<div class="change_items_buttons_first">
 					<a href="#" class="btn admin_uni_button">Добавить в спецпредложения</a>
 					<a href="#" class="btn admin_uni_button">Сделать хитом продаж</a>
