@@ -307,6 +307,13 @@ input[type=file].admin_panel_input {
 	border: 1px solid #dddddd;
 	box-shadow: 1px 2px 5px #bdbdbd;
 }
+.admin_change_subcategory_div {
+	width: 445px;
+	margin: auto;
+	position: relative;
+	border: 1px solid #dddddd;
+	box-shadow: 1px 2px 5px #bdbdbd;
+}
 .admin_add_subcategory_form {
 	background-color: #fff;
 	width: 100%;
@@ -342,9 +349,33 @@ input[type=file].admin_panel_input {
 	font-size: 30px;
 	font-weight: bold;
 }
+.admin_change_subcategory_div button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
 .admin_add_button {
 	margin: auto;
 	margin-top: 20px;
+}
+.admin_id_subcategory_div {
+	margin-top: 10px;
+}
+.admin_id_subcategory_title {
+	margin-right: 25px;
+	margin-bottom: 0;
+}
+.admin_id_subcategory_id {
+	width: 135px;
+	height: 30px;
+	background-color: #e2e2e2;
+	color: #8a8a8a;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	padding: 5px 20px;
+	margin-bottom: 0px;
 }
 /*ITEMS*/
 .selected_quantity_fixed_main {
