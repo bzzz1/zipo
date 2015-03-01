@@ -84,13 +84,22 @@ if ($('.login_button').length) {
 	});
 }
 
-// admin
+// admin add subcategory
 	$('.admin_one_cat_add').magnificPopup({
 		items: {
 			src: '.admin_add_subcategory_div', // CSS selector of an element on page that should be used as a popup
 			type: 'inline'
 		},
 	});
+
+// admin change subcategory
+	$('.change_icon').magnificPopup({
+		items: {
+			src: '.admin_change_subcategory_div', // CSS selector of an element on page that should be used as a popup
+			type: 'inline'
+		},
+	});
+
 
 // VALIDATE INPUT
 function validate(evt) {

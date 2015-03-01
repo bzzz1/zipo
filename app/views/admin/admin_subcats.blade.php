@@ -22,7 +22,7 @@
 					</div>
 					{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 				{{ Form::close() }}
-			</div>
+			</div> <!--admin_add_subcategory_div-->
 			@if (count($subcats['Механическое_en']))
 				<div class="admin_one_cat_subcats_block">
 					<div class="admin_subcats_list">
@@ -32,14 +32,32 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
-
+											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
 										</p>
 									</li>
 								@endforeach
+								<div class="admin_change_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+									{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+										<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+										<div class="change_block admin_id_subcategory_div">
+											<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+											<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+										</div>
+										<div class="change_block admin_select_category_div">
+											{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+											{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+										</div>
+										<div class="change_block admin_select_title_div">
+											{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+											{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+										</div>
+										{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+									{{ Form::close() }}
+								</div> <!--admin_add_subcategory_div-->
 							</ul>
 						</div>
 						<div class="subcategory_right">
@@ -48,7 +66,8 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -73,7 +92,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
@@ -88,7 +107,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
@@ -113,7 +132,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -128,7 +147,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -153,7 +172,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -168,7 +187,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -193,7 +212,7 @@
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 													<i class="fa fa-times delete_icon"></i>
 												{{ Form::close() }} 
@@ -208,7 +227,7 @@
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 													<i class="fa fa-times delete_icon"></i>
 												{{ Form::close() }} 
@@ -233,7 +252,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -248,7 +267,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
@@ -273,7 +292,7 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 												<i class="fa fa-times delete_icon"></i>
 											{{ Form::close() }} 
@@ -288,7 +307,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
@@ -313,7 +332,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
@@ -328,7 +347,7 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
 											<i class="fa fa-times delete_icon"></i>
 										{{ Form::close() }} 
