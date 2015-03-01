@@ -228,6 +228,10 @@ input[type=file].admin_panel_input {
 .admin_one_cat_add:hover {
 	color: black;
 }
+.admin_one_cat_add:focus {
+	color: black;
+	outline: none;
+}
 .admin_one_cat_subcats_block {
 	border-left: solid 3px #9dcb20;
 	padding: 0px 15px;
@@ -270,6 +274,7 @@ input[type=file].admin_panel_input {
 }
 .delete_icon {
 	color: #9dcb20;
+	cursor: pointer;
 }
 .admin_subcategory_form {
 	float: right;
@@ -296,7 +301,50 @@ input[type=file].admin_panel_input {
 	margin-right: 85px;
 }
 .admin_add_subcategory_div {
-	/*display: none;*/
+	width: 445px;
+	margin: auto;
+	position: relative;
+	border: 1px solid #dddddd;
+	box-shadow: 1px 2px 5px #bdbdbd;
+}
+.admin_add_subcategory_form {
+	background-color: #fff;
+	width: 100%;
+	height: 200px;
+	padding: 15px 25px;
+}
+.admin_add_subcategory_title {
+	font-size: 16px;
+	color: #9dcb20;
+	display: block;
+}
+.admin_select_category_label {
+	font-size: 16px;
+	margin-right: 70px;
+}
+.admin_select_title_label {
+	font-size: 16px;
+	margin-right: 75px;
+}
+.admin_select_category_div .admin_select_category_select,
+.admin_select_title_div .admin_select_title_text {
+	float: none;
+	width: 230px;
+	border-radius: 4px;
+	outline-color: #cecece;
+	margin-top: 15px;
+	margin-right: 10px;
+}
+.admin_add_subcategory_div button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.admin_add_button {
+	margin: auto;
+	margin-top: 20px;
 }
 /*ITEMS*/
 .selected_quantity_fixed_main {
