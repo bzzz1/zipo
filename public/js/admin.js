@@ -196,6 +196,12 @@ var countChecked = function() {
 				mes= (" Выбрано " + n + " элементов")
 			}
   $( ".selected_quantity" ).text(mes)
+  // DISABLE BUTTON
+ 	if (n===0) {
+ 		$(".ad_it_ch_c").addClass('disabled');
+ 	}else {
+ 		$(".ad_it_ch_c").removeClass('disabled');
+ 	}
 };
 countChecked();
 $( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
@@ -213,4 +219,6 @@ $('.ad_it_ch_c').magnificPopup({
 		type: 'inline'
 	},
 });
+
+
 
