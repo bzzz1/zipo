@@ -35,7 +35,7 @@
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil"></i></a> -->
 											<a href=""><i class="fa fa-pencil change_icon_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 												{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 											{{ Form::close() }} 
 										</p>
@@ -79,7 +79,7 @@
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
 											<a href=""><i class="fa fa-pencil change_icon_2_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -131,7 +131,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_3_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -173,7 +173,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_4_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_4_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -225,7 +225,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_5_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_5_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -267,7 +267,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_6_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_6_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -319,7 +319,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_7_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_7_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -361,7 +361,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_8_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_8_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -413,7 +413,7 @@
 												{{ $subcat->subcat }}
 												<a href=""><i class="fa fa-pencil change_icon_9_{{$key}}"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon"></i>
+													<i class="fa fa-times delete_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_9_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -455,7 +455,7 @@
 												{{ $subcat->subcat }}
 												<a href=""><i class="fa fa-pencil change_icon_10_{{$key}}"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon"></i>
+													<i class="fa fa-times delete_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_10_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -507,7 +507,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_11_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_11_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -549,7 +549,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_12_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_12_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -601,7 +601,7 @@
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_13_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_13_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -643,7 +643,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_14_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_14_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -695,7 +695,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_15_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_15_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -737,7 +737,7 @@
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_16_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_16_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">

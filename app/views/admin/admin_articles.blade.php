@@ -16,9 +16,8 @@
 					<a href='{{URL::to("admin/change_article?article_id=$article->article_id")}}' class="admin_article_title_1">
 						<i class="fa fa-pencil change_article_icon"></i>
 					</a>
-					{{ Form::open(array('url' => "/admin/delete_article", 'method' => 'POST', 'class'=>'admin_article_one_form')) }}
+					{{ Form::open(array('url' => "/admin/delete_article?article_id=$article->article_id", 'method' => 'POST', 'class'=>'admin_article_one_form')) }}
 						<i class="fa fa-times delete_article_icon"></i>
-						{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 					{{ Form::close() }}
 					<!-- <i class="fa fa-times delete_article_icon"></i>  -->
 				</p>

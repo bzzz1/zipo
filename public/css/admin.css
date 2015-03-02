@@ -207,7 +207,7 @@ input[type=file].admin_panel_input {
 }
 .admin_panel_import a {
 	position: absolute;
-	left: 192px;
+	left: 181px;
 }
 /*CHANGE_ITEM*/
 /*SUBCATS*/
@@ -676,6 +676,9 @@ footer {
 	color: #9dcb20;
 	font-size: 18px;
 	margin-left: 2px;
+}
+.delete_article_icon:hover {
+	cursor: pointer;
 }
 .change_article_icon {
 	margin-left: 5px;
