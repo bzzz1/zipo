@@ -37,7 +37,7 @@ if ($('#category').length) {
 
 function send_category(category) {
 	$.ajax({
-		url: ROOT+'/admin/ajax_get_subcats',
+		url: location.origin+'/admin/ajax_get_subcats',
 		type: 'POST',
 		dataType: "json",
 		data: {
@@ -128,7 +128,7 @@ $(function() {
 			$('.inserted_input').remove();
 			$('.browse_img_admin').after($input);
 			$img.after($delete_icon);
-			$img.attr('src', ROOT+'/img/photos/'+filename+'?no_cache='+timestamp);
+			$img.attr('src', location.origin+'/img/photos/'+filename+'?no_cache='+timestamp);
 
 			delegateDeleteEvent();
 		}
@@ -158,7 +158,7 @@ function delegateDeleteEvent() {
 		var $input = $('.inserted_input');
 
 		$('.inserted_input').val('no_photo.png');
-		$img.attr('src', ROOT+'/img/photos/no_photo.png');
+		$img.attr('src', location.origin+'/img/photos/no_photo.png');
 		$(this).remove();
 	});
 }
@@ -169,7 +169,7 @@ delegateDeleteEvent();
 ------------------------------------------------*/
 // function deleteFileFromServer(filepath) {
 // 	$.ajax({
-// 		url: ROOT+'/delete_file_from_server',
+// 		url: location.origin+'/delete_file_from_server',
 // 		type: 'POST',
 // 		dataType: "json",
 // 		data: {
