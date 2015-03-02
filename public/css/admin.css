@@ -2,6 +2,7 @@
 .container_main {
 	padding-top: 0;
 	width: 930px;
+	position: relative;
 }
 html {
 	min-height: 100%;
@@ -300,7 +301,7 @@ input[type=file].admin_panel_input {
 .discount_input {
 	margin-right: 85px;
 }
-.admin_add_subcategory_div {
+.admin_add_subcategory_div, .admin_add_producer_div {
 	width: 445px;
 	margin: auto;
 	position: relative;
@@ -542,6 +543,10 @@ input[name="hit"] {
 .admin_producers_groups {
 	display: table;
 	margin-bottom: 20px;
+}
+.producers_first, .producers_second, .producers_third, .producers_fourth {
+	padding-left: 15px;
+	margin-bottom: 0px;
 }
 .admin_producer_add {
 	font-size: 16px;
@@ -826,7 +831,7 @@ footer {
 .message {
 	width: 930px;
 	position: absolute;
-	top: 173px;
+	top: 0px;
 	font-size: 21px;
 	margin-left: 0px;
 	text-align: center;

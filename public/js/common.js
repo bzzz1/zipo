@@ -99,6 +99,21 @@ if ($('.login_button').length) {
 			type: 'inline'
 		},
 	});
+// admin add producer
+	$('.admin_producer_add').magnificPopup({
+		items: {
+			src: '.adm_add_pr_div', // CSS selector of an element on page that should be used as a popup
+			type: 'inline'
+		},
+	});
+// admin change subcategory
+	$('.change_icon_prod').magnificPopup({
+		items: {
+			src: '.adm_ch_pd_div', // CSS selector of an element on page that should be used as a popup
+			type: 'inline'
+		},
+	});
+
 
 
 // VALIDATE INPUT

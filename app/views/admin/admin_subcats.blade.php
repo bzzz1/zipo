@@ -10,7 +10,7 @@
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
 			<a href="" class="admin_one_cat_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_add_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-				{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+				{{ Form::open(['url'=>'/update_subcat', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавление подкатегории</p>
 					<div class="change_block admin_select_category_div">
 						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
