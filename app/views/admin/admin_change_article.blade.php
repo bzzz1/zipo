@@ -7,7 +7,7 @@
 	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Добавить новость</h1>
 	<div class="admin_main_content">
-		{{ Form::model($article, ['url'=>[URL::to('/admin/update_article?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($article, ['url'=>[URL::to('/admin/update_article?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'article_update_form']) }}
 			<div class="change_article_title_block">
  				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'form-control change_article_title_form', 'required']) }}
@@ -24,7 +24,6 @@
 
 			<div class="change_article_img">
 				<input id="fileupload" name='ajax_photo' type="file" class="browse_img_admin" data-url="ajax_item_image" multiple form='none'>
-				{{-- <input id="fileupload_article" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'> --}}
 				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать миниатюру</a>
 			</div>
 
@@ -49,7 +48,7 @@
 
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
 			<div class="change_item_buttons">
-				<a href="#" class="btn admin_uni_button">Очистить</a>
+				<a href="" class="btn admin_uni_button article_clean">Очистить</a>
 			</div>
 		{{ Form::close() }}
 

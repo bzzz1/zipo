@@ -19,12 +19,11 @@
 			</div> <!--admin_add_subcategory_div-->
 		<div class = "groups admin_producers_groups">
 			<ul class="producers_list producers_first">
-				@foreach ($HELP::columnize($producers, 4, 1) as $key => $producer)
+				@foreach ($HELP::columnize($producers, 3, 1) as $key => $producer)
 					<li>
 						<p class="admin_producer_one">
-							{{$producer->producer}} 
-							{{-- <a href="/admin/change_producer?producer_id={{$producer->producer_id}}"><i class="fa fa-pencil change_icon"></i></a> --}}
 							<a href=""><i class="fa fa-pencil change_icon_pr_{{$key}}"></i></a>
+							{{$producer->producer}} 
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
 								<i class="fa fa-times delete_icon delete_pr_icon"></i>
 							{{ Form::close() }}
@@ -56,11 +55,11 @@
 				@endforeach
 			</ul>
 			<ul class="producers_list producers_second">
-				@foreach ($HELP::columnize($producers, 4, 2) as $key => $producer)
+				@foreach ($HELP::columnize($producers, 3, 2) as $key => $producer)
 					<li>
 						<p class="admin_producer_one">
-							{{$producer->producer}} 
 							<a href=""><i class="fa fa-pencil change_icon_pr_2_{{$key}}"></i></a>
+							{{$producer->producer}} 
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
 								<i class="fa fa-times delete_icon delete_pr_icon"></i>
 							{{ Form::close() }}
@@ -92,11 +91,11 @@
 				@endforeach
 			</ul>	
 			<ul class="producers_list producers_third">
-				@foreach ($HELP::columnize($producers, 4, 3) as $key => $producer)
+				@foreach ($HELP::columnize($producers, 3, 3) as $key => $producer)
 					<li>
 						<p class="admin_producer_one">
-							{{$producer->producer}} 
 							<a href=""><i class="fa fa-pencil change_icon_pr_3_{{$key}}"></i></a>
+							{{$producer->producer}} 
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
 								<i class="fa fa-times delete_icon delete_pr_icon"></i>
 							{{ Form::close() }}
@@ -127,12 +126,12 @@
 					</li>	
 				@endforeach
 			</ul>
-			<ul class="producers_list producers_fourth">
+			{{-- <ul class="producers_list producers_fourth">
 				@foreach ($HELP::columnize($producers, 4, 4) as $key => $producer)
 					<li>
 						<p class="admin_producer_one">
-							{{$producer->producer}} 
 							<a href=""><i class="fa fa-pencil change_icon_pr_4_{{$key}}"></i></a>
+							{{$producer->producer}} 
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
 								<i class="fa fa-times delete_icon delete_pr_icon"></i>
 							{{ Form::close() }}
@@ -162,7 +161,7 @@
 						</script>
 					</li>	
 				@endforeach
-			</ul>
+			</ul> --}}
 		</div> <!-- groups  -->
 		<a href="#" class="btn admin_uni_button">Сохранить</a>
 	</div>

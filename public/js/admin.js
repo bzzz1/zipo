@@ -92,12 +92,14 @@ $('.clear_item_button').on('click', function() {
 	$form.find('textarea[name="description"]').val("");
 	$form.find('input[name="special"]').prop("checked", false)
 	$form.find('input[name="hit"]').prop("checked", false)
-	// $input = 
-	// $('input[name="title"]')
-	// $('input[name="code"]')
-	// $('input[name="price"]')
-	// $('input[name="currency"]')
-
+});
+// CLEAR ARTICLE BUTTON
+$('.article_clean').on('click', function() {
+	var $form = $('.article_update_form'); 
+	$form.find('input[name="title"]').val("");
+	$form.find('input[name="weight"]').val("");
+	// $form.find('textarea[name="body"]').val("");
+	CKEDITOR.instances.editor1.setData('');
 });
 /*----------------------------------------------*/
 
