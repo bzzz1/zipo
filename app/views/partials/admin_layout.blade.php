@@ -27,11 +27,6 @@
 	{{ HTML::script('js/jquery.iframe-transport.js') }}
 	{{ HTML::script('js/jquery.fileupload.js') }}
 
-	{{-- SETTING GLOBAL VARS --}}
-	<script>
-		ROOT = "{{ URL::to('') }}";
-	</script>
-
 	@yield('css')
 </head>
 

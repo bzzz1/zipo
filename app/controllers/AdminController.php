@@ -63,6 +63,13 @@ class AdminController extends BaseController {
 		]);
 	}
 
+	public function byproducer() {
+		return View::make('admin/admin_items')->with([
+			'env' 		=> 'catalog_admin',
+			'items' 	=> Item::getItemsByProducer(),
+		]);
+	}
+
 	public function items() {
 		return View::make('admin/admin_items')->with([
 			'env' 		=> 'catalog_admin',
@@ -211,7 +218,7 @@ class AdminController extends BaseController {
 	}
 
 	public function producers() {
-		return View::make('admin/admin_items')->with([
+		return View::make('admin/admin_producers')->with([
 			'env' 		=> 'producers',
 			'producers' => Producer::readAllProducers(),
 		]);
