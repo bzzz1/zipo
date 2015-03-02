@@ -184,3 +184,21 @@ delegateDeleteEvent();
 // 		}
 // 	});	
 // }
+// COUNT CHEKED
+var countChecked = function() {
+  var n = $( ".admin_main_content_items input:checked" ).length;
+  var mes = "";
+	if (n===1) {
+		mes= (" Выбран " + n + " элемент");
+		} else if (n <= 4 && n >=1) {
+			mes = (" Выбрано " + n + " элемента");
+			} else {
+				mes= (" Выбрано " + n + " элементов")
+			}
+  $( ".selected_quantity" ).text(mes)
+  // (if (n === ) ? " Выбран " : " Выбрано ") + n + (n === 1 ? " элемент" ? n=< 4 " элемента" : "элементов") );
+		
+};
+countChecked();
+ 
+$( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
