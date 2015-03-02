@@ -65,12 +65,17 @@ function send_category(category) {
 /*-----------------------------------------------*/
 
 /*------------------------------------------------
-| BUTTONS
+| DELETE ICON FORM SUBMIT
 ------------------------------------------------*/
-// DELETE ICON FORM SUBMIT
-$('.delete_icon').on('click', function() {
-	$(this).closest('form').submit();
+$('.delete_items_group_icon').on('click', function() {
+	if (confirm('Подтвердить удаление')) {
+		$form = $(this).closest('.confirm_form');
+		$form.trigger('sumbmit');
+	} else {
+		return false;
+	}
 });
+/*----------------------------------------------*/
 
 // CREAR ITEM BUTTON
 $('.clear_item_button').on('click', function() {
@@ -82,6 +87,8 @@ $('.clear_item_button').on('click', function() {
 
 });
 /*----------------------------------------------*/
+
+
 
 /*------------------------------------------------
 | FILE UPLOAD
