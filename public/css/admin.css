@@ -813,6 +813,7 @@ input[name="hit"] {
 
 /*ADMIN_DELETE*/
 .delete_items_group_icon {
+	color: #9dcb20;
 	cursor: pointer;
 }
 

@@ -8,17 +8,17 @@
 	<div class="admin_one_cat_block admin_main_content">
 		<div class="admin_catalog_category" data-category='Механическое_en'>
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
-			<a href="" class="admin_one_cat_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="" class="admin_one_cat_add" data-category='Механическое_en'><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_add_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 				{{ Form::open(['url'=>'admin/update_subcat', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавить подкатегории</p>
 					<div class="change_block admin_select_category_div">
 						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], 'Механическое_en', ['class'=>'form-control create_category', 'required']) }}
 					</div>
 					<div class="change_block admin_select_title_div">
-						{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-						{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+						{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+						{{ Form::text('subcat', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
 					</div>
 					{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 				{{ Form::close() }}
@@ -33,9 +33,9 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil"></i></a> -->
-											<a href=""><i class="fa fa-pencil change_icon_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 											{{ Form::close() }} 
 										</p>
@@ -48,13 +48,19 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+							{{-- 						<select>
+														<option selected disabled>Please Select</option>
+														@foreach($authors as $author)
+														<option value="{{ $author->id }}">{{ $author->name }}</option>
+														@endforeach
+													</select> --}}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -77,9 +83,9 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
-											<a href=""><i class="fa fa-pencil change_icon_2_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_2_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -91,13 +97,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -119,7 +125,7 @@
 		</div>	
 		<div class="admin_catalog_category" data-category='Тепловое_en'>
 			<h4 class="admin_one_cat_heading">Тепловое <br> оборудование(импортное)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Тепловое_en"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Тепловое_en']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -129,9 +135,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_3_{{$key}}"></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad del_sc_ad"></i>
+										<a href=""><i class="fa fa-pencil change_icon_3_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
+											<i class="fa fa-times delete_items_group_icon del_sc_ad del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -143,13 +149,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -171,9 +177,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_4_{{$key}}"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_4_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad"></i>
+											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_4_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -185,13 +191,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -213,7 +219,7 @@
 		</div>
 		<div class="admin_catalog_category" data-category='Холодильное_en'>
 			<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(импортное)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Холодильное_en"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Холодильное_en']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -223,9 +229,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_5_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_5_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_5_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -237,13 +243,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -265,9 +271,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_6_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_6_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_6_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -279,13 +285,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -307,7 +313,7 @@
 		</div>
 		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_en'>
 			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование(импортное)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Посудомоечное_en"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Посудомоечное_en']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -317,9 +323,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_7_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_7_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_7_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -331,13 +337,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -359,9 +365,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_8_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_8_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_8_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -373,13 +379,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -401,7 +407,7 @@
 		</div>
 		<div class="admin_catalog_category" data-category='Механическое_ru'>
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(российское)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Механическое_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Механическое_ru']))
 				<div class="admin_one_cat_subcats_block">
 					<div class="admin_subcats_list">
@@ -411,9 +417,9 @@
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href=""><i class="fa fa-pencil change_icon_9_{{$key}}"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon_9_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon del_sc_ad"></i>
+													<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_9_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -425,13 +431,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -453,9 +459,9 @@
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href=""><i class="fa fa-pencil change_icon_10_{{$key}}"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon_10_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon del_sc_ad"></i>
+													<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_10_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -467,13 +473,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -495,7 +501,7 @@
 		</div>
 		<div class="admin_catalog_category" data-category='Тепловое_ru'>
 			<h4 class="admin_one_cat_heading">Тепловое <br> оборудование(российское)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Тепловое_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Тепловое_ru']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -505,9 +511,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_11_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_11_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_11_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -519,13 +525,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -547,9 +553,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_12_{{$key}}"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_12_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad"></i>
+											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_12_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -561,13 +567,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -589,7 +595,7 @@
 		</div>
 		<div class="admin_catalog_category" data-category='Холодильное_ru'>
 			<h4 class="admin_one_cat_heading">Холодильное <br> оборудование(российское)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Холодильное_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Холодильное_ru']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -599,9 +605,9 @@
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon_13_{{$key}}"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_13_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_13_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -613,13 +619,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -641,9 +647,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_14_{{$key}}"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_14_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad"></i>
+											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_14_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -655,13 +661,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -683,7 +689,7 @@
 		</div>
 		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_ru'>
 			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование(российское)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Посудомоечное_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			@if (count($subcats['Посудомоечное_ru']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
@@ -693,9 +699,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_15_{{$key}}"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_15_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad"></i>
+											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_15_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -707,13 +713,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>
@@ -735,9 +741,9 @@
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon_16_{{$key}}"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_16_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon del_sc_ad"></i>
+											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_16_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
@@ -749,13 +755,13 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
-													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('subcat', $subcat->subcat, ['class'=>'form-control admin_select_title_text', 'required']) }}
 												</div>
-												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+												{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 											{{ Form::close() }}
 										</div> <!--admin_add_subcategory_div-->
 										<script>

@@ -232,8 +232,8 @@ class AdminController extends BaseController {
 	}
 
 	public function update_subcat() {
-		// $subcat_id = Input::get('subcat_id');
-		// $fields = Input::all();
+		$subcat_id = Input::get('subcat_id');
+		$fields = Input::all();
 		// $photo = Input::get('photo');
 		// $old = Input::get('old');
 		// unset($fields['old']);
@@ -243,7 +243,7 @@ class AdminController extends BaseController {
 		// ];
 		// $validator = Validator::make($fields, $rules);
 
-		// // createnig and updting
+		// createnig and updting
 		// if ($photo != 'no_photo.png'  && $photo != $old) {
 		// 	if ($old != 'no_photo.png') {
 		// 		$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
@@ -251,15 +251,15 @@ class AdminController extends BaseController {
 		// 		$fields['photo'] = 'no_photo.png';
 		// 	}
 
-		// 	$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
-		// 	$extension = File::extension($old);
-		// 	$filename = 'photo_'.time().'.'.$extension;
-		// 	$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
-		// 	rename($old, $new);
-		// 	$fields['photo'] = $filename;
+			// $old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+			// $extension = File::extension($old);
+			// $filename = 'photo_'.time().'.'.$extension;
+			// $new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+			// rename($old, $new);
+			// $fields['photo'] = $filename;
 		// }
 
-		// // deleting photo
+		// deleting photo
 		// if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
 		// 	$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
 		// 	File::delete($filepath);
@@ -271,10 +271,11 @@ class AdminController extends BaseController {
 		// 	return Redirect::back()->withInput()
 		// 		->withErrors('Товар с таким кодом уже существует. Код должен быть уникальным!');
 		// } else {
-		// 	$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
+			$subcat = Subcat::updateOrCreate(['subcat_id' => $subcat_id], $fields);
 		// }
+			return Redirect::back();
 
-		// if ($item_id) {
+		// if ($subcat_id) {
 		// 	$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
 		// 	return Redirect::to('/admin/change_item')->with('message', $message);
 		// } else {
@@ -284,7 +285,6 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_subcat() {
-		die('prevent deleting!');
 		return Help::__delete('Subcat', 'Подкатегория %s удалена', 'subcat', '/admin/subcats');
 	}
 
