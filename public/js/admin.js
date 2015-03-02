@@ -205,5 +205,12 @@ $( ".admin_main_content_items input[type=checkbox]" ).on("change", function(){
 	var checkedID = $(this).data("id");
 	ids.push(checkedID);
 });
-
+// POPUP
+// admin items change subcategory
+$('.ad_it_ch_c').magnificPopup({
+	items: {
+		src: '.admin_itms_subcategory_div', // CSS selector of an element on page that should be used as a popup
+		type: 'inline'
+	},
+});
 
