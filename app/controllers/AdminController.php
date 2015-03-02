@@ -92,6 +92,11 @@ class AdminController extends BaseController {
 		$old = Input::get('old');
 		unset($fields['old']);
 		
+		$rules = [
+			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
+		];
+		$validator = Validator::make($fields, $rules);
+
 		// createnig and updting
 		if ($photo != 'no_photo.png'  && $photo != $old) {
 			if ($old != 'no_photo.png') {
@@ -115,10 +120,6 @@ class AdminController extends BaseController {
 			$fields['photo'] = 'no_photo.png';
 		}
 
-		$rules = [
-			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
-		];
-		$validator = Validator::make($fields, $rules);
 
 		if ($validator->fails()) {
 			return Redirect::back()->withInput()
@@ -137,7 +138,18 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		return Help::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
+		$item = Item::find(Input::get('iteme_id'));
+		if ($item->photo != 'no_photo.png') {
+			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$item->photo;
+			File::delete($filepath);
+		}
+
+		$contains = Str::contains(URL::previous(), '/admin/change_item');
+		if ($contains) {
+			return Help::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
+		} else {
+			return Help::__delete('Item', 'Товар %s удален!', 'title', 'back');
+		}
 	}
 
 	public function articles() {
@@ -198,7 +210,18 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_article() {
-		return Help::__delete('Article', 'Новость %s удалена', 'title', '/admin/change_article');
+		$article = Article::find(Input::get('article_id'));
+		if ($article->photo != 'no_photo.png') {
+			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$article->photo;
+			File::delete($filepath);
+		}
+
+		$contains = Str::contains(URL::previous(), '/admin/change_article');
+		if ($contains) {
+			return Help::__delete('Article', 'Новость %s удалена!', 'title', '/admin/change_article');
+		} else {
+			return Help::__delete('Article', 'Новость %s удалена!', 'title', 'back');
+		}
 	}
 
 	public function subcats() {
@@ -264,21 +287,6 @@ class AdminController extends BaseController {
 	}
 
 	public function ajax_item_image() {
-		// if (Input::get('with_image')) {
-		// 	$temp_image = Input::get('with_image');
-
-		// 	// CHANGE IMAGE NAME
-		// 	$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$temp_image;
-		// 	$extension = File::extension($old);
-		// 	$filename = 'photo_'.time().'.'.$extension;
-		// 	$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
-		// 	rename($old, $new);
-
-		// 	$fields['photo'] = $filename;
-		// 	// unset($fields['with_image']); <--delete it -->
-		// }
-
-
 		if (Input::hasFile('ajax_photo')) {
 			$file = Input::file('ajax_photo');
 			$destinationPath = Help::$ITEM_PHOTO_DIR;
@@ -289,9 +297,5 @@ class AdminController extends BaseController {
 		}
 
 		return Response::json($filename);
-	}
-
-	public function ajax_article_image() {
-		// 
 	}
 }
