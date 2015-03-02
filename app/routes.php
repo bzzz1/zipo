@@ -67,7 +67,18 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 });
 
 Route::get('/test', function() {
-	echo sys_get_temp_dir();
+	// dd(Help::columnize([
+	// 	'1a' => '01245hj',
+	// 	'2b' => '01245jy',
+	// 	'3c' => '01245gh',
+	// 	'4a' => '01245f',
+	// 	'5a' => '0124sd5',
+	// 	'6a' => '0sdf1245',
+	// 	'7a' => 'a0124cv5',
+	// 	'8a' => '01245v',
+	// 	'9a' => '01245nm',
+	// 	'10a' => '01245t',
+	// ], 3, 12, true));
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');
