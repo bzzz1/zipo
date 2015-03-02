@@ -56,9 +56,9 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
 	Route::post('/ajax_delete', 'AdminController@ajax_delete');
 	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
+	
 	Route::post('/ajax_get_subcats', 'AdminController@ajax_get_subcats');
 	Route::post('/ajax_item_image', 'AdminController@ajax_item_image');
-	Route::post('/ajax_article_image', 'AdminController@ajax_article_image');
 	
 	// ITEM
 	Route::get('/change_item', 'AdminController@change_item');
