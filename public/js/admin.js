@@ -138,6 +138,18 @@ $(function() {
 $('.delete_items_group_icon').on('click',function(){
 	$(this).closest('form').submit();
 }) 
+// DELETE PRODUCER
+$('.delete_pr_icon').on('click',function(){
+	$(this).closest('form').submit();
+}) 
+// DELETE SUBCAT
+$('.del_sc_ad').on('click',function(){
+	$(this).closest('form').submit();
+}) 
+// DELETE ARTICLE
+$('.delete_article_icon').on('click',function(){
+	$(this).closest('form').submit();
+}) 
 
 // DELETE IMG ICON
 function delegateDeleteEvent() {

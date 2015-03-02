@@ -18,6 +18,11 @@ $categories.on('click', function() {
 
 	// CHANGE BACKGROUND
 	var clicked_category_data = $(this).data('category');
+	// var path = '../img/markup';
+	// var path_f = function(param) {
+	// 	var adress = url(path + param)
+	// 	return adress
+	// };
 	if (clicked_category_data == 'Механическое_en'|| clicked_category_data=='Механическое_ru') {
 		$(".main_content").css({'background-image' : 'url(../img/markup/background_mechan.png)',
 								'background-repeat': 'no-repeat',
@@ -87,13 +92,16 @@ if ($('.login_button').length) {
 		},
 	});
 
-// admin change subcategory
-	$('.change_icon').magnificPopup({
+
+// admin add producer
+	$('.admin_producer_add').magnificPopup({
 		items: {
-			src: '.admin_change_subcategory_div', // CSS selector of an element on page that should be used as a popup
+			src: '.adm_add_pr_div', // CSS selector of an element on page that should be used as a popup
 			type: 'inline'
 		},
 	});
+
+
 
 
 // VALIDATE INPUT

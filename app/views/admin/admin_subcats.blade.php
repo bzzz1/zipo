@@ -10,8 +10,8 @@
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
 			<a href="" class="admin_one_cat_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_add_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-				{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
-					<p class="admin_add_subcategory_title">Добавление подкатегории</p>
+				{{ Form::open(['url'=>'/update_subcat', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+					<p class="admin_add_subcategory_title">Добавить подкатегории</p>
 					<div class="change_block admin_select_category_div">
 						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
 						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
@@ -28,50 +28,87 @@
 					<div class="admin_subcats_list">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 1) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil"></i></a> -->
+											<a href=""><i class="fa fa-pencil change_icon_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
+												{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
-								<div class="admin_change_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-									{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
-										<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
-										<div class="change_block admin_id_subcategory_div">
-											<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
-											<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
-										</div>
-										<div class="change_block admin_select_category_div">
-											{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-											{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
-										</div>
-										<div class="change_block admin_select_title_div">
-											{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-											{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
-										</div>
-										{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
-									{{ Form::close() }}
-								</div> <!--admin_add_subcategory_div-->
 							</ul>
 						</div>
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 2) as $subcat)
+								@foreach ($HELP::columnize($subcats['Механическое_en'], 2, 2) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_2_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_2_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_2_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>	
@@ -88,30 +125,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 						<ul>
-							@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 1) as $subcat)
+							@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 1) as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_3_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_3_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_3_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>
 					</div>
 					<div class="subcategory_right">
 						<ul>	
-							@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 2) as $subcat)
+							@foreach ($HELP::columnize($subcats['Тепловое_en'], 2, 2)  as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_4_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_4_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_4_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_4_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>	
@@ -128,30 +219,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 1) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_5_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_5_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_5_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_5_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>
 					</div>
 					<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 2) as $subcat)
+								@foreach ($HELP::columnize($subcats['Холодильное_en'], 2, 2) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_6_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_6_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_6_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_6_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>	
@@ -168,30 +313,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 1)as $key =>  $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_7_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_7_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_7_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_7_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>
 					</div>
 					<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 2) as $subcat)
+								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 2) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_8_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_8_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_8_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_8_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>	
@@ -208,30 +407,84 @@
 					<div class="admin_subcats_list">
 						<div class="subcategory_left">
 								<ul>
-									@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 1) as $subcat)
+									@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 1)  as $key => $subcat)
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href=""><i class="fa fa-pencil change_icon"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon_9_{{$key}}"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon"></i>
+													<i class="fa fa-times delete_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
+											<div class="admin_change_subcategory_div adm_ch_ca_9_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_9_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_9_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 										</li>
 									@endforeach
 								</ul>
 						</div>
 						<div class="subcategory_right">
 								<ul>	
-									@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 2) as $subcat)
+									@foreach ($HELP::columnize($subcats['Механическое_ru'], 2, 2) as $key => $subcat)
 										<li>
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
-												<a href=""><i class="fa fa-pencil change_icon"></i></a>
+												<a href=""><i class="fa fa-pencil change_icon_10_{{$key}}"></i></a>
 												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-													<i class="fa fa-times delete_icon"></i>
+													<i class="fa fa-times delete_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
+											<div class="admin_change_subcategory_div adm_ch_ca_10_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_10_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_10_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 										</li>
 									@endforeach
 								</ul>	
@@ -248,30 +501,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 1) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_11_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_11_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_11_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_11_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>
 					</div>
 					<div class="subcategory_right">
 						<ul>	
-							@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 2) as $subcat)
+							@foreach ($HELP::columnize($subcats['Тепловое_ru'], 2, 2)  as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_12_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_12_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_12_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_12_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>	
@@ -288,30 +595,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 1) as $key =>  $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
-											<a href=""><i class="fa fa-pencil change_icon"></i></a>
+											<a href=""><i class="fa fa-pencil change_icon_13_{{$key}}"></i></a>
 											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-												<i class="fa fa-times delete_icon"></i>
+												<i class="fa fa-times delete_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
+										<div class="admin_change_subcategory_div adm_ch_ca_13_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_13_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_13_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 									</li>
 								@endforeach
 							</ul>
 					</div>
 					<div class="subcategory_right">
 						<ul>	
-							@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 2) as $subcat)
+							@foreach ($HELP::columnize($subcats['Холодильное_ru'], 2, 2) as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_14_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_14_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_14_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_14_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>	
@@ -328,30 +689,84 @@
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 						<ul>
-							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 1) as $subcat)
+							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 1) as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_15_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_15_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_15_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_15_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>
 					</div>
 					<div class="subcategory_right">
 						<ul>	
-							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 2) as $subcat)
+							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 2) as $key =>  $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
-										<a href=""><i class="fa fa-pencil change_icon"></i></a>
+										<a href=""><i class="fa fa-pencil change_icon_16_{{$key}}"></i></a>
 										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
-											<i class="fa fa-times delete_icon"></i>
+											<i class="fa fa-times delete_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
+									<div class="admin_change_subcategory_div adm_ch_ca_16_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
+												<div class="change_block admin_id_subcategory_div">
+													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
+													<p class="admin_id_subcategory_id">{{$subcat->subcat_id}}</p>
+												</div>
+												<div class="change_block admin_select_category_div">
+													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
+												</div>
+												<div class="change_block admin_select_title_div">
+													{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+													{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+												</div>
+												{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+											{{ Form::close() }}
+										</div> <!--admin_add_subcategory_div-->
+										<script>
+											// admin change subcategory
+											$('.change_icon_16_{{$key}}').magnificPopup({
+												items: {
+													src: '.adm_ch_ca_16_{{$key}}', // CSS selector of an element on page that should be used as a popup
+													type: 'inline'
+												},
+											});
+										</script>
 								</li>
 							@endforeach
 						</ul>	
