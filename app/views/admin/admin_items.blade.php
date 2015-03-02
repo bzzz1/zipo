@@ -41,7 +41,7 @@
 			@endif	
 			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one admin_items"><!--last class is for admin css-->
 				<div class="admin_items_buttons">
-					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox']) }}
+					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox', 'data-id'=>$item->item_id]) }}
 					<div class="fa_block">
 						<a href='{{URL::to("admin/change_item?item_id=$item->item_id")}}' class="admin_item_title_1">
 							<i class="fa fa-pencil change_items_group_icon fa-lg"></i>

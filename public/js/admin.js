@@ -196,9 +196,14 @@ var countChecked = function() {
 				mes= (" Выбрано " + n + " элементов")
 			}
   $( ".selected_quantity" ).text(mes)
-  // (if (n === ) ? " Выбран " : " Выбрано ") + n + (n === 1 ? " элемент" ? n=< 4 " элемента" : "элементов") );
-		
 };
 countChecked();
- 
 $( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
+// GET DATA_ID
+var ids = [];
+$( ".admin_main_content_items input[type=checkbox]" ).on("change", function(){
+	var checkedID = $(this).data("id");
+	ids.push(checkedID);
+});
+
+
