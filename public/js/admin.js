@@ -77,7 +77,9 @@ $('.delete_items_group_icon').on('click', function() {
 });
 /*----------------------------------------------*/
 
-// CLEAR ITEM BUTTON
+/*------------------------------------------------
+| CLEAR ITEM BUTTON
+------------------------------------------------*/
 $('.clear_item_button').on('click', function() {
 	var $form = $('.update_item_form'); 
 	$form.find('input[name="title"]').val("");
@@ -92,16 +94,17 @@ $('.clear_item_button').on('click', function() {
 	$form.find('textarea[name="description"]').val("");
 	$form.find('input[name="special"]').prop("checked", false)
 	$form.find('input[name="hit"]').prop("checked", false)
-	// $input = 
-	// $('input[name="title"]')
-	// $('input[name="code"]')
-	// $('input[name="price"]')
-	// $('input[name="currency"]')
-
 });
 /*----------------------------------------------*/
 
-
+/*------------------------------------------------
+| CHANGE SELECT DEPENDING ON CATEGORY
+------------------------------------------------*/
+$('.admin_one_cat_add').on('click', function() {
+	var category = $(this).data('category');
+	$('.create_category').val(category);
+});
+/*----------------------------------------------*/
 
 /*------------------------------------------------
 | FILE UPLOAD
@@ -147,22 +150,6 @@ $(function() {
 		}
 	});
 });
-// Delete item
-$('.delete_items_group_icon').on('click',function(){
-	$(this).closest('form').submit();
-}) 
-// DELETE PRODUCER
-$('.delete_pr_icon').on('click',function(){
-	$(this).closest('form').submit();
-}) 
-// DELETE SUBCAT
-$('.del_sc_ad').on('click',function(){
-	$(this).closest('form').submit();
-}) 
-// DELETE ARTICLE
-$('.delete_article_icon').on('click',function(){
-	$(this).closest('form').submit();
-}) 
 
 // DELETE IMG ICON
 function delegateDeleteEvent() {
@@ -216,6 +203,7 @@ var countChecked = function() {
  		$(".ad_it_ch_c").removeClass('disabled');
  	}
 };
+
 countChecked();
 $( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
 // GET DATA_ID
@@ -232,8 +220,3 @@ $('.ad_it_ch_c').magnificPopup({
 		type: 'inline'
 	},
 });
-// CLEAN
-
-
-
-

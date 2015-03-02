@@ -828,6 +828,7 @@ footer {
 }
 /*ADMIN_DETELETE*/
 .delete_items_group_icon {
+	color: #9dcb20;
 	cursor: pointer;
 }
 /*MESSAGE*/
