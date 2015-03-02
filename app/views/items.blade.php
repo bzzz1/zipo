@@ -68,7 +68,10 @@
 									{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
 								</div>	
 							</div>	
-							<p class="items_item_code">Арт: {{$item->code}}</p>
+							<div class="items_item_code_div">
+								<p class="items_item_code">Арт: {{$item->code}}</p>
+								<p class="items_item_code_full">Арт: {{$item->code}}</p>
+							</div>	
 							<div class="items_item_price_div">
 								@if (Auth::user()->check())
 									<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>

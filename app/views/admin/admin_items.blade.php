@@ -4,6 +4,11 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	<div class="selected_quantity_fixed_main">	
+		<div class="selected_quantity_fixed" data-spy="affix" data-offset-top="84">
+			<p class="selected_quantity">Выбрано 10 элементов</p>
+		</div>	
+	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
 	<div class="admin_main_content admin_main_content_items">
 		@if ($env != 'catalog_admin')
@@ -50,9 +55,15 @@
 				<div class="items_item_text_block">	
 					<div class="items_item_heading">
 						<div class="name_and_code">
-							<p class="items_item_name">{{$item->title}}</p>
+							<div class="items_item_name_div">
+								<p class="items_item_name">{{$item->title}}</p>
+								<p class="items_item_name_full">{{$item->title}}</p>
+							</div>	
 						</div>	
-						<p class="items_item_code">Арт: {{$item->code}}</p>
+						<div class="items_item_code_div">
+							<p class="items_item_code">Арт: {{$item->code}}</p>
+							<p class="items_item_code_full">Арт: {{$item->code}}</p>
+						</div>	
 						<div class="items_item_price_div">
 							@if (Auth::user()->check())
 								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
@@ -97,7 +108,6 @@
 	</div>
 		<div class="admin_items_footer_main">
 			<div class="admin_items_footer">
-				<p class="selected_quantity">Выбрано 10 элементов</p>
 				<div class="change_items_buttons_first">
 					<a href="#" class="btn admin_uni_button">Добавить в спецпредложения</a>
 					<a href="#" class="btn admin_uni_button">Сделать хитом продаж</a>

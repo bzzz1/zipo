@@ -487,7 +487,7 @@ form {
 }
 .items_page_item_img {
 	max-height: 90px;
-	max-width: 110px;
+	max-width: 95px;
 	float: left;
 }
 .items_item_price_div, .item_price_div {
@@ -546,10 +546,35 @@ form {
 .items_item_name_div:hover .items_item_name_full {
 	display: block;
 }
+.items_item_code_div {
+	position: relative;
+	display: inline-block;
+}
 .items_item_code {
 	font-size: 12px;
 	font-weight: bold;
 	font-style: italic;
+	max-width: 100px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.items_item_code_full {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+	margin: 0px;
+	white-space: nowrap;
+	background-color: #f4f4f4;
+	border-radius: 5px;
+	border: 1px solid #e6e6e6;
+}
+.items_item_code_div:hover .items_item_code_full {
+	display: block;
 }
 .items_item_price, .items_item_currency {
 	font-size: 16px;
