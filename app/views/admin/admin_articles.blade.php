@@ -4,6 +4,7 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Список новостей</h1>
 	<div class="admin_main_content">
 		@foreach ($articles as $article)
