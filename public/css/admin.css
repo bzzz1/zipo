@@ -660,8 +660,8 @@ footer {
 	margin-right: 0px;
 }
 .admin_article_minimg {
-	width: 110px;
-	height: 110px;
+	min-width: 110px;
+	min-height: 110px;
 	display: block;
 }
 .admin_article_date {

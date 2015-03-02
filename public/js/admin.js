@@ -77,8 +77,12 @@ $('.delete_items_group_icon').on('click', function() {
 });
 /*----------------------------------------------*/
 
-// CREAR ITEM BUTTON
+// CLEAR ITEM BUTTON
 $('.clear_item_button').on('click', function() {
+	var $form = $('.update_item_form'); 
+	$form.find('input[name="title"]').val("");
+	
+
 	// $input = 
 	// $('input[name="title"]')
 	// $('input[name="code"]')
@@ -219,6 +223,8 @@ $('.ad_it_ch_c').magnificPopup({
 		type: 'inline'
 	},
 });
+// CLEAN
+
 
 
 

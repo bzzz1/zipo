@@ -22,7 +22,7 @@
 	@endif
 	<h1 class="admin_uni_heading">Добавить товар</h1>
 	<div class="admin_main_content">
-		{{ Form::model($item, ['url'=>[URL::to('/admin/update_item?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($item, ['url'=>[URL::to('/admin/update_item?'.Request::getQueryString())], 'class'=>'update_item_form', 'method'=>'POST']) }}
 			<div class="change_block change_item_title_block">
 				{{ Form::label('title', 'Название', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'form-control title_input', 'required']) }}
