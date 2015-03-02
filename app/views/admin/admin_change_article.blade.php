@@ -4,9 +4,25 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	@if (Session::get('message'))
+		<div class="message alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+			<p class="message_text">{{ Session::get('message') }}</p>
+		</div>
+	@endif
+	@if ($errors->has())
+		<div class="message alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+			<p class="error_message">
+				@foreach ($errors->all() as $error)
+					{{ $error }}<br>
+				@endforeach
+			</p>
+		</div>
+	@endif
 	<h1 class="admin_uni_heading">Добавить новость</h1>
 	<div class="admin_main_content">
-		{{ Form::model($article, ['url'=>['/admin/update_article'], 'method'=>'POST', 'class'=>'']) }}
+		{{ Form::model($article, ['url'=>[URL::to('/admin/update_article?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'']) }}
 			<div class="change_article_title_block">
  				{{ Form::label('title', 'Заголовок: ', ['class'=>'admin_uni_label']) }}
 				{{ Form::text('title', null, ['class'=>'form-control change_article_title_form', 'required']) }}
@@ -20,24 +36,37 @@
 				{{ Form::textarea('body', null, array('class' => 'name', 'id' => 'ckeditor')) }}
 			</div>
 			<p class="admin_uni_label">Добавить миниатюру для статьи</p>
+
 			<div class="change_article_img">
-				<input id="fileupload_article" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'>
+				<input id="fileupload" name='ajax_photo' type="file" class="browse_img_admin" data-url="ajax_item_image" multiple form='none'>
+				{{-- <input id="fileupload_article" type="file" class="browse_img_admin" name="photo" data-url="ajax_item_image" multiple form='none'> --}}
 				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать миниатюру</a>
 			</div>
+
 			<div class="img_preview">
-				@if (Session::get('temp_article'))
+				@if (isset($article->photo) && $article->photo != 'no_photo.png')
+					<img src='{{ URL::to("img/photos/")}}/{{ $article->photo }}' class='items_item_img' data-filepath='{{ $HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$article->photo }}'>
+					<i class="fa fa-times delete_img_icon_ajax"></i>
+					{{ Form::hidden('old', $article->photo) }}
+					{{ Form::hidden('photo', $article->photo, ['class' => 'inserted_input']) }}
+				@else
+					{{ Form::hidden('old', 'no_photo.png') }}
+					{{ Form::hidden('photo', 'no_photo.png', ['class' => 'inserted_input']) }}
+					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img' >
+				@endif
+			{{-- 	@if (Session::get('temp_article'))
 					<img src='{{ URL::to("img/photos/")}}/{{ Session::get("temp_article") }}' class='items_item_img'>
 					<i class="fa fa-times delete_img_icon"></i>
 				@else
 					{{ HTML::image("img/photos/no_photo.png", "", ['class'=>'items_item_img']) }}
-				@endif	
+				@endif --}}	
 			</div>
+
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
 			<div class="change_item_buttons">
 				<a href="#" class="btn admin_uni_button">Очистить</a>
 			</div>
 		{{ Form::close() }}
-
 
 		@if ($article)
 			{{ Form::open(['url'=>"/admin/delete_article?article_id=$article->article_id", 'method'=>'POST', 'class'=>'admin_panel_import']) }}

@@ -293,7 +293,9 @@ class Help {
 		$object_id = Input::get($instance->primaryKey);
 		$object = $Model::find($object_id);
 		$Model::destroy($object_id);
-		return Redirect::to($redirect)->with('message', sprintf($message, $object->$title));
+		$message = sprintf($message, $object->$title);
+
+		return Redirect::to($redirect)->with('message', $message);
 	}
 
 	public static function formatDate($date) {

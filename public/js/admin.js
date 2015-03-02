@@ -98,7 +98,7 @@ $('#trigger_link_img').click(function(e){
 	$('.browse_img_admin').trigger('click');
 });
 
-$(function () {
+$(function() {
 	$('#fileupload').fileupload({
 		dataType: 'json',
 		// add: function (e, data) {
@@ -119,7 +119,8 @@ $(function () {
 		done: function (e, data) {
 			filename = data.result;
 			var timestamp = new Date().getTime();
-			var $input = $('<input name="photo" type="hidden" value="'+filename+'" class="inserted_input">');
+			var $input = $('.inserted_input');
+			$input.val(filename);
 			var $delete_icon = $('<i class="fa fa-times delete_img_icon_ajax"></i>');
 			var $img = $('.items_item_img');
 
@@ -142,16 +143,18 @@ $('.delete_items_group_icon').on('click',function(){
 function delegateDeleteEvent() {
 	$('.delete_img_icon_ajax').on('click', function() {
 		var $img = $('.items_item_img');
-		
+		var $input = $('.inserted_input');
+
+		$('.inserted_input').val('no_photo.png');
 		$img.attr('src', ROOT+'/img/photos/no_photo.png');
 		$(this).remove();
-
-		// var filepath = $img.data('filepath');
-		// deleteFileFromServer(filepath);
 	});
 }
 delegateDeleteEvent();
 
+/*------------------------------------------------
+| AJAX DELETE FILE FROM SERVER
+------------------------------------------------*/
 // function deleteFileFromServer(filepath) {
 // 	$.ajax({
 // 		url: ROOT+'/delete_file_from_server',

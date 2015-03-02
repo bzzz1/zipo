@@ -84,28 +84,33 @@ class AdminController extends BaseController {
 		$photo = Input::get('photo');
 		$old = Input::get('old');
 		unset($fields['old']);
-		$rules = [
-			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
-		];
+		
+		// createnig and updting
+		if ($photo != 'no_photo.png'  && $photo != $old) {
+			if ($old != 'no_photo.png') {
+				$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+				File::delete($filepath);
+				$fields['photo'] = 'no_photo.png';
+			}
 
-		if ($photo) {
 			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
 			$extension = File::extension($old);
 			$filename = 'photo_'.time().'.'.$extension;
 			$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
 			rename($old, $new);
 			$fields['photo'] = $filename;
-		} else {
+		}
+
+		// deleting photo
+		if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
+			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+			File::delete($filepath);
 			$fields['photo'] = 'no_photo.png';
 		}
 
-		if ($old) {
-			if ($old != $fields['photo']) {
-				$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
-				File::delete($filepath);
-			}
-		}
-
+		$rules = [
+			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
+		];
 		$validator = Validator::make($fields, $rules);
 
 		if ($validator->fails()) {
@@ -115,10 +120,12 @@ class AdminController extends BaseController {
 			$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
 		}
 
-		if ($item_id) { 
-			return Redirect::to('/admin/change_item')->with('message', 'Товар '.$item->title.' изменен!');
+		if ($item_id) {
+			$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
+			return Redirect::to('/admin/change_item')->with('message', $message);
 		} else {
-			return Redirect::back()->with('message', 'Товар '.$item->title.' добавлен');
+			$message = 'Товар '.$item->title.' добавлен!<a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
+			return Redirect::back()->with('message', $message);
 		}
 	}
 
@@ -141,12 +148,49 @@ class AdminController extends BaseController {
 	}
 
 	public function update_article() {
-		// $filename = 'article_'.time();
-		// UPDATE
+		$article_id = Input::get('article_id');
+		$fields = Input::all();
+		$photo = Input::get('photo');
+		$old = Input::get('old');
+		unset($fields['old']);
+		$today = date("Y-m-d", time());
+		$fields['time'] = $today;
+		
+		// createnig and updting
+		if ($photo != 'no_photo.png' && $photo != $old) {
+			if ($old != 'no_photo.png') {
+				$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+				File::delete($filepath);
+				$fields['photo'] = 'no_photo.png';
+			}
+
+			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+			$extension = File::extension($old);
+			$filename = 'photo_'.time().'.'.$extension;
+			$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+			rename($old, $new);
+			$fields['photo'] = $filename;
+		}
+
+		// deleting photo
+		if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
+			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+			File::delete($filepath);
+			$fields['photo'] = 'no_photo.png';
+		}
+
+		$article = Article::updateOrCreate(['article_id' => $article_id], $fields);
+
+		if ($article_id) {
+			$message = 'Новость '.$article->title.' изменена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).'>Назад</a>';
+			return Redirect::to('/admin/change_article')->with('message', $message);
+		} else {
+			$message = 'Новость '.$article->title.' добавлена!<a href='.URL::to('/admin/change_article?article_id='.$article->article_id).'>Назад</a>';
+			return Redirect::back()->with('message', $message);
+		}
 	}
 
 	public function delete_article() {
-		die('prevent deleting!');
 		return Help::__delete('Article', 'Новость %s удалена', 'title', '/admin/change_article');
 	}
 
@@ -167,7 +211,7 @@ class AdminController extends BaseController {
 	}
 
 	public function producers() {
-		return View::make('admin/admin_producers')->with([
+		return View::make('admin/admin_items')->with([
 			'env' 		=> 'producers',
 			'producers' => Producer::readAllProducers(),
 		]);
@@ -228,8 +272,8 @@ class AdminController extends BaseController {
 		// }
 
 
-		if (Input::hasFile('photo')) {
-			$file = Input::file('photo');
+		if (Input::hasFile('ajax_photo')) {
+			$file = Input::file('ajax_photo');
 			$destinationPath = Help::$ITEM_PHOTO_DIR;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full

@@ -14,12 +14,12 @@
 		<div class="message alert alert-danger alert-dismissible" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
 			<p class="error_message">
-			    @foreach ($errors->all() as $error)
-			        {{ $error }}<br>        
-			    @endforeach
+				@foreach ($errors->all() as $error)
+					{{ $error }}<br>
+				@endforeach
 			</p>
 		</div>
-    @endif
+	@endif
 	<h1 class="admin_uni_heading">Добавить товар</h1>
 	<div class="admin_main_content">
 		{{ Form::model($item, ['url'=>[URL::to('/admin/update_item?'.Request::getQueryString())], 'method'=>'POST', 'class'=>'']) }}
@@ -72,24 +72,31 @@
 				{{ Form::checkbox('hit', true, false) }}
 			</div>
 			<p class="admin_uni_label">Добавить изображение<br> 110*95 пикс.</p>
+
 			<div class="change_item_img">
-				<input id="fileupload" name='photo' type="file" class="browse_img_admin" data-url="ajax_item_image" multiple form='none'>
+				<input id="fileupload" name='ajax_photo' type="file" class="browse_img_admin" data-url="ajax_item_image" multiple form='none'>
 				<a id="trigger_link_img" class="btn admin_uni_button">Выбрать картинку</a>
 			</div>
+
 			<div class="img_preview">
 				@if (isset($item->photo) && $item->photo != 'no_photo.png')
 					<img src='{{ URL::to("img/photos/")}}/{{ $item->photo }}' class='items_item_img' data-filepath='{{ $HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$item->photo }}'>
 					<i class="fa fa-times delete_img_icon_ajax"></i>
 					{{ Form::hidden('old', $item->photo) }}
+					{{ Form::hidden('photo', $item->photo, ['class' => 'inserted_input']) }}
 				@else
+					{{ Form::hidden('old', 'no_photo.png') }}
+					{{ Form::hidden('photo', 'no_photo.png', ['class' => 'inserted_input']) }}
 					<img src='{{ URL::to("img/photos/")}}/{{ "no_photo.png" }}' class='items_item_img' >
 				@endif
 			</div>
+
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button low_button']) }}
 			<div class="change_item_buttons">
 				<p class="btn admin_uni_button clear_item_button low_button">Очистить</p>
 			</div>
 		{{ Form::close() }}
+
 		@if ($item)
 			{{ Form::open(['url'=>"/admin/delete_item?item_id=$item->item_id", 'method'=>'POST', 'class'=>'admin_panel_import admin_delete_form']) }}
 				{{ Form::submit('Удалить', ['class'=>'btn admin_uni_button btn_del']) }}

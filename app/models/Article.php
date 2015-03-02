@@ -9,7 +9,7 @@ class Article extends Eloquent {
 // ------------------------------------------------*/
 	public static function readAllArticles() {
 		$articles = Article::orderBy('time', 'ASC');
-		$articles = $articles->get();
+		$articles = $articles->take(4)->get();
 		return $articles;
 	}
 }
