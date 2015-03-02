@@ -87,11 +87,11 @@ $('.clear_item_button').on('click', function() {
 	var first_p = $form.find('select[name="producer_id"] option').eq(0).val();
 	$form.find('select[name="producer_id"]').val(first_p);
 	$form.find('input[name="price"]').val("");
-	$form.find('input[name="currency"]').val("");
-	$form.find('checkbox[name="procurement"]').val(true);
-	$form.find('input[name="description"]').val("");
-	$form.find('checkbox[name="special"]').val(false);
-	$form.find('checkbox[name="hit"]').val(false);
+	$form.find('input[name="currency"]').val("РУБ");
+	$form.find('input[name="procurement"]').prop("checked", true)
+	$form.find('textarea[name="description"]').val("");
+	$form.find('input[name="special"]').prop("checked", false)
+	$form.find('input[name="hit"]').prop("checked", false)
 	// $input = 
 	// $('input[name="title"]')
 	// $('input[name="code"]')
