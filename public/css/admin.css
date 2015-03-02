@@ -559,8 +559,8 @@ input[name="hit"] {
 	color: black;
 }
 .producers_list {
-	width: 200px;
-	margin-right: 15px;
+	width: 212px;
+	margin-right: 6px;
 }
 .producers_first, .producers_second, .producers_third, .producers_fourth {
 	display: inline-block;
@@ -577,7 +577,7 @@ input[name="hit"] {
 .admin_producer_one_form {
 	float: right;
 }
-.change_icon {
+.fa-pencil {
 	color: #9dcb20;
 }
 .admin_article_title_full {

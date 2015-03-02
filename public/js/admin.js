@@ -137,6 +137,10 @@ $(function () {
 $('.delete_items_group_icon').on('click',function(){
 	$(this).closest('form').submit();
 }) 
+// DELETE PRODUCER
+$('.delete_pr_icon').on('click',function(){
+	$(this).closest('form').submit();
+}) 
 
 // DELETE IMG ICON
 function delegateDeleteEvent() {

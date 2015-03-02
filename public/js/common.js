@@ -92,13 +92,7 @@ if ($('.login_button').length) {
 		},
 	});
 
-// admin change subcategory
-	$('.change_icon').magnificPopup({
-		items: {
-			src: '.admin_change_subcategory_div', // CSS selector of an element on page that should be used as a popup
-			type: 'inline'
-		},
-	});
+
 // admin add producer
 	$('.admin_producer_add').magnificPopup({
 		items: {
@@ -106,13 +100,7 @@ if ($('.login_button').length) {
 			type: 'inline'
 		},
 	});
-// admin change subcategory
-	$('.change_icon_prod').magnificPopup({
-		items: {
-			src: '.adm_ch_pd_div', // CSS selector of an element on page that should be used as a popup
-			type: 'inline'
-		},
-	});
+
 
 
 
