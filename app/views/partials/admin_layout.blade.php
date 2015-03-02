@@ -11,12 +11,6 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
-	{{ HTML::style('css/left_sidebar.css') }}
-	{{ HTML::style('css/right_sidebar.css') }}
-	{{ HTML::style('css/footer.css') }}
-	{{ HTML::style('css/item.css') }}
-	{{ HTML::style('css/article.css') }}
-	{{ HTML::style('css/articles.css') }}
 	{{ HTML::style('css/admin.css') }}
 	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/animate-popup.css') }}
