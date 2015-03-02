@@ -184,3 +184,33 @@ delegateDeleteEvent();
 // 		}
 // 	});	
 // }
+// COUNT CHEKED
+var countChecked = function() {
+  var n = $( ".admin_main_content_items input:checked" ).length;
+  var mes = "";
+	if (n===1) {
+		mes= (" Выбран " + n + " элемент");
+		} else if (n <= 4 && n >=1) {
+			mes = (" Выбрано " + n + " элемента");
+			} else {
+				mes= (" Выбрано " + n + " элементов")
+			}
+  $( ".selected_quantity" ).text(mes)
+};
+countChecked();
+$( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
+// GET DATA_ID
+var ids = [];
+$( ".admin_main_content_items input[type=checkbox]" ).on("change", function(){
+	var checkedID = $(this).data("id");
+	ids.push(checkedID);
+});
+// POPUP
+// admin items change subcategory
+$('.ad_it_ch_c').magnificPopup({
+	items: {
+		src: '.admin_itms_subcategory_div', // CSS selector of an element on page that should be used as a popup
+		type: 'inline'
+	},
+});
+

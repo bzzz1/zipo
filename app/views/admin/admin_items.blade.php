@@ -57,7 +57,7 @@
 			@endif	
 			<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one admin_items"><!--last class is for admin css-->
 				<div class="admin_items_buttons">
-					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox']) }}
+					{{ Form::checkbox('selcted', true, false, ['class'=>'select_checkbox', 'data-id'=>$item->item_id]) }}
 					<div class="fa_block">
 						<a href='{{URL::to("admin/change_item?item_id=$item->item_id")}}' class="admin_item_title_1">
 							<i class="fa fa-pencil change_items_group_icon fa-lg"></i>
@@ -130,7 +130,22 @@
 					<a href="#" class="btn admin_uni_button">Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
-					<a href="#" class="btn admin_uni_button">Изменить категорию/подкатегорию</a>
+					<a href="" class="btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
+					<div class="admin_change_subcategory_div admin_itms_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+						<div class="ac_c_i_d">
+							<p class="admin_add_subcategory_title">Редактирование категории/подкатегории</p>
+							<div class="change_block admin_select_category_div">
+								{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
+								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], '', ['class'=>'form-control admin_select_category_select a_i_s_c_l', 'required', 'form' => 'none']) }}
+							</div>
+							<div class="change_block admin_select_title_div">
+								{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label admin_select_category_label ascl']) }}
+								{{ Form::select('subcat_id', [], '', ['class'=>'form-control admin_select_title_text', 'required']) }}
+							</div>
+							<a href="" class="btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
+						</div>	
+					</div>
+
 					<a href="#" class="btn admin_uni_button">Удалить товары</a>
 				</div>
 			</div>
