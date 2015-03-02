@@ -10,7 +10,7 @@
 			<h4 class="admin_one_cat_heading">Механическое <br> оборудование(импортное)</h4>
 			<a href="" class="admin_one_cat_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
 			<div class="admin_add_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-				{{ Form::open(['url'=>'/update_subcat', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+				{{ Form::open(['url'=>'admin/update_subcat', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавить подкатегории</p>
 					<div class="change_block admin_select_category_div">
 						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
@@ -40,7 +40,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -83,7 +83,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -135,7 +135,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -177,7 +177,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_4_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -229,7 +229,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_5_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -271,7 +271,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_6_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -323,7 +323,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_7_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -365,7 +365,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_8_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -417,7 +417,7 @@
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_9_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -459,7 +459,7 @@
 												{{ Form::close() }} 
 											</p>
 											<div class="admin_change_subcategory_div adm_ch_ca_10_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -511,7 +511,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_11_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -553,7 +553,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_12_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -605,7 +605,7 @@
 											{{ Form::close() }} 
 										</p>
 										<div class="admin_change_subcategory_div adm_ch_ca_13_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -647,7 +647,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_14_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -699,7 +699,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_15_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>
@@ -741,7 +741,7 @@
 										{{ Form::close() }} 
 									</p>
 									<div class="admin_change_subcategory_div adm_ch_ca_16_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-											{{ Form::open(['url'=>'/update_subcate', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+											{{ Form::open(['url'=>"admin/update_subcat?subcat_id=$subcat->subcat_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 												<p class="admin_add_subcategory_title">Редактирование подкатегории</p>
 												<div class="change_block admin_id_subcategory_div">
 													<p class="admin_uni_label admin_id_subcategory_title">ID подкатегории</p>

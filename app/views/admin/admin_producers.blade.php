@@ -8,12 +8,8 @@
 	<div class="admin_main_content">
 		<a href="" class="admin_producer_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить производителя</a>
 			<div class="admin_add_subcategory_div adm_add_pr_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-				{{ Form::open(['url'=>'/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+				{{ Form::open(['url'=>'admin/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавить производителя</p>
-					<div class="change_block admin_select_category_div">
-						{{ Form::label('category', 'Происхождение', ['class'=>'admin_uni_label admin_select_category_label']) }}
-						{{ Form::select('category', ['Российский' => 'Российский', 'Импортный' => 'Импортный'],'', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
-					</div>
 					<div class="change_block admin_select_title_div">
 						{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
 						{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
@@ -34,15 +30,11 @@
 							{{ Form::close() }}
 						</p>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
-							{{ Form::open(['url'=>'/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+							{{ Form::open(['url'=>"/admin/update_producer?producer_id=$producer->producer_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 								<p class="admin_add_subcategory_title">Редактировать производителя</p>
 								<div class="change_block admin_id_subcategory_div">
 									<p class="admin_uni_label admin_id_subcategory_title">ID производителя</p>
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
-								</div>
-								<div class="change_block admin_select_category_div">
-									{{ Form::label('category', 'Происхождение', ['class'=>'admin_uni_label admin_select_category_label']) }}
-									{{ Form::select('category', ['Российский' => 'Российский', 'Импортный' => 'Импортный'],'', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
 								</div>
 								<div class="change_block admin_select_title_div">
 									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -74,15 +66,11 @@
 							{{ Form::close() }}
 						</p>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
-							{{ Form::open(['url'=>'/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+							{{ Form::open(['url'=>"/admin/update_producer?producer_id=$producer->producer_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 								<p class="admin_add_subcategory_title">Редактировать производителя</p>
 								<div class="change_block admin_id_subcategory_div">
 									<p class="admin_uni_label admin_id_subcategory_title">ID производителя</p>
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
-								</div>
-								<div class="change_block admin_select_category_div">
-									{{ Form::label('category', 'Происхождение', ['class'=>'admin_uni_label admin_select_category_label']) }}
-									{{ Form::select('category', ['Российский' => 'Российский', 'Импортный' => 'Импортный'],'', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
 								</div>
 								<div class="change_block admin_select_title_div">
 									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -114,15 +102,11 @@
 							{{ Form::close() }}
 						</p>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
-							{{ Form::open(['url'=>'/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+							{{ Form::open(['url'=>"/admin/update_producer?producer_id=$producer->producer_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 								<p class="admin_add_subcategory_title">Редактировать производителя</p>
 								<div class="change_block admin_id_subcategory_div">
 									<p class="admin_uni_label admin_id_subcategory_title">ID производителя</p>
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
-								</div>
-								<div class="change_block admin_select_category_div">
-									{{ Form::label('category', 'Происхождение', ['class'=>'admin_uni_label admin_select_category_label']) }}
-									{{ Form::select('category', ['Российский' => 'Российский', 'Импортный' => 'Импортный'],'', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
 								</div>
 								<div class="change_block admin_select_title_div">
 									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -154,15 +138,11 @@
 							{{ Form::close() }}
 						</p>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_4_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
-							{{ Form::open(['url'=>'/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+							{{ Form::open(['url'=>"/admin/update_producer?producer_id=$producer->producer_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 								<p class="admin_add_subcategory_title">Редактировать производителя</p>
 								<div class="change_block admin_id_subcategory_div">
 									<p class="admin_uni_label admin_id_subcategory_title">ID производителя</p>
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
-								</div>
-								<div class="change_block admin_select_category_div">
-									{{ Form::label('category', 'Происхождение', ['class'=>'admin_uni_label admin_select_category_label']) }}
-									{{ Form::select('category', ['Российский' => 'Российский', 'Импортный' => 'Импортный'],'', ['class'=>'form-control admin_select_category_select', 'required', 'form' => 'none']) }}
 								</div>
 								<div class="change_block admin_select_title_div">
 									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
