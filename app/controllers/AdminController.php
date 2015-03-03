@@ -290,7 +290,8 @@ class AdminController extends BaseController {
 		$fields = Input::all();
 		unset($fields['ids']);
 
-		Item::whereSubcat_idIn($ids)->updateOrCreate(['item_id' => $item_id], $fields);
+		Item::whereIn('item_id',$ids)->update($fields);
+		// Item::whereIn('subcat_id', $ids)->updateOrCreate(['item_id' => ], $fields);
 		return Response::json($ids);
 	}
 
