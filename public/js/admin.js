@@ -77,7 +77,6 @@ $('.delete_items_group_icon').on('click', function() {
 });
 /*----------------------------------------------*/
 
-<<<<<<< HEAD
 // CLEAR ITEM BUTTON
 $('.clear_item_button').on('click', function(e) {
 	e.preventDefault();
