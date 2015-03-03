@@ -11,6 +11,7 @@
 		</div>	
 	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
+	<h2 class="admin_uni_heading ">{{$current->subcat}}</h2>
 	<div class="admin_main_content admin_main_content_items">
 		@if ($env != 'catalog_admin')
 		<hr class="main_hr">
