@@ -130,10 +130,10 @@ class AdminController extends BaseController {
 		}
 
 		if ($item_id) {
-			$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
+			$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
 			return Redirect::to('/admin/change_item')->with('message', $message);
 		} else {
-			$message = 'Товар '.$item->title.' добавлен!<a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
+			$message = 'Товар '.$item->title.' добавлен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
 			return Redirect::back()->with('message', $message);
 		}
 	}
@@ -202,10 +202,10 @@ class AdminController extends BaseController {
 		$article = Article::updateOrCreate(['article_id' => $article_id], $fields);
 
 		if ($article_id) {
-			$message = 'Новость '.$article->title.' изменена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).'>Назад</a>';
+			$message = 'Новость '.$article->title.' изменена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).' class="alert-link">Назад</a>';
 			return Redirect::to('/admin/change_article')->with('message', $message);
 		} else {
-			$message = 'Новость '.$article->title.' добавлена!<a href='.URL::to('/admin/change_article?article_id='.$article->article_id).'>Назад</a>';
+			$message = 'Новость '.$article->title.' добавлена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).' class="alert-link">Назад</a>';
 			return Redirect::back()->with('message', $message);
 		}
 	}

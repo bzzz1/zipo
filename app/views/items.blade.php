@@ -55,11 +55,14 @@
 		</div>	
 		@foreach ($items as $item)
 			<div class="empty_scape">
-				@if ($item->hit)
+				@if ($item->hit&&$item->special)
+					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
+					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag_d']) }}
+				@elseif ($item->hit)
 					{{ HTML::image("img/markup/hit_prodag.png", "хит продаж", ['class'=>'items_item_flag']) }}
 				@elseif ($item->special)
 					{{ HTML::image("img/markup/spec_flag.png", "спецпредложение", ['class'=>'items_item_flag']) }}
-				@endif
+				@endif	
 				<div class="@if ($item->hit) item_hit @elseif ($item->special) item_spec @endif items_item_one">
 					<div class="items_item_text_block">	
 						<div class="items_item_heading">
