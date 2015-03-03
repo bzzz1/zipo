@@ -4,6 +4,7 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Производители</h1>
 	<div class="admin_main_content">
 		<a href="" class="admin_producer_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить производителя</a>
@@ -11,8 +12,8 @@
 				{{ Form::open(['url'=>'admin/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавить производителя</p>
 					<div class="change_block admin_select_title_div">
-						{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-						{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+						{{ Form::label('producer', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+						{{ Form::text('producer', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
 					</div>
 					{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 				{{ Form::close() }}
@@ -36,8 +37,8 @@
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
 								</div>
 								<div class="change_block admin_select_title_div">
-									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-									{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+									{{ Form::label('producer', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+									{{ Form::text('producer', $producer->producer, ['class'=>'form-control admin_select_title_text', 'required']) }}
 								</div>
 								{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 							{{ Form::close() }}
@@ -72,8 +73,8 @@
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
 								</div>
 								<div class="change_block admin_select_title_div">
-									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-									{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+									{{ Form::label('producer', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+									{{ Form::text('producer', $producer->producer, ['class'=>'form-control admin_select_title_text', 'required']) }}
 								</div>
 								{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 							{{ Form::close() }}
@@ -108,8 +109,8 @@
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
 								</div>
 								<div class="change_block admin_select_title_div">
-									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-									{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+									{{ Form::label('producer', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+									{{ Form::text('producer', $producer->producer, ['class'=>'form-control admin_select_title_text', 'required']) }}
 								</div>
 								{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 							{{ Form::close() }}
@@ -144,8 +145,8 @@
 									<p class="admin_id_subcategory_id">{{$producer->producer_id}}</p>
 								</div>
 								<div class="change_block admin_select_title_div">
-									{{ Form::label('title', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
-									{{ Form::text('title', null, ['class'=>'form-control admin_select_title_text', 'required']) }}
+									{{ Form::label('producer', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
+									{{ Form::text('producer', $producer->producer, ['class'=>'form-control admin_select_title_text', 'required']) }}
 								</div>
 								{{ Form::submit('Добавить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 							{{ Form::close() }}
