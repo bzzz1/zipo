@@ -4,6 +4,7 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Подкатегории</h1>
 	<div class="admin_one_cat_block admin_main_content">
 		<div class="admin_catalog_category" data-category='Механическое_en'>

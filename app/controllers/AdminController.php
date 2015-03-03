@@ -234,54 +234,19 @@ class AdminController extends BaseController {
 	public function update_subcat() {
 		$subcat_id = Input::get('subcat_id');
 		$fields = Input::all();
-		// $photo = Input::get('photo');
-		// $old = Input::get('old');
-		// unset($fields['old']);
 		
-		// $rules = [
-		// 	'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
-		// ];
-		// $validator = Validator::make($fields, $rules);
+		$rules = [
+			'subcat' => 'unique:subcats,subcat,NULL,subcat_id,category,'.$fields['category']
+		];
+		$validator = Validator::make($fields, $rules);
 
-		// createnig and updting
-		// if ($photo != 'no_photo.png'  && $photo != $old) {
-		// 	if ($old != 'no_photo.png') {
-		// 		$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
-		// 		File::delete($filepath);
-		// 		$fields['photo'] = 'no_photo.png';
-		// 	}
-
-			// $old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
-			// $extension = File::extension($old);
-			// $filename = 'photo_'.time().'.'.$extension;
-			// $new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
-			// rename($old, $new);
-			// $fields['photo'] = $filename;
-		// }
-
-		// deleting photo
-		// if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
-		// 	$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
-		// 	File::delete($filepath);
-		// 	$fields['photo'] = 'no_photo.png';
-		// }
-
-
-		// if ($validator->fails()) {
-		// 	return Redirect::back()->withInput()
-		// 		->withErrors('Товар с таким кодом уже существует. Код должен быть уникальным!');
-		// } else {
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()
+				->withErrors('Подкатегория с таким названием уже существует!');
+		} else {
 			$subcat = Subcat::updateOrCreate(['subcat_id' => $subcat_id], $fields);
-		// }
 			return Redirect::back();
-
-		// if ($subcat_id) {
-		// 	$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
-		// 	return Redirect::to('/admin/change_item')->with('message', $message);
-		// } else {
-		// 	$message = 'Товар '.$item->title.' добавлен!<a href='.URL::to('/admin/change_item?item_id='.$item->item_id).'>Назад</a>';
-		// 	return Redirect::back()->with('message', $message);
-		// }
+		}
 	}
 
 	public function delete_subcat() {
