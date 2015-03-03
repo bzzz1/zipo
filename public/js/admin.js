@@ -253,24 +253,28 @@ $(".admin_main_content_items input[type=checkbox]").on("change", function(){
 $('.change_subcat_button').on('click', function(e) {
 	e.preventDefault();
 	var subcat_id = $('.admin_select_title_text').val();
-
-	$.ajax({
-		url: location.origin+'/admin/ajax_change_subcat',
-		type: 'POST',
-		dataType: "json",
-		data: {
-			'ids' 		: IDS,
-			'subcat_id'	: subcat_id
-		},
-		success: function(data) {
-			location.reload();
-		}, 
-		error: function(data, error, error_details){
-			console.log("err:",error, error_details);
-			console.log(data);
-			console.log(JSON.stringify(data.responseText, '\\', ''));
-		}
-	});	
+	if (subcat_id < 1) {
+		alert('Вы должны создать подкатегорию!');
+		return false;
+	} else {
+		$.ajax({
+			url: location.origin+'/admin/ajax_change_subcat',
+			type: 'POST',
+			dataType: "json",
+			data: {
+				'ids' 		: IDS,
+				'subcat_id'	: subcat_id
+			},
+			success: function(data) {
+				location.reload();
+			}, 
+			error: function(data, error, error_details){
+				console.log("err:",error, error_details);
+				console.log(data);
+				console.log(JSON.stringify(data.responseText, '\\', ''));
+			}
+		});
+	}
 });
 /*----------------------------------------------*/
 
