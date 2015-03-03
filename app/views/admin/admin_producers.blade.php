@@ -23,7 +23,7 @@
 				@foreach ($HELP::columnize($producers, 3, 1) as $key => $producer)
 					<li>
 						<div class="admin_producer_one">
-							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
+							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
 							<a href=""><i class="fa fa-pencil change_icon_pr_{{$key}}"></i></a>
@@ -59,7 +59,7 @@
 				@foreach ($HELP::columnize($producers, 3, 2) as $key => $producer)
 					<li>
 						<div class="admin_producer_one">
-							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
+							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
 							<a href=""><i class="fa fa-pencil change_icon_pr_2_{{$key}}"></i></a>
@@ -95,7 +95,7 @@
 				@foreach ($HELP::columnize($producers, 3, 3) as $key => $producer)
 					<li>
 						<div class="admin_producer_one">
-							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
+							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
 							<a href=""><i class="fa fa-pencil change_icon_pr_3_{{$key}}"></i></a>
@@ -133,7 +133,7 @@
 						<p class="admin_producer_one">
 							<a href=""><i class="fa fa-pencil change_icon_pr_4_{{$key}}"></i></a>
 							{{$producer->producer}} 
-							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form')) }}
+							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
 						</p>

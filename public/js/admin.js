@@ -216,7 +216,7 @@ function countChecked($num, $str1, $str2, $str3) {
 
 var message = countChecked(0, 'элемент', 'элемента', 'элементов');
 $(".selected_quantity").text('Выбрано: '+message);
-$(".admin_uni_button").addClass('disabled');
+$(".admin_items_footer .admin_uni_button").addClass('disabled');
 
 $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 	var n = $(".admin_main_content_items input:checked").length;
