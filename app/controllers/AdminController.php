@@ -298,17 +298,21 @@ class AdminController extends BaseController {
 	public function ajax_set_special() {
 		$ids = Input::get('ids');
 
-		Item::whereIn('item_id', $ids)->update(['special' => '!special']);
+		Item::whereIn('item_id', $ids)->update(['special' => DB::raw('!special')]);
 		return Response::json($ids);
 	}
 
 	public function ajax_set_hit() {
 		$ids = Input::get('ids');
+
+		Item::whereIn('item_id', $ids)->update(['hit' => DB::raw('!hit')]);
 		return Response::json($ids);
 	}
 
 	public function ajax_set_procurement() {
 		$ids = Input::get('ids');
+
+		Item::whereIn('item_id', $ids)->update(['procurement' => DB::raw('!procurement')]);
 		return Response::json($ids);
 	}
 
