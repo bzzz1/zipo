@@ -647,6 +647,17 @@ input[name="hit"] {
 	margin-right: 115px;
 	margin-bottom: 40px;
 }
+.admin_article_add {
+	font-size: 18px;
+	display: block;
+	font-weight: bold;
+	color: #9dcb20;
+	text-decoration: underline;
+	margin-bottom: 25px;
+}
+.admin_article_add i{
+	margin-right: 10px;
+}
 .admin_articles_one:nth-child(4n+1) {
 	margin-left: 15px;
 }
@@ -777,7 +788,10 @@ input[name="hit"] {
 .items_item_one {
 	height: auto;
 }
-
+.head_right {
+	float: right;
+	margin-right: 25px;
+}
 /*LOGIN*/
 .admin_login {
 	display: block;

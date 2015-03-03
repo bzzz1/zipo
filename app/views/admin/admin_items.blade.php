@@ -11,6 +11,15 @@
 		</div>	
 	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
+	<h2 class="admin_uni_heading head_right"> 
+		{{$HELP::getNormal($current->category)}}
+		@if (substr($current->category, -3) === "_en") 
+			(импортное)
+		@else 
+			(российское)
+		@endif
+	</h2>
+
 	<div class="admin_main_content admin_main_content_items">
 		@if ($env != 'catalog_admin')
 		<hr class="main_hr">
@@ -18,7 +27,7 @@
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
 			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
-			<select name="items_sort" id="items_sort">
+			<select name="items_sort" id="items_sort" class="form-control">
 				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
 					имени(а-я)
 				</option>
@@ -26,10 +35,10 @@
 					имени(я-а)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
-					цене(вверх)
+					цене($-$$$)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
-					цене(вниз)
+					цене($$$-$)
 				</option>
 			</select>
 		</div>	
