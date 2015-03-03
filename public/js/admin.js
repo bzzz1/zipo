@@ -77,10 +77,9 @@ $('.delete_items_group_icon').on('click', function() {
 });
 /*----------------------------------------------*/
 
-/*------------------------------------------------
-| CLEAR ITEM BUTTON
-------------------------------------------------*/
-$('.clear_item_button').on('click', function() {
+// CLEAR ITEM BUTTON
+$('.clear_item_button').on('click', function(e) {
+	e.preventDefault();
 	var $form = $('.update_item_form'); 
 	$form.find('input[name="title"]').val("");
 	$form.find('input[name="code"]').val("");
@@ -96,7 +95,8 @@ $('.clear_item_button').on('click', function() {
 	$form.find('input[name="hit"]').prop("checked", false)
 });
 // CLEAR ARTICLE BUTTON
-$('.article_clean').on('click', function() {
+$('.article_clean').on('click', function(e) {
+	e.preventDefault();
 	var $form = $('.article_update_form'); 
 	$form.find('input[name="title"]').val("");
 	$form.find('input[name="weight"]').val("");
