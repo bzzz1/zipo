@@ -286,7 +286,10 @@ class AdminController extends BaseController {
 | AJAX
 ------------------------------------------------*/
 	public function ajax_change_subcat() {
-		// return Response::json($data);
+		$ids = Input::get('ids');
+		// $all = Subcat::readAllSubcats();
+		// $subcats = $all[$category];
+		return Response::json($ids);
 	}
 
 	public function ajax_set_special() {

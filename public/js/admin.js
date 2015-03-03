@@ -230,45 +230,51 @@ $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 });
 /*----------------------------------------------*/
 
-// $( ".selected_quantity" ).text(mes)
-// // DISABLE BUTTON
-// if (n===0) {
-// 	$(".ad_it_ch_c").addClass('disabled');
-// }else {
-// 	$(".ad_it_ch_c").removeClass('disabled');
-// }
-
-// var countChecked = function() {
-// var n = $( ".admin_main_content_items input:checked" ).length;
-//   var mes = "";
-// 	if (n===1) {
-// 		mes= (" Выбран " + n + " элемент");
-// 		} else if (n <= 4 && n >=1) {
-// 			mes = (" Выбрано " + n + " элемента");
-// 			} else {
-// 				mes= (" Выбрано " + n + " элементов")
-// 			}
-//   $( ".selected_quantity" ).text(mes)
-//   // DISABLE BUTTON
-//  	if (n===0) {
-//  		$(".ad_it_ch_c").addClass('disabled');
-//  	}else {
-//  		$(".ad_it_ch_c").removeClass('disabled');
-//  	}
-// };
-
-// GET DATA_ID
-var ids = [];
+/*------------------------------------------------
+| GET CHECKED IDS
+------------------------------------------------*/
+IDS = [];
 $(".admin_main_content_items input[type=checkbox]").on("change", function(){
 	var checkedID = $(this).data("id");
-	ids.push(checkedID);
+	IDS.push(checkedID);
 });
-// POPUP
-// admin items change subcategory
+/*----------------------------------------------*/
+/*------------------------------------------------
+| POPUP admin items change subcategory
+------------------------------------------------*/
 $('.ad_it_ch_c').magnificPopup({
 	items: {
 		src: '.admin_itms_subcategory_div', // CSS selector of an element on page that should be used as a popup
 		type: 'inline'
 	},
 });
+/*----------------------------------------------*/
 
+$('.change_subcat_button').on('click', function(e) {
+	e.preventDefault();
+	$.ajax({
+		url: location.origin+'/admin/ajax_change_subcat',
+		type: 'POST',
+		dataType: "json",
+		data: {
+			'ids' : IDS
+		},
+		success: function(data) {
+			$select = $('#subcat_id');
+			// CLEAR OLD SUBCATS
+			$select.html('');
+
+			for (var i=0; i<data.length; i++) {
+				var subcat = data[i]['subcat'];
+				var subcat_id = data[i]['subcat_id'];
+
+				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+				$select.append($option);
+			}
+		}, 
+		error: function(data, error, error_details){
+			console.log("err:",error, error_details);
+			console.log(data);
+		}
+	});	
+});

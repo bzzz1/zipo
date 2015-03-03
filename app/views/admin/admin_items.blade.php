@@ -111,7 +111,7 @@
 					<a href="#" class="btn admin_uni_button">Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
-					<a href="" class="btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
+					<a href="" class=" btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
 					<div class="admin_change_subcategory_div admin_itms_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						<div class="ac_c_i_d">
 							<p class="admin_add_subcategory_title">Редактирование категории/подкатегории</p>
@@ -123,7 +123,7 @@
 								{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label admin_select_category_label ascl']) }}
 								{{ Form::select('subcat_id', [], '', ['class'=>'form-control admin_select_title_text', 'required']) }}
 							</div>
-							<a href="" class="btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
+							<a href="" class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>	
 					</div>
 
