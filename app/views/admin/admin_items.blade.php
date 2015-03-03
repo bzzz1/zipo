@@ -123,7 +123,7 @@
 					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_procurement'>Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
-					<a class=" btn admin_uni_button mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
+					<a class="btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
 					<div class="admin_change_subcategory_div admin_itms_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						<div class="ac_c_i_d">
 							<p class="admin_add_subcategory_title">Редактирование категории/подкатегории</p>
