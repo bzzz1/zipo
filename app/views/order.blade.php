@@ -32,7 +32,7 @@
 				</tr>
 				<tr>
 					<td>{{ Form::label('email', 'E-Mail: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('email', null, ['class'=>'change_input change_input_code form-control', 'required']) }}</td>
+					<td>{{ Form::email('email', null, ['class'=>'change_input change_input_code form-control', 'required']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>

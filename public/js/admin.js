@@ -216,7 +216,7 @@ function countChecked($num, $str1, $str2, $str3) {
 
 var message = countChecked(0, 'элемент', 'элемента', 'элементов');
 $(".selected_quantity").text('Выбрано: '+message);
-$(".ad_it_ch_c").addClass('disabled');
+$(".admin_uni_button").addClass('disabled');
 
 $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 	var n = $(".admin_main_content_items input:checked").length;
@@ -224,9 +224,9 @@ $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 	$(".selected_quantity").text('Выбрано: '+message);
 
 	if (n == 0) {
-		$(".ad_it_ch_c").addClass('disabled');
+		$(".admin_uni_button").addClass('disabled');
 	} else {
-		$(".ad_it_ch_c").removeClass('disabled');
+		$(".admin_uni_button").removeClass('disabled');
 	}
 });
 /*----------------------------------------------*/
