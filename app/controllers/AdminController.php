@@ -72,6 +72,7 @@ class AdminController extends BaseController {
 
 	public function items() {
 		return View::make('admin/admin_items')->with([
+			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'env' 		=> 'catalog_admin',
 			'items'     => Item::getItemsForCatalog()
 		]);
@@ -290,7 +291,8 @@ class AdminController extends BaseController {
 		$fields = Input::all();
 		unset($fields['ids']);
 
-		Item::whereSubcat_idIn($ids)->updateOrCreate(['item_id' => $item_id], $fields);
+		Item::whereIn('item_id',$ids)->update($fields);
+		// Item::whereIn('subcat_id', $ids)->updateOrCreate(['item_id' => ], $fields);
 		return Response::json($ids);
 	}
 

@@ -263,8 +263,9 @@ $('.change_subcat_button').on('click', function(e) {
 			'subcat_id'	: subcat_id
 		},
 		success: function(data) {
-			console.log('ajax request');
-			console.log(data);
+			location.reload();
+			// console.log('ajax request');
+			// console.log(data);
 			// $select = $('#subcat_id');
 			// // CLEAR OLD SUBCATS
 			// $select.html('');

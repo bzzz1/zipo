@@ -48,7 +48,7 @@
 
 			{{ Form::submit('Сохранить', ['class'=>'btn admin_uni_button']) }}
 			<div class="change_item_buttons">
-				<a href="" class="btn admin_uni_button article_clean">Очистить</a>
+				<a class="btn admin_uni_button article_clean">Очистить</a>
 			</div>
 		{{ Form::close() }}
 
