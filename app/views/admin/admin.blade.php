@@ -14,8 +14,8 @@
 			{{ Form::open(['url'=>'/admin/import', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('excel', ['class'=>'admin_panel_input']) }}
 				{{ Form::submit('Импортировать', ['class'=>'btn admin_uni_button']) }}
+				<a id="trigger_link" class="btn admin_uni_button">Выбрать файл</a>
 			{{ Form::close() }}
-			<a id="trigger_link" class="btn admin_uni_button">Выбрать файл</a>
 			<script>
 				$('#trigger_link').click(function(e){
 				    e.preventDefault();
