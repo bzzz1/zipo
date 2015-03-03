@@ -909,6 +909,12 @@ form {
 	top: 0px;
 	right: 6px;
 }
+.items_item_flag_d {
+	position: absolute;
+	z-index: 10;
+	top: 0px;
+	right: 26px;
+}
 .pagination {
 	display: table;
 	margin: auto;
