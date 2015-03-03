@@ -45,10 +45,10 @@
 					имени(я-а)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
-					цене(вверх)
+					цене($-$$$)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
-					цене(вниз)
+					цене($$$-$)
 				</option>
 			</select>
 

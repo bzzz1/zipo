@@ -6,7 +6,7 @@
 				<?php $i=0; ?>
 				@foreach ($articles as $article)
 					<div class="article">
-						<a href='articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
+						<a href='/articles/{{$HELP::url_slug(["$article->title"])}}?article_id={{$article->article_id}}' class="article_link">
 							<img src="/img/photos/{{$article->photo}}" alt="{{$article->title}}" class="article_minimage">
 						</a>
 						<p class="right_sidebar_article_date">{{ $HELP::formatDate($article->time) }}</p>
