@@ -216,6 +216,7 @@ function countChecked($num, $str1, $str2, $str3) {
 
 var message = countChecked(0, 'элемент', 'элемента', 'элементов');
 $(".selected_quantity").text('Выбрано: '+message);
+$(".ad_it_ch_c").addClass('disabled');
 
 $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 	var n = $(".admin_main_content_items input:checked").length;
@@ -224,21 +225,12 @@ $( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
 
 	if (n == 0) {
 		$(".ad_it_ch_c").addClass('disabled');
-	}else {
+	} else {
 		$(".ad_it_ch_c").removeClass('disabled');
 	}
 });
 /*----------------------------------------------*/
 
-/*------------------------------------------------
-| GET CHECKED IDS
-------------------------------------------------*/
-IDS = [];
-$(".admin_main_content_items input[type=checkbox]").on("change", function(){
-	var checkedID = $(this).data("id");
-	IDS.push(checkedID);
-});
-/*----------------------------------------------*/
 /*------------------------------------------------
 | POPUP admin items change subcategory
 ------------------------------------------------*/
@@ -249,32 +241,47 @@ $('.ad_it_ch_c').magnificPopup({
 	},
 });
 /*----------------------------------------------*/
+/*------------------------------------------------
+| GET CHECKED IDS
+------------------------------------------------*/
+IDS = [];
+$(".admin_main_content_items input[type=checkbox]").on("change", function(){
+	var checkedID = $(this).data("id");
+	IDS.push(checkedID);
+});
 
 $('.change_subcat_button').on('click', function(e) {
 	e.preventDefault();
+	var subcat_id = $('.admin_select_title_text').val();
+
 	$.ajax({
 		url: location.origin+'/admin/ajax_change_subcat',
 		type: 'POST',
 		dataType: "json",
 		data: {
-			'ids' : IDS
+			'ids' 		: IDS,
+			'subcat_id'	: subcat_id
 		},
 		success: function(data) {
-			$select = $('#subcat_id');
-			// CLEAR OLD SUBCATS
-			$select.html('');
+			console.log('ajax request');
+			console.log(data);
+			// $select = $('#subcat_id');
+			// // CLEAR OLD SUBCATS
+			// $select.html('');
 
-			for (var i=0; i<data.length; i++) {
-				var subcat = data[i]['subcat'];
-				var subcat_id = data[i]['subcat_id'];
+			// for (var i=0; i<data.length; i++) {
+			// 	var subcat = data[i]['subcat'];
+			// 	var subcat_id = data[i]['subcat_id'];
 
-				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
-				$select.append($option);
-			}
+			// 	var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+			// 	$select.append($option);
+			// }
 		}, 
 		error: function(data, error, error_details){
 			console.log("err:",error, error_details);
 			console.log(data);
+			console.log(JSON.stringify(data.responseText, '\\', ''));
 		}
 	});	
 });
+/*----------------------------------------------*/
