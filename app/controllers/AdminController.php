@@ -72,6 +72,7 @@ class AdminController extends BaseController {
 
 	public function items() {
 		return View::make('admin/admin_items')->with([
+			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'env' 		=> 'catalog_admin',
 			'items'     => Item::getItemsForCatalog()
 		]);
