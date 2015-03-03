@@ -7,7 +7,7 @@
 	@include('partials/flash_messages')
 	<div class="selected_quantity_fixed_main">	
 		<div class="selected_quantity_fixed" data-spy="affix" data-offset-top="84">
-			<p class="selected_quantity">Выбрано 10 элементов</p>
+			<p class="selected_quantity">0 элементов</p>
 		</div>	
 	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
@@ -66,11 +66,7 @@
 							<p class="items_item_code_full">Арт: {{$item->code}}</p>
 						</div>	
 						<div class="items_item_price_div">
-							@if (Auth::user()->check())
-								<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-							@else 
-								<p class="items_item_price">{{$item->price}}&nbsp</p>
-							@endif
+							<p class="items_item_price">{{$item->price}}&nbsp</p>
 							<p class="items_item_currency">{{$item->currency}}.</p>
 						</div>	
 					</div>

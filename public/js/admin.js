@@ -192,31 +192,74 @@ delegateDeleteEvent();
 // 		}
 // 	});	
 // }
-// COUNT CHEKED
-var countChecked = function() {
-  var n = $( ".admin_main_content_items input:checked" ).length;
-  var mes = "";
-	if (n===1) {
-		mes= (" Выбран " + n + " элемент");
-		} else if (n <= 4 && n >=1) {
-			mes = (" Выбрано " + n + " элемента");
-			} else {
-				mes= (" Выбрано " + n + " элементов")
-			}
-  $( ".selected_quantity" ).text(mes)
-  // DISABLE BUTTON
- 	if (n===0) {
- 		$(".ad_it_ch_c").addClass('disabled');
- 	}else {
- 		$(".ad_it_ch_c").removeClass('disabled');
- 	}
-};
 
-countChecked();
-$( ".admin_main_content_items input[type=checkbox]" ).on( "click", countChecked );
+
+/*------------------------------------------------
+| COUNT CHEKED
+------------------------------------------------*/
+function countChecked($num, $str1, $str2, $str3) {
+	$val = $num % 100;
+
+	if ($val > 10 && $val < 20) {
+		return $num+' '+$str3;
+	} else {
+		$val = $num % 10;
+		if ($val == 1) {
+			return $num+' '+$str1;
+		} else if ($val > 1 && $val < 5) {
+			return $num+' '+$str2;
+		} else {
+			return $num+' '+$str3;
+		}
+	}
+}
+
+var message = countChecked(0, 'элемент', 'элемента', 'элементов');
+$(".selected_quantity").text('Выбрано: '+message);
+
+$( ".admin_main_content_items input[type=checkbox]" ).on("click", function() {
+	var n = $(".admin_main_content_items input:checked").length;
+	var message = countChecked(n, 'элемент', 'элемента', 'элементов');
+	$(".selected_quantity").text('Выбрано: '+message);
+
+	if (n == 0) {
+		$(".ad_it_ch_c").addClass('disabled');
+	}else {
+		$(".ad_it_ch_c").removeClass('disabled');
+	}
+});
+/*----------------------------------------------*/
+
+// $( ".selected_quantity" ).text(mes)
+// // DISABLE BUTTON
+// if (n===0) {
+// 	$(".ad_it_ch_c").addClass('disabled');
+// }else {
+// 	$(".ad_it_ch_c").removeClass('disabled');
+// }
+
+// var countChecked = function() {
+// var n = $( ".admin_main_content_items input:checked" ).length;
+//   var mes = "";
+// 	if (n===1) {
+// 		mes= (" Выбран " + n + " элемент");
+// 		} else if (n <= 4 && n >=1) {
+// 			mes = (" Выбрано " + n + " элемента");
+// 			} else {
+// 				mes= (" Выбрано " + n + " элементов")
+// 			}
+//   $( ".selected_quantity" ).text(mes)
+//   // DISABLE BUTTON
+//  	if (n===0) {
+//  		$(".ad_it_ch_c").addClass('disabled');
+//  	}else {
+//  		$(".ad_it_ch_c").removeClass('disabled');
+//  	}
+// };
+
 // GET DATA_ID
 var ids = [];
-$( ".admin_main_content_items input[type=checkbox]" ).on("change", function(){
+$(".admin_main_content_items input[type=checkbox]").on("change", function(){
 	var checkedID = $(this).data("id");
 	ids.push(checkedID);
 });
