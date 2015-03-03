@@ -228,3 +228,4 @@ $('.ad_it_ch_c').magnificPopup({
 		type: 'inline'
 	},
 });
+
