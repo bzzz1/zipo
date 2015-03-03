@@ -61,6 +61,10 @@ class Item extends Eloquent {
 		return $items;
 	}
 
+	public function scopeRandom($query) {
+	    return $query->orderBy(DB::raw('RAND()'));
+	}
+
 	public static function getSameItems() {
 		$subcat_id = Input::get('subcat_id');
 		$item_id = Input::get('item_id');
@@ -68,7 +72,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->whereNotIn('items.item_id', [$item_id]);
-		$items = $items->take(4)->get();
+		$items = $items->random()->take(4)->get();
 
 		return $items;
 	}
