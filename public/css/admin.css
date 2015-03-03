@@ -777,7 +777,10 @@ input[name="hit"] {
 .items_item_one {
 	height: auto;
 }
-
+.head_right {
+	float: right;
+	margin-right: 25px;
+}
 /*LOGIN*/
 .admin_login {
 	display: block;
