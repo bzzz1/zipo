@@ -36,10 +36,12 @@
 						{{ Form::close() }}
 					</div>	
 				@endif
-			    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'header_search')) }}
-					<!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-					{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
-				{{ Form::close() }}
+				<div class="input-group margin-bottom-sm">
+				    {{ Form::open(array('url' => "/search", 'method' => 'GET', 'class'=>'header_search')) }}
+						{{ Form::text('query', null, ['placeholder'=>"Поиск по каталогу", 'class'=>'form-control input_search', 'id' =>'search']) }} 
+					{{ Form::close() }}
+			        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+				</div>
 			</div>
 		</div>
 		<div class="navbar_wraper">		
