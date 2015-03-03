@@ -70,7 +70,7 @@ function send_category(category) {
 $('.delete_items_group_icon').on('click', function() {
 	if (confirm('Подтвердить удаление')) {
 		$form = $(this).closest('.confirm_form');
-		$form.trigger('sumbmit');
+		$form.trigger('submit');
 	} else {
 		return false;
 	}

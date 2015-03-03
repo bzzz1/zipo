@@ -35,7 +35,7 @@
 											{{ $subcat->subcat }}
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil"></i></a> -->
 											<a href=""><i class="fa fa-pencil change_icon_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form ')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 											{{ Form::close() }} 
@@ -85,7 +85,7 @@
 											{{ $subcat->subcat }}
 											<!-- <a href="/admin/change_subcat?subcat_id={{$subcat->subcat_id}}"><i class="fa fa-pencil change_icon"></i></a> -->
 											<a href=""><i class="fa fa-pencil change_icon_2_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -179,7 +179,7 @@
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_4_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
@@ -231,7 +231,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_5_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -273,7 +273,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_6_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -325,7 +325,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_7_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -367,7 +367,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_8_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -419,7 +419,7 @@
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
 												<a href=""><i class="fa fa-pencil change_icon_9_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 													<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
@@ -461,7 +461,7 @@
 											<p class="admin_subcategory">
 												{{ $subcat->subcat }}
 												<a href=""><i class="fa fa-pencil change_icon_10_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+												{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 													<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 												{{ Form::close() }} 
 											</p>
@@ -513,7 +513,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_11_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -555,7 +555,7 @@
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_12_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
@@ -607,7 +607,7 @@
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
 											<a href=""><i class="fa fa-pencil change_icon_13_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+											{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 												<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 											{{ Form::close() }} 
 										</p>
@@ -649,7 +649,7 @@
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_14_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
@@ -701,7 +701,7 @@
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_15_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>
@@ -743,7 +743,7 @@
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
 										<a href=""><i class="fa fa-pencil change_icon_16_{{$key}}" data-category='{{ $subcat->category }}'></i></a>
-										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form')) }}
+										{{ Form::open(array('url' => "/admin/delete_subcat?subcat_id=$subcat->subcat_id", 'method' => 'POST', 'class'=>'admin_subcategory_form confirm_form')) }}
 											<i class="fa fa-times delete_items_group_icon del_sc_ad"></i>
 										{{ Form::close() }} 
 									</p>

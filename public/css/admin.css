@@ -560,20 +560,32 @@ input[name="hit"] {
 	width: 285px;
 	margin-right: 6px;
 }
+.producers_list_cat {
+	width: 200px;
+}
 .producers_first, .producers_second, .producers_third, .producers_fourth {
 	display: inline-block;
 }
 .admin_producer_one {
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	font-weight: bold;
 	margin-bottom: 0px;
 	width: 211px;
 }
-.producers_list a {
+.admin_producer_one p {
+	text-decoration: underline;
+	/*float: left;*/
+	/*margin-right: 30px;*/
+}
+.producers_list  a {
 	float: right;
 }
+.producers_list_cat a {
+	float: none;
+}
 .admin_producer_one_form {
-	margin-left: 0;
+	margin-left: 6px;
+	float: right;
 }
 .fa-pencil {
 	color: #9dcb20;

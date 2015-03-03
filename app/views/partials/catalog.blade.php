@@ -333,7 +333,7 @@
 			<div class = "groups">
 				<div class="brands_column">
 					<div class="producers_left">
-						<table class="producers_list producers_left">
+						<table class="producers_list producers_list_cat producers_left">
 							@foreach ($HELP::columnize($producers, 3, 1) as $producer)
 								<tr>
 									<td>
@@ -348,7 +348,7 @@
 						</table>
 					</div>
 					<div class="producers_middle">
-						<table class="producers_list producers_middle">
+						<table class="producers_list producers_list_cat producers_middle">
 							@foreach ($HELP::columnize($producers, 3, 2) as $producer)
 								<tr>
 									<td>
@@ -363,7 +363,7 @@
 						</table>	
 					</div>
 					<div class="producers_right">
-						<table class="producers_list producers_right">
+						<table class="producers_list producers_list_cat producers_right">
 							@foreach ($HELP::columnize($producers, 3, 3) as $producer)
 								<tr>
 									<td>
