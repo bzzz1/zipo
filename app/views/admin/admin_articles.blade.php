@@ -7,6 +7,7 @@
 	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Список новостей</h1>
 	<div class="admin_main_content">
+	<a href="/admin/change_article" class="admin_article_add"><i class="fa fa-plus"></i>Добавить новость</a>
 		@foreach ($articles as $article)
 			<div class="admin_articles_one">
 				<a href='{{URL::to("admin/change_article?article_id=$article->article_id")}}' class="article_link">

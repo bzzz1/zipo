@@ -27,7 +27,7 @@
 		<div class="items_sort_div">	
 			<p class="items_sort_by">Сортировать по: </p>
 			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
-			<select name="items_sort" id="items_sort">
+			<select name="items_sort" id="items_sort" class="form-control">
 				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
 					имени(а-я)
 				</option>
@@ -35,10 +35,10 @@
 					имени(я-а)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
-					цене(вверх)
+					цене($-$$$)
 				</option>
 				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
-					цене(вниз)
+					цене($$$-$)
 				</option>
 			</select>
 		</div>	
