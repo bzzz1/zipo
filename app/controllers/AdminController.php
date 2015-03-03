@@ -236,7 +236,7 @@ class AdminController extends BaseController {
 		$fields = Input::all();
 		
 		$rules = [
-			'subcat' => 'unique:subcats,subcat,NULL,subcat_id,category,'.$fields['category']
+			'subcat' => 'required|unique:subcats,subcat,NULL,subcat_id,category,'.$fields['category']
 		];
 		$validator = Validator::make($fields, $rules);
 
@@ -261,11 +261,24 @@ class AdminController extends BaseController {
 	}
 
 	public function update_producer() {
+		$producer_id = Input::get('producer_id');
+		$fields = Input::all();
 		
+		$rules = [
+			'producer' => 'required|unique:producers'
+		];
+		$validator = Validator::make($fields, $rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()
+				->withErrors('Производитель с таким названием уже существует!');
+		} else {
+			$producer = Producer::updateOrCreate(['producer_id' => $producer_id], $fields);
+			return Redirect::back();
+		}
 	}
 
 	public function delete_producer() {
-		die('prevent deleting!');
 		return Help::__delete('Producer', 'Производитель %s удален', 'producer', '/admin/producers');
 	}
 
