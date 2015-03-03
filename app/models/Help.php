@@ -204,8 +204,8 @@ class Help {
 	}
 
 	public static function getNormal($str) {
-		$end = strlen($str)-3;
-		$normal = substr($str, 0, $end);
+		$length = strlen($str)-3;
+		$normal = substr($str, 0, $length);
 		return $normal;
 	}
 

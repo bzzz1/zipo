@@ -291,26 +291,34 @@ class AdminController extends BaseController {
 		$fields = Input::all();
 		unset($fields['ids']);
 
-		Item::whereIn('item_id',$ids)->update($fields);
-		// Item::whereIn('subcat_id', $ids)->updateOrCreate(['item_id' => ], $fields);
+		Item::whereIn('item_id', $ids)->update($fields);
 		return Response::json($ids);
 	}
 
 	public function ajax_set_special() {
-		// return Response::json($data);
+		$ids = Input::get('ids');
+
+		Item::whereIn('item_id', $ids)->update(['special' => '!special']);
+		return Response::json($ids);
 	}
 
 	public function ajax_set_hit() {
-		// return Response::json($data);
-	}
-
-	public function ajax_delete() {
-		// return Response::json($data);
+		$ids = Input::get('ids');
+		return Response::json($ids);
 	}
 
 	public function ajax_set_procurement() {
-		// return Response::json($data);
+		$ids = Input::get('ids');
+		return Response::json($ids);
 	}
+
+	public function ajax_delete_group() {
+		$ids = Input::get('ids');
+
+		Item::destroy($ids);
+		return Response::json($ids);
+	}
+/*----------------------------------------------*/
 
 	public function ajax_get_subcats() {
 		$category = Input::get('category');

@@ -106,9 +106,9 @@
 		<div class="admin_items_footer_main">
 			<div class="admin_items_footer">
 				<div class="change_items_buttons_first">
-					<a class="btn admin_uni_button">Добавить в спецпредложения</a>
-					<a class="btn admin_uni_button">Сделать хитом продаж</a>
-					<a class="btn admin_uni_button">Изменить наличие</a>
+					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_special'>Добавить в спецпредложения</a>
+					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_hit'>Сделать хитом продаж</a>
+					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_procurement'>Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
 					<a class=" btn admin_uni_button mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
@@ -127,7 +127,7 @@
 						</div>	
 					</div>
 
-					<a class="btn admin_uni_button">Удалить товары</a>
+					<a class="btn delete_group_button admin_uni_button">Удалить товары</a>
 				</div>
 			</div>
 		</div>	

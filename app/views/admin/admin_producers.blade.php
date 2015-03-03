@@ -7,7 +7,7 @@
 	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">Производители</h1>
 	<div class="admin_main_content">
-		<a href="" class="admin_producer_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить производителя</a>
+		<a class="admin_producer_add mfp-zoom-out" data-effect="mfp-zoom-out"><i class="fa fa-plus">&nbsp</i>Добавить производителя</a>
 			<div class="admin_add_subcategory_div adm_add_pr_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 				{{ Form::open(['url'=>'admin/update_producer', 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 					<p class="admin_add_subcategory_title">Добавить производителя</p>
@@ -26,7 +26,7 @@
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
-							<a href=""><i class="fa fa-pencil change_icon_pr_{{$key}}"></i></a>
+							<a><i class="fa fa-pencil change_icon_pr_{{$key}}"></i></a>
 							<p>{{$producer->producer}}</p> 
 						</div>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
@@ -62,7 +62,7 @@
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
-							<a href=""><i class="fa fa-pencil change_icon_pr_2_{{$key}}"></i></a>
+							<a><i class="fa fa-pencil change_icon_pr_2_{{$key}}"></i></a>
 							<p>{{$producer->producer}}</p> 
 						</div>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_2_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
@@ -98,7 +98,7 @@
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
 							{{ Form::close() }}
-							<a href=""><i class="fa fa-pencil change_icon_pr_3_{{$key}}"></i></a>
+							<a><i class="fa fa-pencil change_icon_pr_3_{{$key}}"></i></a>
 							<p>{{$producer->producer}}</p> 
 						</div>
 						<div class="admin_change_subcategory_div adm_ch_pd_div_3_{{$key}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out" data-smth="di">
@@ -131,7 +131,7 @@
 				@foreach ($HELP::columnize($producers, 4, 4) as $key => $producer)
 					<li>
 						<p class="admin_producer_one">
-							<a href=""><i class="fa fa-pencil change_icon_pr_4_{{$key}}"></i></a>
+							<a><i class="fa fa-pencil change_icon_pr_4_{{$key}}"></i></a>
 							{{$producer->producer}} 
 							{{ Form::open(array('url' => "/admin/delete_producer?producer_id=$producer->producer_id", 'method' => 'POST', 'class'=>'admin_producer_one_form confirm_form')) }}
 								<i class="fa fa-times delete_items_group_icon delete_pr_icon"></i>
@@ -164,6 +164,6 @@
 				@endforeach
 			</ul> --}}
 		</div> <!-- groups  -->
-		<a href="#" class="btn admin_uni_button">Сохранить</a>
+		<a class="btn admin_uni_button">Сохранить</a>
 	</div>
 @stop

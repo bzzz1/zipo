@@ -264,19 +264,6 @@ $('.change_subcat_button').on('click', function(e) {
 		},
 		success: function(data) {
 			location.reload();
-			// console.log('ajax request');
-			// console.log(data);
-			// $select = $('#subcat_id');
-			// // CLEAR OLD SUBCATS
-			// $select.html('');
-
-			// for (var i=0; i<data.length; i++) {
-			// 	var subcat = data[i]['subcat'];
-			// 	var subcat_id = data[i]['subcat_id'];
-
-			// 	var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
-			// 	$select.append($option);
-			// }
 		}, 
 		error: function(data, error, error_details){
 			console.log("err:",error, error_details);
@@ -285,4 +272,64 @@ $('.change_subcat_button').on('click', function(e) {
 		}
 	});	
 });
+/*----------------------------------------------*/
+
+/*------------------------------------------------
+| DELETE GROUP BUTTON
+------------------------------------------------*/
+$('.delete_group_button').on('click', function(e) {
+	e.preventDefault();
+
+	function ajax_delete_group() {
+		$.ajax({
+			url: location.origin+'/admin/ajax_delete_group',
+			type: 'POST',
+			dataType: "json",
+			data: {
+				'ids' : IDS,
+			},
+			success: function(data) {
+				location.reload();
+			}, 
+			error: function(data, error, error_details){
+				console.log("err: ",error, error_details);
+				console.log(data);
+				console.log(JSON.stringify(data.responseText, '\\', ''));
+			}
+		});	
+	}	
+
+	if (confirm('Подтвердить удаление')) {
+		ajax_delete_group();
+	} else {
+		return false;
+	}
+});
+/*----------------------------------------------*/
+
+/*------------------------------------------------
+| CHANGE HIT SPECAIL PROCUREMENT
+------------------------------------------------*/
+$('.ajax_change_state').on('click', function(e) {
+	e.preventDefault();
+	var url = $(this).data('url');
+
+	$.ajax({
+		url: location.origin+url,
+		type: 'POST',
+		dataType: "json",
+		data: {
+			'ids' : IDS,
+		},
+		success: function(data) {
+			location.reload();
+		}, 
+		error: function(data, error, error_details){
+			console.log("err: ",error, error_details);
+			console.log(data);
+			console.log(JSON.stringify(data.responseText, '\\', ''));
+		}
+	});	
+});
+/*-----
 /*----------------------------------------------*/
