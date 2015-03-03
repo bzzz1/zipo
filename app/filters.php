@@ -30,8 +30,9 @@ App::after(function($request, $response) {
 | integrates HTTP Basic authentication for quick, simple checking.
 |
 */
+// MULTIAUTH FIX !!!
 Route::filter('auth2', function() {
-     if (Auth::guest()) return Redirect::guest('/admin');
+     if (Auth::admin()->guest()) return Redirect::guest('/');
 });
 
 Route::filter('auth', function() {
