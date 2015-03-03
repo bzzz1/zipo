@@ -106,12 +106,12 @@
 		<div class="admin_items_footer_main">
 			<div class="admin_items_footer">
 				<div class="change_items_buttons_first">
-					<a href="#" class="btn admin_uni_button">Добавить в спецпредложения</a>
-					<a href="#" class="btn admin_uni_button">Сделать хитом продаж</a>
-					<a href="#" class="btn admin_uni_button">Изменить наличие</a>
+					<a class="btn admin_uni_button">Добавить в спецпредложения</a>
+					<a class="btn admin_uni_button">Сделать хитом продаж</a>
+					<a class="btn admin_uni_button">Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
-					<a href="" class=" btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
+					<a href="" class=" btn admin_uni_button mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
 					<div class="admin_change_subcategory_div admin_itms_subcategory_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						<div class="ac_c_i_d">
 							<p class="admin_add_subcategory_title">Редактирование категории/подкатегории</p>
@@ -127,7 +127,7 @@
 						</div>	
 					</div>
 
-					<a href="#" class="btn admin_uni_button">Удалить товары</a>
+					<a class="btn admin_uni_button">Удалить товары</a>
 				</div>
 			</div>
 		</div>	
