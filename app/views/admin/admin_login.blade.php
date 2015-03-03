@@ -7,7 +7,7 @@
 			<h2 class='admin_area'>Объект под охраной</h2>
 			{{ Form::text('login', null, ['class'=>'form-control admin_input admin_login', 'placeholder'=>'Логин']) }}
 			{{ Form::password('password', ['class'=>'form-control admin_input admin_login', 'placeholder'=>'Пароль']) }}
-			{{ Form::submit('Войти', ['class'=>'form-control login_button']) }} 
+			{{ Form::submit('Войти', ['class'=>'form-control login_button_1']) }} 
 		{{ Form::close() }}
 	</div>
 @stop
