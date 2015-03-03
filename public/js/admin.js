@@ -332,3 +332,13 @@ $('.ajax_change_state').on('click', function(e) {
 	});	
 });
 /*----------------------------------------------*/
+
+/*------------------------------------------------
+| EXCEL IMPORT
+------------------------------------------------*/
+$('form.admin_panel_import input[type="file"]').on('click', function() {
+	var filepath = $(this).val();
+	var index = filepath.lastIndexOf("\\");
+	console.log(index);
+});
+/*----------------------------------------------*/
