@@ -2,10 +2,13 @@
 | GENERAL
 ------------------------------------------------*/
 /*GENERAL*/
-@font-face {
-    font-family: MyriadPro; /* Имя шрифта */
-    src: url(../fonts/MYRIADPRO-REGULAR_0.OTF); /* Путь к файлу со шрифтом */
+/*@font-face {
+    font-family: MyriadPro;
+    src: url(../fonts/MYRIADPRO-REGULAR_0.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
+*/
 body {
 	font-family: Arial, sans-serif;
 }
@@ -34,6 +37,16 @@ p,h1,h2,h3,h4,h5,a {
 	margin-top: 0px;
 	width: 544px;
 }
+@-moz-document url-prefix() {
+	.main_hr_art {
+		color: #6b1d23;
+		border: 2px solid #6b1d23;
+		margin-bottom: 25px;
+		margin-top: 0px;
+		width: 544px;
+		float: left;
+	}
+}	
 /*HEPLERS*/
 
 /*MESSAGE*/
@@ -172,6 +185,9 @@ p,h1,h2,h3,h4,h5,a {
 .navbar_wraper, .nav_header {
 	background: linear-gradient(to top, #702329, #441518);
 }
+.navbar_wraper, .nav_header {
+	background: linear-gradient(to top, #702329, #441518);
+}
 .nav_header {
 	display: table;
 	margin: auto;
@@ -254,7 +270,12 @@ p,h1,h2,h3,h4,h5,a {
 .navbar-inverse .navbar-nav>li>a:hover {
 	color: #cecece;
 }
-.navbar ul li.active {
+@-moz-document url-prefix() {
+	.navbar ul li.active a {
+		text-decoration: underline;
+	}
+}
+.navbar ul li.active a {
 	text-decoration: underline;
 }
 /*animation_nav_end*/
@@ -589,10 +610,23 @@ form {
 	border-top: 1px solid #6b1d23;
 	border-radius: 5px 5px 0px 0px;
 }
+@-moz-document url-prefix() {
+	.sub_moz {
+		float: none;
+		margin-left: 391px;
+	}
+}
 .catalog_hr {
 	border: 1px solid #6b1d23;
 	margin-top: 0px;
 	width: 544px;
+}
+@-moz-document url-prefix() {
+	.catalog_hr {
+		border: 1px solid #6b1d23;
+		margin-top: -1px;
+		width: 544px;
+	}
 }
 .foreign_heding, .russian_heding {
 	display: block;

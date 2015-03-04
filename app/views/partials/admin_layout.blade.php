@@ -14,6 +14,7 @@
 	{{ HTML::style('css/admin.css') }}
 	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/animate-popup.css') }}
+	{{ HTML::style('http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=latin,cyrillic-ext') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.js') }}
 	{{ HTML::script('ckeditor/ckeditor.js') }}

@@ -9,7 +9,7 @@ html {
 	position: relative;
 }
 body {
-	font-family: 'MyriadPro';
+	font-family: 'PT Sans', sans-serif;
 	background-color: #ececec;
 }
 .admin_uni_button {
@@ -72,6 +72,11 @@ header {
 }
 .admin_header_btn_group_r {
 	margin-left: 642px;
+}
+@-moz-document url-prefix() {
+	.admin_header_btn_group_r {
+		margin-left: 641px;
+	}
 }
 .admin_header_btn_group>button {
 	border: 0px;
@@ -172,6 +177,18 @@ header {
 	padding-bottom: 10px;
 	padding-top: 10px;
 }
+@-moz-document url-prefix() {
+    .admin_sidebar_button {
+        color: #eee;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 16px;
+		padding-left: 3px;
+		padding-right: 3px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}	
+}
 .admin_sidebar_button:hover {
 	background-color: #666666;
 	text-decoration: none;
@@ -228,7 +245,7 @@ footer {
 /*PANEL*/
 input[type=file].admin_panel_input {
 	display: inline;
-	margin-left: 100px;
+	margin-left: 105px;
 	font-size: 16px;
 }
 .input[type="file" i]::-webkit-file-upload-button {
@@ -321,7 +338,7 @@ input[type=file].admin_panel_input {
 	margin-bottom: 20px;
 }
 .admin_input_search {
-	margin-left: 20px;
+	margin-left: 27px;
 	margin-right: 86px;
 }
 .form-control {
@@ -336,7 +353,23 @@ input[type=file].admin_panel_input {
 .discount_input {
 	margin-right: 85px;
 }
-
+.admin_panel_search {
+	width: 398px;
+}
+.admin_discount_input {
+	width: 396px;
+}
+.admin_main_content  input[value="Поиск"] {
+	float: right;
+}
+.admin_main_content  input[value="Изменить"] {
+	float: right;
+}
+@-moz-document url-prefix() {
+	.admin_main_content  input[value="Импортировать"] {
+		margin-left: 23px;
+	}
+}
 /*SUBCATS CONTINUE*/
 .admin_add_subcategory_div, .admin_add_producer_div {
 	width: 445px;
@@ -458,11 +491,11 @@ input[type=file].admin_panel_input {
 }
 .title_input {
 	width: 758px;
-	margin-left: 45px;
+	margin-left: 46px;
 }
 .code_input {
 	width: 280px;
-	margin-left: 51px;
+	margin-left: 56px;
 }
 .price_input {
 	width: 165px;
@@ -483,7 +516,7 @@ input[type=file].admin_panel_input {
 	margin-right: 91px;
 }
 .category_label {
-	margin-right: 37px;
+	margin-right: 42px;
 }
 .subcat_label {
 	margin-right: 52px;
@@ -511,7 +544,7 @@ input[name="special"] {
 	margin-left: 65px;
 }
 input[name="hit"] {
-	margin-left: 111px;
+	margin-left: 116px;
 }
 .img_preview {
 	margin-top: 0px;
@@ -591,6 +624,7 @@ input[name="hit"] {
 }
 .fa-pencil {
 	color: #9dcb20;
+	cursor: pointer;
 }
 .admin_article_title_full {
 	display: none;
@@ -740,6 +774,12 @@ input[name="hit"] {
 	background-color: #9dcb20;
 	border-top: 1px solid #9dcb20;
 }
+@-moz-document url-prefix() {
+	.sub_moz {
+		float: none;
+		margin-left: 695px;
+	}
+}
 .catalog_category_heading  {
 	color: #222222;
 }
@@ -769,6 +809,11 @@ input[name="hit"] {
 }
 .empty_scape {
 	margin-right: 45px;
+}
+@-moz-document url-prefix() {
+	.empty_scape {
+		margin-right: 42px;
+	}
 }
 .empty_scape:nth-child(3n+1) {
 	margin-right: 0px;
