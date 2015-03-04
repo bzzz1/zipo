@@ -257,6 +257,7 @@ input[type=file].admin_panel_input {
 	text-decoration: underline;
 	display: block;
 	margin-left: 160px;
+	cursor: pointer;
 }
 .admin_one_cat_add:hover {
 	color: black;
@@ -301,6 +302,7 @@ input[type=file].admin_panel_input {
 }
 .admin_subcategory i {
 	color: #9dcb20;
+	cursor: pointer;
 }
 .admin_subcategory a {
 	float: right;
@@ -660,8 +662,6 @@ input[name="hit"] {
 }
 .admin_articles_one:nth-child(4n+1) {
 	margin-left: 15px;
-}
-.admin_articles_one:nth-child(4n) {
 	margin-right: 0px;
 }
 .admin_article_minimg {
@@ -852,6 +852,7 @@ input[name="hit"] {
 	margin-left: 0px;
 	text-align: center;
 }
+
 /*FORM*/
 .ascl {
 	margin-right: 45px;

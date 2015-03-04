@@ -63,6 +63,21 @@ p,h1,h2,h3,h4,h5,a {
 	margin: auto;
 	text-align: center;
 }
+.start_mes {
+	width: 225px;
+	height: 50px;
+	margin-top: 48px;
+}
+.mes_text_num {
+	font-size: 31px;
+	float: left;
+	margin-left: 7px;
+}
+.start_text {
+	float: right;
+	font-size: 17px;
+	line-height: 13px;
+}
 /*BTN*/
 .btn:focus {
 	outline: none;
@@ -140,7 +155,7 @@ p,h1,h2,h3,h4,h5,a {
 	line-height: 20px;
 }
 .logo_header {
-	margin-left: 30px;
+	margin-left: 11px;
 }
 .header_description {
 	display: inline-block;
@@ -753,7 +768,7 @@ form {
 	font-weight: bold;
 	color: #662025;
 	cursor: pointer;
-	background-color: #f4f4f4;
+	/*background-color: #f4f4f4;*/
 	margin-bottom: 0;
 	max-height: 90px;
 	overflow: hidden;
@@ -840,6 +855,7 @@ form {
 }
 .items_item_text {
 	min-width: 134px;
+	min-height: 90px;
 	background-color: #f7f7f7;
 	float: right;
 	display: inline-block;
@@ -868,18 +884,16 @@ form {
 	height: 25px;
 }
 .items_buttons {
-	display: inline-block;
+	display: block;
 	margin-top: 20px;
 }
 .items_more {
 	float: left;
 	font-size: 13px;
 	font-weight: bold;
-	margin-right: 20px;
-	margin-left: 20px;
 	background: linear-gradient(to top, #ffffff, #cccccc);
 	text-align: center;
-	padding: 6px;
+	padding: 6px 8px;
 	color: black;
 }
 .items_order {
@@ -888,7 +902,7 @@ form {
 	font-weight: bold;
 	background: linear-gradient(to top, #702329, #441518);
 	text-align: center;
-	padding: 6px 25px;
+	padding: 6px 38px;
 	color: white;
 }
 .items_order:hover {
@@ -925,6 +939,7 @@ form {
 }
 .items_main_header {
 	display: block;
+	padding-left: 0;
 }
 .item_page_code {
 	font-size: 16px;
@@ -1173,7 +1188,6 @@ form {
 }
 .articles_main_header {
 	display: block;
-	margin-left: 15px;
 }
 .article_preview_header {
 	display: inline-block;

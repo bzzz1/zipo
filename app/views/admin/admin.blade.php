@@ -14,14 +14,7 @@
 			{{ Form::open(['url'=>'/admin/import', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
 				{{ Form::file('excel', ['class'=>'admin_panel_input']) }}
 				{{ Form::submit('Импортировать', ['class'=>'btn admin_uni_button']) }}
-				<a id="trigger_link" class="btn admin_uni_button">Выбрать файл</a>
 			{{ Form::close() }}
-			<script>
-				$('#trigger_link').click(function(e){
-				    e.preventDefault();
-				    $('.admin_panel_input').trigger('click');
-				});
-			</script>	
 		</div>
 		<div class="admin_panel_search">
 			<p class="admin_uni_label"><i class="fa fa-search"></i> Поиск по артикулу</p>
@@ -31,7 +24,7 @@
 			{{ Form::close() }}
 		</div>
 		<div class="admin_panel_discount">
-			<p class="admin_uni_label">% Скидка для<br> зарегестрированных<br> пользователей</p>
+			<p class="admin_uni_label">% Скидка для<br> зарегистрированных<br> пользователей</p>
 			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'admin_discount_input')) }}
 				{{ Form::text('discount', $discount, ['class'=>'form-control discount_input']) }} 
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
