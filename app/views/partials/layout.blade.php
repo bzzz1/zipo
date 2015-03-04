@@ -14,7 +14,7 @@
 	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/animate-popup.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
-	{{ HTML::script('js/jquery.magnific-popup.js') }}
+	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
 	<!--[if IE]>
 		{{ HTML::style('css/ie.css') }}
 	<![endif]-->
