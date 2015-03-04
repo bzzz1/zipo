@@ -587,6 +587,7 @@ input[name="hit"] {
 	color: #9dcb20;
 	text-decoration: underline;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 .admin_producer_add:hover {
 	color: black;
