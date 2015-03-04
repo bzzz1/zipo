@@ -87,3 +87,23 @@ class Recent {
 
 // get only keys or values from assoc array
 // array_keys() or array_values()
+
+// LARAVEL HELPERS http://laravel.com/docs/4.2/helpers
+// array_fetch()
+// array_except()
+// array_divide()
+// array_dot()
+// array_add()
+// array_first()
+// array_flatten()
+// array_forget()
+// array_pluck()
+// array_pull()
+// first() and last()
+// e()
+// studly_case() and snake_case() camel_case()
+// str_limit()
+// str_contains()
+// str_finish()
+// str_plural() and str_singular(0)
+// str_random()

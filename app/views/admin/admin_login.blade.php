@@ -1,6 +1,7 @@
 @extends('partials/admin_layout')
 
 @section('body')
+	@include('partials/flash_messages')
 	<div class='login_section'>
 		{{ Form::open(['url' => '/admin_login']) }}
 			{{ HTML::image('icons/warning.png', 'Объект под охраной', array('class'=>'admin_warning')) }}

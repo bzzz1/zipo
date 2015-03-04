@@ -17,8 +17,13 @@ class AdminController extends BaseController {
 			'login' 	=> Input::get('login')
 		];
 
-		Auth::admin()->attempt($creds, true);
-		return Redirect::to('admin');
+		$pass = Auth::admin()->attempt($creds, true);
+		if ($pass) {
+			return Redirect::to('admin');
+		} else {
+			return Redirect::to('admin')
+				->withErrors('Неверный логин или пароль!');
+		}
 	}
 
 	public function set_discount() {
@@ -39,15 +44,21 @@ class AdminController extends BaseController {
 	public function import() {
 		if (Input::hasFile('excel')) {
 			$file = Input::file('excel');
-			$destinationPath = Help::$EXCEL_IMPORT_DIR;
+			$destinationPath = HELP::$EXCEL_IMPORT_DIR;
 			$extension = $file->getClientOriginalExtension();
+			if ($extension != 'xlsx') {
+				return Redirect::to('/admin')->withErrors('Выбранный файл должен иметь формат .xlsx');
+			}
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'excel.'.$extension;
 			$file->move($destinationPath, $filename);
+
+			// returns import_status view
+			return App::make('ExcelController')->excelImport();
+		} else {
+			return Redirect::to('/admin')->withErrors('Excel файл не выбран!');
 		}
 
-		$count = 10;
-		return Redirect::to('/admin')->with('message', 'Импорт завершен успешно, добавлено '.$count.' товаров.');
 	}
 
 	public function admin_logout() {
@@ -106,10 +117,10 @@ class AdminController extends BaseController {
 				$fields['photo'] = 'no_photo.png';
 			}
 
-			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+			$old = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
 			$extension = File::extension($old);
 			$filename = 'photo_'.time().'.'.$extension;
-			$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+			$new = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
 			rename($old, $new);
 			$fields['photo'] = $filename;
 		}
@@ -147,9 +158,9 @@ class AdminController extends BaseController {
 
 		$contains = Str::contains(URL::previous(), '/admin/change_item');
 		if ($contains) {
-			return Help::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
+			return HELP::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
 		} else {
-			return Help::__delete('Item', 'Товар %s удален!', 'title', 'back');
+			return HELP::__delete('Item', 'Товар %s удален!', 'title', 'back');
 		}
 	}
 
@@ -184,10 +195,10 @@ class AdminController extends BaseController {
 				$fields['photo'] = 'no_photo.png';
 			}
 
-			$old = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+			$old = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
 			$extension = File::extension($old);
 			$filename = 'photo_'.time().'.'.$extension;
-			$new = Help::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+			$new = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
 			rename($old, $new);
 			$fields['photo'] = $filename;
 		}
@@ -219,9 +230,9 @@ class AdminController extends BaseController {
 
 		$contains = Str::contains(URL::previous(), '/admin/change_article');
 		if ($contains) {
-			return Help::__delete('Article', 'Новость %s удалена!', 'title', '/admin/change_article');
+			return HELP::__delete('Article', 'Новость %s удалена!', 'title', '/admin/change_article');
 		} else {
-			return Help::__delete('Article', 'Новость %s удалена!', 'title', 'back');
+			return HELP::__delete('Article', 'Новость %s удалена!', 'title', 'back');
 		}
 	}
 
@@ -251,7 +262,7 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_subcat() {
-		return Help::__delete('Subcat', 'Подкатегория %s удалена', 'subcat', '/admin/subcats');
+		return HELP::__delete('Subcat', 'Подкатегория %s удалена', 'subcat', '/admin/subcats');
 	}
 
 	public function producers() {
@@ -280,7 +291,7 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_producer() {
-		return Help::__delete('Producer', 'Производитель %s удален', 'producer', '/admin/producers');
+		return HELP::__delete('Producer', 'Производитель %s удален', 'producer', '/admin/producers');
 	}
 
 /*------------------------------------------------
@@ -334,7 +345,7 @@ class AdminController extends BaseController {
 	public function ajax_item_image() {
 		if (Input::hasFile('ajax_photo')) {
 			$file = Input::file('ajax_photo');
-			$destinationPath = Help::$ITEM_PHOTO_DIR;
+			$destinationPath = HELP::$ITEM_PHOTO_DIR;
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'temp.'.$extension;
@@ -343,4 +354,10 @@ class AdminController extends BaseController {
 
 		return Response::json($filename);
 	}
+
+	// public function delete_file_from_server() {
+	// 	$filepath = Input::get('filepath');
+	// 	File::delete($filepath);
+	// 	return Response::json('file '.$filepath.' deleted');
+	// }
 }

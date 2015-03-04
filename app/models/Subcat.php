@@ -32,13 +32,33 @@ class Subcat extends Eloquent {
 		return $subcats;
 	}
 
-	public static function getSubcatsByCategory($category) {
-		$category_fixed = Help::$translit[$category];
+	public static function getSubcatsByCategory($category_trans) {
+		$category_fixed = HELP::$translit[$category_trans];
 
 		$subcats = new Subcat;
 		$subcats = $subcats->where('category', $category_fixed);
 		$subcats = $subcats->get();
 		
+		return $subcats;
+	}
+
+	public static function getSubcatsTitlesByCategory() {
+		$categories = [
+			'Механическое_en',
+			'Тепловое_en',
+			'Холодильное_en',
+			'Посудомоечное_en',
+			'Механическое_ru',
+			'Тепловое_ru',
+			'Холодильное_ru',
+			'Посудомоечное_ru'
+		];
+		
+		foreach ($categories as $category) {
+			$subcats_titles = Subcat::where('category', $category)->lists('subcat');
+			$subcats[$category] = $subcats_titles;
+		}
+
 		return $subcats;
 	}
 }

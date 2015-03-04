@@ -12,172 +12,196 @@ class MyReadFilter implements PHPExcel_Reader_IReadFilter {
 
 class ExcelController extends BaseController {
 	public function excelImport() {
+		function timer_start() { // add error timing
+			global $__start;
+			date_default_timezone_set('Europe/Kiev');
+			// echo 'Start at: '.date('H:i:s');
+			$__start = microtime(true); 
+		}
+		function memuse($line = 'unknown') {
+			echo "</br>memory_get_usage(true) on line $line</br>";
+			echo round(memory_get_usage(true)/1024/1024, 2);
+			echo ' Mb</br>';
+		}
+		function mempeak($line = 'unknown') {
+			$round = round(memory_get_peak_usage(true)/1024/1024, 2);	
+			return "</br>Максимальная загрузка памяти: ".$round.' Mb</br>';
+		}
+		
+		function timer_stop() {
+			global $__start;
+			$__time = microtime(true) - $__start;
+			return '</br>Время работы скрипта: '.round($__time, 2).' с</br>';
+		}
 
-			function timer_start() { // add error timing
-				global $__start;
-				date_default_timezone_set('Europe/Kiev');
-				echo 'Start at: '.date('H:i:s');
-				$__start = microtime(true); 
-			}
-			function memuse($line = 'unknown') {
-				echo "</br>memory_get_usage(true) on line $line</br>";
-				echo round(memory_get_usage(true)/1024/1024, 2);
-				echo ' Mb</br>';
-			}
-			function mempeak($line = 'unknown') {	
-				echo "</br>memory_get_peak_usage(true) on line $line</br>";
-				echo round(memory_get_peak_usage(true)/1024/1024, 2);	
-				echo ' Mb</br>';
-			}
-			
-			function timer_stop() {
-				global $__start;
-				$__time = microtime(true) - $__start;
-				echo '</br>EXECURION TIME: '.round($__time, 2).' sec</br>';
-			}
+		timer_start();
 
-			timer_start();
-			/*----------------------------------------------*/
-			// require 'vendor/autoload.php';
-			/*----------------------------------------------*/
-			// error_reporting(E_ALL);
-			// ini_set('display_errors', TRUE);
-			// ini_set('display_startup_errors', TRUE);
-			// ignore_user_abort(true);
-			set_time_limit(10*60);
-			ini_set('memory_limit', '256M');
-			$memoryCacheSizeMb = 1;
-			$excel_file = 'public/excel/update_prices.xlsx';
-			$servername = 'localhost';
-			$username = 'iaroslav';
-			$password = 'bzzzgroup';
-			$dbname = 'vertex';
-			$tablename = 'items';
-			$sql = "UPDATE $tablename SET price = :price, currency = :currency WHERE code = :code;";
-			$STOP = 100; // the row that has higher index than the last one
-			global $DELTA;
-			$DELTA = 100;
-			$SKIP = 0; // amount of rows to be skiped
-			global $limit;
-			// SET $query->bindValue !!!
+		set_time_limit(1*60);
+		ini_set('memory_limit', '256M');
+		$memoryCacheSizeMb = 10;
+		$excel_file = HELP::$EXCEL_IMPORT_DIR.DIRECTORY_SEPARATOR.'excel.xlsx';
+		$STOP = 100; // the row that has higher index than the last one
+		global $DELTA;
+		$DELTA = 100;
+		$SKIP = 2; // amount of rows to be skiped
+		global $limit;
+		$errors = [];
+		$messages = [];
+		$added = 0;
+
+		/*------------------------------------------------
+		| RETRIEVE DATA
+		------------------------------------------------*/ 
+		$categories = [
+			'Механическое_en',
+			'Тепловое_en',
+			'Холодильное_en',
+			'Посудомоечное_en',
+			'Механическое_ru',
+			'Тепловое_ru',
+			'Холодильное_ru',
+			'Посудомоечное_ru'
+		];
+		$cat_subcats = Subcat::getSubcatsTitlesByCategory();
+		$codes = Item::lists('code');
+		$producers = Producer::lists('producer');
+
+		/*------------------------------------------------
+		| Read chunks of xlsx
+		------------------------------------------------*/
+		$objReader = new PHPExcel_Reader_Excel2007();
+		$objReader->setReadDataOnly(TRUE);
+
+		/*------------------------------------------------
+		| Enabling Caching
+		------------------------------------------------*/
+		$cacheMethod=PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+		$cacheSettings=array("memoryCacheSize"=>"$memoryCacheSizeMb"."MB");
+		PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+
+		for ($limit=$SKIP+$DELTA; $limit<=$STOP+$DELTA; $limit+=$DELTA) {
+			$objReader->setReadFilter(new MyReadFilter());
+			$objPHPExcel = $objReader->load($excel_file);
+			$objWorksheet = $objPHPExcel->getActiveSheet();
+			// remove empty rows that were skiped ???
+			// $objWorksheet->removeRow(1, $SKIP);
 			/*------------------------------------------------
-			| Mysql connection
+			| Get max column and row indexes
 			------------------------------------------------*/
-			try {
-				$db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-				$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				// echo "Connected successfully"; 
-			}
-			catch(PDOException $e) {
-				echo $e->getMessage();
-			}
-			/*------------------------------------------------
-			| Read chunks of xlsx
-			------------------------------------------------*/
-			$objReader = new PHPExcel_Reader_Excel2007();
-			$objReader->setReadDataOnly(TRUE);
+			$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
+			$highestColumnLetter = $objWorksheet->getHighestColumn(); // e.g 'F'
+			$highestColumn = PHPExcel_Cell::columnIndexFromString($highestColumnLetter); // e.g. 5
 
 			/*------------------------------------------------
-			| Enabling Caching
+			| WRITE TO DB
 			------------------------------------------------*/
-			$cacheMethod=PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
-			$cacheSettings=array("memoryCacheSize"=>"$memoryCacheSizeMb"."MB");
-			PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+			for ($row=1+$SKIP; $row<=$highestRow; ++$row) {
+				$message = '';
+				$error = '';
 
-			// $cacheMethod = PHPExcel_CachedObjectStorageFactory:: cache_to_discISAM;
-			// PHPExcel_Settings::setCacheStorageMethod($cacheMethod);
+				$code 			= $objWorksheet->getCellByColumnAndRow(0, $row)->getValue();		
+				$title 			= $objWorksheet->getCellByColumnAndRow(1, $row)->getValue();
+				$description 	= $objWorksheet->getCellByColumnAndRow(2, $row)->getValue();	
+				$price 			= $objWorksheet->getCellByColumnAndRow(3, $row)->getValue();
+				$currency 		= $objWorksheet->getCellByColumnAndRow(4, $row)->getValue();
+				$hit 			= $objWorksheet->getCellByColumnAndRow(5, $row)->getValue();
+				$special 		= $objWorksheet->getCellByColumnAndRow(6, $row)->getValue();
+				$category 		= $objWorksheet->getCellByColumnAndRow(7, $row)->getValue();
+				$subcat 		= $objWorksheet->getCellByColumnAndRow(8, $row)->getValue();
+				$producer 		= $objWorksheet->getCellByColumnAndRow(9, $row)->getValue();
+				$procurement 	= $objWorksheet->getCellByColumnAndRow(10, $row)->getValue();	
 
-			// PHPExcel_Settings::setLocale('en_us');
+				// category
+				if (!in_array($category, $categories)) {
+					$error .= 'Вы ввели неверную категорию. ';
+				}
 
-			for ($limit=$SKIP+$DELTA; $limit<=$STOP+$DELTA; $limit+=$DELTA) {
-				$objReader->setReadFilter(new MyReadFilter());
-				$objPHPExcel = $objReader->load($excel_file);
-				$objWorksheet = $objPHPExcel->getActiveSheet();
-				// remove empty rows that were skiped
-				// $objWorksheet->removeRow(1, $SKIP);
-				/*------------------------------------------------
-				| Get max column and row indexes
-				------------------------------------------------*/
-				$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
-				$highestColumnLetter = $objWorksheet->getHighestColumn(); // e.g 'F'
+				// subcat 
+				if (!in_array($subcat, $cat_subcats[$category])) {
+					$created_subcat = Subcat::create(['subcat'=>$subcat, 'category'=>$category]);
+					$cat_subcats[$category][] = $subcat;
+					$message .= 'Добавлена новая подкатегория '.$subcat.' в категорию '.$category.'. ';
+				}
 
-				$highestColumn = PHPExcel_Cell::columnIndexFromString($highestColumnLetter); // e.g. 5
+				// producer
+				if (!in_array($producer, $producers)) {
+					$created_producer = Producer::create(['producer'=>$producer]);
+					$producers[] = $producer;
+					$message .= 'Добавлен новый производитель '.$producer.'. ';
+				}
 
-				/*------------------------------------------------
-				| Writing chunk to mysql
-				------------------------------------------------*/
-				for ($row=1; $row<=$highestRow; ++$row) {
-					$row_array = [];
-					for ($col=0; $col<=$highestColumn; ++$col) {
-						$row_array[] = $objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
-					}
-					if ($row_array[0] !== NULL) {
-						$query = $db->prepare($sql);
+				// code
+				if (in_array($code, $codes)) {
+					$error .= 'Товар с кодом '.$code.' уже существует! ';
+				}
 
-						$query->bindValue(':code', $row_array[0]);
-						$query->bindValue(':price', $row_array[1]);
-						$query->bindValue(':currency', $row_array[2]);
+				// price
+				if (!is_float($price)) {
+					$error .= 'Цена должна быть числом. ';
+				} else if ($price < 0) {
+					$error .= 'Цена не может быть отрицательной! ';
+				}
 
-						try {
-							$query->execute();
-						}
-						catch(PDOException $e) {
-							echo $e->getMessage();
-						}
-					} else {
-						// die('</br>ONLY EMPTY');
+				// hit, cpecial, procurement
+				if (!($hit == 0 || $hit == 1)) {
+					$error .= 'Поле Хит продаж должно иметь значение 0 - нет, 1 - да. ';
+				}
+				if (!($special == 0 || $special == 1)) {
+					$error .= 'Поле Спецпредложение должно иметь значение 0 - нет, 1 - да. ';
+				}
+				if (!($procurement == 0 || $procurement == 1)) {
+					$error .= 'Поле Наличие должно иметь значение 0 - нет, 1 - да. ';
+				}
+
+				if ($error) {
+					$errors[] = $row.' строка. '.$error;
+					continue;
+				} else {
+					// add item to db
+					$fields = [
+						'code' 			=> $code,
+						'title' 		=> $title,
+						'description'   => ($description) ? $description : 'Для данного товара описание отсутствует.',
+						'price' 		=> $price,
+						'currency' 		=> $currency,
+						'hit' 			=> $hit,
+						'special' 		=> $special,
+						'subcat_id' 	=> isset($created_subcat) ? $created_subcat->subcat_id : $subcat,
+						'producer_id'	=> isset($created_producer) ? $created_producer->producer_id : $producer,
+						'procurement' 	=> $procurement,
+					];
+
+					try {
+						Item::create($fields);
+					} catch (Exception $e) {
+						$error .= 'UNCAUGHT EXCEPTION! ';
+						$errors[] = $row.' строка. '.$error;
+						continue;
 					}
 				}
-				$objPHPExcel->disconnectWorksheets();
-				unset($objPHPExcel);
+
+				if ($message) {
+					$messages[] = $row.' строка. '.$message;
+				}
+
+				// number of added items
+				$added++;
 			}
+			$objPHPExcel->disconnectWorksheets();
+			unset($objPHPExcel);
+		}
 
-			timer_stop();
-			mempeak();
+		timer_stop();
+		mempeak();
 
-			echo '</br></br>IMPORT DONE.';
-		/*------------------------------------------------
-		| LARAVEL EXCEL NOT WORKING
-		------------------------------------------------*/
-		// Excel::load('vertex_update_price2.xlsx', function($reader) {
-		// 	// Getting all results
-		// 	// $results = $reader->get();
-		// 	// ->all() is a wrapper for ->get() and will work the same
-		// 	// $results = $reader->all();
-		// 	// $results = $reader->first();
-		// 	// $reader->dd();
-
-		// 	$reader->each(function($sheet) {
-		// 		$sheet->each(function($row) {
-
-		// 		});
-		// 	});
-		// });
-
-		// disable using first raw as column names 
-		// $reader->noHeading();
-
-		// ignore empty cells
-		// $reader->ignoreEmpty();
-
-		// Excel::filter('chunk')->load('vertex_update_price2.xlsx', 'UTF-8')->chunk(100, function($results) {
-		// 	foreach($results as $row) {
-		// 		echo $row;
-		// 	}
-		// });
-		
-		// $path = public_path();
-		// $results = Excel::load('vertex_update_price2.xlsx', function($reader) {
-			// $reader->each(function($sheet) {
-			// 	$sheet->each(function($row) {
-			// 		echo $row;
-			// 	});
-			// });
-			// print_r($reader->get());
-		// 	return $reader->get();
-		// })->get();
-
-		// print_r($results);
-		/*----------------------------------------------*/
+		return View::make('admin/admin_import_status')->with([
+			'errors' 	=> $errors,
+			'messages'  => $messages,
+			'added'		=> $added,
+			'SKIP'		=> $SKIP,
+			'missed'	=> $row-$SKIP-1-$added,
+			'time'		=> timer_stop(),
+			'mempeak'	=> mempeak(),
+		]);
 	}
 }
