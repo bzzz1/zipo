@@ -398,7 +398,12 @@ input[type=file].admin_panel_input {
 }
 .admin_select_category_label {
 	font-size: 16px;
-	margin-right: 70px;
+	margin-right: 73px;
+}
+.admin_select_category_div .create_category {
+	display: inline-block;
+	width: auto;
+	float: right;
 }
 .admin_select_title_label {
 	font-size: 16px;
@@ -587,6 +592,7 @@ input[name="hit"] {
 	color: #9dcb20;
 	text-decoration: underline;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 .admin_producer_add:hover {
 	color: black;
