@@ -131,11 +131,6 @@ class ExcelController extends BaseController {
 				}
 
 				// code
-				if ($row==6){
-					echo $code;
-					echo '</br>';
-					print_r($codes);
-				}
 				if (in_array($code, $codes)) {
 					$error .= 'Товар с кодом '.$code.' уже существует! ';
 				}
@@ -178,12 +173,16 @@ class ExcelController extends BaseController {
 
 					try {
 						$item = Item::create($fields);
+						$caught = false;
 					} catch (Exception $e) {
 						$error .= 'UNCAUGHT EXCEPTION! ';
 						$errors[] = $row.' строка. '.$error;
+						$caught = true;
 						continue;
-					} else {
-						// add code only if no exception thrown
+					} 
+
+					// add code only if no exception thrown
+					if (!$caught) {
 						$codes[] = $item->code;
 					}
 				}
