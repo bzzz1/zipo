@@ -327,7 +327,7 @@
 		</div>
 		<div class="catalog_producers">
 			<div class="producers_block_heding">
-				<p class="catalog_subheading subheading_brands sub_moz">По производителю</p>
+				<p class="catalog_subheading subheading_brands">По производителю</p>
 				<hr class="catalog_hr">
 			</div>	
 			<div class = "groups">

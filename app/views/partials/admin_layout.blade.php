@@ -7,13 +7,14 @@
 	<meta name='description' content='Комплексное оснащение баров, ресторанов,кафе, пищевых производств и магазинов.'>
 	@yield('meta')
 	<title>Зип Общепит - Комплексное оснащение баров, ресторанов, кафе, пищевых производств и магазинов</title>
-	<link rel="shortcut icon" href="{{ asset('img/markup/favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ asset('img/markup/favicon_admin.ico') }}">
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/admin.css') }}
 	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/animate-popup.css') }}
+	{{ HTML::style('http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=latin,cyrillic-ext') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.js') }}
 	{{ HTML::script('ckeditor/ckeditor.js') }}

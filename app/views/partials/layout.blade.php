@@ -15,6 +15,9 @@
 	{{ HTML::style('css/animate-popup.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.js') }}
+	<!--[if IE]>
+		{{ HTML::style('css/ie.css') }}
+	<![endif]-->
 
 	@yield('css')
 </head>

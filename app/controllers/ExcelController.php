@@ -36,7 +36,7 @@ class ExcelController extends BaseController {
 
 		timer_start();
 
-		set_time_limit(1*60);
+		set_time_limit(10*60);
 		ini_set('memory_limit', '256M');
 		$memoryCacheSizeMb = 10;
 		$excel_file = HELP::$EXCEL_IMPORT_DIR.DIRECTORY_SEPARATOR.'excel.xlsx';
@@ -131,6 +131,11 @@ class ExcelController extends BaseController {
 				}
 
 				// code
+				if ($row==6){
+					echo $code;
+					echo '</br>';
+					print_r($codes);
+				}
 				if (in_array($code, $codes)) {
 					$error .= 'Товар с кодом '.$code.' уже существует! ';
 				}
@@ -172,11 +177,14 @@ class ExcelController extends BaseController {
 					];
 
 					try {
-						Item::create($fields);
+						$item = Item::create($fields);
 					} catch (Exception $e) {
 						$error .= 'UNCAUGHT EXCEPTION! ';
 						$errors[] = $row.' строка. '.$error;
 						continue;
+					} else {
+						// add code only if no exception thrown
+						$codes[] = $item->code;
 					}
 				}
 

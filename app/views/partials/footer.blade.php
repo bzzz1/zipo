@@ -16,7 +16,7 @@
 			</nav>
 			<div class="footer_description_block">
 				<p class="footer_description">Кухонное оборудование запасные части<br>
-				к оборудованию предприятий общественного<br> питания</p>
+				к оборудованию предприятий общественного питания</p>
 				<p class="footer_copy"><i class="fa fa-copyright"></i>2015. "Зип Общепит" All rights reserved</p>
 				<p class="footer_link">made by <a href="http:www.dev.bzzz.biz.ua">bzzz! web development studio</a></p>
 			</div>	
