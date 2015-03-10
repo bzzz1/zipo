@@ -24,7 +24,7 @@
 		<div class="admin_panel_discount_div">
 			<p class="admin_uni_label">% Скидка для<br> зарегистрированных<br> пользователей</p>
 			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'admin_discount_input')) }}
-				{{ Form::text('discount', $discount, ['class'=>'form-control discount_input']) }} 
+				{{ Form::text('discount', $discount, ['class'=>'form-control discount_input', 'required']) }} 
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>

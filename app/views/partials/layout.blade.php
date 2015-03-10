@@ -15,9 +15,11 @@
 	{{ HTML::style('css/animate-popup.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
+	{{ HTML::script('js/bootstrap.min.js') }}
 	<!--[if IE]>
 		{{ HTML::style('css/ie.css') }}
 	<![endif]-->
+	
 
 	@yield('css')
 	<script>
@@ -66,10 +68,8 @@
 	</div>	
 	@yield('footer')
 
-	{{ HTML::script('js/jquery.columnizer.js') }}
 	{{ HTML::script('js/script.js') }}
 	{{ HTML::script('js/common.js') }}
-	{{ HTML::script('js/bootstrap.min.js') }}
 	@yield('js')
 </body>
 </html>

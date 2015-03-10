@@ -21,6 +21,7 @@
 	{{ HTML::script('js/jquery.ui.widget.js') }}
 	{{ HTML::script('js/jquery.iframe-transport.js') }}
 	{{ HTML::script('js/jquery.fileupload.js') }}
+	{{ HTML::script('js/bootstrap.min.js') }}
 
 	@yield('css')
 </head>
@@ -34,10 +35,8 @@
 	</div>	
 	@yield('footer')
 
-	{{ HTML::script('js/jquery.columnizer.js') }}
 	{{ HTML::script('js/common.js') }}
 	{{ HTML::script('js/admin.js') }}
-	{{ HTML::script('js/bootstrap.min.js') }}
 	@yield('js')
 </body>
 </html>
