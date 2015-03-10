@@ -27,11 +27,13 @@
 						<button type="button" class="btn btn-default login_button mfp-zoom-out" data-effect="mfp-zoom-out">Войти</button>
 						<a href="/registration" class="btn btn-default reg_button">Регистрация</a>
 					</div>
-					<div class="start_mes alert alert-info alert-dismissible" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
-						<p class="mes_text_num">-{{Cred::getDiscount()}}%</p>
-						<p class="message_text start_text">при<br><a href="/registration" class="alert-link">регистрации</a></p>
-					</div>
+					@if (Cred::getDiscount()>0)
+						<div class="start_mes alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
+								<p class="mes_text_num">-{{Cred::getDiscount()}}%</p>
+							<p class="message_text start_text">при<br><a href="/registration" class="alert-link">регистрации</a></p>
+						</div>
+					@endif	
 					<div class="header_login mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						{{ Form::open(['url'=>'/user_login', 'method'=>'POST', 'class'=>'login_form input-group']) }}
 							<p class="login_form_title">Вход на сайт</p>
