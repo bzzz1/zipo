@@ -29,7 +29,7 @@
 					</div>
 					<div class="start_mes alert alert-info alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
-						<p class="mes_text_num">-3%</p>
+						<p class="mes_text_num">-{{Cred::getDiscount()}}%</p>
 						<p class="message_text start_text">при<br><a href="/registration" class="alert-link">регистрации</a></p>
 					</div>
 					<div class="header_login mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
