@@ -1117,8 +1117,8 @@ form {
 	margin: 10px 16px;
 }
 .price_load a {
+	overflow: hidden;
 	margin-left: 10px;
-	display: table;
 	margin: auto;
 	text-align: left;
 	color: #383838;
@@ -1129,6 +1129,8 @@ form {
 }
 .price_load a:hover {
 	text-decoration: none;
+	overflow: visible;
+	display: table;
 }
 
 /*DELIVERY*/
