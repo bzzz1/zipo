@@ -3,6 +3,9 @@
 class HELP {
 
 	// can't use function calls here!!!
+	public static $admin_email;
+	public static $site_email;
+	public static $site_password;
 	public static $PRICES_DIR; 
 	public static $EXCEL_IMPORT_DIR;
 	public static $ITEM_PHOTO_DIR;
@@ -11,6 +14,9 @@ class HELP {
 	public static $categories;
 
 	public function __construct() {
+		static::$admin_email = 'beststrelok@gmail.com';
+		static::$site_email = 'sportsecretshop@gmail.com';
+		static::$site_password = '080493210893';
 		static::$PRICES_DIR = public_path().DIRECTORY_SEPARATOR.'prices';
 		static::$EXCEL_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'excel';
 		static::$ITEM_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
@@ -209,15 +215,19 @@ class HELP {
 		return $normal;
 	}
 
-	public static function sendMail($data, $subject, $view, $email='beststrelok@gmail.com') {
+	public static function sendMail($data, $subject, $view, $email=null) {
+		if (! $email) {
+			$email = HELP::$admin_email;
+		}
+
 		$mail = new PHPMailer;
 		$mail->CharSet = "UTF-8";
 
 		$mail->isSMTP(); // Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true; // Enable SMTP authentication
-		$mail->Username = 'sportsecretshop@gmail.com'; // SMTP username
-		$mail->Password = '080493210893'; // SMTP password
+		$mail->Username = HELP::$site_email; // SMTP username
+		$mail->Password = HELP::$site_password; // SMTP password
 		$mail->SMTPSecure = 'tls'; // Enable encryption, 'ssl' also accepted
 		$mail->Port = 587;         // TCP port to connect to
 

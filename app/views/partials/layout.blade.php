@@ -16,6 +16,7 @@
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
 	{{ HTML::script('js/bootstrap.min.js') }}
+	{{ HTML::script('js/betterContactForm.js') }}
 	<!--[if IE]>
 		{{ HTML::style('css/ie.css') }}
 	<![endif]-->

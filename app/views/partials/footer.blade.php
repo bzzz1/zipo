@@ -22,4 +22,5 @@
 			</div>	
 		</div>
 	</div>
+	<a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger">Contact Form</a>
 @stop

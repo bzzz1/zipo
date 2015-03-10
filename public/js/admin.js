@@ -346,3 +346,25 @@ $('form.admin_panel_import input[type="file"]').on('click', function() {
 	var index = filepath.lastIndexOf("\\");
 	console.log(index);
 });
+
+/*------------------------------------------------
+| RUN CONTSCT FROM BUTTON
+------------------------------------------------*/
+$('.contact_form_button').on('click', function(evt) {
+	evt.preventDefault();
+	var contactFormTag = $('#bcf-trigger')[0];
+
+	if ('click' in contactFormTag) {
+		contactFormTag.click();
+	} else { // doesn't work with $('#bcf-trigger')[0].click() in Safari
+		var evObj = document.createEvent('MouseEvents');
+		evObj.initMouseEvent('click', true, true, window);
+		contactFormTag.dispatchEvent(evObj);
+	}
+
+	// if (typeof contactFormTag.click != 'undefined') {} // should work fine
+	// if (contactFormTag.hasOwnProperty('click')) {} // not own property!
+	
+	// return false; // doesn't work even in IE11 and Mozilla with dispatchEvent() but fine with just click()
+});
+/*----------------------------------------------*/
