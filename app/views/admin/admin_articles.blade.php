@@ -19,9 +19,8 @@
 						<i class="fa fa-pencil change_article_icon"></i>
 					</a>
 					{{ Form::open(array('url' => "/admin/delete_article?article_id=$article->article_id", 'method' => 'POST', 'class'=>'admin_article_one_form')) }}
-						<i class="fa fa-times delete_article_icon"></i>
+						<i class="fa fa-times delete_items_group_icon"></i>
 					{{ Form::close() }}
-					<!-- <i class="fa fa-times delete_article_icon"></i>  -->
 				</p>
 				@if (strLen($article->title) <=60)
 					<div class="admin_article_title">

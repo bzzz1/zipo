@@ -150,7 +150,7 @@ class AdminController extends BaseController {
 	}
 
 	public function delete_item() {
-		$item = Item::find(Input::get('iteme_id'));
+		$item = Item::find(Input::get('item_id'));
 		if ($item->photo != 'no_photo.png') {
 			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$item->photo;
 			File::delete($filepath);
