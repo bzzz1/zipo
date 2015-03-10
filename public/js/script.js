@@ -34,8 +34,8 @@ $(window).load(function() {
 	var $body = $('body');
 	var page_height = $body.height();
 	var sidebar_height = $left_sidebar.height();
-	//was 80
-	var max = page_height - sidebar_height - 129;
+
+	var max = page_height - sidebar_height - 111;
 	$window.on('scroll', function() { 
 		var scroll = $window.scrollTop();
 		// was max-342 +30

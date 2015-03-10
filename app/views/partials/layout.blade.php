@@ -68,6 +68,10 @@
 		@yield('body')
 	</div>	
 	@yield('footer')
+	<a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger">Contact Form</a>
+	<div id="scrollup">
+		<i class="fa fa-arrow-circle-up to_top_button fa-4x"></i>
+	</div>
 
 	{{ HTML::script('js/script.js') }}
 	{{ HTML::script('js/common.js') }}
