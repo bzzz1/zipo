@@ -21,11 +21,11 @@
 		{{ Form::open(['url'=>'/registration', 'method'=>'POST', 'class'=>'register_form']) }}
 			<table class="change_input_register">
 				<tr>
-					<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::text('name', null, ['class'=>'change_input_register form-control', 'required']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('surname', 'Фамилия: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('surname', 'Фамилия: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::text('surname', null, ['class'=>'change_input_register form-control', 'required']) }}</td>
 				</tr>
 				<tr>
@@ -33,11 +33,11 @@
 					<td>{{ Form::text('company', null, ['class'=>'change_input_register change_input_register_code form-control']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('email', 'E-Mail: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('email', 'E-Mail: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::text('email', null, ['class'=>'change_input_register change_input_register_code form-control', 'required']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('phone', 'Телефон: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('phone', 'Телефон: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::text('phone', null, ['class'=>'change_input_register change_input_register_code form-control', 'required']) }}</td>
 				</tr>
 				<tr>
@@ -45,11 +45,11 @@
 					<td>{{ Form::select('activity',['Технолог' => 'Технолог','Владелец' => 'Владелец', 'Инжинер' => 'Инженер'], '', ['class'=>'change_input_register change_input_register_code form-control']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('password', 'Пароль: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('password', 'Пароль: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::password('password', ['class'=>'change_input_register change_input_register_short form-control','required']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('confirm', 'Подтверждение пароля: ', ['class'=>'main_label']) }}</td>
+					<td class="req">{{ Form::label('confirm', 'Подтверждение пароля: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::password('confirm', ['class'=>'change_input_register change_input_register_code form-control', 'required']) }}</td>
 				</tr>
 			</table>
