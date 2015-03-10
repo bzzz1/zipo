@@ -67,7 +67,8 @@ function send_category(category) {
 /*------------------------------------------------
 | DELETE ICON FORM SUBMIT
 ------------------------------------------------*/
-$('.delete_items_group_icon').on('click', function() {
+$('.delete_items_group_icon').on('click', function(evt) {
+	evt.preventDefault();
 	if (confirm('Подтвердить удаление')) {
 		$form = $(this).closest('form');
 		$form.trigger('submit');
