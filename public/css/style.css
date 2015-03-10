@@ -48,9 +48,17 @@ p,h1,h2,h3,h4,h5,a {
 	}
 }	
 /*HEPLERS*/
+label {
+	display: initial;
+}
+.req:after  {
+	display: inline-block;
+	content: "*";
+	color: red;
+}
 /*:required {
-  
-}*/
+	display: inline-block;
+};*/
 /*MESSAGE*/
 .message {
 	width: 1132px;

@@ -49,8 +49,8 @@
 			{{ Form::open(['url'=>'/feedback', 'method'=>'POST', 'class'=>'item_form admin_info_form']) }}
 				<table class="contacts_form_table">
 					<tr>
-						<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::text('name', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
+						<td class="req">{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
+						<td>{{ Form::text('name', null, ['class'=>'change_input_contacts form-control req', 'required']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
@@ -61,16 +61,16 @@
 						<td>{{ Form::text('phone', null, ['class'=>'change_input_contacts form-control']) }}</td>
 					</tr>
 					<tr>
-						<td>{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::email('email', null, ['class'=>'change_input_contacts form-control', 'required']) }}</td>
+						<td class="req">{{ Form::label('email', 'E-mail: ', ['class'=>'main_label']) }}</td>
+						<td>{{ Form::email('email', null, ['class'=>'change_input_contacts form-control req', 'required']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ Form::label('theme', 'Тема письма: ', ['class'=>'main_label']) }}</td>
 						<td>{{ Form::text('theme', null, ['class'=>'change_input_contacts form-control']) }}</td>
 					</tr>
 					<tr>
-						<td>{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
-						<td>{{ Form::textarea('body', null, ['class'=>'change_input_contacts contacts_form_body form-control', 'required']) }}</td>
+						<td class="req">{{ Form::label('body', 'Текст: ', ['class'=>'main_label']) }}</td>
+						<td>{{ Form::textarea('body', null, ['class'=>'change_input_contacts contacts_form_body form-control req', 'required']) }}</td>
 					</tr>
 				</table>
 				{{ Form::submit('Отправить', ['class'=>'btn submit_field save_button']) }} 
