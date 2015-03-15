@@ -99,3 +99,96 @@ $categories.on('click', function() {
 							});
 				}
 });				
+
+
+/*------------------------------------------------
+| CONTACT FORM
+------------------------------------------------*/
+
+// setInterval(function() { 
+// 	$('#bcf-trigger img').css({
+// 		'background': '-moz-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 		'background': '-webkit-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 		'background': '-o-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 		'background': '-ms-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 		'background': 'linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 	});
+// 	setTimeout(function() { 
+// 		$('#bcf-trigger img').css({
+// 			'background': '-moz-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 			'background': '-webkit-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 			'background': '-o-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 			'background': '-ms-linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 			'background': 'linear-gradient(to left, #772533 25%, #5a1c23 50%, #4b171b 75%, #3f1216 100%)',
+// 		});
+// 		setTimeout(function() { 
+// 			$('#bcf-trigger img').css({
+// 				'background': '-moz-linear-gradient(to left, #3f1216 25%, #772533 50%, #5a1c23 75%, #4b171b 100%)',
+// 				'background': '-webkit-linear-gradient(to left, #3f1216 25%, #772533 50%, #5a1c23 75%, #4b171b 100%)',
+// 				'background': '-o-linear-gradient(to left, #3f1216 25%, #772533 50%, #5a1c23 75%, #4b171b 100%)',
+// 				'background': '-ms-linear-gradient(to left, #3f1216 25%, #772533 50%, #5a1c23 75%, #4b171b 100%)',
+// 				'background': 'linear-gradient(to left, #3f1216 25%, #772533 50%, #5a1c23 75%, #4b171b 100%)',
+// 			});
+// 			setTimeout(function() { 
+// 				$('#bcf-trigger img').css({
+// 					'background': '-moz-linear-gradient(to left, #4b171b 25%, #3f1216 50%, #772533 75%, #5a1c23 100%)',
+// 					'background': '-webkit-linear-gradient(to left, #4b171b 25%, #3f1216 50%, #772533 75%, #5a1c23 100%)',
+// 					'background': '-o-linear-gradient(to left, #4b171b 25%, #3f1216 50%, #772533 75%, #5a1c23 100%)',
+// 					'background': '-ms-linear-gradient(to left, #4b171b 25%, #3f1216 50%, #772533 75%, #5a1c23 100%)',
+// 					'background': 'linear-gradient(to left, #4b171b 25%, #3f1216 50%, #772533 75%, #5a1c23 100%)',
+// 				});
+// 				setTimeout(function() { 
+// 					$('#bcf-trigger img').css({
+// 						'background': '-moz-linear-gradient(to left, #5a1c23 25%, #4b171b 50%, #3f1216 75%, #772533 100%)',
+// 						'background': '-webkit-linear-gradient(to left, #5a1c23 25%, #4b171b 50%, #3f1216 75%, #772533 100%)',
+// 						'background': '-o-linear-gradient(to left, #5a1c23 25%, #4b171b 50%, #3f1216 75%, #772533 100%)',
+// 						'background': '-ms-linear-gradient(to left, #5a1c23 25%, #4b171b 50%, #3f1216 75%, #772533 100%)',
+// 						'background': 'linear-gradient(to left, #5a1c23 25%, #4b171b 50%, #3f1216 75%, #772533 100%)',
+// 					});
+
+// 				}, 150);
+// 			}, 150);
+// 		}, 150);
+// 	}, 150);
+// }, 750)
+
+/*------------------------------------------------
+| SCROLL TO TOP BUTTON
+------------------------------------------------*/
+$('#scrollup').mouseover(function(){
+	$(this).animate({opacity: 0.65},100);
+}).mouseout( function(){
+	$(this).animate({opacity: 1},100);
+}).click(function(){
+	window.scroll(0,0); 
+	return false;
+});
+
+$(window).load(function() {
+	var $window = $(window);
+	var $left_sidebar = $('.left_sidebar');
+	var $right_sidebar = $('.right_sidebar');
+
+	var offset_top = $left_sidebar.offset().top;
+	var $body = $('body');
+	var page_height = $body.height();
+	var sidebar_height = $left_sidebar.height();
+	var max = page_height - sidebar_height - 111;
+
+	$(window).scroll(function(){
+		var scroll = $window.scrollTop();
+
+		if (scroll > max) {
+			$('#scrollup').css('bottom', '140px');
+		} else {
+			$('#scrollup').css('bottom', '10px');
+		}
+
+		if ($(document).scrollTop() > 0) {
+			$('#scrollup').fadeIn('fast');
+		} else {
+			$('#scrollup').fadeOut('fast');
+		}
+	});
+});	
+/*----------------------------------------------*/
