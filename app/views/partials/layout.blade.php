@@ -68,7 +68,14 @@
 		@yield('body')
 	</div>	
 	@yield('footer')
+
 	<a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger"></a>
+	<script>
+		$(window).on('load', function() {
+			$('#bcf-trigger img').attr('src', "{{ asset('icons/online_apply.png') }}" );
+		});
+	</script>
+
 	<div id="scrollup">
 		<i class="fa fa-arrow-circle-up to_top_button fa-4x"></i>
 	</div>

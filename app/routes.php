@@ -68,7 +68,8 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 });
 
 Route::get('/test', function() {
-	// echo url('foo/bar', [5, 10]);
+	// $r = Subcat::where('subcat', 'Конфорки')->lists('subcat_id')[0];
+	// dd($r);
 });
 
 Route::get('/{category}/{subcat}', 'MainController@items');
