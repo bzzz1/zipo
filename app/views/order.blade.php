@@ -4,6 +4,12 @@
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
 
+@section('meta')
+	<title>Зип Общепит -{{ $item->title }}. Страница заказа</title>
+	<meta name='keywords' content='{{ $item->producer }} - {{ $item->title }}. Страница заказа'>
+	<meta name='description' content='{{ $item->producer }} - {{ $item->title }}. {{ $item->description }}. Страница заказа'>
+@stop
+
 @section('body')
 	<div class="main_content">
 		<h2 class="order_heading universal_heading">Форма заказа</h2>

@@ -4,13 +4,11 @@
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
 
-{{--
 @section('meta')
-	<meta name='keywords' content="{{$item->title}}">
-	<meta name='description' content="{{$item->description}}">
-@stop 
---}}
-
+	<title>Зип Общепит - {{ $item->title }}</title>
+	<meta name='keywords' content='{{ $item->producer }} - {{ $item->title }} купить в Санкт-Петербурге'>
+	<meta name='description' content='{{ $item->producer }} - {{ $item->title }}. {{ $item->description }}'>
+@stop
 
 @section('body')
 	<div class="main_content">

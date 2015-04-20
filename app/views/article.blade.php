@@ -4,6 +4,12 @@
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
 
+@section('meta')
+	<title>Зип Общепит - {{ $article->title }}</title>
+	<meta name='keywords' content='{{ $article->title }} - Зип Общепит'>
+	<meta name='description' content='{{ $article->title }}  - Зип Общепит'>
+@stop
+
 @section('body')
 	<div class="main_content">
 		<ol class="breadcrumb">
@@ -16,7 +22,7 @@
 		<p class="article_heading">{{ $article->title }}</p>
 		<p class="article_date">{{ $HELP::formatDate($article->time) }}</p>
 		<hr class="main_hr main_hr_art">
-		<p class="article_text">{{ $article->body }}</p>
+		<div class="article_text">{{ $article->body }}</div>
 		<a href="/articles" class="all_news">Перейти ко всем новостям >></a>
 	</div>	
 @stop
