@@ -26,10 +26,12 @@
 			@endforeach	
 		</div> --}}
 		<div class="pdf_all_list">
-			<ul>
-				@foreach ($producers as $producer)
-					<li><a href="/pdf/{{$producer->producer}}" class="one_prod_pdf">{{$producer->producer}}</a></li>
-				@endforeach	
+			<ul> 
+				@foreach ($pdf_producers as $producer)
+					<li>
+						{{ HTML::link($HELP::url_slug(['/', 'pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+					</li>	
+				@endforeach 
 			</ul>
 		</div>
 	</div>	
