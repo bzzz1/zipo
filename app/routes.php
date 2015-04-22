@@ -20,6 +20,14 @@ Route::get('/order', 'MainController@order_page');
 Route::post('/order', 'MainController@order');
 Route::get('/search', 'MainController@search');
 Route::post('/user_logout', 'MainController@user_logout');
+
+/*------------------------------------------------
+| PDF
+------------------------------------------------*/
+Route::get('/all_pdf', "PdfController@all_pdf");
+Route::get('/all_pdf/{producer}', "PdfController@all_pdf_by_prod");
+Route::get('/one_pdf', "PdfController@one_pdf");
+
 // Route::post('/delete_file_from_server', 'MainController@delete_file_from_server');
 
 // ADMIN CONTROLLER
