@@ -1,0 +1,74 @@
+$red: #6f2429;
+$black: #292929;
+// For SIDEBAR
+.watch_details {
+	color: $red;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	&:hover {
+		color: $red;
+
+	}
+}
+// For ITEMS BY PRODUCER
+.watch_by_prod_btn {
+	font-size: 14px;
+	color: #fff;
+	background-color: $red;
+	float: right;
+	margin-bottom: 0;
+	margin-top: 9px;
+	&:hover {
+		color: #fff;
+		background-color: lighten($red, 10%);
+	}
+}
+// For ALL PDF PAGE
+.pdf_all_list {
+	ul {
+		list-style-type: none;
+	}
+	a {
+		color: $black;
+		font-size: 16px;
+		font-weight: bold;
+		&:hover {
+			color: $black;
+		}
+	}
+}
+// For ALL PDF BY PRODUCER
+.pdf_list {
+	@extend .pdf_all_list
+}
+// For ONE PDF PAGE
+.pdf_links {
+	@extend .pdf_all_list
+	p {
+		color: $red;
+		font-size: 16px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
