@@ -3,6 +3,7 @@
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
+@include('partials/initial_meta')
 
 @section('body')
 	@if ($errors->has())

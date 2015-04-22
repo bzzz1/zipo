@@ -48,6 +48,7 @@ class ExcelController extends BaseController {
 		$errors = [];
 		$messages = [];
 		$added = 0;
+		$rows = 0;
 
 		/*------------------------------------------------
 		| RETRIEVE DATA
@@ -96,9 +97,7 @@ class ExcelController extends BaseController {
 			| WRITE TO DB
 			------------------------------------------------*/
 			for ($row=1+$SKIP; $row<=$highestRow; ++$row) {
-				$message = '';
-				$error = '';
-
+				
 				$code 			= $objWorksheet->getCellByColumnAndRow(0, $row)->getValue();		
 				$title 			= $objWorksheet->getCellByColumnAndRow(1, $row)->getValue();
 				$description 	= $objWorksheet->getCellByColumnAndRow(2, $row)->getValue();	
@@ -110,89 +109,136 @@ class ExcelController extends BaseController {
 				$subcat 		= $objWorksheet->getCellByColumnAndRow(8, $row)->getValue();
 				$producer 		= $objWorksheet->getCellByColumnAndRow(9, $row)->getValue();
 				$procurement 	= $objWorksheet->getCellByColumnAndRow(10, $row)->getValue();	
-
-				// category
-				if (!in_array($category, $categories)) {
-					$error .= 'Вы ввели неверную категорию. ';
-				}
-
-				// subcat 
-				if (!in_array($subcat, $cat_subcats[$category])) {
-					$created_subcat = Subcat::create(['subcat'=>$subcat, 'category'=>$category]);
-					$cat_subcats[$category][] = $subcat;
-					$message .= 'Добавлена новая подкатегория '.$subcat.' в категорию '.$category.'. ';
-				}
-
-				// producer
-				if (!in_array($producer, $producers)) {
-					$created_producer = Producer::create(['producer'=>$producer]);
-					$producers[] = $producer;
-					$message .= 'Добавлен новый производитель '.$producer.'. ';
-				}
-
-				// code
-				if (in_array($code, $codes)) {
-					$error .= 'Товар с кодом '.$code.' уже существует! ';
-				}
-
-				// price
-				if (!is_float($price)) {
-					$error .= 'Цена должна быть числом. ';
-				} else if ($price < 0) {
-					$error .= 'Цена не может быть отрицательной! ';
-				}
-
-				// hit, cpecial, procurement
-				if (!($hit == 0 || $hit == 1)) {
-					$error .= 'Поле Хит продаж должно иметь значение 0 - нет, 1 - да. ';
-				}
-				if (!($special == 0 || $special == 1)) {
-					$error .= 'Поле Спецпредложение должно иметь значение 0 - нет, 1 - да. ';
-				}
-				if (!($procurement == 0 || $procurement == 1)) {
-					$error .= 'Поле Наличие должно иметь значение 0 - нет, 1 - да. ';
-				}
-
-				if ($error) {
-					$errors[] = $row.' строка. '.$error;
-					continue;
-				} else {
-					// add item to db
-					$fields = [
-						'code' 			=> $code,
-						'title' 		=> $title,
-						'description'   => ($description) ? $description : 'Для данного товара описание отсутствует.',
-						'price' 		=> $price,
-						'currency' 		=> $currency,
-						'hit' 			=> $hit,
-						'special' 		=> $special,
-						'subcat_id' 	=> isset($created_subcat) ? $created_subcat->subcat_id : $subcat,
-						'producer_id'	=> isset($created_producer) ? $created_producer->producer_id : $producer,
-						'procurement' 	=> $procurement,
-					];
-
-					try {
-						$item = Item::create($fields);
-						$caught = false;
-					} catch (Exception $e) {
-						$error .= 'UNCAUGHT EXCEPTION! ';
-						$errors[] = $row.' строка. '.$error;
-						$caught = true;
-						continue;
-					} 
-
-					// add code only if no exception thrown
-					if (!$caught) {
-						$codes[] = $item->code;
+			
+				if (isset($code)) {
+					$message = '';
+					$error = '';
+					$rows++;
+ 
+					//*** code - 0 not empty because of initial condition
+					if (in_array($code, $codes)) {
+						$error .= 'Товар с кодом '.$code.' уже существует! ';
 					}
-				}
 
-				if ($message) {
-					$messages[] = $row.' строка. '.$message;
-				}
+					//*** title - 1
+					if (!isset($title)) {
+						$error .= 'Не указано название! ';
+					}
 
-				// number of added items
-				$added++;
+					//*** description - 2 can be null
+
+					//*** price - 3
+					if (!isset($price)) {
+						$error .= 'Не указана цена! ';
+					} else {
+						if (!is_float($price)) {
+							$error .= 'Цена должна быть числом. ';
+						} else if ($price < 0) {
+							$error .= 'Цена не может быть отрицательной! ';
+						}
+					}
+
+					//*** currency - 4
+					if (!isset($currency)) {
+						$error .= 'Не указана валюта! ';
+					}
+
+					//*** hit - 5
+					if (!isset($hit)) {
+						$error .= 'Не указан хит продаж! ';
+					} else {
+						if (!($hit == 0 || $hit == 1)) {
+							$error .= 'Поле Хит продаж должно иметь значение 0 - нет, 1 - да. ';
+						}
+					}
+
+					//*** special - 6
+					if (!isset($special)) {
+						$error .= 'Не указано спецпредложение! ';
+					} else {
+						if (!($special == 0 || $special == 1)) {
+							$error .= 'Поле Спецпредложение должно иметь значение 0 - нет, 1 - да. ';
+						}
+					}
+
+					//*** category - 7 and subcat - 8 
+					if (!isset($subcat)) {
+						$error .= 'Не указана подкатегория! ';
+					} else if (!isset($category)) {
+						$error .= 'Не указана категория! ';
+					} else {
+						if (!in_array($category, $categories)) {
+							$error .= 'Вы ввели неверную категорию. ';
+						}
+
+						if (!in_array($subcat, $cat_subcats[$category])) {
+							$created_subcat = Subcat::create(['subcat'=>$subcat, 'category'=>$category]);
+							$cat_subcats[$category][] = $subcat;
+							$message .= 'Добавлена новая подкатегория '.$subcat.' в категорию '.$category.'. ';
+						}
+					}
+
+					//*** producer - 9
+					if (!isset($producer)) {
+						$error .= 'Не указан производитель! ';
+					} else {
+						if (!in_array($producer, $producers)) {
+							$created_producer = Producer::create(['producer'=>$producer]);
+							$producers[] = $producer;
+							$message .= 'Добавлен новый производитель '.$producer.'. ';
+						}
+					}
+
+					//*** procurement - 10
+					if (!isset($procurement)) {
+						$error .= 'Не указано наличие! ';
+					} else {
+						if (!($procurement == 0 || $procurement == 1)) {
+							$error .= 'Поле Наличие должно иметь значение 0 - нет, 1 - да. ';
+						}
+					}
+
+					if ($error) {
+						$errors[] = $row.' строка. '.$error;
+						continue;
+					} else {
+						// add item to db
+						$fields = [
+							'code' 			=> $code,
+							'title' 		=> $title,
+							'description'   => ($description) ? $description : 'Для данного товара описание отсутствует.',
+							'price' 		=> $price,
+							'currency' 		=> $currency,
+							'hit' 			=> $hit,
+							'special' 		=> $special,
+							'subcat_id' 	=> isset($created_subcat) ? $created_subcat->subcat_id : Subcat::where('subcat', $subcat)->lists('subcat_id')[0],
+							'producer_id'	=> isset($created_producer) ? $created_producer->producer_id : Producer::where('producer', $producer)->lists('producer_id')[0],
+							'procurement' 	=> $procurement,
+						];
+
+						try {
+							$item = Item::create($fields);
+							$caught = false;
+						} catch (Exception $e) {
+							$error .= 'UNCAUGHT EXCEPTION! ';
+							$errors[] = $row.' строка. '.$error;
+							$caught = true;
+							continue;
+						} 
+
+						// add code only if no exception thrown
+						if (!$caught) {
+							$codes[] = $item->code;
+						}
+					}
+
+					if ($message) {
+						$messages[] = $row.' строка. '.$message;
+					}
+
+					// number of added items
+					$added++;
+				}
 			}
 			$objPHPExcel->disconnectWorksheets();
 			unset($objPHPExcel);
@@ -206,7 +252,7 @@ class ExcelController extends BaseController {
 			'messages'  => $messages,
 			'added'		=> $added,
 			'SKIP'		=> $SKIP,
-			'missed'	=> $row-$SKIP-1-$added,
+			'missed'	=> $rows-$added,
 			'time'		=> timer_stop(),
 			'mempeak'	=> mempeak(),
 		]);

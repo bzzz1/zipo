@@ -55,6 +55,16 @@ function send_category(category) {
 				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
 				$select.append($option);
 			}
+
+			/*------------------------------------------------
+			| Select needed option
+			------------------------------------------------*/
+			var subcat_id = $('#subcat_id').data('id');
+			$('#subcat_id').val(subcat_id);
+			
+			// $('[name=options] option').filter(function() { 
+			//     return ($(this).text() == 'Blue'); //To select Blue
+			// }).prop('selected', true);
 		}, 
 		error: function(data, error, error_details){
 			console.log("err:",error, error_details);

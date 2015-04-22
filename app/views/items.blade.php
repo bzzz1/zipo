@@ -1,9 +1,9 @@
-
 @extends('partials/layout')
 @extends('partials/header')
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
+@include('partials/initial_meta')
 
 @section('body')
 	<div class="main_content">

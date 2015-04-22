@@ -3,10 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name='viewport' content='width=1200'>
-	<meta name='keywords' content='Оборудование для баров, кафе, ресторанов, комплексное оснащение баров, ксобровождение баров, техника для баров, кафе ресторанов, техника для общепита, открытие ресторана Россия, техника для точек питания, запчасти для техники, запчасти для барного оборудования, запчасти для холодильного оборудования, запчасти для пекарского оборудования, запчасти для производственного оборудования, запчасти для кафе, холодильное оборудование, барное оборудование, пекарское оборудование, нейтральное оборудование, Санкт-Петербург, Россия'>
-	<meta name='description' content='Комплексное оснащение баров, ресторанов,кафе, пищевых производств и магазинов.'>
+	
 	@yield('meta')
-	<title>Зип Общепит - Комплексное оснащение баров, ресторанов, кафе, пищевых производств и магазинов</title>
+	
 	<link rel="shortcut icon" href="{{ asset('img/markup/favicon.ico') }}">
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
@@ -68,7 +67,13 @@
 		@yield('body')
 	</div>	
 	@yield('footer')
-	<a id="bcf_trigger" href="http://bettercontactform.com" rel="bcf_trigger"></a>
+
+	<script>
+		$(window).on('load', function() {
+			$('#bcf-trigger img').attr('src', "{{ asset('icons/online_apply.png') }}" );
+		});
+	</script>
+
 	<div id="scrollup">
 		<i class="fa fa-arrow-circle-up to_top_button fa-4x"></i>
 	</div>
