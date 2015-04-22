@@ -39,7 +39,7 @@
 					</ul>	
 				</div>
 			</div>
-			<a href="/pdf" class="watch_details">Посмотреть все деталировки</a>
+			<a href="/all_pdf" class="watch_details">Посмотреть все деталировки</a>
 			<div class="left_sidebar_recent">
 				@if ($recents)
 				<h3 class="recent_heading">Недавно просмотренные</h3>
@@ -51,8 +51,8 @@
 				@endif
 			</div>
 		</div>
-  		<p><a href="Pasport_na_PMM_F1_s_kartinkami.pdf">to the PDF!</a></p>
-		{{HTML::link("/Pasport_na_PMM_F1_s_kartinkami.pdf", "Pasport_na_PMM_F1_s_kartinkami.pdf",['target'=>'_blank']) }}
+  		{{-- <p><a href="Pasport_na_PMM_F1_s_kartinkami.pdf">to the PDF!</a></p> --}}
+		{{-- {{HTML::link("/Pasport_na_PMM_F1_s_kartinkami.pdf", "Pasport_na_PMM_F1_s_kartinkami.pdf",['target'=>'_blank']) }} --}}
 
 	</div>
 @stop	

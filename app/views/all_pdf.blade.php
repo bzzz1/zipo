@@ -15,7 +15,7 @@
 			<ul> 
 				@foreach ($pdf_producers as $producer)
 					<li>
-						{{ HTML::link($HELP::url_slug(['/', 'pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+						{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 					</li>	
 				@endforeach 
 			</ul>
