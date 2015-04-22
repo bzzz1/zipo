@@ -12,6 +12,7 @@
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/animate-popup.css') }}
+	{{ HTML::style('css/pdf.css') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
 	{{ HTML::script('js/bootstrap.min.js') }}

@@ -39,6 +39,7 @@
 					</ul>	
 				</div>
 			</div>
+			<a href="/pdf" class="watch_details">Посмотреть все деталировки</a>
 			<div class="left_sidebar_recent">
 				@if ($recents)
 				<h3 class="recent_heading">Недавно просмотренные</h3>
