@@ -9,7 +9,7 @@ class Producer extends Eloquent {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');
 	}
 
-	public function pdfs() {
+	public function pdf() {
 		return $this->belongsTo('Pdf', 'producer_id', 'producer_id');
 	}
 /*------------------------------------------------
