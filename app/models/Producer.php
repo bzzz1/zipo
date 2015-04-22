@@ -8,6 +8,10 @@ class Producer extends Eloquent {
 	public function items() {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');
 	}
+
+	public function pdfs() {
+		return $this->belongsTo('Pdf', 'producer_id', 'producer_id');
+	}
 /*------------------------------------------------
 | READ
 ------------------------------------------------*/
