@@ -14,7 +14,7 @@ class Item extends Eloquent {
 	// }
 
 	public function pdfs() {
-        return $this->belongsToMany('Pdf');
+        return $this->belongsToMany('Pdf'); // optional second argument is pivot table name
     }
 
 	public function producer() {
