@@ -7,10 +7,8 @@
 	<div class="main_content">
 		<ol class="breadcrumb">
 		  <li><a href="/">Каталог</a></li>
-		  {{-- <li>{{HTML::link($HELP::url_slug(["/", "category", "/", "$item->category"]), $HELP::getNormal($item->category)) }}</li> --}}
-		  {{-- <li>{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat"])."?subcat_id=$item->subcat_id", $item->subcat) }}</li> --}}
-		  {{-- <li class="active">Деталировки {{$producer}}</li> --}}
-		  <li class="active">Деталировки производителя</li>
+		  <li>{{HTML::link($HELP::url_slug(["/all_pdf"]), "Все деталировки" }}</li>
+		  <li class="active">Деталировки {{$producer->producer}}</li>
 		</ol>
 		<h4 class="universal_heading">Деталировки производителя</h4>
 		<hr class="main_hr">
@@ -18,7 +16,7 @@
 			<ul> 
 				@foreach ($pdfs as $pdf)
 					<li>
-						{{ HTML::link($HELP::url_slug(['/', 'pdf', '/', "$pdf->file"])."?pdf_id=$pdf->pdf_id", $pdf->pdf_file)}}
+						{{ HTML::link($HELP::url_slug(['/one_pdf'])."?pdf_id=$pdf->pdf_id"."&producer_id=$pdf->producer_id", $pdf->pdf_file)}}
 					</li>	
 				@endforeach 
 			</ul>

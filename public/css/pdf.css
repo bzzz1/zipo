@@ -33,4 +33,11 @@
   margin-top: 20px;
   margin-bottom: 10px; }
 
+.pdf_reader a {
+  color: #292929;
+  font-size: 20px;
+  font-weight: bold; }
+  .pdf_reader a:hover {
+    color: #292929; }
+
 /*# sourceMappingURL=pdf.css.map */
