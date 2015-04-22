@@ -2,7 +2,7 @@
 class PdfController extends BaseController {
 	public function all_pdf() {
 		return View::make('all_pdf')->with([
-			'pdf_producers' => Pdf::allProducers(),
+			'pdf_producers' => Producer::allPdfs(),
 			'articles'		=> Article::readAllArticles(),
 			'recents'		=> Recent::readAllRecents(),
 			'env' 			=> 'catalog'

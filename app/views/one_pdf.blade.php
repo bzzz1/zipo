@@ -7,8 +7,8 @@
 	<div class="main_content">
 		<ol class="breadcrumb">
 		  <li><a href="/">Каталог</a></li>
-		  <li>{{HTML::link($HELP::url_slug(["/all_pdf"], "Все деталировки") }}</li>
-		  <li>{{HTML::link($HELP::url_slug(["/", "all_pdf", "/", "$producer->producer"], $producer->producer) }}</li>
+		  <li>{{HTML::link("/all_pdf", "Все деталировки") }}</li>
+		  <li>{{HTML::link($HELP::url_slug(["/", "all_pdf", "/", "$producer->producer"]), $producer->producer) }}</li>
 		  <li class="active">{{$pdf->good}}</li>
 		</ol>
 		<h4 class="universal_heading">Деталировка {{$pdf->title}}({{$producer->producer}})</h4>
