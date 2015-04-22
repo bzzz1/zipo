@@ -15,11 +15,12 @@
 		<h4 class="universal_heading">Деталировки производителя</h4>
 		<hr class="main_hr">
 		<div class="pdf_list">
-			<ul>{{-- 
+			<ul> 
 				@foreach ($pdfs as $pdf)
-					<li><a href="/pdf/{{$pdf->title}}">{{$pdf->title}}</a></li>
-				@endforeach  pdf_id--}}
-				<li><a href="/pdf/{{$pdf->title}}">Название файла пдф</a></li>
+					<li>
+						{{ HTML::link($HELP::url_slug(['/', 'pdf', '/', "$pdf->file"])."?pdf_id=$pdf->pdf_id", $pdf->pdf_file)}}
+					</li>	
+				@endforeach 
 			</ul>
 		</div>
 	</div>	

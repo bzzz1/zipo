@@ -21,11 +21,13 @@
 			</div>
 			<div class="pdf_links">
 				<p>У нас вы можете приобрести следующие запчасти и комплектующие: </p>
-				<ul>{{-- 
-					@foreach ($links as $link)
-						<li><a href="{{link}}">{{$item->$title}}</a></li>
-					@endforeach	 --}}
-					<li><a href="{{link}}">Название запчасти</a></li>
+				<ul>
+					@foreach ($items as $item)
+						<li>
+							{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'']) }}
+							{{-- {{ HTML::link($HELP::url_slug(['/', 'pdf', '/', "$link->title"])."?producer_id=$pdf->pdf_id", $pdf->pdf_file)}} --}}
+						</li>
+					@endforeach	
 				</ul>
 			</div>
 		</div>
