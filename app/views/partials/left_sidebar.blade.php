@@ -50,6 +50,7 @@
 				@endforeach
 				@endif
 			</div>
-		</div>	
+		</div>
+  		<p><a href="Pasport_na_PMM_F1_s_kartinkami.pdf">to the PDF!</a></p>
 	</div>
 @stop	
