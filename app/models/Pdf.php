@@ -5,7 +5,6 @@ class Pdf extends Eloquent {
 	public $timestamps = false;
 	public $primaryKey = 'pdf_id';
 
-	// Pdf::find(1)->producer->producer
 	public function producer() {
 		return $this->hasOne('Producer', 'producer_id', 'producer_id');
 	}
@@ -13,4 +12,18 @@ class Pdf extends Eloquent {
 	public function items() {
         return $this->belongsToMany('Item'); // optional second argument is pivot table name
     }
+
+/*----------------------------------------------*/
+    public function scopeAllProducers($query) {
+        // return $query->;
+    }
+
+    public function scopeAllPdfByProd($query, $producer_id) {
+    	// $producer_id = Input::get('producer_id');
+        return $query->where('producer_id', $producer_id)->get();
+    }
+
+    // public function scopeItemsByPdf($query) {
+    // 	// return $query->;
+    // }
 }
