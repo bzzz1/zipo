@@ -60,5 +60,15 @@ class PdfController extends BaseController {
 			return Redirect::to('/admin')->withErrors('Pdf файл не выбран!');
 		}
 	}
+
+	public function list_pdf() {
+		return View::make('admin/admin_pdfs')->with([
+			'pdfs'		=> Pdf::allPdfByProd(Input::get('producer_id')),
+		]);
+	}
+
+	public function delete_pdf() {
+		return Redirect::back();
+	}
 }
 
