@@ -85,4 +85,19 @@
     float: right;
     margin-right: 10px; }
 
+.all_pdfs {
+  list-style: none; }
+  .all_pdfs li {
+    font-size: 16px;
+    font-weight: bold; }
+  .all_pdfs a {
+    color: #292929; }
+    .all_pdfs a:hover {
+      color: #292929; }
+
+.del_pdf {
+  margin-right: 10px; }
+  .del_pdf:hover {
+    cursor: pointer; }
+
 /*# sourceMappingURL=pdf.css.map */

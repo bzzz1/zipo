@@ -87,6 +87,19 @@ $('.delete_items_group_icon').on('click', function(evt) {
 	}
 });
 /*----------------------------------------------*/
+/*------------------------------------------------
+| DELETE PDF ICON FORM SUBMIT
+------------------------------------------------*/
+$('.del_pdf').on('click', function(evt) {
+	evt.preventDefault();
+	if (confirm('Подтвердить удаление')) {
+		$form = $(this).closest('form');
+		$form.trigger('submit');
+	} else {
+		return false;
+	}
+});
+/*----------------------------------------------*/
 
 // CLEAR ITEM BUTTON
 $('.clear_item_button').on('click', function(e) {
