@@ -18,26 +18,51 @@
     color: #fff;
     background-color: #963037; }
 
-.pdf_all_list ul, .pdf_list ul, .pdf_links ul {
+.pdf_all_list ul, .pdf_list ul {
   list-style-type: none; }
-.pdf_all_list a, .pdf_list a, .pdf_links a {
+.pdf_all_list a, .pdf_list a {
   color: #292929;
   font-size: 16px;
   font-weight: bold; }
-  .pdf_all_list a:hover, .pdf_list a:hover, .pdf_links a:hover {
+  .pdf_all_list a:hover, .pdf_list a:hover {
     color: #292929; }
 
-.pdf_links p {
+.pdf_links .head {
   color: #6f2429;
   font-size: 16px;
   margin-top: 20px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  padding-left: 15px; }
 
-.pdf_reader a {
-  color: #292929;
-  font-size: 20px;
+.pdf_reader {
+  padding-left: 15px; }
+  .pdf_reader a {
+    color: #292929;
+    font-size: 17px;
+    font-weight: bold; }
+    .pdf_reader a:hover {
+      color: #292929; }
+  .pdf_reader .load {
+    margin-top: 10px; }
+  .pdf_reader p {
+    font-size: 15px;
+    display: inherit;
+    margin-bottom: 5px; }
+
+.pdf_links p {
   font-weight: bold; }
-  .pdf_reader a:hover {
-    color: #292929; }
+
+.delete_group_button {
+  float: right;
+  margin-right: 10px;
+  padding-left: 22px;
+  padding-right: 24px; }
+
+.spec_btn_adm {
+  padding-left: 31px;
+  padding-right: 32px; }
+
+.proc_btn_adm {
+  margin-left: 34px; }
 
 /*# sourceMappingURL=pdf.css.map */

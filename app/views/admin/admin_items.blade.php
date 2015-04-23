@@ -118,9 +118,9 @@
 		<div class="admin_items_footer_main">
 			<div class="admin_items_footer">
 				<div class="change_items_buttons_first">
-					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_special'>Добавить в спецпредложения</a>
+					<a class="btn admin_uni_button ajax_change_state spec_btn_adm" data-url='/admin/ajax_set_special'>Добавить в спецпредложения</a>
 					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_hit'>Сделать хитом продаж</a>
-					<a class="btn admin_uni_button ajax_change_state" data-url='/admin/ajax_set_procurement'>Изменить наличие</a>
+					<a class="btn admin_uni_button ajax_change_state proc_btn_adm" data-url='/admin/ajax_set_procurement'>Изменить наличие</a>
 				</div>
 				<div class="change_items_buttons_second">
 					<a class="btn admin_uni_button ad_it_ch_c mfp-zoom-out" data-effect="mfp-zoom-out">Изменить категорию/подкатегорию</a>
@@ -138,7 +138,7 @@
 							<a class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>	
 					</div>
-
+					<a class="btn add_to_pdf admin_uni_button">Добавить ссылки к PDF</a>
 					<a class="btn delete_group_button admin_uni_button">Удалить товары</a>
 				</div>
 			</div>

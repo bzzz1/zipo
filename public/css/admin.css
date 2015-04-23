@@ -876,10 +876,9 @@ input[name="hit"] {
 .change_items_buttons_second {
 	border: 1px solid #757272;
 	padding: 15px 18px;
-	width: 565px;
 }
 .change_items_buttons_first a {
-	margin-right: 110px;
+	margin-right: 74px;
 }
 .change_items_buttons_first a:last-child {
 	margin-right: 0px;

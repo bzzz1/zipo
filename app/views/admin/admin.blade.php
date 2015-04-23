@@ -28,5 +28,6 @@
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
+		
 	</div>
 @stop
