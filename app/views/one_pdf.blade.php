@@ -110,7 +110,7 @@
 								</div>
 							</div>	
 							<div class="items_buttons">
-						 		{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
+						 		{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
 								<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
 							</div>	
 						</div>

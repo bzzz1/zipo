@@ -5,13 +5,13 @@ class Item extends Eloquent {
 	public $timestamps = false;
 	public $primaryKey = 'item_id';
 
-	// public static $key;
-	// public function __construct() {
-	// 	static::$key = $this->primaryKey;
-	// }
-	// public static function primaryKey() {
-	// 	return $this->primaryKey;
-	// }
+	public static function boot() {
+        parent::boot();
+
+		Item::deleting(function($item) {
+			$item->pdfs()->detach();
+		});
+    }
 
 	public function pdfs() {
         return $this->belongsToMany('Pdf'); // optional second argument is pivot table name
@@ -27,17 +27,10 @@ class Item extends Eloquent {
 	}
 
 	public static function __items() {
-		// 	$item = Item::with('subcat', 'producer');
-		// $customer->drinks()->attach($drink_id); //this executes the insert-query
-
-		// $items = new Item;
 		return (new Item)->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')->join('producers', 'items.producer_id', '=', 'producers.producer_id');
-		// return $items;
 	}
 
-// /*------------------------------------------------
-// | READ
-// ------------------------------------------------*/
+/*----------------------------------------------*/
 	public static function getItemsForCatalog() {
 		$subcat_id = Input::get('subcat_id');
 		$sort = Input::get('sort', 'title');
