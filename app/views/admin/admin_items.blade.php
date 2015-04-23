@@ -12,6 +12,9 @@
 	</div>	
 	<h1 class="admin_uni_heading">Каталог</h1>
 	<h2 class="admin_uni_heading head_right"> 
+		@if ($env=='byproducer')
+			{{$current->poducer}}
+		@endif
 		{{$HELP::getNormal($current->category)}}
 		@if (substr($current->category, -3) === "_en") 
 			(импортное)
