@@ -45,26 +45,58 @@ $black: #292929;
 }
 // For ONE PDF PAGE
 .pdf_links {
-	@extend .pdf_all_list;
-	p {
+	// @extend .pdf_all_list;
+	.head {
 		color: $red;
 		font-size: 16px;
 		margin-top: 20px;
 		margin-bottom: 10px;
+		padding-left: 15px;
 	}
 }
+.pdf_content {
+	// p {
+	// 	font-size: 18px;
+	// }
+}
 .pdf_reader {
+	padding-left: 15px;
 	a {
 		color: $black;
-		font-size: 20px;
+		font-size: 17px;
 		font-weight: bold;
 		&:hover {
 			color: $black;
 		}
 	}
+	.load {
+		margin-top: 10px;
+	}
+	p {
+		font-size: 15px;
+		display: inherit;
+		margin-bottom: 5px;
+	}
 }
-
-
+.pdf_links {
+	p {
+		font-weight: bold;
+	}
+}
+// For ADMIN ITEMS
+.delete_group_button {
+	float: right;
+	margin-right: 10px;
+	padding-left: 22px;
+	padding-right: 24px;
+}
+.spec_btn_adm {
+	padding-left: 31px;
+	padding-right: 32px;
+}
+.proc_btn_adm {
+	margin-left: 34px;
+}
 
 
 
