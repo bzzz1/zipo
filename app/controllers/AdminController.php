@@ -76,7 +76,7 @@ class AdminController extends BaseController {
 
 	public function byproducer() {
 		return View::make('admin/admin_items')->with([
-			'env' 		=> 'catalog_admin',
+			'env' 		=> 'byproducer',
 			'items' 	=> Item::getItemsByProducer(),
 		]);
 	}
