@@ -22,7 +22,7 @@ class PdfController extends BaseController {
 	public function one_pdf() {
 		return View::make('one_pdf')->with([
 			'producer'	=> Producer::find(Input::get('producer_id')),
-			'items'		=> Pdf::find(Input::get('pdf_id'))->items,
+			'items'		=> Item::with('producer', 'subcat')->has('pdfs')->get(),
 			'pdf'		=> Pdf::find(Input::get('pdf_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
@@ -30,3 +30,5 @@ class PdfController extends BaseController {
 		]);
 	}
 }
+
+ // Item::with(['producer' => function($query) {$query->select(['producer'])->get();}])->has('pdfs')->get()
