@@ -29,6 +29,35 @@ class PdfController extends BaseController {
 			'env' 		=> 'catalog'
 		]);
 	}
+
+	public function load_pdf() {
+		if (Input::hasFile('file')) {
+			$file = Input::file('file');
+			$destinationPath = HELP::$PDF_IMPORT_DIR;
+			$extension = $file->getClientOriginalExtension();
+			if ($extension != 'pdf') {
+				return Redirect::to('/admin')->withErrors('Выбранный файл должен иметь формат .pdf');
+			}
+
+			$filename = 'pdf_'.time().'.'.$extension;
+			$file->move($destinationPath, $filename);
+
+			$fields = Input::all();
+			$fields['file'] = $filename;
+			$rules = [
+				'good'	=> 'required|unique:pdfs,good'
+			];
+
+			$validator = Validator::make($fields, $rules);
+			if ($validator->fails()) {
+				return Redirect::back()->withInput()
+					->withErrors('Товар с таким названием уже существует. Название должено быть уникальным!');
+			} else {
+				$item = Item::create($fields);
+			}
+		} else {
+			return Redirect::to('/admin')->withErrors('Pdf файл не выбран!');
+		}
+	}
 }
 
- // Item::with(['producer' => function($query) {$query->select(['producer'])->get();}])->has('pdfs')->get()

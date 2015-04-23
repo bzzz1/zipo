@@ -8,6 +8,7 @@ class HELP {
 	public static $site_password;
 	public static $PRICES_DIR; 
 	public static $EXCEL_IMPORT_DIR;
+	public static $PDF_IMPORT_DIR;
 	public static $ITEM_PHOTO_DIR;
 	public static $discount;
 	public static $translit;
@@ -19,6 +20,7 @@ class HELP {
 		static::$site_password = '080493210893';
 		static::$PRICES_DIR = public_path().DIRECTORY_SEPARATOR.'prices';
 		static::$EXCEL_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'excel';
+		static::$PDF_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'pdf';
 		static::$ITEM_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'; 
 		static::$discount = Cred::getDiscount();
 		static::$translit = [

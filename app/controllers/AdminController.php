@@ -59,7 +59,6 @@ class AdminController extends BaseController {
 		} else {
 			return Redirect::to('/admin')->withErrors('Excel файл не выбран!');
 		}
-
 	}
 
 	public function admin_logout() {
