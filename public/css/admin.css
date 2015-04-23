@@ -250,7 +250,7 @@ input[type=file].admin_panel_input {
 }
 input[type=file].admin_pdf_input {
 	display: inline;
-	margin-left: 62px;
+	margin-left: 0px;
 	font-size: 16px;
 }
 .input[type="file" i]::-webkit-file-upload-button {

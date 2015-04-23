@@ -97,7 +97,29 @@ $black: #292929;
 .proc_btn_adm {
 	margin-left: 34px;
 }
-
+// For ADMIN PANEL
+.admin_panel_pdf_div {
+	border: 2px solid #9dcb20;
+	padding-top: 5px;
+	padding-left: 1px;
+	.admin_uni_label {
+		vertical-align: top;
+		margin-right: 57px;
+	} 
+	.good {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.good_label {
+		margin-right: 39px;
+	}
+	.good_input {
+		width: 219px;
+	}
+	.admin_uni_button {
+		margin-bottom: 20px;
+	}
+}
 
 
 
