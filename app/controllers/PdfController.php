@@ -40,7 +40,6 @@ class PdfController extends BaseController {
 			}
 
 			$filename = 'pdf_'.time().'.'.$extension;
-			$file->move($destinationPath, $filename);
 
 			$fields = Input::all();
 			$fields['file'] = $filename;
@@ -53,7 +52,9 @@ class PdfController extends BaseController {
 				return Redirect::back()->withInput()
 					->withErrors('Товар с таким названием уже существует. Название должено быть уникальным!');
 			} else {
-				$item = Item::create($fields);
+				$file->move($destinationPath, $filename);
+				$item = Pdf::create($fields);
+				return Redirect::back()->with('message', 'Pdf файл успешно загружен!');
 			}
 		} else {
 			return Redirect::to('/admin')->withErrors('Pdf файл не выбран!');
