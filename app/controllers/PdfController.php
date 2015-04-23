@@ -1,4 +1,5 @@
 <?php
+
 class PdfController extends BaseController {
 	public function all_pdf() {
 		return View::make('all_pdf')->with([
@@ -70,5 +71,12 @@ class PdfController extends BaseController {
 	public function delete_pdf() {
 		return Redirect::back();
 	}
-}
 
+	public function ajax_add_to_pdf() {
+		$ids = Input::get('ids');
+		$pdf_id = Input::get('pdf_id');
+
+		Pdf::find($pdf_id)->items()->attach($ids);
+		return Response::json($ids);
+	}
+}
