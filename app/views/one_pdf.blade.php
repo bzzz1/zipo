@@ -16,9 +16,9 @@
 		<div class="pdf_content">
 			<div class="pdf_reader">
 				<p>Открыть деталировку в новом окне</p>
-				{{HTML::link("/$pdf->file", $pdf->good,['target'=>'_blank']) }}
+				{{HTML::link("/pdf/$pdf->file", $pdf->good,['target'=>'_blank']) }}
 				<p class="load">Загрузить деталировку в формате .pdf</p>
-				{{HTML::link("/$pdf->file", $pdf->good." | загрузка",['target'=>'_blank', 'download'=>'']) }}
+				{{HTML::link("/pdf/$pdf->file", $pdf->good." | загрузка",['target'=>'_blank', 'download'=>'']) }}
 			</div>
 			<div class="pdf_links">
 				<p class="head">У нас вы можете приобрести следующие запчасти и комплектующие: </p>
