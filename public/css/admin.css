@@ -248,6 +248,11 @@ input[type=file].admin_panel_input {
 	margin-left: 105px;
 	font-size: 16px;
 }
+input[type=file].admin_pdf_input {
+	display: inline;
+	margin-left: 62px;
+	font-size: 16px;
+}
 .input[type="file" i]::-webkit-file-upload-button {
 	margin-left: 50px;
 }
