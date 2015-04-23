@@ -42,7 +42,7 @@
 				</div>
 				{{ Form::submit('Загрузить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
-			<a href="/list_pdf" class="btn admin_uni_button to_pdf">Перейти к списку PDF</a>
+			<a href="/admin/list_pdf" class="btn admin_uni_button to_pdf">Перейти к списку PDF</a>
 		</div>
 	</div>
 @stop
