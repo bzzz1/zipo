@@ -19,6 +19,7 @@ class Item extends Eloquent {
 
 	public function producer() {
 		return $this->hasOne('Producer', 'producer_id', 'producer_id');
+		// return $this->hasOne('Producer', 'producer_id', 'producer_id')->select(['producer']);
 	}
 
 	public function subcat() {
@@ -29,10 +30,9 @@ class Item extends Eloquent {
 		// 	$item = Item::with('subcat', 'producer');
 		// $customer->drinks()->attach($drink_id); //this executes the insert-query
 
-		$items = new Item;
-		$items = $items->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')
-						->join('producers', 'items.producer_id', '=', 'producers.producer_id');
-		return $items;
+		// $items = new Item;
+		return (new Item)->join('subcats', 'subcats.subcat_id', '=', 'items.subcat_id')->join('producers', 'items.producer_id', '=', 'producers.producer_id');
+		// return $items;
 	}
 
 // /*------------------------------------------------

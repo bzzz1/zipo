@@ -12,7 +12,6 @@ class Pdf extends Eloquent {
 	public function items() {
         return $this->belongsToMany('Item'); // optional second argument is pivot table name
     }
-
 /*----------------------------------------------*/
     public function scopeAllPdfByProd($query, $producer_id) {
     	// $producer_id = Input::get('producer_id');
