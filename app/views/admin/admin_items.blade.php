@@ -13,18 +13,18 @@
 	<h1 class="admin_uni_heading">Каталог</h1>
 	<h2 class="admin_uni_heading head_right"> 
 		@if ($env=='byproducer')
-			{{$current->poducer}}
-		@endif
-		{{$HELP::getNormal($current->category)}}
-		@if (substr($current->category, -3) === "_en") 
-			(импортное)
-		@else 
-			(российское)
-		@endif
+			{{$current->producer}}
+		@else
+			{{$HELP::getNormal($current->category)}}
+			@if (substr($current->category, -3) === "_en") 
+				(импортное)
+			@else 
+				(российское)
+			@endif
+		@endif	
 	</h2>
-
 	<div class="admin_main_content admin_main_content_items">
-		@if ($env != 'catalog_admin')
+		@if ($env != 'catalog_admin' and $env!= 'byproducer' )
 		<hr class="main_hr">
 		@endif
 		<div class="items_sort_div">	

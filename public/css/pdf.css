@@ -81,5 +81,8 @@
     width: 219px; }
   .admin_panel_pdf_div .admin_uni_button {
     margin-bottom: 20px; }
+  .admin_panel_pdf_div .to_pdf {
+    float: right;
+    margin-right: 10px; }
 
 /*# sourceMappingURL=pdf.css.map */
