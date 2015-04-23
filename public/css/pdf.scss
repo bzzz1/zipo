@@ -99,7 +99,7 @@ $black: #292929;
 }
 // For ADMIN PANEL
 .admin_panel_pdf_div {
-	border: 2px solid #9dcb20;
+	border: 1px solid #9dcb20;
 	padding-top: 5px;
 	padding-left: 1px;
 	.admin_uni_label {
@@ -143,9 +143,6 @@ $black: #292929;
 	&:hover {
 		cursor: pointer;;
 	}
-}
-.admin_del_pdf_form {
-	// float: none;
 }
 
 
