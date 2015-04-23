@@ -31,7 +31,7 @@
 		<div class="admin_panel_pdf_div">
 			<p class="admin_uni_label"><i class="fa fa-file-pdf-o"></i>Загрузить PDF</p>
 			{{ Form::open(['url'=>'/admin/import_pdf', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
-				{{ Form::file('pdf', ['class'=>'admin_pdf_input']) }}
+				{{ Form::file('file', ['class'=>'admin_pdf_input']) }}
 				<div class="good">
 					{{ Form::label('good', 'Название товара', ['class'=>'admin_uni_label good_label']) }}
 					{{ Form::text('good', '', ['class'=>'form-control good_input', 'required']) }}
