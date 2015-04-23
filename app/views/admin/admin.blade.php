@@ -28,6 +28,16 @@
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 		</div>
-		
+		<div class="admin_panel_pdf_div">
+			<p class="admin_uni_label"><i class="fa fa-file-pdf-o"></i>Загрузить PDF</p>
+			{{ Form::open(['url'=>'/admin/import_pdf', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+				{{ Form::file('pdf', ['class'=>'admin_pdf_input']) }}
+				{{ Form::label('good', 'Название товара', ['class'=>'admin_uni_label category_label']) }}
+				{{ Form::text('good', '', ['class'=>'form-control good_input', 'required']) }}
+				{{ Form::label('producer_id', 'Призводитель', ['class'=>'admin_uni_label category_label']) }}
+				{{-- {{ Form::select('producer_id', $HELP::createOptions($producers), null, ['class'=>'form-control producer_input', 'required']) }} --}}
+				{{ Form::submit('Загрузить', ['class'=>'btn admin_uni_button']) }}
+			{{ Form::close() }}
+		</div>
 	</div>
 @stop
