@@ -63,8 +63,8 @@
 								<div class="items_item_heading">
 									<div class="name_and_code">
 										<div class="items_item_name_div">
-											{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name']) }}
-											{{HTML::link($HELP::url_slug(["/", "$item->category", "/", "$item->subcat", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
+											{{HTML::link($HELP::url_slug(["/", "$item->category['category']", "/", "$item->subcat['subcat']", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name']) }}
+											{{HTML::link($HELP::url_slug(["/", "$item->category['category']", "/", "$item->subcat['subcat']", "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
 										</div>	
 									</div>	
 									<div class="items_item_code_div">
@@ -88,7 +88,7 @@
 										</tr>
 										<tr>
 											<td>Бренд:&nbsp&nbsp&nbsp&nbsp</td>
-											<td class="items_item_dyn_text">{{$item->producer}}</td>
+											<td class="items_item_dyn_text">{{$item->producer["producer"]}}</td>
 										</tr>
 										<tr>
 											<td>Код:</td>
@@ -96,7 +96,7 @@
 										</tr>
 										<tr>
 											<td>Тип:&nbsp</td>
-											<td class="items_item_dyn_text">{{$item->subcat}}</td>
+											<td class="items_item_dyn_text">{{$item->subcat["subcat"]}}</td>
 										</tr>
 										<tr>
 											<td>Наличие:&nbsp</td>
