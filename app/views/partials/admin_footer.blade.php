@@ -1,7 +1,7 @@
 @section ('footer')
 	<footer>
 		<p class="copy_footer_admin">made by&nbsp 
-			<a href="http://www.dev.bzzz.biz.ua">
+			<a href="http://www.dev.bzzz.biz.ua" target="_blank">
 				<img src="../../img/markup/our_logo_footer.png" alt="bzzz web development studio logo">
 			</a>
 		</p>
