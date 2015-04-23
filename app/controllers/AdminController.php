@@ -4,6 +4,7 @@ class AdminController extends BaseController {
 		if (Auth::admin()->check()) {
 			return View::make('admin/admin')->with([
 				'env' 		=> 'panel',
+				'producers' => Producer::all(),
 				'discount'  => Cred::getDiscount()
 			]);
 		} else {
