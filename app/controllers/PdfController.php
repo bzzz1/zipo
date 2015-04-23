@@ -64,7 +64,7 @@ class PdfController extends BaseController {
 
 	public function list_pdf() {
 		return View::make('admin/admin_pdfs')->with([
-			'pdfs'		=> Pdf::all(),
+			'pdfs'	=> Pdf::all(),
 		]);
 	}
 
