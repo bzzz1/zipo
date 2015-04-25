@@ -273,7 +273,42 @@ $(".admin_main_content_items input[type=checkbox]").on("change", function(){
 	var checkedID = $(this).data("id");
 	IDS.push(checkedID);
 });
+/*----------------------------------------------*/
 
+/*------------------------------------------------
+| ATTACH TO PDF BUTTON
+------------------------------------------------*/
+// $('.add_to_pdf').on('click', function(e) {
+// 	e.preventDefault();
+// 	var subcat_id = $('.admin_select_title_text').val();
+// 	if (subcat_id < 1) {
+// 		alert('Вы должны создать подкатегорию!');
+// 		return false;
+// 	} else {
+// 		$.ajax({
+// 			url: location.origin+'/admin/ajax_change_subcat',
+// 			type: 'POST',
+// 			dataType: "json",
+// 			data: {
+// 				'ids' 		: IDS,
+// 				'subcat_id'	: subcat_id
+// 			},
+// 			success: function(data) {
+// 				location.reload();
+// 			}, 
+// 			error: function(data, error, error_details){
+// 				console.log("err:",error, error_details);
+// 				console.log(data);
+// 				console.log(JSON.stringify(data.responseText, '\\', ''));
+// 			}
+// 		});
+// 	}
+// });
+/*----------------------------------------------*/
+
+/*------------------------------------------------
+| CHANGE SUBCAT BUTTON
+------------------------------------------------*/
 $('.change_subcat_button').on('click', function(e) {
 	e.preventDefault();
 	var subcat_id = $('.admin_select_title_text').val();
@@ -390,4 +425,3 @@ $('.contact_form_button').on('click', function(evt) {
 	
 	// return false; // doesn't work even in IE11 and Mozilla with dispatchEvent() but fine with just click()
 });
-/*----------------------------------------------*/

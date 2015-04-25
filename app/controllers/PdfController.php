@@ -69,6 +69,7 @@ class PdfController extends BaseController {
 	}
 
 	public function delete_pdf() {
+		Pdf::destroy(Input::get('pdf_id'));
 		return Redirect::back();
 	}
 
