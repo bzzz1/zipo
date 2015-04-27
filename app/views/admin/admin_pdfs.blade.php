@@ -12,7 +12,7 @@
 						<i class="fa fa-times del_pdf"></i>
 						{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 					{{ Form::close() }} 
-					{{HTML::link("/pdf/$pdf->file", $pdf->good,['target'=>'_blank']) }}
+					{{HTML::link("admin/item_pdfs", $pdf->good,['target'=>'_blank']) }}
 				</li>
 			@endforeach		
 		</ul>
