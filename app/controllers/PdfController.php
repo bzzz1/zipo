@@ -73,10 +73,16 @@ class PdfController extends BaseController {
 		return Redirect::back();
 	}
 
+	public function delete_item_from_pdf() {
+		$item_id = Input::get('item_id');
+		$pdf_id = Input::get('pdf_id');
+		Pdf::find($pdf_id)->items()->detach($item_id);
+		return Redirect::back();
+	}
+
 	public function ajax_change_pdf() {
 		$ids = Input::get('ids');
 		$pdf_id = Input::get('pdf_id');
-		dd($pdf_id);
 
 		Pdf::find($pdf_id)->items()->attach($ids);
 		return Response::json($ids);
