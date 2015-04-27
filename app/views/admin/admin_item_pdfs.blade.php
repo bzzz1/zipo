@@ -48,12 +48,14 @@
 							<div class="items_item_text_block">	
 								<div class="items_item_heading">
 									<div class="name_and_code">
-										<div class="items_item_name_div">
-											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name']) }}
-											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
+										<div class="admin_items_buttons_pdf">
 											{{ Form::open(array('url' => "/admin/delete_item_from_pdf?pdf_id=$pdf->pdf_id&item_id=$item->item_id", 'method' => 'POST', 'class'=>'admin_pdf_del_form')) }}
 												<i class="fa fa-times delete_items_group_icon fa-lg del_pdf"></i> 
 											{{ Form::close() }}	
+										</div>
+										<div class="items_item_name_div">
+											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name']) }}
+											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
 										</div>	
 									</div>	
 									<div class="items_item_code_div">
@@ -97,10 +99,6 @@
 										</tr>
 									</table>
 								</div>
-							</div>	
-							<div class="items_buttons">
-						 		{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", 'Подробнее',['class'=>'btn btn-default items_button items_more']) }}
-								<a href="/order?item_id={{ $item->item_id }}" class="btn btn-default items_button items_order">Заказать</a>
 							</div>	
 						</div>
 					</div>	

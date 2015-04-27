@@ -920,6 +920,13 @@ i.delete_items_group_icon {
 	margin-top: 7px;
 }
 /*PDF*/
-.del_pdf {
+.admin_pdf_del_form {
 	float: right;
+	margin-top: 5px;
+}
+.admin_items_buttons_pdf {
+	display: block;
+	width: 236px;
+	height: 23px;
+	overflow: hidden;
 }
