@@ -12,6 +12,19 @@
 				</a>	
 			</div>	
 			<div class="header_description">
+				<div class="call_to_skype">
+					<p class="call_to_skype_p">Позвонить нам в</p>
+					<div id="SkypeButton_Call_thefantom2_1">
+						<script type="text/javascript">
+						    Skype.ui({
+						      "name": "call",
+						      "element": "SkypeButton_Call_thefantom2_1",
+						      "participants": ["thefantom2"],
+						      "imageSize": 24
+						    });
+						 </script>
+					</div>
+				</div>
 				<h1 class="header_descriprion_heading">OOO "ЗИП Общепит"</h1><br>
 				<p class="header_description_text">Кухонное оборудование запасные части<br>
 				к оборудованию пищеблоков<br>для баров, кафе, ресторанов и столовых<br>  (предприятий общественного питания). <br>Срочный ремонт и техническое обслуживание. </p>

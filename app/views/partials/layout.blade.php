@@ -17,6 +17,8 @@
 	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
 	{{ HTML::script('js/bootstrap.min.js') }}
 	{{ HTML::script('js/betterContactForm.js') }}
+	{{ HTML::script('http://www.skypeassets.com/i/scom/js/skype-uri.js') }}
+
 	<!--[if IE]>
 		{{ HTML::style('css/ie.css') }}
 	<![endif]-->
@@ -72,6 +74,11 @@
 	<script>
 		$(window).on('load', function() {
 			$('#bcf-trigger img').attr('src', "{{ asset('icons/online_apply.png') }}" );
+		});
+	</script>
+	<script>
+		$(window).on('load', function() {
+			$('#SkypeButton_Call_thefantom2_1_paraElement img').attr('src', "{{ asset('icons/skype.png') }}" );
 		});
 	</script>
 

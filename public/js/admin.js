@@ -346,7 +346,30 @@ $('.change_subcat_button').on('click', function(e) {
 	}
 });
 /*----------------------------------------------*/
-
+/*------------------------------------------------
+| CHANGE PDF BUTTON
+------------------------------------------------*/
+$('.change_item_pdf').on('click', function(e) {
+	var pdf_id = $('.admin_select_pdf').val();
+	$.ajax({
+		url: location.origin+'/admin/ajax_change_pdf',
+		type: 'POST',
+		dataType: "json",
+		data: {
+			'ids' 		: IDS,
+			'pdf_id'	: pdf_id
+		},
+		success: function(data) {
+			location.reload();
+		}, 
+		error: function(data, error, error_details){
+			console.log("err:",error, error_details);
+			console.log(data);
+			console.log(JSON.stringify(data.responseText, '\\', ''));
+		}
+	});
+});
+/*----------------------------------------------*/
 /*------------------------------------------------
 | DELETE GROUP BUTTON
 ------------------------------------------------*/

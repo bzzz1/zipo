@@ -147,9 +147,9 @@
 							<p class="admin_add_subcategory_title">Редактирование/добавление деталировки</p>
 							<div class="change_block admin_select_category_div">
 								{{ Form::label('pdf', 'PDF', ['class'=>'admin_uni_label admin_select_category_label']) }}
-								{{ Form::select('pdf', $HELP::createOptions($pdfs), null, ['class'=>'form-control admin_select_category_select a_i_s_c_l', 'required', 'form' => 'none']) }}
+								{{ Form::select('pdf', $HELP::createOptions($pdfs), null, ['class'=>'form-control admin_select_category_select admin_select_pdf', 'required', 'form' => 'none']) }}
 							</div>
-							<a class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
+							<a class="change_item_pdf btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>
 					</div>		
 					<a class="btn delete_group_button admin_uni_button">Удалить товары</a>
