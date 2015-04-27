@@ -43,7 +43,7 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/admin_logout', 'AdminController@admin_logout');
 	Route::get('/catalog', 'AdminController@catalog');
 	Route::get('/producers/{producer_title}', 'AdminController@byproducer');
-
+	Route::gat('/item_pdfs', 'PdfController@item_pdfs');
 
 	// ARTICLE
 	Route::get('/articles', 'AdminController@articles');

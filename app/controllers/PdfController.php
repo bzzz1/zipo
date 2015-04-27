@@ -73,6 +73,13 @@ class PdfController extends BaseController {
 		return Redirect::back();
 	}
 
+	public function item_pdfs() {
+		return View::make('admin_item_pdfs')->with([
+			'pdfs'		=> Pdf::all(),
+			'items'		=> Item::with('producer', 'subcat')->has('pdfs')->get(),
+		]);
+	}
+
 	public function delete_item_from_pdf() {
 		$item_id = Input::get('item_id');
 		$pdf_id = Input::get('pdf_id');
