@@ -63,7 +63,7 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 
 	// AJAX
 	Route::post('/ajax_change_subcat', 'AdminController@ajax_change_subcat');
-	Route::post('/ajax_change_pdf', 'AdminController@ajax_change_subcat');
+	Route::post('/ajax_change_pdf', 'AdminController@ajax_change_pdf');
 	Route::post('/ajax_set_special', 'AdminController@ajax_set_special');
 	Route::post('/ajax_set_hit', 'AdminController@ajax_set_hit');
 	Route::post('/ajax_set_procurement', 'AdminController@ajax_set_procurement');
