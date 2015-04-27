@@ -6,7 +6,6 @@
 @section('body')
 	<div class="admin_main_content">
 		<h4 class="universal_heading">Деталировка {{$pdf->good}} ({{$producer->producer}})</h4>
-		<hr class="main_hr">
 		<div class="pdf_content">
 			<div class="pdf_reader">
 				<p>Открыть деталировку в новом окне</p>
@@ -53,7 +52,7 @@
 											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name']) }}
 											{{HTML::link($HELP::url_slug(["/", $item->subcat->category, "/", $item->subcat->subcat, "/", "$item->title"])."?subcat_id=$item->subcat_id&item_id=$item->item_id", $item->title,['class'=>'items_item_name_full']) }}
 											{{ Form::open(array('url' => "/admin/delete_item_from_pdf?pdf_id=$pdf->pdf_id&item_id=$item->item_id", 'method' => 'POST', 'class'=>'admin_pdf_del_form')) }}
-												<i class="fa fa-times delete_items_group_icon fa-lg"></i> 
+												<i class="fa fa-times delete_items_group_icon fa-lg del_pdf"></i> 
 											{{ Form::close() }}	
 										</div>	
 									</div>	
