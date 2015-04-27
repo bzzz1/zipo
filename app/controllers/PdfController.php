@@ -92,6 +92,7 @@ class PdfController extends BaseController {
 		$ids = Input::get('ids');
 		$pdf_id = Input::get('pdf_id');
 
+		Pdf::find($pdf_id)->items()->detach($ids);
 		Pdf::find($pdf_id)->items()->attach($ids);
 		return Response::json($ids);
 	}
