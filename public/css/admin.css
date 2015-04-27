@@ -919,3 +919,7 @@ i.delete_items_group_icon {
 .aadb {
 	margin-top: 7px;
 }
+/*PDF*/
+.del_pdf {
+	float: right;
+}
