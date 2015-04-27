@@ -76,6 +76,7 @@ class AdminController extends BaseController {
 
 	public function byproducer() {
 		return View::make('admin/admin_items')->with([
+			'pdfs'		=> Pdf::all(),
 			'env' 		=> 'byproducer',
 			'current'	=> Producer::find(Input::get('producer_id')),
 			'items' 	=> Item::getItemsByProducer(),
@@ -92,6 +93,7 @@ class AdminController extends BaseController {
 	}
 
 	public function change_item() {
+		dd(Input::get('item_id'));
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
 			'item'		=> Item::__items()->find(Input::get('item_id')), // or use Model::findOrFail(1); if need to show delete button everywere
