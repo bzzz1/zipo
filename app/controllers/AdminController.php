@@ -93,7 +93,7 @@ class AdminController extends BaseController {
 	}
 
 	public function change_item() {
-		dd(Input::get('item_id'));
+		// dd(Input::get('item_id'));
 		return View::make('admin/admin_change_item')->with([
 			'env' 		=> 'change_item',
 			'item'		=> Item::__items()->find(Input::get('item_id')), // or use Model::findOrFail(1); if need to show delete button everywere
@@ -146,7 +146,7 @@ class AdminController extends BaseController {
 
 		if ($item_id) {
 			$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
-			return Redirect::to('/admin/change_item')->with('message', $message);
+			return Redirect::back()->with('message', $message);
 		} else {
 			$message = 'Товар '.$item->title.' добавлен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
 			return Redirect::back()->with('message', $message);
