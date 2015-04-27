@@ -74,8 +74,8 @@ class PdfController extends BaseController {
 	}
 
 	public function item_pdfs() {
-		return View::make('admin_item_pdfs')->with([
-			'pdfs'		=> Pdf::all(),
+		return View::make('admin/admin_item_pdfs')->with([
+			'pdf'		=> Pdf::all(Input::get('pdf_id')),
 			'items'		=> Item::with('producer', 'subcat')->has('pdfs')->get(),
 		]);
 	}
