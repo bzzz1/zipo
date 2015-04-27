@@ -383,19 +383,22 @@ input[type=file].admin_pdf_input {
 	border: 1px solid #dddddd;
 	box-shadow: 1px 2px 5px #bdbdbd;
 }
-.admin_change_subcategory_div {
+.admin_change_subcategory_div{
 	width: 445px;
 	margin: auto;
 	position: relative;
 	border: 1px solid #dddddd;
 	box-shadow: 1px 2px 5px #bdbdbd;
 }
-.admin_add_subcategory_form, .ac_c_i_d {
+.admin_add_subcategory_form, .ac_c_i_d, .ad_pdf_pop_up {
 	background-color: #fff;
 	width: 100%;
 	height: 200px;
 	padding: 15px 25px;
 }
+.ad_pdf_pop_up {
+	height: 180px;
+}	
 .admin_add_subcategory_title {
 	font-size: 16px;
 	color: #9dcb20;

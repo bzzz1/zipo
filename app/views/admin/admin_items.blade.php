@@ -141,7 +141,17 @@
 							<a class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>	
 					</div>
-					<a class="btn add_to_pdf admin_uni_button">Добавить ссылки к PDF</a>
+					<a class="btn add_to_pdf admin_uni_button ad_pdf_p mfp-zoom-out" data-effect="mfp-zoom-out">Добавить ссылки к PDF</a>
+					<div class="admin_change_subcategory_div admin_itms_pdf_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+						<div class="ad_pdf_pop_up">
+							<p class="admin_add_subcategory_title">Редактирование/добавление деталировки</p>
+							<div class="change_block admin_select_category_div">
+								{{ Form::label('pdf', 'PDF', ['class'=>'admin_uni_label admin_select_category_label']) }}
+								{{ Form::select('pdf', $HELP::createOptions($pdfs), null, ['class'=>'form-control admin_select_category_select a_i_s_c_l', 'required', 'form' => 'none']) }}
+							</div>
+							<a class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
+						</div>
+					</div>		
 					<a class="btn delete_group_button admin_uni_button">Удалить товары</a>
 				</div>
 			</div>
