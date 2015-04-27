@@ -76,6 +76,7 @@ class PdfController extends BaseController {
 	public function ajax_change_pdf() {
 		$ids = Input::get('ids');
 		$pdf_id = Input::get('pdf_id');
+		dd($pdf_id);
 
 		Pdf::find($pdf_id)->items()->attach($ids);
 		return Response::json($ids);
