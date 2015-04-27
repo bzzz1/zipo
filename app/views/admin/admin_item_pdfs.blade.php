@@ -14,7 +14,6 @@
 				{{HTML::link("/pdf/$pdf->file", $pdf->good." | загрузка",['target'=>'_blank', 'download'=>'']) }}
 			</div>
 			<div class="pdf_links">
-				<p class="head">У нас вы можете приобрести следующие запчасти и комплектующие: </p>
 				<div class="items_sort_div">	
 					<p class="items_sort_by">Сортировать по: </p>
 

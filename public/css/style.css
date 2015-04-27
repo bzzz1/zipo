@@ -186,7 +186,7 @@ label {
 }
 .header_description {
 	display: inline-block;
-	margin-top: 15px;
+	margin-top: 0px;
 }
 .header_descriprion_heading {
 	font-size: 18px;
@@ -213,6 +213,26 @@ label {
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
+}
+.call_to_skype_p {
+	font-size: 21px;
+	vertical-align: bottom;
+}
+#SkypeButton_Call_thefantom2_1 {
+	display: inline-block;
+	height: 55px;
+}
+#SkypeButton_Call_thefantom2_1_paraElement {
+	margin-bottom: 0;
+	font-size: 0!important;
+}
+#SkypeButton_Call_thefantom2_1_paraElement img {
+	margin-top: 0px!important;
+	margin-bottom: 0px!important;
+	margin-left: 0px!important;
+}
+.header_descriprion_heading {
+	margin-top: 0;
 }
 /*animation_nav*/
 .nav_header ul li {
