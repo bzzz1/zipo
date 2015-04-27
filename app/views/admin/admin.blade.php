@@ -38,7 +38,7 @@
 				</div>
 				<div class="producer">
 					{{ Form::label('producer_id', 'Призводитель', ['class'=>'admin_uni_label category_label']) }}
-					{{ Form::select('producer_id', $HELP::createOptions($producers), null, ['class'=>'form-control producer_input', 'required']) }}
+					{{ Form::select('producer_id', $HELP::createOptions($producers, 'producer_id', 'producer'), null, ['class'=>'form-control producer_input', 'required']) }}
 				</div>
 				{{ Form::submit('Загрузить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}

@@ -73,7 +73,7 @@ class PdfController extends BaseController {
 		return Redirect::back();
 	}
 
-	public function ajax_add_to_pdf() {
+	public function ajax_change_pdf() {
 		$ids = Input::get('ids');
 		$pdf_id = Input::get('pdf_id');
 

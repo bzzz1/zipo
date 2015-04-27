@@ -23,7 +23,7 @@
 				</div>
 				<div class="change_block change_item_producer_div">
 					{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
-					{{ Form::select('producer_id', $HELP::createOptions($producers), null, ['class'=>'form-control producer_input', 'required']) }}
+					{{ Form::select('producer_id', $HELP::createOptions($producers, 'producer_id', 'producer'), null, ['class'=>'form-control producer_input', 'required']) }}
 				</div>
 			</div>
 			<div class="right_block">	

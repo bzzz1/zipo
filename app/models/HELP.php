@@ -291,11 +291,11 @@ class HELP {
 		return array_slice($array, $start, $length);
 	}
 
-	public static function createOptions($array) {
+	public static function createOptions($array, $key, $value) {
 		$options = [];
 
 		foreach ($array as $element) {
-			$options[$element->producer_id] = $element->producer;
+			$options[$element->$key] = $element->$value;
 		}
 		return $options;
 	}
