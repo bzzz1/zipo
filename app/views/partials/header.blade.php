@@ -19,7 +19,7 @@
 						    Skype.ui({
 						      "name": "call",
 						      "element": "SkypeButton_Call_thefantom2_1",
-						      "participants": ["thefantom2"],
+						      "participants": ["zipobshepit"],
 						      "imageSize": 24
 						    });
 						 </script>
