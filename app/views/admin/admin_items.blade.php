@@ -148,6 +148,7 @@
 							<div class="change_block admin_select_category_div">
 								{{ Form::label('pdf', 'PDF', ['class'=>'admin_uni_label admin_select_category_label']) }}
 								{{ Form::select('pdf', $HELP::createOptions($pdfs, 'pdf_id', 'good'), null, ['class'=>'form-control admin_select_category_select a_i_s_c_l', 'required', 'form' => 'none']) }}
+							</div>								
 							<a class="change_item_pdf btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>
 					</div>		
