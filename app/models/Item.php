@@ -45,6 +45,18 @@ class Item extends Eloquent {
 		return $items;
 	}
 
+	public static function getItemsForAdminCatalog() {
+		$subcat_id = Input::get('subcat_id');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+
+		$items = Item::__items();
+		$items = $items->where('items.subcat_id', $subcat_id);
+		$items = $items->orderBy($sort, $order);
+
+		return $items->get();
+	}
+
 	public static function getItemsByProducer() {
 		$producer_id = Input::get('producer_id');
 		$sort = Input::get('sort', 'title');
@@ -84,11 +96,24 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('title', 'like', '%'.$query.'%');
 		$items = $items->orWhere('code', 'like', '%'.$query.'%');
-		$items = $items->orWhere('description', 'like', '%'.$query.'%');
+		// $items = $items->orWhere('description', 'like', '%'.$query.'%');
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
 
 		return $items;
+	}
+
+	public static function getItemsByQueryAdmin() {
+		$query = Input::get('query');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+
+		$items = Item::__items();
+		$items = $items->where('title', 'like', '%'.$query.'%');
+		$items = $items->orWhere('code', 'like', '%'.$query.'%');
+		$items = $items->orderBy($sort, $order);
+
+		return $items->get();
 	}
 
 	public static function getSpecialItems() {

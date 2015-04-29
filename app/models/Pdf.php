@@ -28,6 +28,7 @@ class Pdf extends Eloquent {
     public function scopeAllPdfByProd($query, $producer_id) {
         return $query->where('producer_id', $producer_id)->get();
     }
+
     // Producer::with('pdf')->get()->filter(function($item) {if ($item->pdf != Null) {return $item;}})
 	// Item::with(['producer' => function($query) {$query->select(['producer'])->get();}])->has('pdfs')->get()
 
