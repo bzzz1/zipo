@@ -45,6 +45,18 @@ class Item extends Eloquent {
 		return $items;
 	}
 
+	public static function getItemsForAdminCatalog() {
+		$subcat_id = Input::get('subcat_id');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+
+		$items = Item::__items();
+		$items = $items->where('items.subcat_id', $subcat_id);
+		$items = $items->orderBy($sort, $order);
+
+		return $items->get();
+	}
+
 	public static function getItemsByProducer() {
 		$producer_id = Input::get('producer_id');
 		$sort = Input::get('sort', 'title');

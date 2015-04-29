@@ -79,10 +79,17 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::get('/{category}/{subcat}', 'AdminController@items');
 });
 
-Route::get('/test', function() {
-	// $r = Subcat::where('subcat', 'Конфорки')->lists('subcat_id')[0];
-	// dd($r);
+/*------------------------------------------------
+| ARTISAN !!! DEVELOPMENT ONLY
+------------------------------------------------*/
+Route::get('/migrate_install', function() {
+	Artisan::call('migrate:install');
 });
+
+Route::get('/migrate', function() {
+	Artisan::call('migrate', array('--force' => true));
+});
+/*----------------------------------------------*/
 
 Route::get('/{category}/{subcat}', 'MainController@items');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');

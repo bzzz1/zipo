@@ -88,7 +88,7 @@ class AdminController extends BaseController {
 			'pdfs'		=> Pdf::all(),
 			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'env' 		=> 'catalog_admin',
-			'items'     => Item::getItemsForCatalog()
+			'items'     => Item::getItemsForAdminCatalog()
 		]);
 	}
 
