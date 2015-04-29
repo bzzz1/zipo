@@ -35,11 +35,19 @@ class AdminController extends BaseController {
 	}
 
 	public function search() {
-		return View::make('admin/admin_items')->with([
-			'items'     => Item::getItemsByQuery(),
-			'current'	=> Input::get('query'),
-			'env' 		=> 'catalog_admin'
-		]);
+		$items = Item::getItemsByQueryAdmin();
+		$query = Input::get('query');
+
+		if ($items->count() == 0) {
+			return Redirect::to('/admin')->withErrors('По запросу: "'.$query.'" ничего не найдено.');
+		} else {
+			return View::make('admin/admin_items')->with([
+				'pdfs'		=> Pdf::all(),
+				'items'     => Item::getItemsByQueryAdmin(),
+				'current'	=> $query,
+				'env' 		=> 'search'
+			]);
+		}
 	}
 
 	public function import() {

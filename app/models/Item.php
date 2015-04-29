@@ -103,6 +103,20 @@ class Item extends Eloquent {
 		return $items;
 	}
 
+	public static function getItemsByQueryAdmin() {
+		$query = Input::get('query');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+
+		$items = Item::__items();
+		$items = $items->where('title', 'like', '%'.$query.'%');
+		$items = $items->orWhere('code', 'like', '%'.$query.'%');
+		$items = $items->orWhere('description', 'like', '%'.$query.'%');
+		$items = $items->orderBy($sort, $order);
+
+		return $items->get();
+	}
+
 	public static function getSpecialItems() {
 		$sort = Input::get('sort', 'title');
 		$order = Input::get('order', 'asc');
