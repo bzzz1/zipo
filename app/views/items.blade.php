@@ -27,7 +27,7 @@
 			  <li><a href="/">Каталог</a></li>
 			  <li class="active">{{$current->producer}}</li>
 			</ol>
-			<a href="/pfd/" class="btn watch_by_prod_btn">Посмотреть деталировки</a>
+			{{HTML::link($HELP::url_slug(["/", "all_pdf", "/", $current->producer])."?producer_id=$current->producer_id", "Посмотреть деталировки",['class'=>'btn watch_by_prod_btn']) }}
 			<h3 class="items_page_main_header universal_heading">{{$current->producer}}</h3>
 		@elseif ($env=='search')
 			<h3 class="items_page_main_header universal_heading">Резуьтаты поиска: {{$current}}</h3>
