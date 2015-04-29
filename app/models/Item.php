@@ -96,7 +96,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('title', 'like', '%'.$query.'%');
 		$items = $items->orWhere('code', 'like', '%'.$query.'%');
-		$items = $items->orWhere('description', 'like', '%'.$query.'%');
+		// $items = $items->orWhere('description', 'like', '%'.$query.'%');
 		$items = $items->orderBy($sort, $order);
 		$items = $items->paginate($pages_by);
 
@@ -111,7 +111,6 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('title', 'like', '%'.$query.'%');
 		$items = $items->orWhere('code', 'like', '%'.$query.'%');
-		$items = $items->orWhere('description', 'like', '%'.$query.'%');
 		$items = $items->orderBy($sort, $order);
 
 		return $items->get();
