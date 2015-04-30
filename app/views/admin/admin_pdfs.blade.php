@@ -4,6 +4,7 @@
 @extends('partials/admin_footer')
 
 @section('body')
+	@include('partials/flash_messages')
 	<div class="admin_main_content">
 		<ul class="all_pdfs">
 			@foreach ($pdfs as $pdf)
@@ -17,19 +18,20 @@
 					{{ Form::close() }} 
 					{{HTML::link("admin/item_pdfs?pdf_id=$pdf->pdf_id&producer_id=$pdf->producer_id", $pdf->good,['target'=>'_blank']) }}
 					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf->pdf_id}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-						{{ Form::open(['url'=>"admin/update_pdf?pdf_id=$pdf->pdf_id", 'method'=>'POST', 'class'=>'admin_add_pdf_form input-group']) }}
+						{{ Form::open(['url'=>"admin/update_pdf", 'method'=>'POST', 'class'=>'admin_add_pdf_form input-group']) }}
+							{{ Form::hidden('pdf_id', $pdf->pdf_id) }}
 							<p class="admin_add_subcategory_title">Редактирование деталировки</p>
 							<div class="change_block admin_id_subcategory_div">
 								<p class="admin_uni_label admin_id_subcategory_title">ID деталировки</p>
 								<p class="admin_id_subcategory_id">{{$pdf->pdf_id}}</p>
 							</div>
 							<div class="change_block admin_select_category_div">
-								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
-								{{ Form::select('producer', $HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer_id, ['class'=>'form-control admin_select_category_select', 'required']) }}
+								{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
+								{{ Form::select('producer_id', $HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer_id, ['class'=>'form-control admin_select_category_select', 'required']) }}
 							</div>
 							<div class="change_block admin_select_title_div">
-								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
-								{{ Form::text('subcat', $pdf->good, ['class'=>'form-control admin_select_title_text', 'required']) }}
+								{{ Form::label('good', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
+								{{ Form::text('good', $pdf->good, ['class'=>'form-control admin_select_title_text', 'required']) }}
 							</div>
 							{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
 						{{ Form::close() }}

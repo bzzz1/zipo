@@ -36,14 +36,17 @@ Route::post('/admin_login', 'AdminController@admin_login');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/set_discount', 'AdminController@set_discount');
 	Route::get('/search', 'AdminController@search');
-	Route::get('/list_pdf', 'PdfController@list_pdf');
-	Route::post('/delete_pdf', 'PdfController@delete_pdf');
 	Route::post('/import', 'AdminController@import');
-	Route::post('/import_pdf', 'PdfController@load_pdf');
 	Route::post('/admin_logout', 'AdminController@admin_logout');
 	Route::get('/catalog', 'AdminController@catalog');
 	Route::get('/producers/{producer_title}', 'AdminController@byproducer');
+
+	// PDFS
+	Route::get('/list_pdf', 'PdfController@list_pdf');
+	Route::post('/delete_pdf', 'PdfController@delete_pdf');
 	Route::get('/item_pdfs', 'PdfController@item_pdfs');
+	Route::post('/import_pdf', 'PdfController@load_pdf');
+	Route::post('/update_pdf', 'PdfController@update_pdf');
 
 	// ARTICLE
 	Route::get('/articles', 'AdminController@articles');

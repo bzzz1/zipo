@@ -11,6 +11,7 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/style.css') }}
+	{{ HTML::style('css/flash_messages.css') }}
 	{{ HTML::style('css/admin.css') }}
 	{{ HTML::style('css/pdf.css') }}
 	{{ HTML::style('css/magnific-popup.css') }}

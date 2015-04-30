@@ -74,6 +74,55 @@ class PdfController extends BaseController {
 		return Redirect::back();
 	}
 
+	public function update_pdf() {
+		$fields = Input::all();
+		$pdf_id = Input::get('pdf_id');
+
+		// unset($fields['_token']);
+		$pdf = Pdf::find($pdf_id)->update($fields);
+		return Redirect::back()->with('message', 'Элемент изменен успешно.');
+
+
+
+		// $article_id = Input::get('article_id');
+		// $photo = Input::get('photo');
+		// $old = Input::get('old');
+		// unset($fields['old']);
+		// $today = date("Y-m-d", time());
+		// $fields['time'] = $today;
+		
+		// // createnig and updting
+		// if ($photo != 'no_photo.png' && $photo != $old) {
+		// 	if ($old != 'no_photo.png') {
+		// 		$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+		// 		File::delete($filepath);
+		// 		$fields['photo'] = 'no_photo.png';
+		// 	}
+
+		// 	$old = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
+		// 	$extension = File::extension($old);
+		// 	$filename = 'photo_'.time().'.'.$extension;
+		// 	$new = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
+		// 	rename($old, $new);
+		// 	$fields['photo'] = $filename;
+		// }
+
+		// // deleting photo
+		// if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
+		// 	$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
+		// 	File::delete($filepath);
+		// 	$fields['photo'] = 'no_photo.png';
+		// }
+
+
+		// if ($article_id) {
+		// 	$message = 'Новость '.$article->title.' изменена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).' class="alert-link">Назад</a>';
+		// 	return Redirect::to('/admin/change_article')->with('message', $message);
+		// } else {
+		// 	$message = 'Новость '.$article->title.' добавлена! <a href='.URL::to('/admin/change_article?article_id='.$article->article_id).' class="alert-link">Назад</a>';
+		// }
+	}
+
 	public function item_pdfs() {
 		return View::make('admin/admin_item_pdfs')->with([
 			'pdf'		=> Pdf::find(Input::get('pdf_id')),
