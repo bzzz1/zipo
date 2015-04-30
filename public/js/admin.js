@@ -458,3 +458,10 @@ $('.contact_form_button').on('click', function(evt) {
 	
 	// return false; // doesn't work even in IE11 and Mozilla with dispatchEvent() but fine with just click()
 });
+
+/*------------------------------------------------
+| AUTOCOMPLETE
+------------------------------------------------*/
+$(".js_autocomplete" ).autocomplete({
+	source: PRODUCERS,
+});
