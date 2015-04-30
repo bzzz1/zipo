@@ -17,7 +17,7 @@
 					{{ Form::close() }} 
 					{{HTML::link("admin/item_pdfs?pdf_id=$pdf->pdf_id&producer_id=$pdf->producer_id", $pdf->good,['target'=>'_blank']) }}
 					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf->pdf_id}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-						{{ Form::open(['url'=>"admin/update_pdf?pdf_id=$pdf->pdf_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+						{{ Form::open(['url'=>"admin/update_pdf?pdf_id=$pdf->pdf_id", 'method'=>'POST', 'class'=>'admin_add_pdf_form input-group']) }}
 							<p class="admin_add_subcategory_title">Редактирование деталировки</p>
 							<div class="change_block admin_id_subcategory_div">
 								<p class="admin_uni_label admin_id_subcategory_title">ID деталировки</p>
