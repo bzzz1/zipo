@@ -132,7 +132,7 @@ label {
 	margin: auto;
 	background: url(../img/markup/header_background.png);
 	background-repeat: no-repeat;
-	background-position: 342px 13px;
+	background-position: 342px 0px;
 }
 .container_main {
 	width: 1150px;
@@ -186,7 +186,7 @@ label {
 }
 .header_description {
 	display: inline-block;
-	margin-top: 0px;
+	margin-top: -7px;
 }
 .header_descriprion_heading {
 	font-size: 18px;
@@ -216,11 +216,11 @@ label {
 }
 .call_to_skype_p {
 	font-size: 21px;
-	vertical-align: bottom;
+	vertical-align: top;
 }
 #SkypeButton_Call_thefantom2_1 {
 	display: inline-block;
-	height: 55px;
+	height: 35px;
 }
 #SkypeButton_Call_thefantom2_1_paraElement {
 	margin-bottom: 0;
@@ -230,6 +230,8 @@ label {
 	margin-top: 0px!important;
 	margin-bottom: 0px!important;
 	margin-left: 0px!important;
+	max-height: 30px;
+	vertical-align: 3px!important;
 }
 .header_descriprion_heading {
 	margin-top: 0;

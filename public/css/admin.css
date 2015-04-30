@@ -390,7 +390,7 @@ input[type=file].admin_pdf_input {
 	border: 1px solid #dddddd;
 	box-shadow: 1px 2px 5px #bdbdbd;
 }
-.admin_add_subcategory_form, .ac_c_i_d, .ad_pdf_pop_up {
+.admin_add_subcategory_form, .ac_c_i_d, .ad_pdf_pop_up, .admin_add_pdf_form {
 	background-color: #fff;
 	width: 100%;
 	height: 200px;
