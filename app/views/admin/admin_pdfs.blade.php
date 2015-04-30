@@ -25,7 +25,7 @@
 							</div>
 							<div class="change_block admin_select_category_div">
 								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
-								{{ Form::select($HELP::createOptions($producers, 'producer_id', 'producer'), $producers[$pdf->producer_id], ['class'=>'form-control admin_select_category_select', 'required']) }}
+								{{ Form::select('producer', $HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer_id, ['class'=>'form-control admin_select_category_select', 'required']) }}
 							</div>
 							<div class="change_block admin_select_title_div">
 								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
