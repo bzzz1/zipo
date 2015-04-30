@@ -462,6 +462,32 @@ $('.contact_form_button').on('click', function(evt) {
 /*------------------------------------------------
 | AUTOCOMPLETE
 ------------------------------------------------*/
-$(".js_autocomplete" ).autocomplete({
-	source: PRODUCERS,
-});
+// $(".js_autocomplete" ).autocomplete({
+// 	source: PRODUCERS_TITLES,
+// });
+
+// function getKey(object, value) {
+//   for(var key in object){
+//     if(object[key] == value){
+//       return key;
+//     }
+//   }
+//   return null;
+// };
+/*------------------------------------------------
+| CHECK Producer
+------------------------------------------------*/
+// var $form = $('.admin_panel_import_pdf');
+
+// $form.find('input[type="submit"]').on('click', function(evt) {
+// 	evt.preventDefault();
+// 	var producer = $('.js_autocomplete').val();
+// 	var key = getKey(PRODUCERS, producer);
+
+// 	if (key) {
+// 		$form.trigger('submit');
+// 	} else {
+// 		alert('Название производителя введено неправильно!');
+// 		return false;
+// 	}
+// });

@@ -9,7 +9,7 @@
 			@foreach ($pdfs as $pdf)
 				<li>
 					<a>
-						<i class="fa fa-pencil upd_pdf change_icon_pdf_{{$pdf->pdf_id}}"></i>
+						<i class="fa fa-pencil upd_pdf change_icon_pdf_{{ $pdf->pdf_id }}"></i>
 					</a>
 					{{ Form::open(array('url' => "/admin/delete_pdf?pdf_id=$pdf->pdf_id", 'method' => 'POST', 'class'=>'admin_del_pdf_form ')) }}
 						<i class="fa fa-times del_pdf"></i>
