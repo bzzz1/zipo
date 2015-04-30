@@ -30,7 +30,7 @@
 		</div>
 		<div class="admin_panel_pdf_div">
 			<p class="admin_uni_label"><i class="fa fa-file-pdf-o"></i>Загрузить PDF</p>
-			{{ Form::open(['url'=>'/admin/import_pdf', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import']) }}
+			{{ Form::open(['url'=>'/admin/import_pdf', 'files'=>true, 'method'=>'POST', 'class'=>'admin_panel_import_pdf']) }}
 				{{ Form::file('file', ['class'=>'admin_pdf_input']) }}
 				<div class="good">
 					{{ Form::label('good', 'Название товара', ['class'=>'admin_uni_label good_label']) }}
@@ -38,11 +38,13 @@
 				</div>
 				<div class="producer">
 					{{ Form::label('producer_id', 'Призводитель', ['class'=>'admin_uni_label category_label']) }}
-					{{-- {{ Form::select('producer_id', $HELP::createOptions($producers, 'producer_id', 'producer'), null, ['class'=>'form-control producer_input', 'required']) }} --}}
-					{{ Form::text('producer_id', null, ['class'=>'js_autocomplete producer_input form-control', 'required']) }}
+					{{ Form::select('producer_id', $HELP::createOptions($producers, 'producer_id', 'producer'), null, ['class'=>'form-control producer_input', 'required']) }}
+					{{-- {{ Form::text('producer_id', null, ['class'=>'js_autocomplete producer_input form-control', 'required']) }}
 					<script>
-						window.PRODUCERS = {{ json_encode($producers->lists('producer')) }};
-					</script>
+						window.PRODUCERS_TITLES = {{ json_encode($producers->lists('producer')) }};
+						window.PRODUCERS = {{ json_encode($producers->lists('producer', 'producer_id')) }};
+					</script> 
+					--}} 
 				</div>
 				{{ Form::submit('Загрузить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}

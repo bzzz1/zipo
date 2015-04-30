@@ -9,14 +9,14 @@
 			@foreach ($pdfs as $pdf)
 				<li>
 					<a>
-						<i class="fa fa-pencil upd_pdf change_icon_pdf_{{$pdf}}"></i>
+						<i class="fa fa-pencil upd_pdf change_icon_pdf_{{ $pdf->pdf_id }}"></i>
 					</a>
 					{{ Form::open(array('url' => "/admin/delete_pdf?pdf_id=$pdf->pdf_id", 'method' => 'POST', 'class'=>'admin_del_pdf_form ')) }}
 						<i class="fa fa-times del_pdf"></i>
 						{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 					{{ Form::close() }} 
 					{{HTML::link("admin/item_pdfs?pdf_id=$pdf->pdf_id&producer_id=$pdf->producer_id", $pdf->good,['target'=>'_blank']) }}
-					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf->pdf_id}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						{{ Form::open(['url'=>"admin/update_pdf?pdf_id=$pdf->pdf_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
 							<p class="admin_add_subcategory_title">Редактирование деталировки</p>
 							<div class="change_block admin_id_subcategory_div">
@@ -25,7 +25,7 @@
 							</div>
 							<div class="change_block admin_select_category_div">
 								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
-								{{ Form::select($HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer, ['class'=>'form-control admin_select_category_select', 'required']) }}
+								{{ Form::select($HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer_id, ['class'=>'form-control admin_select_category_select', 'required']) }}
 							</div>
 							<div class="change_block admin_select_title_div">
 								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -36,9 +36,9 @@
 					</div> <!--admin_add_subcategory_div-->
 					<script>
 						// admin change subcategory
-						$('.change_icon_pdf_{{$pdf}}').magnificPopup({
+						$('.change_icon_pdf_{{$pdf->pdf_id}}').magnificPopup({
 							items: {
-								src: '.adm_upd_pdf_{{$pdf}}', // CSS selector of an element on page that should be used as a popup
+								src: '.adm_upd_pdf_{{$pdf->pdf_id}}', // CSS selector of an element on page that should be used as a popup
 								type: 'inline'
 							},
 						});
