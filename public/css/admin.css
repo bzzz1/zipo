@@ -930,3 +930,9 @@ i.delete_items_group_icon {
 	height: 23px;
 	overflow: hidden;
 }
+.admin_select_pdf_label {
+	margin-right: 26px;
+}
+.admin_select_pdf_title_label {
+	margin-right: 16px;
+}

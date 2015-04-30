@@ -24,11 +24,11 @@
 								<p class="admin_id_subcategory_id">{{$pdf->pdf_id}}</p>
 							</div>
 							<div class="change_block admin_select_category_div">
-								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
+								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_pdf_label']) }}
 								{{ Form::select('producer', $HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer_id, ['class'=>'form-control admin_select_category_select', 'required']) }}
 							</div>
 							<div class="change_block admin_select_title_div">
-								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
+								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_pdf_title_label']) }}
 								{{ Form::text('subcat', $pdf->good, ['class'=>'form-control admin_select_title_text', 'required']) }}
 							</div>
 							{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
