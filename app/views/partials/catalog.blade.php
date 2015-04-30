@@ -16,18 +16,18 @@
 				<h4 class="foreign_heding">Импортное</h4>
 				<div class="catalog_category" data-category='Механическое_en'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_mech.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_mech.png" alt="" class="catalog_category_img">
 					@endif	
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 				</div>
 
 				<div class="catalog_category" data-category='Тепловое_en'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_tepl.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_tepl.png" alt="" class="catalog_category_img">
 					@endif
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 				</div>
@@ -93,17 +93,17 @@
 				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category='Холодильное_en'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					@endif	
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
 				<div class="catalog_category posud_catedory" data-category='Посудомоечное_en'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@endif
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
 				</div>
@@ -169,20 +169,20 @@
 				</div><!-- subcategory block -->
 			</div>
 			<div class="catalog_russian">
-				<h4 class="russian_heding">Российское</h4>
+				<h4 class="russian_heding">Отечественное</h4>
 				<div class="catalog_category" data-category='Механическое_ru'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_mech.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_mech.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_mech.png" alt="" class="catalog_category_img">
 					@endif	
 					<p class="catalog_category_heading">Механическое<br> оборудование</p>
 				</div>
 				<div class="catalog_category" data-category='Тепловое_ru'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_tepl.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_tepl.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_tepl.png" alt="" class="catalog_category_img">
 					@endif
 					<p class="catalog_category_heading">Тепловое<br> оборудование</p>
 				</div>
@@ -248,17 +248,17 @@
 				</div><!-- subcategory block -->
 				<div class="catalog_category" data-category='Холодильное_ru'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_holod.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					@endif
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
 				<div class="catalog_category posud_catedory" data-category='Посудомоечное_ru'>
 					@if ($env == 'catalog_admin')
-						<img src="../../img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+						<img src="../../img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@else
-						<img src="img/markup/kateg_posud.jpg" alt="" class="catalog_category_img">
+						<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@endif
 
 					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
@@ -333,23 +333,26 @@
 			<div class = "groups">
 				<div class="brands_column">
 					<div class="producers_left">
-						<table class="producers_list producers_list_cat producers_left">
-							@foreach ($HELP::columnize($producers, 3, 1) as $producer)
+						<table class="producers_list producers_list_cat producers_left producers_left_t">
+							@foreach ($HELP::columnize($producers, 2, 1) as $producer)
 								<tr>
 									<td>
 										@if ($env == 'catalog_admin')
 											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+											<div class="producer_two_links">
+												{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer,['class'=>'prod_a']) }}
+												{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer,['class'=>'full_prod_a']) }}
+											</div>
 										@endif
 									</td>
 								</tr>
 							@endforeach
 						</table>
 					</div>
-					<div class="producers_middle">
+					{{-- <div class="producers_middle">
 						<table class="producers_list producers_list_cat producers_middle">
-							@foreach ($HELP::columnize($producers, 3, 2) as $producer)
+							@foreach ($HELP::columnize($producers, 2, 2) as $producer)
 								<tr>
 									<td>
 										@if ($env == 'catalog_admin')
@@ -361,16 +364,19 @@
 								</tr>	
 							@endforeach
 						</table>	
-					</div>
+					</div> --}}
 					<div class="producers_right">
-						<table class="producers_list producers_list_cat producers_right">
-							@foreach ($HELP::columnize($producers, 3, 3) as $producer)
+						<table class="producers_list producers_list_cat producers_right producers_right_t">
+							@foreach ($HELP::columnize($producers, 2, 2) as $producer)
 								<tr>
 									<td>
 										@if ($env == 'catalog_admin')
 											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+											<div class="producer_two_links">
+												{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer,['class'=>'prod_a']) }}
+												{{ HTML::link($HELP::url_slug(['/', 'producers', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer,['class'=>'full_prod_a']) }}
+											</div>
 										@endif
 									</td>
 								</tr>	
