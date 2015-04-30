@@ -95,9 +95,10 @@
     .all_pdfs a:hover {
       color: #292929; }
 
-.del_pdf {
-  margin-right: 10px; }
-  .del_pdf:hover {
+.del_pdf, .upd_pdf {
+  margin-right: 10px;
+  color: #9dcb20; }
+  .del_pdf:hover, .upd_pdf:hover {
     cursor: pointer; }
 
 /*# sourceMappingURL=pdf.css.map */

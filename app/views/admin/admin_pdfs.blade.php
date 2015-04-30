@@ -8,11 +8,41 @@
 		<ul class="all_pdfs">
 			@foreach ($pdfs as $pdf)
 				<li>
+					<a>
+						<i class="fa fa-pencil upd_pdf change_icon_pdf_{{$pdf}}"></i>
+					</a>
 					{{ Form::open(array('url' => "/admin/delete_pdf?pdf_id=$pdf->pdf_id", 'method' => 'POST', 'class'=>'admin_del_pdf_form ')) }}
 						<i class="fa fa-times del_pdf"></i>
 						{{ Form::submit('Сохранить', ['class'=>'hidden']) }}
 					{{ Form::close() }} 
 					{{HTML::link("admin/item_pdfs?pdf_id=$pdf->pdf_id&producer_id=$pdf->producer_id", $pdf->good,['target'=>'_blank']) }}
+					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf}} mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
+						{{ Form::open(['url'=>"admin/update_pdf?pdf_id=$pdf->pdf_id", 'method'=>'POST', 'class'=>'admin_add_subcategory_form input-group']) }}
+							<p class="admin_add_subcategory_title">Редактирование деталировки</p>
+							<div class="change_block admin_id_subcategory_div">
+								<p class="admin_uni_label admin_id_subcategory_title">ID деталировки</p>
+								<p class="admin_id_subcategory_id">{{$pdf->pdf_id}}</p>
+							</div>
+							<div class="change_block admin_select_category_div">
+								{{ Form::label('producer', 'Производитель', ['class'=>'admin_uni_label admin_select_category_label']) }}
+								{{ Form::select($HELP::createOptions($producers, 'producer_id', 'producer'), $pdf->producer, ['class'=>'form-control admin_select_category_select', 'required']) }}
+							</div>
+							<div class="change_block admin_select_title_div">
+								{{ Form::label('subcat', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
+								{{ Form::text('subcat', $pdf->good, ['class'=>'form-control admin_select_title_text', 'required']) }}
+							</div>
+							{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}
+						{{ Form::close() }}
+					</div> <!--admin_add_subcategory_div-->
+					<script>
+						// admin change subcategory
+						$('.change_icon_pdf_{{$pdf}}').magnificPopup({
+							items: {
+								src: '.adm_upd_pdf_{{$pdf}}', // CSS selector of an element on page that should be used as a popup
+								type: 'inline'
+							},
+						});
+					</script>
 				</li>
 			@endforeach		
 		</ul>
