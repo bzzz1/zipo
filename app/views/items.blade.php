@@ -22,6 +22,19 @@
 			</ol>
 			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 			<p class="items_subheading">{{$current->subcat}}</p>
+		@elseif ($env=='prods_by_subcat')	
+			<ol class="breadcrumb">
+			  <li><a href="/">Каталог</a></li>
+			  <li>
+			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
+			  <li>
+			  	<a href='{{URL::to($HELP::url_slug(["$current->category", "/", "$current->subcat", "/"]."?subcat_id=$current->subcat_id"))}}'> {{$current->subcat}}</a></li>
+			  </li>
+			  <li class="active">{{$current->producer}}</li>
+			</ol>
+			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
+			<p class="items_subheading">{{$current->subcat}}</p>
+		@elseif ($env=='byproducer')
 		@elseif ($env=='byproducer')
 			<ol class="breadcrumb">
 			  <li><a href="/">Каталог</a></li>
