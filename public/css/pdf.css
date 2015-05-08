@@ -67,8 +67,9 @@
 
 .admin_panel_pdf_div {
   border: 1px solid #9dcb20;
-  padding-top: 5px;
-  padding-left: 1px; }
+  padding-top: 15px;
+  padding-left: 1px;
+  padding-right: 25px; }
   .admin_panel_pdf_div .admin_uni_label {
     vertical-align: top;
     margin-right: 57px; }
