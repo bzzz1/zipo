@@ -936,3 +936,21 @@ i.delete_items_group_icon {
 .admin_select_pdf_title_label {
 	margin-right: 16px;
 }
+.adm_pdf_change_pop_up .admin_select_category_select {
+	margin-bottom: 20px;
+	margin-top: 5px; 
+}
+.adm_pdf_change_pop_up .admin_select_title_text {
+	margin-top: 5px;
+}
+.adm_pdf_change_pop_up .change_item_category_div {
+	width: 230px;
+	margin-bottom: 20px;
+}
+.adm_pdf_change_pop_up .change_item_category_div select {
+	margin-bottom: 20px;
+}
+.adm_pdf_change_pop_up .change_item_subcat_div {
+	width: 230px;
+}
+
