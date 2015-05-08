@@ -45,7 +45,7 @@ class Producer extends Eloquent {
 			'Посудомоечное_ru'
 		];
 
-		$pdfs_subcats = Subcat::join('pdfs', 'pdfs.subcat_id', '=', 'subcats.subcat_id');
+		$pdfs_subcats = Pdf::join('subcats', 'pdfs.subcat_id', '=', 'subcats.subcat_id')->join('producers', 'producers.producer_id', '=', 'pdfs.producer_id');
 
 		foreach ($categories as $category) {
 			$producers[$category] = $pdfs_subcats->where('category', $category)->get();
