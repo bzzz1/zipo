@@ -1,5 +1,4 @@
 <?php
-DB::listen(function($sql) {var_dump($sql);});
 
 class Producer extends Eloquent {
 	protected $guarded = [];
