@@ -24,6 +24,7 @@ class Subcat extends Eloquent {
 		];
 
 		$subcats = new Subcat;
+		// $subcats = [];
 
 		foreach ($categories as $category) {
 			$subcats[$category] = $subcats->where('category', $category)->groupBy('subcat')->get();
