@@ -52,8 +52,8 @@
 				</div>
 				<div class="change_item_subcat_div">
 					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_main_label']) }}
-					@if (isset($item))
-						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$item->subcat_id"]) }}
+					@if (isset($pdf))
+						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$pdf->subcat_id"]) }}
 					@else
 						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required']) }}
 					@endif
