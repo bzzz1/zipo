@@ -15,7 +15,7 @@
 		  <li><a href="/">Каталог</a></li>
 		  <li class="active">Все деталировки</li>
 		</ol>
-		<h4 class="universal_heading">Все деталировки</h4>
+		<h4 class="universal_heading">Все деталировки по категориям</h4>
 		<hr class="main_hr">
 		<div class="pdf_all_list">
 			<ul> 
