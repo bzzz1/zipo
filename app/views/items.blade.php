@@ -3,70 +3,22 @@
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
-@include('partials/initial_meta')
+
+@section('meta')
+	<title>Запчасти подкатегории: {{$current->subcat}}</title>
+	<meta name='keywords' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
+	<meta name='description' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
+@stop
 
 @section('body')
 	<div class="main_content">
-		@if ($env=='specials')
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li class="active">Спецпредложения</li>
-			</ol>
-			<h3 class="items_main_header universal_heading">Спецпредложения</h3>
-		@elseif ($env=='catalog')	
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li>
-			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
-			  <li class="active">{{$current->subcat}}</li>
-			</ol>
-			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
-			<p class="items_subheading">{{$current->subcat}}</p>
-		@elseif ($env=='prods_by_subcat')	
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li>
-			  	<a href='{{URL::to($HELP::url_slug(["category", "/", "$current->category"]))}}'> {{$HELP::getNormal($current->category)}} оборудование</a></li>
-			  <li>
-			  	<a href='{{URL::to($HELP::url_slug(["$current->category", "/", "$current->subcat"])."?subcat_id=$current->subcat_id")}}'>{{$current->subcat}}</a></li>
-			  </li>
-			  <li class="active">{{Producer::find(Input::get("producer_id"))->producer}}</li>
-			</ol>
-			<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
-			<p class="items_subheading">{{$current->subcat}}</p>
-			<p class="items_subheading">{{Producer::find(Input::get("producer_id"))->producer}}</p>
-		@elseif ($env=='byproducer')
-			<ol class="breadcrumb">
-			  <li><a href="/">Каталог</a></li>
-			  <li class="active">{{$current->producer}}</li>
-			</ol>
-			{{HTML::link($HELP::url_slug(["/", "all_pdf", "/", $current->producer])."?producer_id=$current->producer_id", "Посмотреть деталировки",['class'=>'btn watch_by_prod_btn']) }}
-			<h3 class="items_page_main_header universal_heading">{{$current->producer}}</h3>
-		@elseif ($env=='search')
-			<h3 class="items_page_main_header universal_heading">Резуьтаты поиска: {{$current}}</h3>
-		@endif
+
+		@include('partials/items_breadcrumbs')
 
 		<hr class="main_hr">
-		<div class="items_sort_div">	
-			<p class="items_sort_by">Сортировать по: </p>
 
-			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
-			<select name="items_sort" id="items_sort" class="form-control items_sort_c">
-				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
-					имени(а-я)
-				</option>
-				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=desc' }}">
-					имени(я-а)
-				</option>
-				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=asc' }}">
-					цене($-$$$)
-				</option>
-				<option data-link="{{URL::current().'?'.$q.'&sort=price&order=desc' }}">
-					цене($$$-$)
-				</option>
-			</select>
+		@include('partials/items_sorting')
 
-		</div>	
 		@foreach ($items as $item)
 			<div class="empty_scape">
 				@if ($item->hit&&$item->special)
@@ -135,26 +87,8 @@
 				</div>
 			</div>	
 		@endforeach
-		<div class="catalog_bottom_pages">
-			{{ $items->appends(Request::except('page'))->links('partials/zurb_presenter') }}
-			<div class="items_sort_by_main">
-				<p class="items sort_by">Показать по: </p>
-				<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
-				<select name="pages_by" id="pages_by" class="form-control form_control">
-					<option data-link="{{ URL::current().'?'.$q.'&pages_by=10' }}">
-						10
-					</option>
-					<option data-link="{{ URL::current().'?'.$q.'&pages_by=50' }}">
-						50
-					</option>
-					<option data-link="{{ URL::current().'?'.$q.'&pages_by=100' }}">
-						100
-					</option>
-					<option data-link="{{ URL::current().'?'.$q.'&pages_by=1000000' }}">
-						все
-					</option>
-				</select>
-			</div>
-		</div>
+
+		@include('partials/items_pagination')
+
 	</div>	
 @stop

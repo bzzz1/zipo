@@ -33,7 +33,13 @@ class Item extends Eloquent {
 /*----------------------------------------------*/
 	public static function getProducerBySubcat() {
 		$subcat_id = Input::get('subcat_id');
-		return Item::where('subcat_id', $subcat_id)->groupby('producer_id')->get()->lists('producer');
+		$producers = Item::where('subcat_id', $subcat_id)->groupby('producer_id')->get()->lists('producer');
+
+		$producers = array_values(array_sort($producers, function($producer) {
+			return $producer->producer;
+		}));
+
+		return $producers;
 	}
 
 	public static function getItemsBySubcatProd() {
