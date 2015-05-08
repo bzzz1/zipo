@@ -37,7 +37,11 @@
 				</div>
 				<div class="change_block change_item_subcat_div">
 					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
-					{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$item->subcat_id"]) }}
+					@if (isset($item))
+						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$item->subcat_id"]) }}
+					@else
+						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required']) }}
+					@endif
 				</div>
 				<div class="change_block change_item_procurement_div">
 					{{ Form::label('procurement', 'Наличие', ['class'=>'admin_uni_label proc_label']) }}
