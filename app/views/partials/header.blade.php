@@ -4,8 +4,8 @@
 		<div class="container_zipo">
 			<div class="header_right">	
 				<div class="header_contacts">
-					<p class="header_phone">тел. 8 (812) 982 33 54</p><br>
-					<p class="header_phone">тел. 8 (812) 982 33 54</p>
+					<p class="header_phone">тел. 8 (812) 987 22 06</p><br>
+					<p class="header_phone">тел. 8 (812) 987 08 81</p>
 				</div>	
 				<a href="/" class="logo_header">
 					{{ HTML::image("img/markup/logo.png", "logo", ['class'=>'logo_header']) }}
