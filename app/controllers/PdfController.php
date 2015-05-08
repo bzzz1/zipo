@@ -36,8 +36,8 @@ class PdfController extends BaseController {
 			$file = Input::file('file');
 			$destinationPath = HELP::$PDF_IMPORT_DIR;
 			$extension = $file->getClientOriginalExtension();
-			if ($extension != 'pdf') {
-				return Redirect::to('/admin')->withErrors('Выбранный файл должен иметь формат .pdf');
+			if (! ($extension == 'pdf' || $extension == 'doc' || $extension == 'docx')) {
+				return Redirect::to('/admin')->withErrors('Выбранный файл должен иметь формат .pdf, .doc или .docx');
 			}
 
 			$filename = 'pdf_'.time().'.'.$extension;

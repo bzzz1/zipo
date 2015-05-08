@@ -3,6 +3,12 @@
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
+@section('meta')
+	<title>Деталлировки производителей</title>
+	<meta name='keywords' content='Деталлировки производителей - Зип Общепит'>
+	<meta name='description' content='Деталлировки производителей  - Зип Общепит'>
+@stop
+
 @section('body')
 	<div class="main_content">
 		<ol class="breadcrumb">

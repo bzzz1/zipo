@@ -31,6 +31,27 @@ class Item extends Eloquent {
 	}
 
 /*----------------------------------------------*/
+	public function getProducerBySubcat() {
+		$subcat_id = Input::get('subcat_id');
+		return Item::where('subcat_id', $subcat_id)->groupby('producer_id')->get()->lists('producer');
+	}
+
+	public function getItemsBySubcatProd() {
+		$subcat_id = Input::get('subcat_id');
+		$producer_id = Input::get('producer_id');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+		$pages_by = Input::get('pages_by', '10');
+
+		$items = Item::__items();
+		$items = $items->where('items.subcat_id', $subcat_id);
+		$items = $items->where('items.producer_id', $producer_id);
+		$items = $items->orderBy($sort, $order);
+		$items = $items->paginate($pages_by);
+
+		return $items;		
+	}
+
 	public static function getItemsForCatalog() {
 		$subcat_id = Input::get('subcat_id');
 		$sort = Input::get('sort', 'title');

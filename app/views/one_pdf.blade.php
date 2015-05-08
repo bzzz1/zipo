@@ -3,6 +3,12 @@
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
+@section('meta')
+	<title>Деталировка {{$pdf->good}} ({{$producer->producer}})</title>
+	<meta name='keywords' content='Деталировка {{$pdf->good}} ({{$producer->producer}}) - Зип Общепит'>
+	<meta name='description' content='Деталировка {{$pdf->good}} ({{$producer->producer}}) - Зип Общепит'>
+@stop
+
 @section('body')
 	<div class="main_content">
 		<ol class="breadcrumb">

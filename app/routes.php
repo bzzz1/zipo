@@ -85,16 +85,17 @@ Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 /*------------------------------------------------
 | ARTISAN !!! DEVELOPMENT ONLY
 ------------------------------------------------*/
-Route::get('/migrate_install', function() {
-	Artisan::call('migrate:install');
-});
+// Route::get('/migrate_install', function() {
+// 	Artisan::call('migrate:install');
+// });
 
-Route::get('/migrate', function() {
-	Artisan::call('migrate', array('--force' => true));
-});
+// Route::get('/migrate', function() {
+// 	Artisan::call('migrate', array('--force' => true));
+// });
 /*----------------------------------------------*/
 
-Route::get('/{category}/{subcat}', 'MainController@items');
+Route::get('/{category}/{subcat}', 'MainController@prods_by_subcat');
+Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_subcat_prod');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 // App::missing(function($exception) {
