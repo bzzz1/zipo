@@ -18,10 +18,10 @@
 		  <li class="active">{{$current->subcat}}</li>
 		</ol>
 		<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
-		<p class="items_subheading">{{$current->subcat}}</p>
+		<p class="items_subheading">{{$current->subcat}} сгрупированные по производителю</p>
 		<hr class="main_hr">
 		
-		<div class="empty_scape">
+		<div>
 			<ul class="prod_by_subcat_list">
 				@foreach ($producers as $producer)
 					<li>

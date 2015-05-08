@@ -25,7 +25,7 @@
 	</ol>
 	<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 	<p class="items_subheading">{{$current->subcat}}</p>
-	<p class="items_subheading">{{Producer::find(Input::get("producer_id"))->producer}}</p>
+	<p class="items_subheading sub_head_second"> производителя "{{Producer::find(Input::get("producer_id"))->producer}}"</p>
 @elseif ($env=='byproducer')
 	<ol class="breadcrumb">
 	  <li><a href="/">Каталог</a></li>
