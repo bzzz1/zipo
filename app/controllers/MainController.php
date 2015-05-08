@@ -82,7 +82,7 @@ class MainController extends BaseController {
 			'current'	=> Subcat::find(Input::get('subcat_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
-			'env' 		=> 'prods_by_subcat',
+			'env' 		=> 'catalog',
 		]);
 	}
 
@@ -105,7 +105,7 @@ class MainController extends BaseController {
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'producers' => Producer::readAllProducers(),
-			'env' 		=> 'catalog'
+			'env' 		=> 'prods_by_subcat'
 		]);
 	}
 
