@@ -98,7 +98,6 @@ class MainController extends BaseController {
 	}
 
 	public function items_by_subcat_prod() {
-			// dd(Item::getItemsBySubcatProd());
 		return View::make('items')->with([
 			'items'     => Item::getItemsBySubcatProd(),
 			'current'	=> Subcat::find(Input::get('subcat_id')),

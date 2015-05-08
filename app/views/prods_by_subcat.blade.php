@@ -3,6 +3,11 @@
 @extends('partials/footer')
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
+@section('meta')
+	<title>Все производители подкатегории: {{$current->subcat}}</title>
+	<meta name='keywords' content='Все производители подкатегории: {{$current->subcat}} - Зип Общепит'>
+	<meta name='description' content='Все производители подкатегории: {{$current->subcat}} - Зип Общепит'>
+@stop
 
 @section('body')
 	<div class="main_content">
@@ -15,20 +20,7 @@
 		<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 		<p class="items_subheading">{{$current->subcat}}</p>
 		<hr class="main_hr">
-		<div class="items_sort_div">	
-			<p class="items_sort_by">Сортировать по: </p>
-
-			<?php $q = http_build_query(Input::except(['page', 'order', 'sort'])); ?>
-			<select name="items_sort" id="items_sort" class="form-control items_sort_c">
-				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=asc' }}">
-					имени(а-я)
-				</option>
-				<option data-link="{{URL::current().'?'.$q.'&sort=title&order=desc' }}">
-					имени(я-а)
-				</option>
-			</select>
-
-		</div>	
+		
 		<div class="empty_scape">
 			<ul class="prod_by_subcat_list">
 				@foreach ($producers as $producer)
