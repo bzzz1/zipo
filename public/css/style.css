@@ -1455,3 +1455,15 @@ body > img {
 	height: auto !important;
 	max-width: 546px;
 } 
+/*FOR NEW CATALOG*/
+.prod_by_subcat_list {
+	list-style-type: none;
+}
+.prod_by_subcat_list a {
+	color: #292929;
+	font-size: 16px;
+	font-weight: bold;
+}
+.prod_by_subcat_list a:hover {
+	color: #292929;
+}

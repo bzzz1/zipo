@@ -30,7 +30,7 @@
 
 		</div>	
 		<div class="empty_scape">
-			<ul>
+			<ul class="prod_by_subcat_list">
 				@foreach ($producers as $producer)
 					<li>
 				 		{{HTML::link($HELP::url_slug(["/", "$current->category", "/", "$current->subcat", "/", "$producer->producer", "/", "items"])."?subcat_id=$current->subcat_id&producer_id=$producer->producer_id", $producer->producer,['class'=>'prod_by_subcat_one']) }}
