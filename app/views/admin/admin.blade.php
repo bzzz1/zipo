@@ -46,6 +46,18 @@
 					</script> 
 					--}} 
 				</div>
+				<div class="change_item_category_div">
+					{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_main_label']) }}
+					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], null, ['class'=>'form-control', 'required', 'form' => 'none']) }}
+				</div>
+				<div class="change_item_subcat_div">
+					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_main_label']) }}
+					@if (isset($pdf))
+						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$pdf->subcat_id"]) }}
+					@else
+						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required']) }}
+					@endif
+				</div>
 				{{ Form::submit('Загрузить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 			<a href="/admin/list_pdf" class="btn admin_uni_button to_pdf">Перейти к списку PDF</a>

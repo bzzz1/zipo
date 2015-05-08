@@ -67,8 +67,9 @@
 
 .admin_panel_pdf_div {
   border: 1px solid #9dcb20;
-  padding-top: 5px;
-  padding-left: 1px; }
+  padding-top: 15px;
+  padding-left: 1px;
+  padding-right: 25px; }
   .admin_panel_pdf_div .admin_uni_label {
     vertical-align: top;
     margin-right: 57px; }
@@ -80,10 +81,24 @@
   .admin_panel_pdf_div .good_input {
     width: 219px; }
   .admin_panel_pdf_div .admin_uni_button {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    display: block; }
   .admin_panel_pdf_div .to_pdf {
     float: right;
     margin-right: 10px; }
+  .admin_panel_pdf_div .category_main_label {
+    margin-right: 84px; }
+  .admin_panel_pdf_div .subcat_main_label {
+    margin-right: 59px; }
+  .admin_panel_pdf_div .change_item_category_div {
+    margin-bottom: 20px;
+    margin-top: 20px; }
+    .admin_panel_pdf_div .change_item_category_div select {
+      width: 220px; }
+  .admin_panel_pdf_div .change_item_subcat_div {
+    margin-top: 0; }
+    .admin_panel_pdf_div .change_item_subcat_div select {
+      width: 220px; }
 
 .all_pdfs {
   list-style: none; }

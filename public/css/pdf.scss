@@ -100,8 +100,10 @@ $black: #292929;
 // For ADMIN PANEL
 .admin_panel_pdf_div {
 	border: 1px solid #9dcb20;
-	padding-top: 5px;
+	padding-top: 15px;
 	padding-left: 1px;
+	padding-right: 25px;
+
 	.admin_uni_label {
 		vertical-align: top;
 		margin-right: 57px;
@@ -118,10 +120,30 @@ $black: #292929;
 	}
 	.admin_uni_button {
 		margin-bottom: 20px;
+		display: block;
 	}
 	.to_pdf {
 		float: right;
 		margin-right: 10px;
+	}
+	.category_main_label {
+		margin-right: 84px;
+	}
+	.subcat_main_label {
+		margin-right: 59px;
+	}
+	.change_item_category_div {
+		margin-bottom: 20px;
+		margin-top: 20px;
+		select {
+			width: 220px;
+		}
+	}
+	.change_item_subcat_div {
+		margin-top: 0;
+		select {
+			width: 220px;
+		}
 	}
 }
 // For ALL PDF DEL
@@ -145,6 +167,7 @@ $black: #292929;
 		cursor: pointer;;
 	}
 }
+
 
 
 

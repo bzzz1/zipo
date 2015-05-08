@@ -762,6 +762,9 @@ form {
 	font-weight: bold;
 	margin-left: 15px;
 }
+.sub_head_second {
+	margin-left: 0;
+}
 .items_sort_div {
 	display: block;
 	margin-left: 15px;
