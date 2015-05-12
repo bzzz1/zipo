@@ -18,7 +18,7 @@
 					{{ Form::close() }} 
 					{{HTML::link("admin/item_pdfs?pdf_id=$pdf->pdf_id&producer_id=$pdf->producer_id", $pdf->good,['target'=>'_blank']) }}
 					<div class="admin_change_subcategory_div adm_upd_pdf_{{$pdf->pdf_id}} adm_pdf_change_pop_up mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
-						{{ Form::open(['url'=>"admin/update_pdf", 'method'=>'POST', 'class'=>'admin_add_pdf_form input-group']) }}
+						{{ Form::model($pdf, ['url'=>"admin/update_pdf", 'method'=>'POST', 'class'=>'admin_add_pdf_form input-group']) }}
 							{{ Form::hidden('pdf_id', $pdf->pdf_id) }}
 							<p class="admin_add_subcategory_title">Редактирование деталировки</p>
 							<div class="change_block admin_id_subcategory_div">
@@ -33,11 +33,11 @@
 								{{ Form::label('good', 'Название товара', ['class'=>'admin_uni_label admin_select_title_label']) }}
 								{{ Form::text('good', $pdf->good, ['class'=>'form-control admin_select_title_text', 'required']) }}
 							</div>
-							<div class="change_item_category_div">
+							<div class="change_block change_item_category_div">
 								{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_main_label']) }}
-								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], null, ['class'=>'form-control', 'required', 'form' => 'none']) }}
+								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $pdf->category_id, ['class'=>'form-control', 'required', 'form' => 'none']) }}
 							</div>
-							<div class="change_item_subcat_div">
+							<div class="change_block change_item_subcat_div">
 								{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_main_label']) }}
 								@if (isset($pdf))
 									{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$pdf->subcat_id"]) }}
