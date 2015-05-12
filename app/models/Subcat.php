@@ -8,6 +8,10 @@ class Subcat extends Eloquent {
 	public function items() {
 		return $this->belongsTo('Item', 'subcat_id', 'subcat_id');
 	}
+
+	public function pdf() {
+		return $this->belongsTo('Pdf', 'subcat_id', 'subcat_id');
+	}
 /*------------------------------------------------
 | READ
 ------------------------------------------------*/
@@ -75,7 +79,7 @@ class Subcat extends Eloquent {
 		
 
 		// list all producers that pdfs has group by category
-		// деталлирокки отсортированные по производителю и subcat_id
+		// +++  деталлирокки отсортированные по производителю и subcat_id
 		// на items if env == prods_by_subcat, передать producer в current
 
 		foreach ($categories as $category) {

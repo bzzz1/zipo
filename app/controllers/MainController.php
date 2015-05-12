@@ -79,7 +79,7 @@ class MainController extends BaseController {
 	public function prods_by_subcat() {
 		return View::make('prods_by_subcat')->with([
 			'producers' => Item::getProducerBySubcat(),
-			'current'	=> Subcat::find(Input::get('subcat_id')),
+			'current'	=> Subcat::with('pdf.producer')->find(Input::get('subcat_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'env' 		=> 'catalog',

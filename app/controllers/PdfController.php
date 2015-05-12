@@ -21,9 +21,9 @@ class PdfController extends BaseController {
 	}
 
 	public function all_pdf_by_cat() {
-		return View::make('all_pdf_by_cat')->with([
+		return View::make('all_pdf_by_prod')->with([
 			'producer'	=> Producer::find(Input::get('producer_id')),
-			'pdfs'		=> Pdf::allPdfByProd(Input::get('producer_id')),
+			'pdfs'		=> Pdf::allPdfByCat(),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),
 			'env' 		=> 'catalog'
