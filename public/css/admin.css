@@ -945,7 +945,7 @@ i.delete_items_group_icon {
 }
 .adm_pdf_change_pop_up .change_item_category_div {
 	width: 230px;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 .adm_pdf_change_pop_up .change_item_category_div select {
 	margin-bottom: 20px;
