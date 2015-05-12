@@ -18,6 +18,9 @@
     color: #fff;
     background-color: #963037; }
 
+.watch_by_prod_and_subcat {
+  margin-top: 40px; }
+
 .pdf_all_list ul, .pdf_list ul {
   list-style-type: none; }
 .pdf_all_list a, .pdf_list a {

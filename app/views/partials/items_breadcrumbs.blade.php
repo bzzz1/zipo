@@ -23,6 +23,7 @@
 	  </li>
 	  <li class="active">{{Producer::find(Input::get("producer_id"))->producer}}</li>
 	</ol>
+	{{HTML::link($HELP::url_slug(["/", "all_pdf", "/", $current->producer])."?producer_id=$current->producer_id&subcat_id=$current->subcat_id", "Посмотреть деталировки",['class'=>'btn watch_by_prod_btn watch_by_prod_and_subcat']) }}
 	<h3 class="items_page_main_header universal_heading">{{$HELP::getNormal($current->category) }} оборудование</h3>
 	<p class="items_subheading">{{$current->subcat}}</p>
 	<p class="items_subheading sub_head_second"> производителя "{{Producer::find(Input::get("producer_id"))->producer}}"</p>
