@@ -81,7 +81,7 @@ class Subcat extends Eloquent {
 		// list all producers that pdfs has group by category
 		// +++  деталлирокки отсортированные по производителю и subcat_id
 		// на items if env == prods_by_subcat, передать producer в current
-		// Subcat::with('pdf.producer')->find(Input::get('subcat_id')),
+		
 
 		foreach ($categories as $category) {
 			$subcats_titles = Subcat::where('category', $category)->lists('subcat');
