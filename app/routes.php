@@ -98,6 +98,44 @@ Route::get('/{category}/{subcat}', 'MainController@prods_by_subcat');
 Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_subcat_prod');
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
+Route::get('/test', function() {
+	$categories = [
+		'Механическое_en',
+		'Тепловое_en',
+		'Холодильное_en',
+		'Посудомоечное_en',
+		'Механическое_ru',
+		'Тепловое_ru',
+		'Холодильное_ru',
+		'Посудомоечное_ru'
+	];
+
+	// Pdf::with(['producer.producer'])->get();
+
+	// Pdf::with(['producer' => function($query){ $query->select(['producer'])}, 
+	//     'category' => function($query) { $query->select(['category'])}
+	// ])->get();
+
+	// $prods_by_cat = [];
+	
+	// foreach ($categories as $category) {
+	// 	$group = Pdf::with('subcat', 'producer')->get()->map(function($pdf) use ($category) {
+	// 		if ($pdf->subcat['category'] == $category) {
+	// 			return $pdf->producer;
+	// 		}
+	// 	});
+
+	// 	$prods_by_cat[$category] = $group->filter(function($item) {
+	// 		if (isset($item)) {
+	// 			return $item;
+	// 		}
+	// 	});
+	// }
+
+
+	// dd($prods_by_cat);
+});
+
 // App::missing(function($exception) {
 // 	return Redirect::to('/');
 // });

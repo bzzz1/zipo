@@ -20,6 +20,16 @@ class PdfController extends BaseController {
 		]);
 	}
 
+	public function all_pdf_by_cat() {
+		return View::make('all_pdf_by_cat')->with([
+			'producer'	=> Producer::find(Input::get('producer_id')),
+			'pdfs'		=> Pdf::allPdfByProd(Input::get('producer_id')),
+			'articles'	=> Article::readAllArticles(),
+			'recents'	=> Recent::readAllRecents(),
+			'env' 		=> 'catalog'
+		]);
+	}
+
 	public function one_pdf() {
 		return View::make('one_pdf')->with([
 			'producer'	=> Producer::find(Input::get('producer_id')),

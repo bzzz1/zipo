@@ -20,6 +20,10 @@ class Pdf extends Eloquent {
 		return $this->hasOne('Producer', 'producer_id', 'producer_id');
 	}
 
+	public function subcat() {
+		return $this->hasOne('Subcat', 'subcat_id', 'subcat_id');
+	}
+
 	public function items() {
         return $this->belongsToMany('Item'); // optional second argument is pivot table name
     }
