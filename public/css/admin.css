@@ -306,21 +306,34 @@ input[type=file].admin_pdf_input {
 .subcategory_left ul {
 	padding-left: 15px;
 	margin-bottom: 0px;
+	list-style: none;
 }
 .subcategory_right ul {
 	padding-left: 15px;
 	margin-bottom: 0px;
+	list-style: none;
+}
+.subcategory_left ul li {
+	overflow: auto;
+	margin-bottom: 5px;
+}
+.subcategory_right ul li {
+	overflow: auto;
+	margin-bottom: 5px;
 }
 .admin_subcats_list {
 	background-color: #ececec;
 	padding: 10px 15px 10px 15px;
+	overflow: auto;
 }
 .admin_subcategory {
 	color: black;
 	font-family: 'Arial';
 	font-size: 14px; 
-	width: 273px;
+	width: 250px;
 	margin-bottom: 0px;
+	display: block;
+	float: left;
 }
 .admin_subcategory i {
 	color: #9dcb20;
@@ -335,6 +348,15 @@ input[type=file].admin_pdf_input {
 }
 .admin_subcategory_form {
 	float: right;
+}
+.subcats_btns {
+	overflow: auto;
+	display: inline-block; 
+	float: right;
+}
+.sub_btns_a {
+	float: left;
+	margin-right: 3px;
 }
 
 /*PANEL CONTINUE*/
