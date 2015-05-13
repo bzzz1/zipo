@@ -43,8 +43,11 @@ class Pdf extends Eloquent {
 		return Pdf::where('producer_id', $producer_id)->where('subcat_id', $subcat_id)->orderBy('good')->get();
 	}	
 
-    public function scopeAllPdfByProd($query, $producer_id) {
-        return $query->where('producer_id', $producer_id)->get();
+    public static function allPdfByProd() {
+    	$producer_id = Input::get('producer_id');
+    	$category = Input::get('category');
+
+    	return Pdf::where('producer_id', $producer_id)->where('category', $category)->get();
     }
 
 	// Item::find(600)->pdfs()->attach(1)
