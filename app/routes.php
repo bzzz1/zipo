@@ -100,18 +100,69 @@ Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_sub
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 Route::get('/test', function() {
-	$categories = [
-		'Механическое_en',
-		'Тепловое_en',
-		'Холодильное_en',
-		'Посудомоечное_en',
-		'Механическое_ru',
-		'Тепловое_ru',
-		'Холодильное_ru',
-		'Посудомоечное_ru'
-	];
+	// $input = [
+	// 	'pdf_id' 	  => '7',
+	// 	'producer_id' => '174',
+	// 	'producer'	  => [
+	// 	   'producer_id' => '174',
+	// 	   'producer'    => 'RADA',
+	// 	],
+	// ];
 
-	// Pdf::with(['producer.producer'])->get();
+	// function array_flat($arr) {
+	// 	$output = [];
+	// 	foreach($arr as $key => $val) {
+	// 		if (is_array($val)) {
+	// 			$output = array_merge($output, $val);
+	// 		} else {
+	// 			$output[$key] = $val;
+	// 		}
+	// 	}
+	// 	return $output;
+	// }
+
+	// $output = array_flat($input);
+
+	// dd($output);
+
+
+	// Subcat::with('pdf.producer')->find(Input::get('subcat_id')),
+	// Producer::with('pdf')->get()->filter(function($item) {if ($item->pdf != Null) {return $item;}})
+	// Item::with(['producer' => function($query) {$query->select(['producer'])->get();}])->has('pdfs')->get()
+	// Pdf::with(['producer' => function($query){ $query->select(['producer'])}]);
+
+	// $pdfs = Pdf::with(['producer', 'subcat'])->get()->toArray();
+
+	// foreach($pdfs as $key => $val) {
+	// 	$pdfs[$key] = array_flat($val);
+	// }
+
+	// dd($pdfs);
+
+
+	// $categories = [
+	// 	'Механическое_en',
+	// 	'Тепловое_en',
+	// 	'Холодильное_en',
+	// 	'Посудомоечное_en',
+	// 	'Механическое_ru',
+	// 	'Тепловое_ru',
+	// 	'Холодильное_ru',
+	// 	'Посудомоечное_ru'
+	// ];
+
+	// foreach ($categories as $category) {
+	// 	$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
+	// 	$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
+	// 		if ($pdf['category'] == $category) {
+	// 			return new BaseCollection([$pdf['producer'], $pdf['producer_id']]);
+	// 		}
+	// 	});
+	// }
+
+
+	// dd($prods_by_cat);
+
 
 	// Pdf::with(['producer' => function($query){ $query->select(['producer'])}, 
 	//     'category' => function($query) { $query->select(['category'])}
@@ -135,6 +186,27 @@ Route::get('/test', function() {
 
 
 	// dd($prods_by_cat);
+
+	// foreach ($categories as $category) {
+	// 	$producers_by_category[] = Pdf::with('subcat', 'producer')->get()->map(function($pdf) use ($category) {
+	// 		if ($pdf->subcat['category'] == $category) {
+	// 			echo 'gggggggggg';
+	// 			dd('ffffffffffffffff');
+	// 			return $pdf->producer;
+	// 		}
+	// 	});
+	// }
+
+	// Pdf::with('subcat', 'producer')->get()->map(function($pdf) {
+	// 				if ($pdf->subcat['category'] == 'Холодильное_en') {
+	// 					return $pdf->producer;
+	// 				}
+	// 			});
+	
+
+	// list all producers that pdfs has group by category
+	// +++  деталлирокки отсортированные по производителю и subcat_id
+	// +++ на items if env == prods_by_subcat, передать producer в current
 });
 
 // App::missing(function($exception) {

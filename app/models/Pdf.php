@@ -1,6 +1,13 @@
 <?php
 
 class Pdf extends Eloquent {
+
+	// use FlattenableTrait;
+
+	public function newCollection(array $models = array()) {
+		return new BaseCollection($models);
+	}
+
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'pdf_id';
@@ -39,9 +46,6 @@ class Pdf extends Eloquent {
     public function scopeAllPdfByProd($query, $producer_id) {
         return $query->where('producer_id', $producer_id)->get();
     }
-
-    // Producer::with('pdf')->get()->filter(function($item) {if ($item->pdf != Null) {return $item;}})
-	// Item::with(['producer' => function($query) {$query->select(['producer'])->get();}])->has('pdfs')->get()
 
 	// Item::find(600)->pdfs()->attach(1)
 	// Pdf::find(1)->items()->attach(2)

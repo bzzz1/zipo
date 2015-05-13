@@ -41,6 +41,18 @@ class HELP {
 		];
 	}
 
+	public static function flat_array($arr) {
+		$output = [];
+		foreach($arr as $key => $val) {
+			if (is_array($val)) {
+				$output = array_merge($output, $val);
+			} else {
+				$output[$key] = $val;
+			}
+		}
+		return $output;
+	}
+
 	private static function tofloat($num) {
 		$dotPos = strrpos($num, '.');
 		$commaPos = strrpos($num, ',');
