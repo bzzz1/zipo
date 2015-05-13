@@ -32,7 +32,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Механическое_en'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Механическое_en'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -41,7 +41,7 @@
 						</div>
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Механическое_en'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Механическое_en'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -54,7 +54,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Тепловое_en'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Тепловое_en'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -63,7 +63,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Тепловое_en'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Тепловое_en'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -84,7 +84,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Холодильное_en'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Холодильное_en'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -93,7 +93,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Холодильное_en'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Холодильное_en'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -106,7 +106,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Посудомоечное_en'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -115,7 +115,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Посудомоечное_en'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -139,7 +139,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Механическое_ru'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Механическое_ru'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -148,7 +148,7 @@
 						</div>
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Механическое_ru'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Механическое_ru'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -161,7 +161,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Тепловое_ru'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Тепловое_ru'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -170,7 +170,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Тепловое_ru'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Тепловое_ru'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -192,7 +192,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Холодильное_ru'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Холодильное_ru'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -201,7 +201,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Холодильное_ru'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Холодильное_ru'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -214,7 +214,7 @@
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($producers['Посудомоечное_ru'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 1) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
@@ -223,7 +223,7 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($producers['Посудомоечное_ru'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 2) as $producer)
 									<li>
 										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
