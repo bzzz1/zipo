@@ -458,7 +458,19 @@ $('.contact_form_button').on('click', function(evt) {
 	
 	// return false; // doesn't work even in IE11 and Mozilla with dispatchEvent() but fine with just click()
 });
+/*------------------------------------------------
+| CHANGE LONG SUBCATS FONT
+------------------------------------------------*/
+// var $val = $('.admin_subcategory').text();
+$('.admin_subcategory').each(function () {
+	$val = $.trim($(this).text());
+	var $quantity = $val.length;
+	// console.log($val);
+	if ($quantity > 30) {
+		$(this).css('font-size', '13px');
+	};
 
+})
 /*------------------------------------------------
 | AUTOCOMPLETE
 ------------------------------------------------*/
