@@ -7,7 +7,7 @@ class BaseCollection extends Collection {
 		$items = $this->toArray($this->items);
 
 		foreach($items as $key => $val) {
-			$items[$key] = $this->array_flat($val);
+			$items[$key] = (object) $this->array_flat($val);
 		}
 
 		return new static($items);
