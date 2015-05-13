@@ -48,8 +48,8 @@ class Producer extends Eloquent {
 		foreach ($categories as $category) {
 			$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
 			$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
-				if ($pdf['category'] == $category) {
-					return new BaseCollection([$pdf['producer'], $pdf['producer_id']]);
+				if ($pdf->category == $category) {
+					return new BaseCollection([$pdf->producer, $pdf->producer_id]);
 				}
 			});
 		}
