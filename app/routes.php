@@ -207,6 +207,7 @@ Route::get('/test', function() {
 	// list all producers that pdfs has group by category
 	// +++  деталлирокки отсортированные по производителю и subcat_id
 	// +++ на items if env == prods_by_subcat, передать producer в current
+	// admin/list_pdf  admin_pdfs
 });
 
 // App::missing(function($exception) {
