@@ -35,7 +35,7 @@
 							</div>
 							<div class="change_block change_item_category_div">
 								{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_main_label']) }}
-								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $pdf->category_id, ['class'=>'form-control', 'required', 'form' => 'none']) }}
+								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $pdf->category, ['class'=>'form-control category_input', 'required', 'form' => 'none']) }}
 							</div>
 							<div class="change_block change_item_subcat_div">
 								{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_main_label']) }}

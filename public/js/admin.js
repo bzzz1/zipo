@@ -33,9 +33,20 @@ if ($('#category').length) {
 		send_category($('#category').val());	
 	});
 }
+// INITIAL SET SUBCATS
+var $selects = $('.category_input');
+if ($('.category_input').length) {
+	for (var i=0; i<$selects.length; i++){
+		send_category($selects.eq(i).val(), i);
+	}
+
+	$('.category_input').on('change', function() {
+		send_category($('.category_input').val());	
+	});
+}
 
 
-function send_category(category) {
+function send_category(category, number) {
 	$.ajax({
 		url: location.origin+'/admin/ajax_get_subcats',
 		type: 'POST',
@@ -61,6 +72,27 @@ function send_category(category) {
 			------------------------------------------------*/
 			var subcat_id = $('#subcat_id').data('id');
 			$('#subcat_id').val(subcat_id);
+
+			if(number) {
+				var $subcat = $('.subcat_input').eq(number);
+				// CLEAR OLD SUBCATS
+				$subcat.html('');
+
+				for (var i=0; i<data.length; i++) {
+					var subcat = data[i]['subcat'];
+					var subcat_id = data[i]['subcat_id'];
+
+					var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+					$subcat.append($option);
+				}
+
+				/*------------------------------------------------
+				| Select needed option
+				------------------------------------------------*/
+				var subcat_id = $subcat.data('id');
+				$subcat.val(subcat_id);
+				
+			}
 			
 			// $('[name=options] option').filter(function() { 
 			//     return ($(this).text() == 'Blue'); //To select Blue

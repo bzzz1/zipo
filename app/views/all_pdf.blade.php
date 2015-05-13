@@ -34,7 +34,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Механическое_en'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Механическое_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -43,7 +43,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Механическое_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Механическое_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -56,7 +56,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Тепловое_en'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -65,7 +65,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Тепловое_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_enproducer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -86,7 +86,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Холодильное_en'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Холодильное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -95,7 +95,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Холодильное_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Холодильное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -108,7 +108,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -117,7 +117,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -141,7 +141,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Механическое_ru'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Механическое_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -150,7 +150,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Механическое_ru'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Механическое_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -163,7 +163,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Тепловое_ru'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -172,7 +172,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Тепловое_ru'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -194,7 +194,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Холодильное_ru'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Холодильное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -203,7 +203,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Холодильное_ru'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Холодильное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -216,7 +216,7 @@
 							<ul>
 								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
@@ -225,7 +225,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
