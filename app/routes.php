@@ -125,16 +125,6 @@ Route::get('/test', function() {
 
 	// dd($output);
 
-	// $categories = [
-	// 	'Механическое_en',
-	// 	'Тепловое_en',
-	// 	'Холодильное_en',
-	// 	'Посудомоечное_en',
-	// 	'Механическое_ru',
-	// 	'Тепловое_ru',
-	// 	'Холодильное_ru',
-	// 	'Посудомоечное_ru'
-	// ];
 
 	// Subcat::with('pdf.producer')->find(Input::get('subcat_id')),
 	// Producer::with('pdf')->get()->filter(function($item) {if ($item->pdf != Null) {return $item;}})
@@ -149,8 +139,29 @@ Route::get('/test', function() {
 
 	// dd($pdfs);
 
-	$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
-	dd($pdfs);
+
+	// $categories = [
+	// 	'Механическое_en',
+	// 	'Тепловое_en',
+	// 	'Холодильное_en',
+	// 	'Посудомоечное_en',
+	// 	'Механическое_ru',
+	// 	'Тепловое_ru',
+	// 	'Холодильное_ru',
+	// 	'Посудомоечное_ru'
+	// ];
+
+	// foreach ($categories as $category) {
+	// 	$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
+	// 	$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
+	// 		if ($pdf['category'] == $category) {
+	// 			return new BaseCollection([$pdf['producer'], $pdf['producer_id']]);
+	// 		}
+	// 	});
+	// }
+
+
+	// dd($prods_by_cat);
 
 
 	// Pdf::with(['producer' => function($query){ $query->select(['producer'])}, 
@@ -175,6 +186,27 @@ Route::get('/test', function() {
 
 
 	// dd($prods_by_cat);
+
+	// foreach ($categories as $category) {
+	// 	$producers_by_category[] = Pdf::with('subcat', 'producer')->get()->map(function($pdf) use ($category) {
+	// 		if ($pdf->subcat['category'] == $category) {
+	// 			echo 'gggggggggg';
+	// 			dd('ffffffffffffffff');
+	// 			return $pdf->producer;
+	// 		}
+	// 	});
+	// }
+
+	// Pdf::with('subcat', 'producer')->get()->map(function($pdf) {
+	// 				if ($pdf->subcat['category'] == 'Холодильное_en') {
+	// 					return $pdf->producer;
+	// 				}
+	// 			});
+	
+
+	// list all producers that pdfs has group by category
+	// +++  деталлирокки отсортированные по производителю и subcat_id
+	// +++ на items if env == prods_by_subcat, передать producer в current
 });
 
 // App::missing(function($exception) {

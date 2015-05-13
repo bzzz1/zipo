@@ -61,28 +61,6 @@ class Subcat extends Eloquent {
 
 		$producers_by_category = [];
 		
-		// foreach ($categories as $category) {
-		// 	$producers_by_category[] = Pdf::with('subcat', 'producer')->get()->map(function($pdf) use ($category) {
-		// 		if ($pdf->subcat['category'] == $category) {
-		// 			echo 'gggggggggg';
-		// 			dd('ffffffffffffffff');
-		// 			return $pdf->producer;
-		// 		}
-		// 	});
-		// }
-
-		// Pdf::with('subcat', 'producer')->get()->map(function($pdf) {
-		// 				if ($pdf->subcat['category'] == 'Холодильное_en') {
-		// 					return $pdf->producer;
-		// 				}
-		// 			});
-		
-
-		// list all producers that pdfs has group by category
-		// +++  деталлирокки отсортированные по производителю и subcat_id
-		// на items if env == prods_by_subcat, передать producer в current
-		
-
 		foreach ($categories as $category) {
 			$subcats_titles = Subcat::where('category', $category)->lists('subcat');
 			$subcats[$category] = $subcats_titles;

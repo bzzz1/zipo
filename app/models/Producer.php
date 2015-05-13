@@ -45,13 +45,17 @@ class Producer extends Eloquent {
 			'Посудомоечное_ru'
 		];
 
-		$pdfs_subcats = Pdf::join('subcats', 'pdfs.subcat_id', '=', 'subcats.subcat_id')->join('producers', 'producers.producer_id', '=', 'pdfs.producer_id');
-
 		foreach ($categories as $category) {
-			$producers[$category] = $pdfs_subcats->where('category', $category)->get();
+			$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
+			$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
+				if ($pdf['category'] == $category) {
+					return new BaseCollection([$pdf['producer'], $pdf['producer_id']]);
+				}
+			});
 		}
 
-		return $producers;
+
+		return $prods_by_cat;
 	}
 
 	public static function readAllProducers() {

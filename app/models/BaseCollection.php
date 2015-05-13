@@ -4,8 +4,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class BaseCollection extends Collection {
 	public function flate() {
-		$items = $this->items;
-		$items = $this->toArray($items);
+		$items = $this->toArray($this->items);
 
 		foreach($items as $key => $val) {
 			$items[$key] = $this->array_flat($val);
