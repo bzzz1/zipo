@@ -499,7 +499,10 @@ $('.admin_subcategory').each(function () {
 	var $quantity = $val.length;
 	// console.log($val);
 	if ($quantity > 30) {
-		$(this).css('font-size', '13px');
+		$(this).css({
+			'font-size': '12px',
+			'max-width': '250px'
+		});
 	};
 
 })
