@@ -47,7 +47,15 @@ class Pdf extends Eloquent {
     	$producer_id = Input::get('producer_id');
     	$category = Input::get('category');
 
-    	return Pdf::where('producer_id', $producer_id)->where('category', $category)->get();
+    	$pdfs = Pdf::with(['producer', 'subcat'])->where('producer_id', $producer_id)->get()->flate();
+
+    	$items = $pdfs->filter(function($pdf) use ($category) {
+    		if ($pdf->category == $category) {
+    			return $pdf;
+    		}
+    	});
+
+    	return $items;
     }
 
 	// Item::find(600)->pdfs()->attach(1)
