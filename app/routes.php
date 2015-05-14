@@ -100,6 +100,29 @@ Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_sub
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 Route::get('/test', function() {
+	$category = 'Механическое_en';
+
+	$producers = Producer::whereHas('pdf.subcat', function($q) use ($category){
+		$q->where('category', $category);
+	})->get();
+
+	dd($producers);
+	/*------------------------------------------------
+	| !!! whereHas()->with()
+	------------------------------------------------*/
+	// Producer::whereHas('pdf.subcat', function($q) {
+ //        $q->groupBy('category');
+ //    })->get();
+
+ //    Producer::has('pdf.subcat')->get();
+	#################################################
+
+	// $result = Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate()->flate();
+	// $result = Producer::has('pdf')->with(['pdf.subcat' => function($q) {$q->select('pdf.good');}])->get();
+	// Subcat::has('pdf')->with('pdf')->with('pdf.producer');
+
+	// dd($result);
+
 	// $input = [
 	// 	'pdf_id' 	  => '7',
 	// 	'producer_id' => '174',

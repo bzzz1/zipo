@@ -13,6 +13,10 @@ class Producer extends Eloquent {
 		return $this->belongsTo('Pdf', 'producer_id', 'producer_id');
 	}
 	
+	public function newCollection(array $models = array()) {
+		return new BaseCollection($models);
+	}
+
 	// public function subcat() {
 	// 	return $this->hasManyThrough('Subcat', 'Pdf', 'subcat_id', 'subcat_id');
 	// }
@@ -46,14 +50,43 @@ class Producer extends Eloquent {
 		];
 
 		foreach ($categories as $category) {
-			$pdfs = Pdf::with(['producer', 'subcat'])->get()->flate();
-			$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
-				if ($pdf->category == $category) {
-					return new BaseCollection([$pdf->producer, $pdf->producer_id]);
-				}
-			});
+			$prods_by_cat[$category] = Producer::whereHas('pdf.subcat', function($q) use ($category) {
+				$q->where('category', $category);
+			})->get();
+
+			// Producer::whereHas('pdf.subcat', function($q) use ($category){
+			// 	$q->where('category', $category);
+			// });
+
+			// $pdfs = Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate()->flate();
+			// $pdfs = Pdf::with('subcat')
+				// with(['subcat' => function($query) {$query->groupBy('category');}])
+				// ->with('producer')->get()->flate();
+			// $prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
+			// 	if ($pdf->category == $category) {
+			// 		return new BaseCollection([$pdf->producer, $pdf->producer_id]);
+			// 	}
+			// });
 		}
 
+
+		// foreach ($categories as $category) {
+		// 	$pdfs = Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate()->flate();
+		// 	// $pdfs = Pdf::with('subcat')
+		// 		// with(['subcat' => function($query) {$query->groupBy('category');}])
+		// 		// ->with('producer')->get()->flate();
+		// 	$prods_by_cat[$category] = $pdfs->filter(function($pdf) use ($category) {
+		// 		if ($pdf->category == $category) {
+		// 			return new BaseCollection([$pdf->producer, $pdf->producer_id]);
+		// 		}
+		// 	});
+		// }
+
+
+
+		// Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate();
+		// Producer::has('pdf')->with(['pdf.subcat' => function($q) {$q->select('pdf.good');}])->get();
+		// // Subcat::has('pdf')->with('pdf')->with('pdf.producer');
 
 		return $prods_by_cat;
 	}
