@@ -55,7 +55,7 @@ class Producer extends Eloquent {
 		}
 
 
-		return $prods_by_cat->unique();
+		return $prods_by_cat;
 	}
 
 	public static function readAllProducers() {
