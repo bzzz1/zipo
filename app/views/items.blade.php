@@ -4,11 +4,13 @@
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
 
-@section('meta')
-	<title>Запчасти подкатегории: {{$current->subcat}}</title>
-	<meta name='keywords' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
-	<meta name='description' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
-@stop
+@if ('specials' != $env)
+	@section('meta')
+		<title>Запчасти подкатегории: {{$current->subcat}}</title>
+		<meta name='keywords' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
+		<meta name='description' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
+	@stop
+@endif
 
 @section('body')
 	<div class="main_content">
