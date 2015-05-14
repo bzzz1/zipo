@@ -4,7 +4,7 @@
 @extends('partials/left_sidebar')
 @extends('partials/right_sidebar')
 
-@if ('specials' != $env)
+@if ('specials' != $env && 'search' != $env)
 	@section('meta')
 		<title>Запчасти подкатегории: {{$current->subcat}}</title>
 		<meta name='keywords' content='Запчасти подкатегории: {{$current->subcat}} - Зип Общепит'>
