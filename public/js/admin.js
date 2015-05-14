@@ -493,19 +493,19 @@ $('.contact_form_button').on('click', function(evt) {
 /*------------------------------------------------
 | CHANGE LONG SUBCATS FONT
 ------------------------------------------------*/
-// var $val = $('.admin_subcategory').text();
-$('.admin_subcategory').each(function () {
-	$val = $.trim($(this).text());
-	var $quantity = $val.length;
-	// console.log($val);
-	if ($quantity > 30) {
-		$(this).css({
-			'font-size': '12px',
-			'max-width': '250px'
-		});
-	};
+// // var $val = $('.admin_subcategory').text();
+// $('.admin_subcategory').each(function () {
+// 	$val = $.trim($(this).text());
+// 	var $quantity = $val.length;
+// 	// console.log($val);
+// 	if ($quantity > 30) {
+// 		$(this).css({
+// 			// 'font-size': '12px',
+// 			'max-width': '270px'
+// 		});
+// 	};
 
-})
+// })
 /*------------------------------------------------
 | AUTOCOMPLETE
 ------------------------------------------------*/
