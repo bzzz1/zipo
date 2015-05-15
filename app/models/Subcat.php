@@ -39,11 +39,7 @@ class Subcat extends Eloquent {
 	public static function getSubcatsByCategory($category_trans) {
 		$category_fixed = HELP::$translit[$category_trans];
 
-		$subcats = new Subcat;
-		$subcats = $subcats->where('category', $category_fixed);
-		$subcats = $subcats->get();
-		
-		return $subcats;
+		return Subcat::where('category', $category_fixed)->orderBy('subcat', 'asc')->get();
 	}
 
 	public static function getSubcatsTitlesByCategory() {

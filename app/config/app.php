@@ -97,7 +97,6 @@ return array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		// 'Illuminate\Auth\AuthServiceProvider',
-		'Ollieread\Multiauth\MultiauthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -122,8 +121,11 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		/*----------------------------------------------*/
+		'Ollieread\Multiauth\MultiauthServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'YYamagata\PsyshLaravel\PsyshLaravelServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 	),
 
 	/*
@@ -189,7 +191,9 @@ return array(
 		'Str'             => 'Illuminate\Support\Str',
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
-		'View'            => 'Illuminate\Support\Facades\View'
+		'View'            => 'Illuminate\Support\Facades\View',
+		/*----------------------------------------------*/
+		'Image'			  => "Intervention\Image\ImageManagerStatic",
 	),
 
 );

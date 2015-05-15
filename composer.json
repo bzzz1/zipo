@@ -13,7 +13,9 @@
 		"ckeditor/ckeditor": "dev-master",
   		"sunhater/kcfinder": "dev-master",
 		"way/generators": "~3.0",
-		"y-yamagata/psysh-laravel": "0.1.*"
+		"y-yamagata/psysh-laravel": "0.1.*",
+		"ext-fileinfo": "*",
+		"intervention/image": "^2.2"
 	},
 	"autoload": {
 		"files": [
