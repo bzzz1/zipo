@@ -118,6 +118,7 @@ class AdminController extends BaseController {
 		$rules = [
 			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
 		];
+
 		$validator = Validator::make($fields, $rules);
 
 		// createnig and updting
@@ -360,6 +361,24 @@ class AdminController extends BaseController {
 			$extension = $file->getClientOriginalExtension();
 			// $filename = $file->getClientOriginalName(); // full
 			$filename = 'temp.'.$extension;
+
+			/*------------------------------------------------
+			| ADD WATERMARK
+			------------------------------------------------*/
+			// $filenames = read_dir(dir_path('photos'));
+			$watermark_path = dir_path('icons').dir_sep().'watermark.png';
+			$watermark = Image::make($watermark_path);
+			$image = Image::make(dir_path('photos').dir_sep().$filename);
+
+			// resize watermark
+			$width = $image->width();
+			$height = $image->height();
+			$watermark->fit($width, $height);
+
+			$image->insert($watermark, 'center', 0, 0);
+			$image->save();
+			/*----------------------------------------------*/
+
 			$file->move($destinationPath, $filename);
 		}
 

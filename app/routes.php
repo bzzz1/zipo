@@ -100,31 +100,31 @@ Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_sub
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 Route::get('run_watermark_stamping', function() {
-	$filenames = read_dir(dir_path('photos'));
-	$watermark_path = dir_path('icons').dir_sep().'watermark.png';
-	$watermark = Image::make($watermark_path);
-	$watermark->backup();
+	// $filenames = read_dir(dir_path('photos'));
+	// $watermark_path = dir_path('icons').dir_sep().'watermark.png';
+	// $watermark = Image::make($watermark_path);
+	// $watermark->backup();
 
-	foreach ($filenames as $filename) {
-		$watermark->reset();
-		$image = Image::make(dir_path('photos').dir_sep().$filename);
+	// foreach ($filenames as $filename) {
+	// 	$watermark->reset();
+	// 	$image = Image::make(dir_path('photos').dir_sep().$filename);
 
-		// resize watermark
-		$width = $image->width();
-		$height = $image->height();
-		// $watermark->resize($width, $height);
-		$watermark->fit($width, $height);
+	// 	// resize watermark
+	// 	$width = $image->width();
+	// 	$height = $image->height();
+	// 	// $watermark->resize($width, $height);
+	// 	$watermark->fit($width, $height);
 
-		$image->insert($watermark, 'center', 0, 0);
-		$image->save();
-	}
+	// 	$image->insert($watermark, 'center', 0, 0);
+	// 	$image->save();
+	// }
 
-	// Image::canvas(800, 600, '#ccc');
-	// $img = Image::make('foo.jpg')->resize(300, 200);
-	// return $img->response('jpg');
+	// // Image::canvas(800, 600, '#ccc');
+	// // $img = Image::make('foo.jpg')->resize(300, 200);
+	// // return $img->response('jpg');
 
-	// $img->save('public/bar.jpg');
-	// Image::make('public/foo.jpg')->resize(320, 240)->insert('public/watermark.png');
+	// // $img->save('public/bar.jpg');
+	// // Image::make('public/foo.jpg')->resize(320, 240)->insert('public/watermark.png');
 });
 
 Route::get('/test', function() {
