@@ -359,8 +359,9 @@ class AdminController extends BaseController {
 			$file = Input::file('ajax_photo');
 			$destinationPath = HELP::$ITEM_PHOTO_DIR;
 			$extension = $file->getClientOriginalExtension();
-			// $filename = $file->getClientOriginalName(); // full
+			// $temp_filename = $file->getClientOriginalName(); // full
 			$filename = 'temp.'.$extension;
+			$file->move($destinationPath, $filename);
 
 			/*------------------------------------------------
 			| ADD WATERMARK
@@ -378,8 +379,6 @@ class AdminController extends BaseController {
 			$image->insert($watermark, 'center', 0, 0);
 			$image->save();
 			/*----------------------------------------------*/
-
-			$file->move($destinationPath, $filename);
 		}
 
 		return Response::json($filename);
