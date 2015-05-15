@@ -38,22 +38,28 @@ class Producer extends Eloquent {
 	// }
 /*----------------------------------------------*/
 	public static function getPdfProducersByCategory() {
-		$categories = [
-			'Механическое_en',
-			'Тепловое_en',
-			'Холодильное_en',
-			'Посудомоечное_en',
-			'Механическое_ru',
-			'Тепловое_ru',
-			'Холодильное_ru',
-			'Посудомоечное_ru'
-		];
+		return $prods_by_cat = Cache::remember('prods_by_cat', 30, function() {
+			$categories = [
+				'Механическое_en',
+				'Тепловое_en',
+				'Холодильное_en',
+				'Посудомоечное_en',
+				'Механическое_ru',
+				'Тепловое_ru',
+				'Холодильное_ru',
+				'Посудомоечное_ru'
+			];
 
-		foreach ($categories as $category) {
-			$prods_by_cat[$category] = Producer::whereHas('pdf.subcat', function($q) use ($category) {
-				$q->where('category', $category);
-			})->get();
+		   	foreach ($categories as $category) {
+	   			$prods_by_cat[$category] = Producer::whereHas('pdf.subcat', function($q) use ($category) {
+	   				$q->where('category', $category);
+	   			})->get();
+	   		}
 
+	   		return $prods_by_cat;
+		});
+
+		// foreach ($categories as $category) {
 			// Producer::whereHas('pdf.subcat', function($q) use ($category){
 			// 	$q->where('category', $category);
 			// });
@@ -67,8 +73,7 @@ class Producer extends Eloquent {
 			// 		return new BaseCollection([$pdf->producer, $pdf->producer_id]);
 			// 	}
 			// });
-		}
-
+		// }
 
 		// foreach ($categories as $category) {
 		// 	$pdfs = Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate()->flate();
@@ -82,13 +87,9 @@ class Producer extends Eloquent {
 		// 	});
 		// }
 
-
-
 		// Producer::has('pdf')->with('pdf.subcat')->groupBy('producer')->get()->flate();
 		// Producer::has('pdf')->with(['pdf.subcat' => function($q) {$q->select('pdf.good');}])->get();
 		// // Subcat::has('pdf')->with('pdf')->with('pdf.producer');
-
-		return $prods_by_cat;
 	}
 
 	public static function readAllProducers() {

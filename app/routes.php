@@ -100,13 +100,13 @@ Route::get('/{category}/{subcat}/{producer}/items', 'MainController@items_by_sub
 Route::get('/{category}/{subcat}/{item_title}', 'MainController@item');
 
 Route::get('/test', function() {
-	$category = 'Механическое_en';
+	// $category = 'Механическое_en';
 
-	$producers = Producer::whereHas('pdf.subcat', function($q) use ($category){
-		$q->where('category', $category);
-	})->get();
+	// $producers = Producer::whereHas('pdf.subcat', function($q) use ($category){
+	// 	$q->where('category', $category);
+	// })->get();
 
-	dd($producers);
+	// dd($producers);
 	/*------------------------------------------------
 	| !!! whereHas()->with()
 	------------------------------------------------*/
