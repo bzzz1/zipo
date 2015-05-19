@@ -5,6 +5,14 @@ class Subcat extends Eloquent {
 	public $timestamps = false;
 	public $primaryKey = 'subcat_id';
 
+	public static function boot() {
+        parent::boot();
+
+		Subcat::deleted(function($subcat) {
+			$subcat->pdf->fill(['subcat_id' => '0'])->save();
+		});
+    }
+
 	public function items() {
 		return $this->belongsTo('Item', 'subcat_id', 'subcat_id');
 	}
@@ -12,6 +20,7 @@ class Subcat extends Eloquent {
 	public function pdf() {
 		return $this->belongsTo('Pdf', 'subcat_id', 'subcat_id');
 	}
+
 /*------------------------------------------------
 | READ
 ------------------------------------------------*/
