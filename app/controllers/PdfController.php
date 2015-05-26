@@ -74,7 +74,7 @@ class PdfController extends BaseController {
 
 	public function list_pdf() {
 		return View::make('admin/admin_pdfs')->with([
-			'pdfs'		=> Pdf::with('subcat')->get()->flate(),
+			'pdfs'		=> Pdf::with('subcat')->orderBy('good')->get()->flate(),
 			'producers' => Producer::all(),
 		]);
 	}
@@ -107,12 +107,25 @@ class PdfController extends BaseController {
 		return Redirect::back();
 	}
 
-	public function ajax_change_pdf() {
-		$ids = Input::get('ids');
-		$pdf_id = Input::get('pdf_id');
+	public function ajax_change_pdf() { 
+		$ids = Input::get('ids'); 
+		$pdf_id = Input::get('pdf_id'); 
 
-		Pdf::find($pdf_id)->items()->detach($ids);
-		Pdf::find($pdf_id)->items()->attach($ids);
-		return Response::json($ids);
+		$pdf_items = Pdf::find($pdf_id)->items(); 
+		$items = Pdf::find($pdf_id)->items; 
+
+		foreach ($items as $item) { 
+			$item_id = $item->item_id; 
+			if (in_array($item_id, $ids)) { 
+			$attached_ids[] = $item_id; 
+			} 
+		} 
+
+		$pdf_items->attach($ids); 
+			if (isset($attached_ids)) { 
+			$pdf_items->detach($attached_ids); 
+		} 
+
+		return Response::json($ids); 
 	}
 }

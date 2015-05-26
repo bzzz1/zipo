@@ -143,7 +143,7 @@
 							<a class="change_subcat_button btn admin_add_button aadb admin_uni_button ">Сохранить</a>	
 						</div>	
 					</div>
-					<a class="btn add_to_pdf admin_uni_button ad_pdf_p mfp-zoom-out" data-effect="mfp-zoom-out">Добавить ссылки к PDF</a>
+					<a class="btn add_to_pdf admin_uni_button ad_pdf_p mfp-zoom-out" data-effect="mfp-zoom-out">Добавить/удалить ссылки к PDF</a>
 					<div class="admin_change_subcategory_div admin_itms_pdf_div mfp-hide mfp-zoom-out" data-effect="mfp-zoom-out">
 						<div class="ad_pdf_pop_up">
 							<p class="admin_add_subcategory_title">Редактирование/добавление деталировки</p>
