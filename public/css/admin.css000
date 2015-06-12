@@ -315,11 +315,11 @@ input[type=file].admin_pdf_input {
 }
 .subcategory_left ul li {
 	overflow: auto;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 .subcategory_right ul li {
 	overflow: auto;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 .admin_subcats_list {
 	background-color: #ececec;
@@ -376,13 +376,6 @@ input[type=file].admin_pdf_input {
 	vertical-align: top;
 	margin-top: 18px;
 	margin-left: 34px;
-}
-.rate_label {
-	margin-top: 13px;
-}
-.rate_input {
-	margin-left: 49px;
-	margin-bottom: 25px;
 }
 .discount_input {
 	margin-right: 85px;

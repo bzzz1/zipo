@@ -39,7 +39,7 @@ class Subcat extends Eloquent {
 		$subcats = new Subcat;
 
 		foreach ($categories as $category) {
-			$subcats[$category] = $subcats->where('category', $category)->groupBy('subcat_id')->get();
+			$subcats[$category] = $subcats->where('category', $category)->groupBy('subcat_id')->orderBy('subcat', 'asc')->get();
 		}
 
 		return $subcats;

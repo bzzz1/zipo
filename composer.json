@@ -15,7 +15,8 @@
 		"way/generators": "~3.0",
 		"y-yamagata/psysh-laravel": "0.1.*",
 		"ext-fileinfo": "*",
-		"intervention/image": "^2.2"
+		"intervention/image": "^2.2",
+		"orchestra/parser": "2.2"
 	},
 	"autoload": {
 		"files": [

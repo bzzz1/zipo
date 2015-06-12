@@ -33,7 +33,7 @@ class PdfController extends BaseController {
 	public function one_pdf() {
 		return View::make('one_pdf')->with([
 			'producer'	=> Producer::find(Input::get('producer_id')),
-			'items'		=> Item::with('producer', 'subcat')->has('pdfs')->get(),
+			'items'		=> Item::with('producer', 'subcat')->whereHas('pdfs', function($query) use ($pdf_id) {$query->where('item_pdf.pdf_id', $pdf_id);})->get(),
 			'pdf'		=> Pdf::find(Input::get('pdf_id')),
 			'articles'	=> Article::readAllArticles(),
 			'recents'	=> Recent::readAllRecents(),

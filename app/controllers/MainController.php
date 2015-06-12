@@ -1,5 +1,14 @@
 <?php
 class MainController extends BaseController {
+	public function get_CBR_EUR_rate() {
+		$xml = file_get_contents('http://www.cbr.ru/scripts/XML_daily.asp');
+		$xml = simplexml_load_string($xml);
+		$json = json_encode($xml);
+		$array = json_decode($json,TRUE);
+		$collection = new Illuminate\Support\Collection($array['Valute']);
+		$EUR = $collection->filter(function($item) {return 'EUR'==$item['CharCode'];})->fetch('Value')['0'];
+	}
+
 	public function index() {
 		return View::make('index')->with([
 			'articles'	=> Article::readAllArticles(),

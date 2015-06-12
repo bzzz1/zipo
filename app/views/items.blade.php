@@ -94,3 +94,21 @@
 
 	</div>	
 @stop
+
+@section('js')
+	<?php	
+		parse_str(Request::getQueryString(), $params);    
+		$isset = isset($params["pages_by"]);
+		if (false==$isset) {
+			echo <<< 'HERE'
+				var pages_by = localStorage["pages_by"] = 10;
+				var $options = $("#pages_by option");
+				$options.each(function(index) {
+					if ($(this).val() == pages_by) {
+						$(this).attr("selected", "selected");
+					} 
+				});
+HERE;
+		}   
+	?>   
+@stop
