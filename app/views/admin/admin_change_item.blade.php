@@ -19,7 +19,7 @@
 				</div>
 				<div class="change_block change_item_category_div">
 					{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
-					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], null, ['class'=>'form-control', 'required', 'form' => 'none']) }}
+					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], null, ['class'=>'form-control', 'required']) }}
 				</div>
 				<div class="change_block change_item_producer_div">
 					{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
@@ -39,6 +39,9 @@
 					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
 					@if (isset($item))
 						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$item->subcat_id"]) }}
+					@elseif (null != Input::old('subcat_id'))
+						<?php $options = $HELP::createOptions(Subcat::where('category', Input::old('category'))->groupBy('subcat_id')->orderBy('subcat', 'asc')->get(), 'subcat_id', 'subcat'); ?>
+						{{ Form::select('subcat_id', $options, Input::old('subcat_id'), ['class'=>'form-control subcat_input', 'required', 'data-old-input' => 'true']) }}
 					@else
 						{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required']) }}
 					@endif

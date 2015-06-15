@@ -114,6 +114,7 @@ class AdminController extends BaseController {
 		$photo = Input::get('photo');
 		$old = Input::get('old');
 		unset($fields['old']);
+		unset($fields['category']);
 		
 		$rules = [
 			'code'	=> 'required|unique:items,code,'.$item_id.',item_id'
@@ -157,7 +158,7 @@ class AdminController extends BaseController {
 			return Redirect::back()->with('message', $message);
 		} else {
 			$message = 'Товар '.$item->title.' добавлен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
-			return Redirect::back()->with('message', $message);
+			return Redirect::back()->with('message', $message)->withInput();
 		}
 	}
 

@@ -53,6 +53,7 @@ class PdfController extends BaseController {
 			$filename = 'pdf_'.time().'.'.$extension;
 
 			$fields = Input::all();
+			unset($fields['category']);
 			$fields['file'] = $filename;
 			$rules = [
 				'good'	=> 'required|unique:pdfs,good'
@@ -65,7 +66,7 @@ class PdfController extends BaseController {
 			} else {
 				$file->move($destinationPath, $filename);
 				$item = Pdf::create($fields);
-				return Redirect::back()->with('message', 'Pdf файл успешно загружен!');
+				return Redirect::back()->with('message', 'Pdf файл успешно загружен!')->withInput();
 			}
 		} else {
 			return Redirect::to('/admin')->withErrors('Pdf файл не выбран!');
