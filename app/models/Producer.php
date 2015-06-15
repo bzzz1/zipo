@@ -38,7 +38,7 @@ class Producer extends Eloquent {
 	// }
 /*----------------------------------------------*/
 	public static function getPdfProducersByCategory() {
-		return $prods_by_cat = Cache::remember('prods_by_cat', 30, function() {
+		// return $prods_by_cat = Cache::remember('prods_by_cat', 30, function() {
 			$categories = [
 				'Механическое_en',
 				'Тепловое_en',
@@ -53,11 +53,11 @@ class Producer extends Eloquent {
 		   	foreach ($categories as $category) {
 	   			$prods_by_cat[$category] = Producer::whereHas('pdf.subcat', function($q) use ($category) {
 	   				$q->where('category', $category);
-	   			})->get();
+	   			})->orderBy('producer', 'asc')->get();
 	   		}
 
 	   		return $prods_by_cat;
-		});
+		// });
 
 		// foreach ($categories as $category) {
 			// Producer::whereHas('pdf.subcat', function($q) use ($category){

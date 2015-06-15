@@ -47,7 +47,7 @@ class Pdf extends Eloquent {
     	$producer_id = Input::get('producer_id');
     	$category = Input::get('category');
 
-    	$pdfs = Pdf::with(['producer', 'subcat'])->where('producer_id', $producer_id)->get()->flate();
+    	$pdfs = Pdf::with(['producer', 'subcat'])->where('producer_id', $producer_id)->orderBy('good')->get()->flate();
 
     	$items = $pdfs->filter(function($pdf) use ($category) {
     		if ($pdf->category == $category) {
