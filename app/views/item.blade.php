@@ -24,14 +24,21 @@
 				<h3 class="items_main_header universal_heading">{{$item->title}}</h3>
 				<!-- <p class="item_page_name">{{$item->title}}</p> -->
 				<p class="item_page_code">Артикул: {{$item->code}}</p>
-				<div class="item_price_div">
-					@if (Auth::user()->check())
-						<p class="item_page_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-					@else 
-						<p class="item_page_price">{{$item->price}}&nbsp</p>
-					@endif	
-					<p class="item_page_currency">{{$item->currency}}.</p>
-				</div>	
+				@if($item->price == 0.00)
+					<div class="item_price_div">
+						<p class="item_page_price up_letter">По запросу&nbsp</p>
+						<p class="item_page_currency"></p>
+					</div>
+				@else	
+					<div class="item_price_div">
+						@if (Auth::user()->check())
+							<p class="item_page_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+						@else 
+							<p class="item_page_price">{{$item->price}}&nbsp</p>
+						@endif	
+						<p class="item_page_currency">{{$item->currency}}.</p>
+					</div>
+				@endif	
 			</div>
 			<div class="item_page_descript">
 				{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_item_img']) }}

@@ -1021,6 +1021,9 @@ form {
 	color: #662025;
 	text-transform: lowercase;
 }
+.up_letter {
+	text-transform: none;
+}
 .item_page_descript {
 	display: inline-block;
 }
