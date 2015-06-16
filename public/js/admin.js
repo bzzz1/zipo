@@ -27,7 +27,9 @@ if ($('#ckeditor').length) {
 ------------------------------------------------*/
 // INITIAL SET SUBCATS
 if ($('#category').length) {
-	send_category($('#category').val());
+	if (true != $('.subcat_input').data('old-input')) {
+		send_category($('#category').val());
+	}
 
 	$('#category').on('change', function() {
 		send_category($('#category').val());	
