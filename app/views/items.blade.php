@@ -44,14 +44,21 @@
 								<p class="items_item_code">Арт: {{$item->code}}</p>
 								<p class="items_item_code_full">Арт: {{$item->code}}</p>
 							</div>	
-							<div class="items_item_price_div">
-								@if (Auth::user()->check())
-									<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
-								@else 
-									<p class="items_item_price">{{$item->price}}&nbsp</p>
-								@endif
-								<p class="items_item_currency">{{$item->currency}}.</p>
-							</div>	
+							@if($item->price == 0.00)
+								<div class="items_item_price_div">
+										<p class="items_item_price">По запросу&nbsp</p>
+										<p class="items_item_currency"></p>
+								</div>
+							@else	
+								<div class="items_item_price_div">
+									@if (Auth::user()->check())
+										<p class="items_item_price">{{$HELP::discount_price($item->price)}}&nbsp</p>
+									@else 
+										<p class="items_item_price">{{$item->price}}&nbsp</p>
+									@endif
+										<p class="items_item_currency">{{$item->currency}}.</p>
+								</div>
+							@endif
 						</div>
 						<div class="items_item_descript">
 							{{ HTML::image("img/photos/$item->photo", "$item->title", ['class'=>'items_page_item_img']) }}
