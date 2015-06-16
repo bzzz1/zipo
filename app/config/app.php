@@ -194,6 +194,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		/*----------------------------------------------*/
 		'Image'			  => "Intervention\Image\ImageManagerStatic",
+		'Carbon'		  => 'Carbon\Carbon',
 	),
 
 );

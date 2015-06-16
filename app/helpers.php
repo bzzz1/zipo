@@ -1,4 +1,4 @@
-<?php 
+<?php
 	
 function log_sql($switch="on") {
 	if ('off' == $switch) {
@@ -8,6 +8,29 @@ function log_sql($switch="on") {
 		DB::listen(function($sql) { var_dump($sql); });
 		return 'Sql logging is ON.';
 	}
+}
+
+function minutes_left() {
+	$now = Carbon::now();
+	$tomorrow = Carbon::tomorrow();
+	$minutes_left = $tomorrow->diffInMinutes($now);
+	return $minutes_left;
+}
+
+function get_EUR_rate() {
+	$left = minutes_left();
+
+	$rate = Cache::remember('EUR_rate', $left, function() {
+	    $xml = file_get_contents('http://www.cbr.ru/scripts/XML_daily.asp');
+	    $xml = simplexml_load_string($xml);
+	    $json = json_encode($xml);
+	    $array = json_decode($json,TRUE);
+	    $collection = new Illuminate\Support\Collection($array['Valute']);
+	    $EUR = $collection->filter(function($item) {return 'EUR'==$item['CharCode'];})->fetch('Value')['0'];
+	    return $EUR;
+	});
+
+	return $rate;
 }
 
 function dir_path($path='root') {
