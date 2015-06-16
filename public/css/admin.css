@@ -563,6 +563,9 @@ input[type=file].admin_pdf_input {
 .subcat_label {
 	margin-right: 52px;
 }
+.subcat_input {
+	width: 274px;
+}
 .producer_label {
 	margin-right: 5px;
 }
