@@ -1,5 +1,25 @@
-<?php 
-	
+<?php
+
+function en_categories() {
+	return $categories = [
+		'Механическое_en',
+		'Тепловое_en',
+		'Холодильное_en',
+		'Посудомоечное_en',
+	];
+}
+
+// function test() {
+	// $categories = en_categories();
+	// $items = Item::whereHas('subcat', function($q) use ($categories){$q->whereIn('category', $categories);})->where('currency', 'РУБ')->get();
+	// foreach($items as $item) {
+	// 	$item->price = ceil($item->price/get_EUR_rate()*100)/100;
+	// 	$item->currency = 'EUR';
+	// 	$item->save();
+	// }
+	// return $items;
+// }
+
 function log_sql($switch="on") {
 	if ('off' == $switch) {
 		DB::listen(function($sql) { return null; });
@@ -8,6 +28,27 @@ function log_sql($switch="on") {
 		DB::listen(function($sql) { var_dump($sql); });
 		return 'Sql logging is ON.';
 	}
+}
+
+function minutes_left() {
+	$now = Carbon::now();
+	$tomorrow = Carbon::tomorrow();
+	$minutes_left = $tomorrow->diffInMinutes($now);
+	return $minutes_left;
+}
+
+function get_EUR_rate() {
+	$rate = Cache::remember('EUR_rate', minutes_left(), function() {
+	    $xml = file_get_contents('http://www.cbr.ru/scripts/XML_daily.asp');
+	    $xml = simplexml_load_string($xml);
+	    $json = json_encode($xml);
+	    $array = json_decode($json,TRUE);
+	    $collection = new Illuminate\Support\Collection($array['Valute']);
+	    $EUR = $collection->filter(function($item) {return 'EUR'==$item['CharCode'];})->fetch('Value')['0'];
+	    return $EUR;
+	});
+
+	return floatval(str_replace(',', '.', $rate));
 }
 
 function dir_path($path='root') {

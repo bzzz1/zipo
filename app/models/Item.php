@@ -1,6 +1,16 @@
 <?php
 
+use Presenters\PresentableTrait;
+
 class Item extends Eloquent {
+	use PresentableTrait;
+	protected $presenter = 'Presenters\Item';
+	
+	// // treat as Carbon instances
+	// public function getDates() {
+	// 	return ['created_at', 'updated_at'];
+	// }
+
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'item_id';
@@ -80,8 +90,9 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->orderBy($sort, $order);
+		$items = $items->get();
 
-		return $items->get();
+		return $items;
 	}
 
 	public static function getItemsByProducer() {
@@ -93,7 +104,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.producer_id', $producer_id);
 		$items = $items->orderBy($sort, $order);
-		$items = $items->paginate($pages_by);
+		$items = $items->get();
 
 		return $items;
 	}

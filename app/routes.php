@@ -36,6 +36,7 @@ Route::get('/admin', 'AdminController@admin');
 Route::post('/admin_login', 'AdminController@admin_login');
 Route::group(['prefix'=>'/admin', 'before'=>'auth2'], function() {
 	Route::post('/set_discount', 'AdminController@set_discount');
+	Route::post('/set_eur_rate', 'AdminController@set_eur_rate');
 	Route::get('/search', 'AdminController@search');
 	Route::post('/import', 'AdminController@import');
 	Route::post('/admin_logout', 'AdminController@admin_logout');

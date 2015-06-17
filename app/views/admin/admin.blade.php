@@ -30,8 +30,8 @@
 		</div>
 		<div class="admin_panel_discount_div">
 			<p class="admin_uni_label rate_label">Текущий курс евро<br />на {{Carbon\Carbon::now()->format('d-m-Y')}}</p>
-			{{ Form::open(array('url' => "/admin/set_discount?discount=$discount", 'method' => 'POST', 'class'=>'admin_discount_input rate_input')) }}
-				{{ Form::text('discount', $discount, ['class'=>'form-control discount_input', 'required']) }} 
+			{{ Form::open(array('url' => "/admin/set_eur_rate", 'method' => 'POST', 'class'=>'admin_discount_input rate_input')) }}
+				{{ Form::text('rate', $current_EUR_rate, ['class'=>'form-control discount_input', 'required']) }} 
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 			{{ Form::close() }}
 			{{-- 
