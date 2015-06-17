@@ -33,7 +33,12 @@
 				</div>
 				<div class="change_block change_item_cur_div">
 					{{ Form::label('currency', 'Валюта', ['class'=>'admin_uni_label']) }}
-					{{ Form::text('currency', isset($item) ? null : 'РУБ', ['class'=>'form-control currency_input', 'required']) }}
+					{{-- {{ Form::text('currency', isset($item) ? null : 'RUB', ['class'=>'form-control currency_input', 'required']) }} --}}
+					@if (isset($item))
+						{{ Form::select('currency', ['РУБ'=>'RUB', 'EUR'=>'EUR'], $item->currency, ['class'=>'form-control currency_input', 'required']) }}
+					@else
+						{{ Form::select('currency', ['РУБ'=>'RUB', 'EUR'=>'EUR'], null, ['class'=>'form-control currency_input', 'required']) }}
+					@endif
 				</div>
 				<div class="change_block change_item_subcat_div">
 					{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_label']) }}
