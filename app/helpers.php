@@ -1,5 +1,25 @@
 <?php
-	
+
+function en_categories() {
+	return $categories = [
+		'Механическое_en',
+		'Тепловое_en',
+		'Холодильное_en',
+		'Посудомоечное_en',
+	];
+}
+
+// function test() {
+	// $categories = en_categories();
+	// $items = Item::whereHas('subcat', function($q) use ($categories){$q->whereIn('category', $categories);})->where('currency', 'РУБ')->get();
+	// foreach($items as $item) {
+	// 	$item->price = ceil($item->price/get_EUR_rate()*100)/100;
+	// 	$item->currency = 'EUR';
+	// 	$item->save();
+	// }
+	// return $items;
+// }
+
 function log_sql($switch="on") {
 	if ('off' == $switch) {
 		DB::listen(function($sql) { return null; });

@@ -122,6 +122,19 @@ class AdminController extends BaseController {
 		$fields = Input::all();
 		$photo = Input::get('photo');
 		$old = Input::get('old');
+
+
+		/*------------------------------------------------
+		| convert to EUR
+		------------------------------------------------*/
+		$categories = en_categories();
+		if (in_array($fields['category'], $categories) and 'РУБ' == $fields['currency']) {
+			$fields['currency'] = 'EUR';
+			$fields['price'] = ceil($fields['price']/get_EUR_rate()*100)/100;
+		}	
+		/*----------------------------------------------*/
+
+
 		unset($fields['old']);
 		unset($fields['category']);
 		
@@ -153,7 +166,6 @@ class AdminController extends BaseController {
 			File::delete($filepath);
 			$fields['photo'] = 'no_photo.png';
 		}
-
 
 		if ($validator->fails()) {
 			return Redirect::back()->withInput()

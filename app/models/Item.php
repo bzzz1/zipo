@@ -90,8 +90,9 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->orderBy($sort, $order);
+		$items = $items->get();
 
-		return $items->get();
+		return $items;
 	}
 
 	public static function getItemsByProducer() {
@@ -103,7 +104,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.producer_id', $producer_id);
 		$items = $items->orderBy($sort, $order);
-		$items = $items->paginate($pages_by);
+		$items = $items->get();
 
 		return $items;
 	}

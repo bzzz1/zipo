@@ -6,17 +6,18 @@ class Item extends Presenter {
 	public function price() {
 		$rate = get_EUR_rate();
 		if ('EUR' == $this->val('currency')) {
-			return $this->val()*$rate;
+			return round($this->val()*$rate);
 		} else {
-			return $this->val();
+			return round($this->val());
 		}
 	}
 
 	public function currency() {
-		if ('EUR' == $this->val()) {
-			return 'RUB';
-		} else {
-			return $this->val();
-		}
+		return 'РУБ';
+		// if ('EUR' == $this->val()) {
+		// 	return 'РУБ';
+		// } else {
+		// 	return $this->val();
+		// }
 	}
 }
