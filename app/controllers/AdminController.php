@@ -96,7 +96,7 @@ class AdminController extends BaseController {
 			'pdfs'		=> Pdf::all(),
 			'env' 		=> 'byproducer',
 			'current'	=> Producer::find(Input::get('producer_id')),
-			'items' 	=> Item::getItemsByProducer(),
+			'items' 	=> Item::getItemsByProducerAdmin(),
 		]);
 	}
 

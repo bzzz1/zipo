@@ -90,7 +90,7 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.subcat_id', $subcat_id);
 		$items = $items->orderBy($sort, $order);
-		$items = $items->get();
+		$items = $items->paginate('10000');
 
 		return $items;
 	}
@@ -104,7 +104,20 @@ class Item extends Eloquent {
 		$items = Item::__items();
 		$items = $items->where('items.producer_id', $producer_id);
 		$items = $items->orderBy($sort, $order);
-		$items = $items->get();
+		$items = $items->paginate($pages_by);
+
+		return $items;
+	}
+
+	public static function getItemsByProducerAdmin() {
+		$producer_id = Input::get('producer_id');
+		$sort = Input::get('sort', 'title');
+		$order = Input::get('order', 'asc');
+
+		$items = Item::__items();
+		$items = $items->where('items.producer_id', $producer_id);
+		$items = $items->orderBy($sort, $order);
+		$items = $items->paginate('10000');
 
 		return $items;
 	}
