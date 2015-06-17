@@ -3,9 +3,10 @@ class AdminController extends BaseController {
 	public function admin() {
 		if (Auth::admin()->check()) {
 			return View::make('admin/admin')->with([
-				'env' 		=> 'panel',
-				'producers' => Producer::all(),
-				'discount'  => Cred::getDiscount()
+				'env' 				=> 'panel',
+				'producers' 		=> Producer::all(),
+				'discount'  		=> Cred::getDiscount(),
+				'current_EUR_rate'  => get_EUR_rate(),
 			]);
 		} else {
 			return View::make('admin/admin_login');
@@ -32,6 +33,14 @@ class AdminController extends BaseController {
 		Cred::setDiscount();
 
 		return Redirect::to('/admin')->with('message', 'Скидка для зарегестрированных пользователей: '.$discount.'%.');
+	}
+
+	public function set_eur_rate() {
+		$rate = str_replace(',', '.', Input::get('rate'));
+		$left = minutes_left();
+		Cache::put('EUR_rate', $rate, $left);
+
+		return Redirect::to('/admin')->with('message', 'Курс евро на текущий день установлен: '.$rate.' рублей за 1 евро.');
 	}
 
 	public function search() {

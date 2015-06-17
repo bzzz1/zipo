@@ -1,6 +1,16 @@
 <?php
 
+use Presenters\PresentableTrait;
+
 class Item extends Eloquent {
+	use PresentableTrait;
+	protected $presenter = 'Presenters\Item';
+	
+	// // treat as Carbon instances
+	// public function getDates() {
+	// 	return ['created_at', 'updated_at'];
+	// }
+
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'item_id';

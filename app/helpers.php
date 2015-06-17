@@ -18,9 +18,7 @@ function minutes_left() {
 }
 
 function get_EUR_rate() {
-	$left = minutes_left();
-
-	$rate = Cache::remember('EUR_rate', $left, function() {
+	$rate = Cache::remember('EUR_rate', minutes_left(), function() {
 	    $xml = file_get_contents('http://www.cbr.ru/scripts/XML_daily.asp');
 	    $xml = simplexml_load_string($xml);
 	    $json = json_encode($xml);
@@ -30,7 +28,7 @@ function get_EUR_rate() {
 	    return $EUR;
 	});
 
-	return $rate;
+	return floatval(str_replace(',', '.', $rate));
 }
 
 function dir_path($path='root') {

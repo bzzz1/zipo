@@ -1,11 +1,5 @@
 <?php
 class MainController extends BaseController {
-	public function set_custom_rate() {
-		$rate = Input::get('rate');
-		$left = minutes_left();
-		Cache::put('EUR_rate', $rate, $left);
-	}
-
 	public function index() {
 		return View::make('index')->with([
 			'articles'	=> Article::readAllArticles(),
