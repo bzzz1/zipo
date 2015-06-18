@@ -1,9 +1,10 @@
 <?php
 
-class Producer extends Eloquent {
+class Producer extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'producer_id';
+	public static $trimmed = ['producer'];
 
 	public function items() {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');
@@ -13,9 +14,7 @@ class Producer extends Eloquent {
 		return $this->belongsTo('Pdf', 'producer_id', 'producer_id');
 	}
 	
-	public function newCollection(array $models = array()) {
-		return new BaseCollection($models);
-	}
+
 
 	// public function subcat() {
 	// 	return $this->hasManyThrough('Subcat', 'Pdf', 'subcat_id', 'subcat_id');

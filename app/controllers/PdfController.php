@@ -76,7 +76,7 @@ class PdfController extends BaseController {
 
 	public function list_pdf() {
 		return View::make('admin/admin_pdfs')->with([
-			'pdfs'		=> Pdf::with('subcat')->orderBy('good')->get()->flate(),
+			'pdfs'		=> Pdf::orderBy('good', 'asc')->get(),
 			'producers' => Producer::all(),
 		]);
 	}
