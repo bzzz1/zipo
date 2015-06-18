@@ -65,7 +65,7 @@
 							<ul>	
 								@foreach ($HELP::columnize($cats_producers['Тепловое_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_enproducer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Тепловое_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
