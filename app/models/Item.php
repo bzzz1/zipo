@@ -2,8 +2,7 @@
 
 use Presenters\PresentableTrait;
 
-class Item extends Eloquent {
-	use PresentableTrait;
+class Item extends BaseModel {
 	protected $presenter = 'Presenters\Item';
 	
 	// // treat as Carbon instances

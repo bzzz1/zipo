@@ -54,6 +54,7 @@ class PdfController extends BaseController {
 			$filename = 'pdf_'.time().'.'.$extension;
 
 			$fields = Input::all();
+			$fields = array_map('trim', Input::only('good'));
 			unset($fields['category']);
 			$fields['file'] = $filename;
 			$rules = [
@@ -76,7 +77,7 @@ class PdfController extends BaseController {
 
 	public function list_pdf() {
 		return View::make('admin/admin_pdfs')->with([
-			'pdfs'		=> Pdf::with('subcat')->orderBy('good')->get()->flate(),
+			'pdfs'		=> Pdf::orderBy('good', 'asc')->get(),
 			'producers' => Producer::all(),
 		]);
 	}

@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Cred extends Eloquent implements UserInterface, RemindableInterface{
+class Cred extends BaseModel implements UserInterface, RemindableInterface{
 	use UserTrait, RemindableTrait;
 	protected $guarded = [];
 	public $timestamps = false;

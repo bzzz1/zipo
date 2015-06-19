@@ -7,13 +7,13 @@ abstract class Presenter {
 		$this->entity = $entity;
 	}
 
-	protected function val($property=null) {
-		if (empty($property)) {
+	protected function val($key=null) {
+		if (empty($key)) {
 			$callers = debug_backtrace();
 			$calling_function_name = $callers[1]['function'];
 			return $this->entity->getAttribute($calling_function_name);
 		} else {
-			return $this->entity->getAttribute($property);
+			return $this->entity->getAttribute($key);
 		}
 	}
 }

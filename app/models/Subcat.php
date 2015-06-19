@@ -1,6 +1,6 @@
 <?php
 
-class Subcat extends Eloquent {
+class Subcat extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'subcat_id';

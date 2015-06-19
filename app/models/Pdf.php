@@ -1,16 +1,10 @@
 <?php
 
-class Pdf extends Eloquent {
-
-	// use FlattenableTrait;
-
-	public function newCollection(array $models = array()) {
-		return new BaseCollection($models);
-	}
-
+class Pdf extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'pdf_id';
+	public static $trimmed = ['good'];
 
 	public static function boot() {
         parent::boot();
@@ -57,6 +51,10 @@ class Pdf extends Eloquent {
 
     	return $items;
     }
+
+	// public function setGoodAttribute($value) {
+	// 	$this->attributes['good'] = trim($value);
+	// }
 
 	// Item::find(600)->pdfs()->attach(1)
 	// Pdf::find(1)->items()->attach(2)
