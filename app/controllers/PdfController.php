@@ -54,6 +54,7 @@ class PdfController extends BaseController {
 			$filename = 'pdf_'.time().'.'.$extension;
 
 			$fields = Input::all();
+			$fields = array_map('trim', Input::only('good'));
 			unset($fields['category']);
 			$fields['file'] = $filename;
 			$rules = [
