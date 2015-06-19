@@ -646,6 +646,7 @@ input[name="hit"] {
 }
 .producers_first, .producers_second, .producers_third, .producers_fourth {
 	display: inline-block;
+	vertical-align: text-top;
 }
 .admin_producer_one {
 	/*text-decoration: underline;*/
