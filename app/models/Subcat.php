@@ -4,13 +4,28 @@ class Subcat extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'subcat_id';
+	protected $trimmed = ['subcat'];
+	// UPDATE `subcats` 
+	// SET subcat = TRIM(subcat)
 
 	public static function boot() {
         parent::boot();
 
-		Subcat::deleted(function($subcat) {
-			$subcat->pdf->fill(['subcat_id' => '0'])->save();
-		});
+        Subcat::deleted(function($subcat) {
+        	$pdfs = Pdf::where('subcat_id', $subcat->subcat_id)->get();
+        	foreach ($pdfs as $pdf) {
+        		$pdf->fill(['subcat_id' => '0'])->save();
+        	}
+        });
+
+		// $work = Pdf::has('subcat')->lists('subcat_id');
+		// $all = Pdf::lists('subcat_id');
+		// $ids = array_diff($all, $work);
+		// $ids = array_keys($ids);
+		// $pdfs = Pdf::whereIn('subcat_id', $ids)->get()
+		// foreach ($pdfs as $pdf) {
+		// 	$pdf->fill(['subcat_id' => '0'])->save();
+		// }
     }
 
 	public function items() {

@@ -13,6 +13,7 @@ class Item extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'item_id';
+	public $trimmed = ['title'];
 
 	public static function boot() {
         parent::boot();

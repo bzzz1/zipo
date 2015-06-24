@@ -4,7 +4,7 @@ class Producer extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'producer_id';
-	public static $trimmed = ['producer'];
+	public $trimmed = ['producer'];
 
 	public function items() {
 		return $this->belongsTo('Item', 'producer_id', 'producer_id');

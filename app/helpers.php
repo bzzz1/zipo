@@ -38,7 +38,7 @@ function minutes_left() {
 }
 
 function get_EUR_rate() {
-	$rate = Cache::remember('EUR_rate', minutes_left(), function() {
+	$rate = Cache::remember('EUR_rate', 30, function() {
 	    $xml = file_get_contents('http://www.cbr.ru/scripts/XML_daily.asp');
 	    $xml = simplexml_load_string($xml);
 	    $json = json_encode($xml);
