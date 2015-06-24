@@ -19,7 +19,7 @@
 							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное_en']), "Холодильное оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное_en']), "Посудомоечное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Моечное_en']), "Моечное оборудование") }}
 						</li>	
 					</ul>	
 					<h4 class="left_sidebar_heading">Отечественное</h4>
@@ -34,7 +34,7 @@
 							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Холодильное_ru']), "Холодильное оборудование") }}
 						</li>	
 						<li>
-							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Посудомоечное_ru']), "Посудомоечное оборудование") }}
+							{{ HTML::link($HELP::url_slug(['/','category', '/', 'Моечное_ru']), "Моечное оборудование") }}
 						</li>
 					</ul>	
 				</div>

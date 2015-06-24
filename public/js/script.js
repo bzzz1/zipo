@@ -92,7 +92,7 @@ $categories.on('click', function() {
 								'background-repeat': 'no-repeat',
 								'background-position' : 'bottom left'
 							});
-			}else if(clicked_category_data == 'Посудомоечное_en' || clicked_category_data == 'Посудомоечное_ru') {
+			}else if(clicked_category_data == 'Моечное_en' || clicked_category_data == 'Моечное_ru') {
 				$(".main_content").css({'background-image' : 'url(../img/markup/background_posuda.png)',
 								'background-repeat': 'no-repeat',
 								'background-position' : 'bottom left'

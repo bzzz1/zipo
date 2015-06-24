@@ -99,13 +99,13 @@
 					@endif	
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
-				<div class="catalog_category posud_catedory" data-category='Посудомоечное_en'>
+				<div class="catalog_category posud_catedory" data-category='Моечное_en'>
 					@if ($env == 'catalog_admin')
 						<img src="../../img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@else
 						<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@endif
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+					<p class="catalog_category_heading">Моечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block " data-category='Холодильное_en'>
 					<div class="subcategory_column">
@@ -137,16 +137,16 @@
 						</div>
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
-				<div class="subcategory_block " data-category='Посудомоечное_en'>
+				<div class="subcategory_block " data-category='Моечное_en'>
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_en'], 2, 1) as $subcat)
 									<li>
 										@if ($env == 'catalog_admin')
-											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@endif
 									</li>
 								@endforeach
@@ -154,12 +154,12 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 2) as $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_en'], 2, 2) as $subcat)
 									<li>
 										@if ($env == 'catalog_admin')
-											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@endif
 									</li>
 								@endforeach
@@ -254,14 +254,14 @@
 					@endif
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
-				<div class="catalog_category posud_catedory" data-category='Посудомоечное_ru'>
+				<div class="catalog_category posud_catedory" data-category='Моечное_ru'>
 					@if ($env == 'catalog_admin')
 						<img src="../../img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@else
 						<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 					@endif
 
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+					<p class="catalog_category_heading">Моечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block second_line" data-category='Холодильное_ru'>
 					<div class="subcategory_column">
@@ -293,16 +293,16 @@
 						</div>
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
-				<div class="subcategory_block second_line" data-category='Посудомоечное_ru'>
+				<div class="subcategory_block second_line" data-category='Моечное_ru'>
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 1) as $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_ru'], 2, 1) as $subcat)
 									<li>
 										@if ($env == 'catalog_admin')
-											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@endif
 									</li>
 								@endforeach
@@ -310,12 +310,12 @@
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 2) as $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_ru'], 2, 2) as $subcat)
 									<li>
 										@if ($env == 'catalog_admin')
-											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'admin', '/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@else
-											{{ HTML::link($HELP::url_slug(['/', 'Посудомоечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
+											{{ HTML::link($HELP::url_slug(['/', 'Моечное', '/', "$subcat->subcat"])."?subcat_id=$subcat->subcat_id", $subcat->subcat) }}
 										@endif
 									</li>
 								@endforeach

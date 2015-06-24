@@ -19,7 +19,7 @@
 				</div>
 				<div class="change_block change_item_category_div">
 					{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_label']) }}
-					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], null, ['class'=>'form-control', 'required']) }}
+					{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], null, ['class'=>'form-control', 'required']) }}
 				</div>
 				<div class="change_block change_item_producer_div">
 					{{ Form::label('producer_id', 'Производитель', ['class'=>'admin_uni_label producer_label']) }}
