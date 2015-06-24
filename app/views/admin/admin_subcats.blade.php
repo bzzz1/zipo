@@ -15,7 +15,7 @@
 					<p class="admin_add_subcategory_title">Добавить подкатегории</p>
 					<div class="change_block admin_select_category_div">
 						{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], 'Механическое_en', ['class'=>'form-control create_category', 'required']) }}
+						{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], 'Механическое_en', ['class'=>'form-control create_category', 'required']) }}
 					</div>
 					<div class="change_block admin_select_title_div">
 						{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -49,7 +49,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 							{{-- 						<select>
 														<option selected disabled>Please Select</option>
 														@foreach($authors as $author)
@@ -99,7 +99,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -153,7 +153,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -197,7 +197,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -251,7 +251,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -295,7 +295,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -321,15 +321,15 @@
 				</div><!--admin_one_cat_subcats_block-->
 			@endif
 		</div>
-		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_en'>
-			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование (импортное)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Посудомоечное_en"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
-			@if (count($subcats['Посудомоечное_en']))
+		<div class="admin_catalog_category posud_catedory" data-category='Моечное_en'>
+			<h4 class="admin_one_cat_heading">Моечное <br> оборудование (импортное)</h4>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Моечное_en"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			@if (count($subcats['Моечное_en']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 1)as $key =>  $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_en'], 2, 1)as $key =>  $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
@@ -349,7 +349,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -373,7 +373,7 @@
 					</div>
 					<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($subcats['Посудомоечное_en'], 2, 2) as $key => $subcat)
+								@foreach ($HELP::columnize($subcats['Моечное_en'], 2, 2) as $key => $subcat)
 									<li>
 										<p class="admin_subcategory">
 											{{ $subcat->subcat }}
@@ -393,7 +393,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -447,7 +447,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -491,7 +491,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -545,7 +545,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -593,7 +593,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -647,7 +647,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -691,7 +691,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -717,15 +717,15 @@
 				</div><!--admin_one_cat_subcats_block-->
 			@endif	
 		</div>
-		<div class="admin_catalog_category posud_catedory" data-category='Посудомоечное_ru'>
-			<h4 class="admin_one_cat_heading">Посудомоечное <br> оборудование (российское)</h4>
-			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Посудомоечное_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
-			@if (count($subcats['Посудомоечное_ru']))
+		<div class="admin_catalog_category posud_catedory" data-category='Моечное_ru'>
+			<h4 class="admin_one_cat_heading">Моечное <br> оборудование (российское)</h4>
+			<a href="/admin/change_subcat" class="admin_one_cat_add" data-category="Моечное_ru"><i class="fa fa-plus">&nbsp</i>Добавить подкатегорию</a>
+			@if (count($subcats['Моечное_ru']))
 				<div class="admin_one_cat_subcats_block">
 				<div class="admin_subcats_list">
 					<div class="subcategory_left">
 						<ul>
-							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 1) as $key => $subcat)
+							@foreach ($HELP::columnize($subcats['Моечное_ru'], 2, 1) as $key => $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
@@ -745,7 +745,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}
@@ -769,7 +769,7 @@
 					</div>
 					<div class="subcategory_right">
 						<ul>	
-							@foreach ($HELP::columnize($subcats['Посудомоечное_ru'], 2, 2) as $key =>  $subcat)
+							@foreach ($HELP::columnize($subcats['Моечное_ru'], 2, 2) as $key =>  $subcat)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
@@ -789,7 +789,7 @@
 												</div>
 												<div class="change_block admin_select_category_div">
 													{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label admin_select_category_label']) }}
-													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Посудомоечное_en' => 'Посудомоечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Посудомоечное_ru' => 'Посудомоечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
+													{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], $subcat->category, ['class'=>'form-control admin_select_category_select', 'required']) }}
 												</div>
 												<div class="change_block admin_select_title_div">
 													{{ Form::label('subcat', 'Название', ['class'=>'admin_uni_label admin_select_title_label']) }}

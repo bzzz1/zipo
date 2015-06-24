@@ -42,11 +42,11 @@ class Producer extends BaseModel {
 				'Механическое_en',
 				'Тепловое_en',
 				'Холодильное_en',
-				'Посудомоечное_en',
+				'Моечное_en',
 				'Механическое_ru',
 				'Тепловое_ru',
 				'Холодильное_ru',
-				'Посудомоечное_ru'
+				'Моечное_ru'
 			];
 
 		   	foreach ($categories as $category) {

@@ -27,17 +27,17 @@ class HELP {
 			'mehanicheskoe_en' 	=> 'Механическое_en',
 			'teplovoe_en' 		=> 'Тепловое_en',
 			'holodilnoe_en' 	=> 'Холодильное_en',
-			'posudomoechnoe_en' => 'Посудомоечное_en',
+			'moechnoe_en'		 => 'Моечное_en',
 			'mehanicheskoe_ru' 	=> 'Механическое_ru',
 			'teplovoe_ru' 		=> 'Тепловое_ru',
 			'holodilnoe_ru' 	=> 'Холодильное_ru',
-			'posudomoechnoe_ru' => 'Посудомоечное_ru'
+			'moechnoe_ru' 		=> 'Моечное_ru'
 		];
 		static::$categories = [
 			'Механическое',
 			'Тепловое',
 			'Холодильное',
-			'Посудомоечное'
+			'Моечное'
 		];
 	}
 

@@ -76,9 +76,9 @@
 					<img src="img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
-				<div class="catalog_category posud_catedory" data-category='Посудомоечное_en'>
+				<div class="catalog_category posud_catedory" data-category='Моечное_en'>
 					<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+					<p class="catalog_category_heading">Моечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block " data-category='Холодильное_en'>
 					<div class="subcategory_column">
@@ -102,22 +102,22 @@
 						</div>
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
-				<div class="subcategory_block " data-category='Посудомоечное_en'>
+				<div class="subcategory_block " data-category='Моечное_en'>
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Моечное_en'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_en&producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Моечное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($cats_producers['Посудомоечное_en'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Моечное_en'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_en&producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Моечное_en&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
@@ -183,10 +183,10 @@
 					<img src="img/markup/kateg_holod.png" alt="" class="catalog_category_img">
 					<p class="catalog_category_heading">Холодильное<br> оборудование</p>
 				</div>
-				<div class="catalog_category posud_catedory" data-category='Посудомоечное_ru'>
+				<div class="catalog_category posud_catedory" data-category='Моечное_ru'>
 					<img src="img/markup/kateg_posud.png" alt="" class="catalog_category_img">
 
-					<p class="catalog_category_heading">Посудомоечное<br> оборудование</p>
+					<p class="catalog_category_heading">Моечное<br> оборудование</p>
 				</div>
 				<div class="subcategory_block second_line" data-category='Холодильное_ru'>
 					<div class="subcategory_column">
@@ -210,22 +210,22 @@
 						</div>
 					</div><!-- brands_column -->
 				</div><!-- subcategory block -->
-				<div class="subcategory_block second_line" data-category='Посудомоечное_ru'>
+				<div class="subcategory_block second_line" data-category='Моечное_ru'>
 					<div class="subcategory_column">
 						<div class="subcategory_left">
 							<ul>
-								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 1) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Моечное_ru'], 2, 1) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Моечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>
 						</div>	
 						<div class="subcategory_right">
 							<ul>	
-								@foreach ($HELP::columnize($cats_producers['Посудомоечное_ru'], 2, 2) as $producer)
+								@foreach ($HELP::columnize($cats_producers['Моечное_ru'], 2, 2) as $producer)
 									<li>
-										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Посудомоечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
+										{{ HTML::link($HELP::url_slug(['/', 'all_pdf', '/', "$producer->producer"])."?category=Моечное_ru&producer_id=$producer->producer_id", $producer->producer) }}
 									</li>
 								@endforeach
 							</ul>	
