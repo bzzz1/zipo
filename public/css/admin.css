@@ -658,6 +658,7 @@ input[name="hit"] {
 	text-decoration: underline;
 	/*float: left;*/
 	/*margin-right: 30px;*/
+	max-width: 178px;
 }
 .producers_list  a {
 	float: right;
@@ -986,4 +987,3 @@ i.delete_items_group_icon {
 .adm_pdf_change_pop_up .change_item_subcat_div {
 	width: 230px;
 }
-
