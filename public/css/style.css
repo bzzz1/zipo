@@ -1294,12 +1294,15 @@ form {
 }
 .article_photo_preview_div {
 	float: right;
+	max-width: 110px;
+	max-height: 110px;
 }
 .articles_minimg {
 	float: right;
-	height: 110px;
-	width: 110px;
+	max-width: 110px;
 	margin-bottom: 5px;
+	display: table;
+	margin: auto;
 }
 .articles_text {
 	font-size: 14px;

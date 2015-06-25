@@ -17,12 +17,12 @@
 		{{ Form::model($item, ['url'=>['/order'], 'method'=>'POST', 'class'=>'item_form']) }}
 			<table class="order_form_table">
 				<tr>
-					<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::label('name', 'Имя: ', ['class'=>'main_label req']) }}</td>
 					<td>{{ Form::text('name', null, ['class'=>'change_input form-control', 'required']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('surname', 'Фамилия: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('surname', null, ['class'=>'change_input form-control', 'required']) }}</td>
+					<td>{{ Form::text('surname', null, ['class'=>'change_input form-control']) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('title', 'Наименование: ', ['class'=>'main_label']) }}</td>
@@ -33,11 +33,19 @@
 					<td>{{ Form::text('code', null, ['class'=>'change_input change_input_code form-control', 'required', 'readonly'=>'readonly']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('phone', 'Телефон: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::label('price', 'Стоимость: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('price', null, ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('currency', 'Валюта: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::text('currency', null, ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('phone', 'Телефон: ', ['class'=>'main_label req']) }}</td>
 					<td>{{ Form::text('phone', null, ['class'=>'change_input change_input_code form-control', 'required']) }}</td>
 				</tr>
 				<tr>
-					<td>{{ Form::label('email', 'E-Mail: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::label('email', 'E-Mail: ', ['class'=>'main_label req']) }}</td>
 					<td>{{ Form::email('email', null, ['class'=>'change_input change_input_code form-control', 'required']) }}</td>
 				</tr>
 				<tr>
