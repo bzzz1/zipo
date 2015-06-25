@@ -225,6 +225,15 @@ class MainController extends BaseController {
 		$data = Input::all();
 		$email = Input::get('email');
 
+		$item = Item::where('code', $data['code'])->first(); 
+		$data['item'] = $item->item;
+		$data['price'] = $item->price;
+		$data['currency'] = $item->currency;
+
+		if (! filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+			return Redirect::back()->withErrors('Поле email должно содержать email адрес!');
+		}
+
 		// send to admin
 		Mail::send('emails.email_order', $data, function ($mail) use ($data) {
 			$mail->to('send@vsezip.ru', $data['name'])->subject('Заказ оформлен - vsezip.ru');
