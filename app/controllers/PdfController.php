@@ -64,7 +64,7 @@ class PdfController extends BaseController {
 			$validator = Validator::make($fields, $rules);
 			if ($validator->fails()) {
 				return Redirect::back()->withInput()
-					->withErrors('Товар с таким названием уже существует. Название должено быть уникальным!');
+					->withErrors('Товар с таким названием уже существует. Название должно быть уникальным!');
 			} else {
 				$file->move($destinationPath, $filename);
 				$item = Pdf::create($fields);

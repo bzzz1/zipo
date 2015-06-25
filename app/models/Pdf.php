@@ -4,7 +4,7 @@ class Pdf extends BaseModel {
 	protected $guarded = [];
 	public $timestamps = false;
 	public $primaryKey = 'pdf_id';
-	public static $trimmed = ['good'];
+	public $trimmed = ['good'];
 
 	public static function boot() {
         parent::boot();
