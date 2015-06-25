@@ -15,9 +15,9 @@ class HELP {
 	public static $categories;
 
 	public function __construct() {
-		static::$admin_email = 'beststrelok@gmail.com';
-		static::$site_email = 'sportsecretshop@gmail.com';
-		static::$site_password = '080493210893';
+		// static::$admin_email = 'send@vsezip.ru';
+		// static::$site_email = 'info@vsezip.ru';
+		// static::$site_password = 'XBEoayP7Me';
 		static::$PRICES_DIR = public_path().DIRECTORY_SEPARATOR.'prices';
 		static::$EXCEL_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'excel';
 		static::$PDF_IMPORT_DIR = public_path().DIRECTORY_SEPARATOR.'pdf';
@@ -229,48 +229,48 @@ class HELP {
 		return $normal;
 	}
 
-	public static function sendMail($data, $subject, $view, $email=null) {
-		if (! $email) {
-			$email = HELP::$admin_email;
-		}
+	// public static function sendMail($data, $subject, $view, $email=null) {
+	// 	if (! $email) {
+	// 		$email = HELP::$admin_email;
+	// 	}
 
-		$mail = new PHPMailer;
-		$mail->CharSet = "UTF-8";
+	// 	$mail = new PHPMailer;
+	// 	$mail->CharSet = "UTF-8";
 
-		$mail->isSMTP(); // Set mailer to use SMTP
-		$mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true; // Enable SMTP authentication
-		$mail->Username = HELP::$site_email; // SMTP username
-		$mail->Password = HELP::$site_password; // SMTP password
-		$mail->SMTPSecure = 'tls'; // Enable encryption, 'ssl' also accepted
-		$mail->Port = 587;         // TCP port to connect to
+	// 	$mail->isSMTP(); // Set mailer to use SMTP
+	// 	$mail->Host = 'pdd.yandex.ru'; // Specify main and backup SMTP servers
+	// 	$mail->SMTPAuth = true; // Enable SMTP authentication
+	// 	$mail->Username = HELP::$site_email; // SMTP username
+	// 	$mail->Password = HELP::$site_password; // SMTP password
+	// 	$mail->SMTPSecure = 'ssl'; // Enable encryption, 'ssl' also accepted
+	// 	$mail->Port = 465;         // TCP port to connect to
 
-		// $mail->From = 'sportsecretshop@gmail.com';
-		$mail->From = 'ZIPO';
-		$mail->FromName = 'Zipo';
-		$mail->addAddress($email); // Add a recipient
-		// $mail->addAddress('ellen@example.com'); // Name is optional
-		// $mail->addReplyTo('info@example.com', 'Information');
-		// $mail->addCC('cc@example.com');
-		// $mail->addBCC('bcc@example.com');
+	// 	// $mail->From = 'sportsecretshop@gmail.com';
+	// 	$mail->From = 'ZIPO';
+	// 	$mail->FromName = 'Zipo';
+	// 	$mail->addAddress($email); // Add a recipient
+	// 	// $mail->addAddress('ellen@example.com'); // Name is optional
+	// 	// $mail->addReplyTo('info@example.com', 'Information');
+	// 	// $mail->addCC('cc@example.com');
+	// 	// $mail->addBCC('bcc@example.com');
 
-		// $mail->WordWrap = 50; // Set word wrap to 50 characters
-		// $mail->addEmbeddedImage('public/img/vsx15.jpg', 'embed_1'); // Add attachments
-		// $mail->addAttachment('public/img/vsx15.jpg', ''); // Add attachments
-		// $mail->addAttachment('/tmp/image.jpg', 'new.jpg'); // Optional name
-		$mail->isHTML(true); // Set email format to HTML
+	// 	// $mail->WordWrap = 50; // Set word wrap to 50 characters
+	// 	// $mail->addEmbeddedImage('public/img/vsx15.jpg', 'embed_1'); // Add attachments
+	// 	// $mail->addAttachment('public/img/vsx15.jpg', ''); // Add attachments
+	// 	// $mail->addAttachment('/tmp/image.jpg', 'new.jpg'); // Optional name
+	// 	$mail->isHTML(true); // Set email format to HTML
 
-		// $mail->Subject = 'Заказ оформлен';
-		$mail->Subject = $subject;
-		$mail->Body = View::make($view, $data);
-		// $mail->Body = 'This is the HTML message body <b>in bold!</b>';
-		// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	// 	// $mail->Subject = 'Заказ оформлен';
+	// 	$mail->Subject = $subject;
+	// 	$mail->Body = View::make($view, $data);
+	// 	// $mail->Body = 'This is the HTML message body <b>in bold!</b>';
+	// 	// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-		if ( ! $mail->send()) {
-			echo 'Message could not be sent.';
-			echo 'Mailer Error: ' . $mail->ErrorInfo;
-		}
-	}
+	// 	if ( ! $mail->send()) {
+	// 		echo 'Message could not be sent.';
+	// 		echo 'Mailer Error: ' . $mail->ErrorInfo;
+	// 	}
+	// }
 
 	public static function columnize($array, $columns, $current) {
 		$current--; // set indexes from 1

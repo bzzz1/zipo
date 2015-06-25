@@ -202,10 +202,13 @@ class MainController extends BaseController {
 	}
 
 	public function feedback() {
-		$fields = Input::all();
+		$data = Input::all();
 		$subject = Input::get('theme');
 
-		HELP::sendMail($fields, $subject, 'emails.email_feedback');
+		Mail::send('emails.email_feedback', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject($data['theme']);
+		});
+
 		return Redirect::to('/')->with('message', 'Ваше письмо отправлено!');
 	}
 
@@ -219,13 +222,18 @@ class MainController extends BaseController {
 	}
 
 	public function order() {
-		$fields = Input::all();
+		$data = Input::all();
 		$email = Input::get('email');
 
 		// send to admin
-		HELP::sendMail($fields, 'Заказ оформлен', 'emails.email_order');
+		Mail::send('emails.email_order', $data, function ($mail) use ($data) {
+			$mail->to('send@vsezip.ru', $data['name'])->subject('Заказ оформлен - vsezip.ru');
+		});
+
 		// send to user
-		HELP::sendMail($fields, 'Заказ оформлен', 'emails.email_order_user', $email);
+		Mail::send('emails.email_order_user', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject('Заказ оформлен - vsezip.ru');
+		});
 
 		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}

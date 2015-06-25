@@ -1,5 +1,5 @@
 <div class="message">
-	<p>На вашем ресурсе <a href="http://www.vertex-shop.ru" target="_blank">ЗИП общепит</a>была оставлена заявка на заказ товара!</p>
+	<p>На вашем ресурсе <a href="http://www.vsezip.ru" target="_blank">ЗИП общепит</a> была оставлена заявка на заказ товара!</p>
 </div>
 <table class="order_form_table">
 	<tr>
