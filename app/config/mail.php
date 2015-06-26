@@ -4,10 +4,10 @@ return [
   "driver" 	=> 'smtp',
   "host" 	=> 'smtp.gmail.com',
   // "host" 	=> 'pdd.yandex.ru',
-  "port" 	=> 465,
+  "port" 	=> 587,
   "username" => 'vsezip@gmail.com',
   "password" => 'XBEoayP7Me',
-  'encryption' => 'ssl',
+  'encryption' => 'tls',
 
 
   // MAILTRAP
