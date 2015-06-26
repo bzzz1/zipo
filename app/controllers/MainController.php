@@ -236,7 +236,7 @@ class MainController extends BaseController {
 
 		// send to admin
 		Mail::send('emails.email_order', $data, function ($mail) use ($data) {
-			$mail->to('send@vsezip.ru', $data['name'])->subject('Заказ оформлен - vsezip.ru');
+			$mail->to('vsezip@gmail.com', $data['name'])->subject('Заказ оформлен - vsezip.ru');
 		});
 
 		// send to user

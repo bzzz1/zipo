@@ -39,8 +39,11 @@
 	</div>	
 	@yield('footer')
 
+	<script>
+		@include('partials/js_globals')
+		@yield('js')
+	</script>
 	{{ HTML::script('js/common.js') }}
 	{{ HTML::script('js/admin.js') }}
-	@yield('js')
 </body>
 </html>

@@ -2,14 +2,16 @@
 
 return [
   "driver" 	=> 'smtp',
-  
-  "host" 	=> 'pdd.yandex.ru',
+  "host" 	=> 'smtp.gmail.com',
+  // "host" 	=> 'pdd.yandex.ru',
   "port" 	=> 465,
-  "username" => 'info@vsezip.ru',
+  "username" => 'vsezip@gmail.com',
   "password" => 'XBEoayP7Me',
-  'encryption' => 'tls',
+  'encryption' => 'ssl',
+
 
   // MAILTRAP
+  // "driver" 	=> 'smtp',
   // "host" 	=> 'mailtrap.io',
   // "port" 	=> 2525,
   // "username" => '35431d1a9a82dd59d',

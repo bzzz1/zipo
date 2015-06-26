@@ -1,4 +1,4 @@
- @extends('partials/admin_layout')
+@extends('partials/admin_layout')
 @extends('partials/admin_header')
 @extends('partials/admin_sidebar')
 @extends('partials/admin_footer')
@@ -35,14 +35,14 @@
 							</div>
 							<div class="change_block change_item_category_div">
 								{{ Form::label('category', 'Категория', ['class'=>'admin_uni_label category_main_label']) }}
-								{{ Form::select('category', ['Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], null, ['class'=>'form-control category_input', 'required', 'form' => 'none']) }}
+								{{ Form::select('category', ['other'=>'Не указан', 'Механическое_en' => 'Механическое_en', 'Тепловое_en' => 'Тепловое_en','Холодильное_en' => 'Холодильное_en','Моечное_en' => 'Моечное_en','Механическое_ru' => 'Механическое_ru','Тепловое_ru' => 'Тепловое_ru','Холодильное_ru' => 'Холодильное_ru','Моечное_ru' => 'Моечное_ru'], null, ['class'=>'form-control category_input js_select_category', 'required','form' => 'other']) }}
 							</div>
 							<div class="change_block change_item_subcat_div">
 								{{ Form::label('subcat_id', 'Подкатегория', ['class'=>'admin_uni_label subcat_main_label']) }}
 								@if (isset($pdf))
-									{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required', 'data-id'=>"$pdf->subcat_id"]) }}
+									{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input js_select_subcat', 'required', 'data-id'=>"$pdf->subcat_id"]) }}
 								@else
-									{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input', 'required']) }}
+									{{ Form::select('subcat_id', [], null, ['class'=>'form-control subcat_input js_select_subcat', 'required']) }}
 								@endif
 							</div>
 							{{ Form::submit('Изменить', ['class'=>'btn admin_add_button admin_uni_button ']) }}

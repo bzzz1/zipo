@@ -21,7 +21,8 @@ class Subcat extends BaseModel {
 		// $work = Pdf::has('subcat')->lists('subcat_id');
 		// $all = Pdf::lists('subcat_id');
 		// $ids = array_diff($all, $work);
-		// $ids = array_keys($ids);
+		// $ids = array_values($ids);
+		// $ids = array_unique($ids);
 		// $pdfs = Pdf::whereIn('subcat_id', $ids)->get()
 		// foreach ($pdfs as $pdf) {
 		// 	$pdf->fill(['subcat_id' => '0'])->save();
