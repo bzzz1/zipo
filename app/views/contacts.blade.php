@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<td class="info_label">Эл. почта</td>
-					<td><a href="mailto:9872206@mail.ru">9872206@mail.ru</a></td>
+					<td><a href="mailto:79522872206@yandex.ru">79522872206@yandex.ru</a></td>
 				</tr>
 				<tr>
 					<td class="info_label">Дополнительный сайт</td>
