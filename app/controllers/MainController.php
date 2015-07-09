@@ -202,10 +202,13 @@ class MainController extends BaseController {
 	}
 
 	public function feedback() {
-		$fields = Input::all();
+		$data = Input::all();
 		$subject = Input::get('theme');
 
-		HELP::sendMail($fields, $subject, 'emails.email_feedback');
+		Mail::send('emails.email_feedback', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject($data['theme']);
+		});
+
 		return Redirect::to('/')->with('message', 'Ваше письмо отправлено!');
 	}
 
@@ -219,13 +222,27 @@ class MainController extends BaseController {
 	}
 
 	public function order() {
-		$fields = Input::all();
+		$data = Input::all();
 		$email = Input::get('email');
 
+		$item = Item::where('code', $data['code'])->first(); 
+		$data['item'] = $item->item;
+		$data['price'] = $item->price;
+		$data['currency'] = $item->currency;
+
+		if (! filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+			return Redirect::back()->withErrors('Поле email должно содержать email адрес!');
+		}
+
 		// send to admin
-		HELP::sendMail($fields, 'Заказ оформлен', 'emails.email_order');
+		Mail::send('emails.email_order', $data, function ($mail) use ($data) {
+			$mail->to('vsezip@gmail.com', $data['name'])->subject('Заказ оформлен - vsezip.ru');
+		});
+
 		// send to user
-		HELP::sendMail($fields, 'Заказ оформлен', 'emails.email_order_user', $email);
+		Mail::send('emails.email_order_user', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject('Заказ оформлен - vsezip.ru');
+		});
 
 		return Redirect::to('/')->with('message', 'Ваш заказ оформлен!');
 	}

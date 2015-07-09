@@ -26,86 +26,86 @@ if ($('#ckeditor').length) {
 | RUN SUBCATEGORIES FROM SELECT
 ------------------------------------------------*/
 // INITIAL SET SUBCATS
-if ($('#category').length) {
-	if (true != $('.subcat_input').data('old-input')) {
-		send_category($('#category').val());
-	}
+// if ($('#category').length) {
+// 	if (true != $('.subcat_input').data('old-input')) {
+// 		send_category($('#category').val());
+// 	}
 
-	$('#category').on('change', function() {
-		send_category($('#category').val());	
-	});
-}
-// INITIAL SET SUBCATS
-var $selects = $('.category_input');
-if ($('.category_input').length) {
-	for (var i=0; i<$selects.length; i++){
-		send_category($selects.eq(i).val(), i);
-	}
+// 	$('#category').on('change', function() {
+// 		send_category($('#category').val());	
+// 	});
+// }
+// // INITIAL SET SUBCATS
+// var $selects = $('.category_input');
+// if ($('.category_input').length) {
+// 	for (var i=0; i<$selects.length; i++){
+// 		send_category($selects.eq(i).val(), i);
+// 	}
 
-	$('.category_input').on('change', function() {
-		send_category($('.category_input').val());	
-	});
-}
+// 	$('.category_input').on('change', function() {
+// 		send_category($('.category_input').val());	
+// 	});
+// }
 
 
-function send_category(category, number) {
-	$.ajax({
-		url: location.origin+'/admin/ajax_get_subcats',
-		type: 'POST',
-		dataType: "json",
-		data: {
-			'category' : category
-		},
-		success: function(data) {
-			$select = $('#subcat_id');
-			// CLEAR OLD SUBCATS
-			$select.html('');
+// function send_category(category, number) {
+// 	$.ajax({
+// 		url: location.origin+'/admin/ajax_get_subcats',
+// 		type: 'POST',
+// 		dataType: "json",
+// 		data: {
+// 			'category' : category
+// 		},
+// 		success: function(data) {
+// 			$select = $('#subcat_id');
+// 			// CLEAR OLD SUBCATS
+// 			$select.html('');
 
-			for (var i=0; i<data.length; i++) {
-				var subcat = data[i]['subcat'];
-				var subcat_id = data[i]['subcat_id'];
+// 			for (var i=0; i<data.length; i++) {
+// 				var subcat = data[i]['subcat'];
+// 				var subcat_id = data[i]['subcat_id'];
 
-				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
-				$select.append($option);
-			}
+// 				var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+// 				$select.append($option);
+// 			}
 
-			/*------------------------------------------------
-			| Select needed option
-			------------------------------------------------*/
-			var subcat_id = $('#subcat_id').data('id');
-			$('#subcat_id').val(subcat_id);
+// 			/*------------------------------------------------
+// 			| Select needed option
+// 			------------------------------------------------*/
+// 			var subcat_id = $('#subcat_id').data('id');
+// 			$('#subcat_id').val(subcat_id);
 
-			if(number) {
-				var $subcat = $('.subcat_input').eq(number);
-				// CLEAR OLD SUBCATS
-				$subcat.html('');
+// 			if(number) {
+// 				var $subcat = $('.subcat_input').eq(number);
+// 				// CLEAR OLD SUBCATS
+// 				$subcat.html('');
 
-				for (var i=0; i<data.length; i++) {
-					var subcat = data[i]['subcat'];
-					var subcat_id = data[i]['subcat_id'];
+// 				for (var i=0; i<data.length; i++) {
+// 					var subcat = data[i]['subcat'];
+// 					var subcat_id = data[i]['subcat_id'];
 
-					var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
-					$subcat.append($option);
-				}
+// 					var $option = $("<option value='"+subcat_id+"'>"+subcat+"</option>");
+// 					$subcat.append($option);
+// 				}
 
-				/*------------------------------------------------
-				| Select needed option
-				------------------------------------------------*/
-				var subcat_id = $subcat.data('id');
-				$subcat.val(subcat_id);
+// 				/*------------------------------------------------
+// 				| Select needed option
+// 				------------------------------------------------*/
+// 				var subcat_id = $subcat.data('id');
+// 				$subcat.val(subcat_id);
 				
-			}
+// 			}
 			
-			// $('[name=options] option').filter(function() { 
-			//     return ($(this).text() == 'Blue'); //To select Blue
-			// }).prop('selected', true);
-		}, 
-		error: function(data, error, error_details){
-			console.log("err:",error, error_details);
-			console.log(data);
-		}
-	});	
-}
+// 			// $('[name=options] option').filter(function() { 
+// 			//     return ($(this).text() == 'Blue'); //To select Blue
+// 			// }).prop('selected', true);
+// 		}, 
+// 		error: function(data, error, error_details){
+// 			console.log("err:",error, error_details);
+// 			console.log(data);
+// 		}
+// 	});	
+// }
 /*-----------------------------------------------*/
 
 /*------------------------------------------------
@@ -540,3 +540,39 @@ $('.contact_form_button').on('click', function(evt) {
 // 		return false;
 // 	}
 // });
+
+
+Category = {
+	run : function () {
+		var categories = $('.js_select_category');
+		for (var i=0; i<categories.length; i++) {
+			var $category = $(categories[i]);
+			$category.on('change', Category.change);
+			$category.change();
+
+			var category = $category.data('id');
+			$category.closest('form').find('.js_select_subcat').val(subcat_id);
+		}
+	},
+	change : function () {
+		var current = $(this).val();
+		for (category in CATEGORIES) {
+			if (current == category) {
+				var subcats = CATEGORIES[category];
+			}
+		}
+		var $options = [];
+
+		if ('other' == current) {
+			$options.push($("<option value='0'>Не указано</option>"));
+		} else {
+			for (i = 0; i<subcats.length; i++) {
+				var subcat = subcats[i];
+				$options.push($("<option value="+subcat.subcat_id+">"+subcat.subcat+"</option>"));
+			};
+		}
+
+		$(this).closest('form').find('.js_select_subcat').html($options);
+	}
+}
+Category.run();

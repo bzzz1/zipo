@@ -1,5 +1,31 @@
 <?php
 
+return [
+  "driver" 	=> 'smtp',
+  "host" 	=> 'smtp.gmail.com',
+  // "host" 	=> 'pdd.yandex.ru',
+  "port" 	=> 587,
+  "username" => 'vsezip@gmail.com',
+  "password" => 'XBEoayP7Me',
+  'encryption' => 'tls',
+
+
+  // MAILTRAP
+  // "driver" 	=> 'smtp',
+  // "host" 	=> 'mailtrap.io',
+  // "port" 	=> 2525,
+  // "username" => '35431d1a9a82dd59d',
+  // "password" => 'f63a3676d52f97',
+  
+  "from" 	=> [
+      "address"		=> "info@vsezip.ru",
+      "name" 		=> "VSEZIP"
+  ],
+  "sendmail" => "/usr/sbin/sendmail -bs",
+  "pretend"  => false
+];
+
+
 return array(
 
 	/*
