@@ -227,7 +227,19 @@ class MainController extends BaseController {
 
 		$item = Item::where('code', $data['code'])->first(); 
 		$data['item'] = $item->item;
-		$data['price'] = $item->price;
+		if ($item->price == '0.00') {
+			$data['price'] = 'По запросу';
+			print_r($data['price']);
+			exit();
+		} else {
+			if ( Auth::user()->check() ) {
+				$data['price'] = HELP::discount_price($item->price);
+			} else {
+				$data['price'] = $item->price;
+				print_r($data['price']);
+				exit();
+			}
+		}
 		$data['currency'] = $item->currency;
 
 		if (! filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {

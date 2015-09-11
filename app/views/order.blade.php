@@ -34,7 +34,16 @@
 				</tr>
 				<tr>
 					<td>{{ Form::label('price', 'Стоимость: ', ['class'=>'main_label']) }}</td>
-					<td>{{ Form::text('price', null, ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+					@if($item->price == 0.00)
+						<td>{{ Form::text('price', 'По запросу', ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+					@else	
+						@if (Auth::user()->check())
+							<td>{{ Form::text('price', $HELP::discount_price($item->price), ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+						@else 
+							<td>{{ Form::text('price', $item->price, ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td>
+						@endif
+					@endif
+					{{-- <td>{{ Form::text('price', $item->price, ['class'=>'change_input_order form-control', 'required', 'readonly'=>'readonly']) }}</td> --}}
 				</tr>
 				<tr>
 					<td>{{ Form::label('currency', 'Валюта: ', ['class'=>'main_label']) }}</td>
@@ -51,6 +60,10 @@
 				<tr>
 					<td>{{ Form::label('company', 'Компания: ', ['class'=>'main_label']) }}</td>
 					<td>{{ Form::text('company', null, ['class'=>'change_input change_input_code form-control',]) }}</td>
+				</tr>
+				<tr>
+					<td>{{ Form::label('requisites', 'Реквизиты: ', ['class'=>'main_label']) }}</td>
+					<td>{{ Form::file('requisites', ['class'=>'change_input change_input_code form-control',]) }}</td>
 				</tr>
 				<tr>
 					<td>{{ Form::label('comment', 'Комментарий: ', ['class'=>'main_label']) }}</td>
